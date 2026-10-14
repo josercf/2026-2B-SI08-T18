@@ -44,171 +44,553 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
   .lang-switch { display: none !important; }
 }
 
+/* ---------- Refinamento base dos slides ---------- */
+.slide-title-area h2 {
+  max-width: 1060px;
+  letter-spacing: -0.01em;
+}
 
-/* ---------- Agenda ---------- */
+.content-slide .accent-bar {
+  background: var(--seg-destaque);
+  width: 64px;
+  height: 4px;
+}
+
+.content-slide .slide-footer {
+  border-top: 1px solid color-mix(in srgb, var(--seg-borda) 45%, transparent);
+  padding-top: 8px;
+}
+
+/* ---------- Capa (Slide 1) ----------
+   O .cover-panel em inteli-theme.css usa display: grid com conic-gradient
+   particionando as 3 faces do grafismo da Graduacao, e posiciona .cover-content
+   sobre a face roxa da direita (justify-self: end; max-width: 42%). */
+.cover-brand-mark {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.cover-brand-mark img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.reveal .cover-slide .cover-eyebrow {
+  display: inline-block;
+  background: color-mix(in srgb, var(--seg-secundaria) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--seg-secundaria) 55%, transparent);
+  color: var(--seg-secundaria);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.cover-accent {
+  width: 72px;
+  height: 5px;
+  background: var(--seg-destaque);
+  border-radius: 3px;
+  margin: 4px 0 18px;
+}
+
+.reveal .cover-slide h3 {
+  color: var(--seg-secundaria);
+  font-weight: 500;
+}
+
+/* ---------- Separadores de secao (Slides 4, 7, 13) ---------- */
+.reveal .slides section.section-slide {
+  justify-content: center;
+}
+
+.reveal .section-slide .section-eyebrow {
+  display: inline-block;
+  align-self: center;
+  margin: 0 0 16px;
+  padding: 6px 18px;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  border-radius: 999px;
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reveal .section-slide .accent-bar {
+  background: var(--seg-destaque);
+  height: 5px;
+  border-radius: 3px;
+}
+
+/* ---------- Agenda (Slide 2) ----------
+   Agenda em fundo roxo (27% de proporcao na Graduacao, p.68) com cartoes em
+   duas colunas para equilibrar o respiro visual. */
+.reveal .slides section.agenda-slide {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+}
+
+.agenda-slide h2,
+.agenda-slide .slide-footer {
+  color: var(--inteli-branco);
+}
+
+.agenda-slide .slide-footer {
+  border-top-color: color-mix(in srgb, var(--inteli-branco) 18%, transparent);
+}
+
 .agenda-list {
-  margin: 0;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
   counter-reset: item;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 24px;
 }
 
 .agenda-list li {
   counter-increment: item;
   display: flex;
-  align-items: baseline;
-  gap: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--seg-borda);
-  font-size: 22px;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 22px;
+  background: color-mix(in srgb, var(--inteli-branco) 8%, var(--seg-primaria));
+  border: 1px solid color-mix(in srgb, var(--inteli-branco) 16%, transparent);
+  border-left: 5px solid var(--seg-secundaria);
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.agenda-list li:nth-child(odd) {
+  border-left-color: var(--seg-destaque);
 }
 
 .agenda-list li::before {
   content: counter(item, decimal-leading-zero);
-  color: var(--seg-destaque);
-  font-weight: 700;
-  font-size: var(--escala-subtitulo);
-  min-width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--inteli-branco) 12%, transparent);
+  color: var(--seg-secundaria);
+  font-weight: 800;
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
-/* ---------- Docentes ---------- */
+.agenda-list li:nth-child(odd)::before {
+  color: var(--seg-destaque);
+}
+
+/* ---------- Docentes (Slide 3) ---------- */
 .docentes-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 18px;
+  margin-top: 4px;
 }
 
 .docente-card {
+  width: 274px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: 8px;
   background: var(--seg-superficie);
-  border-top: 4px solid var(--seg-secundaria);
-  border-radius: 10px;
-  padding: 14px 12px;
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 55%, transparent);
+  border-top: 5px solid var(--seg-secundaria);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
 }
 
-.docente-card.coordenacao { border-top-color: var(--seg-primaria); }
-.docente-card.orientacao { border-top-color: var(--seg-destaque); }
+.docente-card.coordenacao {
+  border-top-color: var(--seg-primaria);
+}
+
+.docente-card.orientacao {
+  border-top-color: var(--seg-destaque);
+  background: color-mix(in srgb, var(--seg-secundaria) 16%, var(--seg-superficie));
+}
 
 .docente-card img {
-  width: 128px;
-  height: 128px;
+  width: 106px;
+  height: 106px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  border: 3px solid var(--inteli-branco);
 }
 
-.reveal .docente-card p { margin: 0; line-height: 1.3; }
-.reveal .docente-card .docente-nome { font-weight: 700; }
-.reveal .docente-card .docente-eixo { font-size: var(--escala-complementar); }
+.reveal .docente-card p { margin: 0; line-height: 1.25; }
+.reveal .docente-card .docente-nome {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--seg-primaria);
+}
+.reveal .docente-card .docente-eixo {
+  font-size: var(--escala-complementar);
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--inteli-branco);
+  color: var(--seg-primaria);
+}
 
-/* ---------- Parceiro ---------- */
+.docente-card.coordenacao .docente-eixo {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+}
+
+.docente-card.orientacao .docente-eixo {
+  background: var(--seg-destaque);
+  color: var(--inteli-branco);
+}
+
+/* ---------- Parceiro e Desafio (Slide 5) ---------- */
 .parceiro-grid {
   display: grid;
-  grid-template-columns: 5fr 6fr;
-  gap: 36px;
+  grid-template-columns: 5fr 7fr;
+  gap: 28px;
+  align-items: stretch;
+  margin-top: 6px;
+}
+
+.parceiro-ficha {
+  background: var(--seg-superficie);
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 55%, transparent);
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .parceiro-nome {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
   border-left: 6px solid var(--seg-secundaria);
-  padding: 4px 0 4px 20px;
-  margin-bottom: 18px;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
 }
 
-.reveal .parceiro-nome h3 { margin: 0; font-size: 34px; }
-.reveal .parceiro-nome p { margin: 4px 0 0; font-size: var(--escala-complementar); }
+.reveal .parceiro-nome h3 {
+  margin: 0;
+  font-size: 30px;
+  color: var(--inteli-branco);
+}
+
+.reveal .parceiro-nome p {
+  margin: 4px 0 0;
+  font-size: var(--escala-complementar);
+  color: var(--seg-secundaria);
+  font-weight: 600;
+}
 
 .parceiro-pessoas { margin: 0; }
 .reveal .parceiro-pessoas dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: var(--escala-complementar);
   font-weight: 700;
-  color: var(--seg-destaque);
+  color: var(--seg-primaria);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
-.reveal .parceiro-pessoas dd { margin: 2px 0 12px; font-size: 17px; line-height: 1.4; }
+
+.reveal .parceiro-pessoas dt .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--seg-destaque);
+}
+
+.reveal .parceiro-pessoas dd {
+  margin: 2px 0 12px;
+  padding-left: 24px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.reveal .parceiro-pessoas dd:last-child {
+  margin-bottom: 0;
+}
+
+.parceiro-desafio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.parceiro-bloco {
+  flex: 1;
+  background: var(--inteli-branco);
+  border: 1px solid var(--seg-borda);
+  border-left: 6px solid var(--seg-primaria);
+  border-radius: 14px;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.parceiro-bloco.objetivo-bloco {
+  background: color-mix(in srgb, var(--seg-secundaria) 18%, var(--inteli-branco));
+  border-color: color-mix(in srgb, var(--seg-secundaria) 65%, var(--seg-borda));
+  border-left: 6px solid var(--seg-secundaria);
+}
 
 .reveal .parceiro-desafio h4 {
-  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px;
   font-size: 22px;
+  color: var(--seg-primaria);
 }
-.reveal .parceiro-desafio p { margin: 0 0 16px; font-size: 17px; line-height: 1.45; }
 
-/* ---------- Escopo do MVP ---------- */
-.reveal .escopo-tabela { font-size: 16px; }
-.escopo-listas { margin-top: 18px; }
-.reveal .escopo-listas h4 { margin: 0 0 6px; font-size: 20px; }
-.reveal .escopo-listas ul { margin: 0; padding-left: 20px; }
-.reveal .escopo-listas li { font-size: 16px; line-height: 1.4; }
+.reveal .parceiro-desafio h4 .material-symbols-outlined {
+  font-size: 24px;
+  color: var(--seg-destaque);
+}
+
+.parceiro-bloco.objetivo-bloco h4 .material-symbols-outlined {
+  color: var(--seg-primaria);
+}
+
+.reveal .parceiro-desafio p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+/* ---------- Escopo do MVP (Slide 6) ---------- */
+.escopo-perspectivas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 2px;
+}
+
+.perspectiva-card {
+  background: var(--seg-superficie);
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 60%, transparent);
+  border-top: 5px solid var(--seg-primaria);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.perspectiva-card:nth-child(2) {
+  border-top-color: var(--seg-secundaria);
+}
+
+.perspectiva-card:nth-child(3) {
+  border-top-color: var(--seg-destaque);
+}
+
+.perspectiva-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.reveal .perspectiva-icone.material-symbols-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  font-size: 20px;
+}
+
+.reveal .perspectiva-card:nth-child(2) .perspectiva-icone.material-symbols-outlined {
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
+}
+
+.reveal .perspectiva-card:nth-child(3) .perspectiva-icone.material-symbols-outlined {
+  background: var(--seg-destaque);
+  color: var(--inteli-branco);
+}
+
+.perspectiva-tag {
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--inteli-branco);
+  color: var(--seg-primaria);
+  border: 1px solid var(--seg-borda);
+}
+
+.reveal .perspectiva-card h4 {
+  margin: 0;
+  font-size: 19px;
+  color: var(--seg-primaria);
+}
+
+.reveal .perspectiva-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.escopo-listas {
+  margin-top: 14px;
+  gap: 20px;
+}
+
+.escopo-painel {
+  background: var(--inteli-branco);
+  border: 1px solid var(--seg-borda);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.escopo-painel.painel-dados {
+  border-left: 5px solid var(--seg-secundaria);
+  background: color-mix(in srgb, var(--seg-secundaria) 12%, var(--inteli-branco));
+}
+
+.escopo-painel.painel-fora {
+  border-left: 5px solid var(--seg-destaque);
+  background: color-mix(in srgb, var(--seg-superficie) 55%, var(--inteli-branco));
+}
+
+.escopo-painel.painel-dados .material-symbols-outlined {
+  color: var(--seg-primaria);
+}
+
+.escopo-painel.painel-fora .material-symbols-outlined {
+  color: var(--seg-destaque);
+}
+
+.reveal .escopo-listas h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.reveal .escopo-listas ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.reveal .escopo-listas li {
+  font-size: 15px;
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
 
 /* ---------- Tabelas e destaques ---------- */
-.reveal .data-table.tabela-projecao td,
-.reveal .data-table.tabela-projecao th { padding: 10px 12px; }
-
-.reveal .data-table td.peso {
-  font-size: var(--escala-subtitulo);
-  font-weight: 700;
-  color: var(--seg-primaria);
-  white-space: nowrap;
-}
-
-.reveal .data-table td.prazo { font-weight: 700; white-space: nowrap; }
-
-.aviso {
-  margin-top: 20px;
-  border-left: 4px solid var(--seg-destaque);
-  background: var(--seg-superficie);
-  border-radius: 0 10px 10px 0;
-  padding: 12px 18px;
-}
-
-.reveal .aviso p { margin: 0; }
-
-/* ---------- Drive ---------- */
-.drive-grid {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 40px;
-  align-items: center;
-}
-
-.drive-grid img.qr {
-  width: 280px;
-  height: 280px;
+.reveal .data-table {
+  border-collapse: separate;
+  border-spacing: 0;
   border: 1px solid var(--seg-borda);
-  border-radius: 10px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.reveal .drive-link {
+.reveal .data-table thead th,
+.reveal .entregas-tabela thead th {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  border-bottom: 0;
+}
+
+.reveal .data-table.tabela-projecao td,
+.reveal .data-table.tabela-projecao th {
+  padding: 9px 14px;
+}
+
+/* ---------- Calendario (Slide 8) ---------- */
+.reveal .calendario td {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  vertical-align: middle;
+}
+
+.reveal .calendario tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--seg-superficie) 55%, var(--inteli-branco));
+}
+
+.reveal .calendario tr.marco-review td {
+  background: color-mix(in srgb, var(--seg-secundaria) 22%, var(--inteli-branco));
+  font-weight: 700;
+}
+
+.reveal .calendario tr.marco-prova td {
+  background: color-mix(in srgb, var(--seg-destaque) 10%, var(--inteli-branco));
+  font-weight: 700;
+}
+
+.data-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--seg-superficie);
+  color: var(--seg-primaria);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.marco-review .data-pill {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+}
+
+.marco-prova .data-pill {
+  background: var(--seg-destaque);
+  color: var(--inteli-branco);
+}
+
+.envio-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: var(--inteli-branco);
+  border: 1px solid var(--seg-primaria);
+  color: var(--seg-primaria);
   font-size: var(--escala-complementar);
-  word-break: break-all;
+  font-weight: 700;
 }
 
-.reveal .drive-link a { color: var(--seg-texto); }
+.celula-vazia {
+  color: var(--seg-texto-suave);
+}
 
-/* ---------- Calendario ----------
-   As quatro Sprint Reviews ganham peso de fonte para se separar dos marcos
-   administrativos (inicio, kickoff, fim). */
-.reveal .calendario td { padding-top: 7px; padding-bottom: 7px; }
-.reveal .calendario tr.marco-review td { font-weight: 700; }
-
-/* ---------- Linha do tempo das sprints ----------
+/* ---------- Linha do tempo das sprints (Slide 9) ----------
    Sprints em colunas e dimensoes em linhas: todas as sprints compartilham
    as mesmas dimensoes, entao tabela, nao cartoes. Cabecalho alterna roxo e
    verde, os dois blocos de peso do segmento Graduacao (p.68). */
 .timeline-tabela {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 4px 0;
+  border-spacing: 6px 4px;
   table-layout: fixed;
   font-size: 15px;
-  line-height: 1.3;
+  line-height: 1.32;
+  margin-top: 4px;
 }
 
 .timeline-tabela th[scope="row"] {
@@ -217,22 +599,22 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
   font-size: var(--escala-complementar);
   font-weight: 700;
   color: var(--seg-primaria);
-  padding: 8px 6px 8px 0;
-  vertical-align: top;
+  padding: 10px 8px 10px 0;
+  vertical-align: middle;
 }
 
 .timeline-tabela td {
-  padding: 8px 10px;
+  padding: 10px 12px;
   vertical-align: top;
   background: var(--seg-superficie);
-  border-bottom: 2px solid var(--seg-base);
+  border-radius: 8px;
 }
 
 .timeline-tabela .sprint-cab {
-  padding: 10px;
+  padding: 12px;
   text-align: left;
   font-size: 18px;
-  border-radius: 8px 8px 0 0;
+  border-radius: 10px 10px 4px 4px;
 }
 
 .timeline-tabela .sprint-cab.s1,
@@ -250,55 +632,86 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
 
 .timeline-tabela .periodo {
   display: block;
+  margin-top: 2px;
   font-size: var(--escala-complementar);
-  font-weight: 400;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
-.timeline-tabela tr.artefato td { font-weight: 700; }
-.timeline-tabela tr.review td { font-weight: 700; }
-.timeline-tabela td.tem-feriado {
-  border-left: 3px solid var(--seg-destaque);
+.timeline-tabela tr.artefato td {
+  font-weight: 700;
+  background: color-mix(in srgb, var(--seg-secundaria) 18%, var(--seg-superficie));
+}
+
+.timeline-tabela tr.review td {
   font-weight: 700;
 }
 
-/* ---------- Combinados ---------- */
-.reveal .combinados td.peso { width: 48px; color: var(--seg-destaque); }
-.reveal .combinados td { vertical-align: top; }
+.timeline-tabela td.tem-feriado {
+  border-left: 4px solid var(--seg-destaque);
+  background: color-mix(in srgb, var(--seg-destaque) 10%, var(--seg-superficie));
+  font-weight: 700;
+}
 
-/* Titulo quebra linha antes de chegar a marca. A marca comeca em x=1156
-   (1280 - 28 de resguardo - 96 de largura) e o titulo em x=56: 1060px deixa
-   40px de folga. Sem isso, os titulos em frances e portugues, mais longos,
-   passavam por baixo do logo (TITULO NO LOGO no check_slides.py). */
-.slide-title-area h2 { max-width: 1060px; }
-
-/* ---------- Entregas ponderadas por sprint ---------- */
+/* ---------- Entregas ponderadas por sprint (Slide 10) ---------- */
 .entregas-tabela {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: fixed;
+  border: 1px solid var(--seg-borda);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .entregas-tabela thead th {
   text-align: left;
   font-size: var(--escala-complementar);
-  color: var(--seg-primaria);
-  padding: 4px 10px;
-  border-bottom: 2px solid var(--seg-secundaria);
+  padding: 5px 12px;
 }
 
-.entregas-tabela thead th:first-child { width: 96px; }
+.entregas-tabela thead th:first-child {
+  width: 102px;
+  background: var(--seg-primaria);
+}
+
+.entregas-tabela tbody tr:nth-child(even) th[scope="row"],
+.entregas-tabela tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--seg-superficie) 55%, var(--inteli-branco));
+}
 
 .entregas-tabela th[scope="row"] {
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
   font-size: var(--escala-complementar);
   color: var(--seg-primaria);
-  padding: 6px 0;
+  padding: 3px 8px 3px 12px;
+  border-bottom: 1px solid var(--seg-borda);
+}
+
+.entregas-tabela tbody tr:last-child th[scope="row"],
+.entregas-tabela tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.sprint-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  font-weight: 700;
+  font-size: var(--escala-complementar);
+}
+
+.entregas-tabela tbody tr:nth-child(even) .sprint-pill {
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
 }
 
 .entregas-tabela td {
   vertical-align: top;
-  padding: 5px 10px;
+  padding: 3px 12px;
   border-bottom: 1px solid var(--seg-borda);
 }
 
@@ -306,90 +719,451 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
 
 .reveal .entregas-lista li {
   font-size: var(--escala-complementar);
-  line-height: 1.35;
+  line-height: 1.28;
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  align-items: baseline;
+  gap: 10px;
+  padding: 1px 0;
 }
 
 .entregas-lista .item-meta {
   font-weight: 700;
   white-space: nowrap;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--seg-superficie);
+  color: var(--seg-primaria);
+}
+
+.entregas-tabela td:nth-child(3) .entregas-lista .item-meta {
+  background: color-mix(in srgb, var(--seg-secundaria) 35%, var(--inteli-branco));
 }
 
 .reveal p.nota-fonte {
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   font-size: var(--escala-complementar);
+  color: var(--seg-primaria);
+  opacity: 0.85;
 }
 
-/* ---------- Grupos ---------- */
+/* ---------- Avaliacao individual (Slide 11) ---------- */
+.avaliacao-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.avaliacao-card {
+  background: var(--seg-superficie);
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 65%, transparent);
+  border-top: 6px solid var(--seg-secundaria);
+  border-radius: 14px;
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avaliacao-card.card-arguicao {
+  border-top-color: var(--seg-primaria);
+  background: color-mix(in srgb, var(--seg-secundaria) 16%, var(--seg-superficie));
+}
+
+.avaliacao-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.avaliacao-peso {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--seg-primaria);
+}
+
+.reveal .avaliacao-icone.material-symbols-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
+  font-size: 26px;
+}
+
+.reveal .avaliacao-card.card-arguicao .avaliacao-icone.material-symbols-outlined {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+}
+
+.reveal .avaliacao-card h3 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--seg-primaria);
+}
+
+.reveal .avaliacao-card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+/* ---------- Prazos e regras de entrega (Slide 12) ---------- */
+.regras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+  margin-top: 4px;
+}
+
+.regra-card {
+  background: var(--seg-superficie);
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 60%, transparent);
+  border-left: 5px solid var(--seg-primaria);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.regra-card:nth-child(2),
+.regra-card:nth-child(3) {
+  border-left-color: var(--seg-secundaria);
+}
+
+.regra-card:nth-child(4) {
+  border-left-color: var(--seg-destaque);
+  background: color-mix(in srgb, var(--seg-destaque) 6%, var(--seg-superficie));
+}
+
+.regra-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reveal .regra-icone.material-symbols-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--inteli-branco);
+  color: var(--seg-primaria);
+  font-size: 20px;
+}
+
+.reveal .regra-card:nth-child(4) .regra-icone.material-symbols-outlined {
+  color: var(--seg-destaque);
+}
+
+.regra-prazo {
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  white-space: nowrap;
+}
+
+.regra-card:nth-child(2) .regra-prazo,
+.regra-card:nth-child(3) .regra-prazo {
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
+}
+
+.regra-card:nth-child(4) .regra-prazo {
+  background: var(--seg-destaque);
+  color: var(--inteli-branco);
+}
+
+.reveal .regra-card h4 {
+  margin: 2px 0 0;
+  font-size: 20px;
+  color: var(--seg-primaria);
+}
+
+.reveal .regra-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.38;
+}
+
+/* ---------- Avisos com icone ---------- */
+.aviso {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-left: 5px solid var(--seg-destaque);
+  background: color-mix(in srgb, var(--seg-superficie) 85%, var(--inteli-branco));
+  border-radius: 0 12px 12px 0;
+  padding: 12px 18px;
+}
+
+.aviso .material-symbols-outlined {
+  font-size: 24px;
+  color: var(--seg-destaque);
+  flex-shrink: 0;
+}
+
+.reveal .aviso p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.38;
+}
+
+/* ---------- Combinados e presenca (Slide 14) ---------- */
+.combinados-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 6px;
+}
+
+.combinado-card {
+  background: var(--seg-superficie);
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 65%, transparent);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.combinado-topo {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.combinado-card:nth-child(2) .combinado-topo {
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
+}
+
+.combinado-num {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.combinado-topo .material-symbols-outlined {
+  font-size: 26px;
+  color: var(--seg-secundaria);
+}
+
+.combinado-card:nth-child(2) .combinado-topo .material-symbols-outlined {
+  color: var(--seg-primaria);
+}
+
+.reveal .combinado-regra,
+.combinado-consequencia {
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.reveal .combinado-regra {
+  margin: 16px 18px 0;
+  background: var(--inteli-branco);
+  border-left: 4px solid var(--seg-secundaria);
+}
+
+.combinado-consequencia {
+  margin: 12px 18px 18px;
+  background: color-mix(in srgb, var(--seg-destaque) 10%, var(--inteli-branco));
+  border-left: 4px solid var(--seg-destaque);
+}
+
+/* ---------- Drive (Slide 15) ---------- */
+.drive-grid {
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 10px;
+}
+
+.drive-card {
+  background: var(--seg-superficie);
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 65%, transparent);
+  border-left: 6px solid var(--seg-primaria);
+  border-radius: 16px;
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.drive-icone-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--seg-primaria);
+  color: var(--seg-secundaria);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drive-icone-box .material-symbols-outlined {
+  font-size: 32px;
+}
+
+.reveal .drive-desc {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--seg-primaria);
+}
+
+.reveal .drive-link {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--inteli-branco);
+  border: 1px solid var(--seg-borda);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: var(--escala-complementar);
+  word-break: break-all;
+}
+
+.drive-link .material-symbols-outlined {
+  color: var(--seg-destaque);
+  flex-shrink: 0;
+}
+
+.reveal .drive-link a {
+  color: var(--seg-primaria);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.qr-card {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.drive-grid img.qr {
+  width: 240px;
+  height: 240px;
+  background: var(--inteli-branco);
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.qr-legenda {
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  color: var(--seg-secundaria);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ---------- Grupos (Slide 16) ---------- */
 .grupos-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 14px;
+  margin-top: 4px;
 }
 
 .grupo-col {
   background: var(--seg-superficie);
-  border-top: 4px solid var(--seg-secundaria);
-  border-radius: 10px;
-  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, var(--seg-borda) 60%, transparent);
+  border-top: 5px solid var(--seg-primaria);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.grupo-col:nth-child(even) {
+  border-top-color: var(--seg-secundaria);
 }
 
 .reveal .grupo-col h3 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid color-mix(in srgb, var(--seg-borda) 55%, transparent);
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  font-size: 22px;
 }
 
-.grupo-col .grupo-qtd { font-size: var(--escala-complementar); }
+.grupo-col .grupo-qtd {
+  font-size: var(--escala-complementar);
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.grupo-col:nth-child(even) .grupo-qtd {
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
+}
 
 .reveal .grupo-col ul { margin: 0; padding: 0; list-style: none; }
 
 .reveal .grupo-col li {
   font-size: 15px;
+  font-weight: 500;
   line-height: 1.3;
-  padding: 5px 0;
-  border-bottom: 1px solid var(--seg-borda);
+  padding: 6px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--seg-borda) 55%, transparent);
 }
 
-/* ---------- Proporcao de cor da Graduacao (brandbook p.68) ----------
-   Medido no deck renderizado em 14/10/2026: branco 67%, roxo 11%, verde 4%,
-   coral 0%, contra a referencia branco 23%, roxo 27%, verde 23%, coral 3%.
-   Tres ajustes aproximam a proporcao sem tirar legibilidade:
-   1. filete de destaque do titulo em coral (o coral entra so como filete);
-   2. cabecalho de tabela em roxo com texto branco;
-   3. separadores de bloco em verde (section-slide). */
-.content-slide .accent-bar { background: var(--seg-destaque); }
-
-.reveal .data-table thead th,
-.reveal .entregas-tabela thead th {
-  background: var(--seg-primaria);
-  color: var(--inteli-branco);
+.reveal .grupo-col li:last-child {
   border-bottom: 0;
 }
 
-.reveal .entregas-tabela thead th:first-child,
-.reveal .combinados thead th:first-child { background: var(--seg-primaria); }
+/* ---------- Encerramento (Slide 17) ---------- */
+.end-logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: 20px;
+}
 
-.reveal .section-slide .section-eyebrow {
-  margin: 0 0 12px;
+.end-accent {
+  width: 72px;
+  height: 5px;
+  background: var(--seg-destaque);
+  border-radius: 3px;
+  margin: 18px auto;
+}
+
+.reveal .end-slide .end-assinatura {
+  margin-top: 16px;
   font-size: var(--escala-complementar);
+  color: var(--seg-secundaria);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-
-/* Agenda em fundo roxo: o roxo e a cor de maior proporcao na Graduacao
-   (27%, p.68) e os slides de conteudo, por legibilidade, ficam em branco.
-   Marca na versao negativa sobre fundo escuro (p.43). Seletor composto para
-   vencer ".reveal .slides section" (mesma armadilha da capa). */
-.reveal .slides section.agenda-slide {
-  background: var(--seg-primaria);
-  color: var(--inteli-branco);
-}
-
-.agenda-slide h2,
-.agenda-slide .slide-footer { color: var(--inteli-branco); }
-.agenda-slide .agenda-list li { border-bottom-color: var(--seg-borda); }
