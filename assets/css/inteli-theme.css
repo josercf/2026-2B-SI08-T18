@@ -218,7 +218,7 @@ html.print-pdf.reveal-print .reveal .slides section.cover-slide[class] {
   background: conic-gradient(
     from 0deg at 640px 570px,
     var(--seg-primaria) 0deg 120deg,
-    var(--seg-borda) 120deg 240deg,
+    var(--seg-grafismo-neutro) 120deg 240deg,
     var(--seg-secundaria) 240deg 360deg
   );
 }

@@ -353,3 +353,43 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
   padding: 5px 0;
   border-bottom: 1px solid var(--seg-borda);
 }
+
+/* ---------- Proporcao de cor da Graduacao (brandbook p.68) ----------
+   Medido no deck renderizado em 14/10/2026: branco 67%, roxo 11%, verde 4%,
+   coral 0%, contra a referencia branco 23%, roxo 27%, verde 23%, coral 3%.
+   Tres ajustes aproximam a proporcao sem tirar legibilidade:
+   1. filete de destaque do titulo em coral (o coral entra so como filete);
+   2. cabecalho de tabela em roxo com texto branco;
+   3. separadores de bloco em verde (section-slide). */
+.content-slide .accent-bar { background: var(--seg-destaque); }
+
+.reveal .data-table thead th,
+.reveal .entregas-tabela thead th {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  border-bottom: 0;
+}
+
+.reveal .entregas-tabela thead th:first-child,
+.reveal .combinados thead th:first-child { background: var(--seg-primaria); }
+
+.reveal .section-slide .section-eyebrow {
+  margin: 0 0 12px;
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Agenda em fundo roxo: o roxo e a cor de maior proporcao na Graduacao
+   (27%, p.68) e os slides de conteudo, por legibilidade, ficam em branco.
+   Marca na versao negativa sobre fundo escuro (p.43). Seletor composto para
+   vencer ".reveal .slides section" (mesma armadilha da capa). */
+.reveal .slides section.agenda-slide {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+}
+
+.agenda-slide h2,
+.agenda-slide .slide-footer { color: var(--inteli-branco); }
+.agenda-slide .agenda-list li { border-bottom-color: var(--seg-borda); }

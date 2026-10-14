@@ -22,7 +22,12 @@
      Lilas e verde escuro pertencem a Escolas e a Exec/Pos e ficam de fora. */
   --seg-base: var(--inteli-branco);
   --seg-superficie: var(--inteli-cinza-claro);
-  --seg-borda: var(--inteli-cinza-medio);
+  /* p.68: a proporcao da Graduacao usa cinza escuro, nao cinza medio, nos
+     layouts (branco 23%, cinza claro 12%, cinza escuro 12%, verde 23%,
+     roxo 27%, coral 3%, medido sobre a pagina). O cinza medio aparece so
+     no grafismo da Graduacao (p.77: verde, roxo e cinza medio). */
+  --seg-borda: var(--inteli-cinza-escuro);
+  --seg-grafismo-neutro: var(--inteli-cinza-medio);
   --seg-primaria: var(--inteli-roxo);
   --seg-secundaria: var(--inteli-verde);
   --seg-destaque: var(--inteli-coral);

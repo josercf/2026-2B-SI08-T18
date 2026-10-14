@@ -269,7 +269,7 @@ def test_slide_de_grupos_lista_todos_os_alunos(servidor, pagina):
         "[...document.querySelectorAll('section[data-local=grupos] .grupo-col li')].map(e => e.textContent)")
     esperado = pagina.evaluate("Object.values(window.SI08_GRUPOS).flat()")
     assert nomes and sorted(nomes) == sorted(esperado)
-    assert pagina.evaluate("Reveal.getTotalSlides()") == 14
+    assert pagina.evaluate("Reveal.getTotalSlides()") == 17
 
 
 def test_sem_dados_de_grupo_o_slide_some_sem_mexer_na_numeracao(servidor, pagina):
@@ -277,9 +277,10 @@ def test_sem_dados_de_grupo_o_slide_some_sem_mexer_na_numeracao(servidor, pagina
     try:
         pagina.goto(servidor + "/aulas/onboarding.html?lang=en", wait_until="networkidle")
         assert pagina.evaluate("document.querySelectorAll('[data-local=grupos]').length") == 0
-        assert pagina.evaluate("Reveal.getTotalSlides()") == 13
-        rodapes = pagina.evaluate(
-            "[...document.querySelectorAll('.footer-page')].map(e => +e.textContent)")
-        assert rodapes == list(range(2, 2 + len(rodapes)))
+        assert pagina.evaluate("Reveal.getTotalSlides()") == 16
+        pares = pagina.evaluate("""[...document.querySelectorAll('.reveal .slides > section')]
+            .map((sec, i) => [i + 1, sec.querySelector('.footer-page')])
+            .filter(([, f]) => f).map(([i, f]) => [i, +f.textContent])""")
+        assert pares and all(i == n for i, n in pares), pares
     finally:
         pagina.unroute("**/dados/grupos.js")
