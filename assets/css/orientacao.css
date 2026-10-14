@@ -109,14 +109,43 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
 .reveal .docente-card .docente-eixo { font-size: var(--escala-complementar); }
 
 /* ---------- Parceiro ---------- */
-.parceiro-nome {
-  border-left: 6px solid var(--seg-secundaria);
-  padding: 8px 0 8px 24px;
-  margin-bottom: 28px;
+.parceiro-grid {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: 36px;
 }
 
-.reveal .parceiro-nome h3 { margin: 0; font-size: 40px; }
-.reveal .parceiro-nome p { margin: 4px 0 0; }
+.parceiro-nome {
+  border-left: 6px solid var(--seg-secundaria);
+  padding: 4px 0 4px 20px;
+  margin-bottom: 18px;
+}
+
+.reveal .parceiro-nome h3 { margin: 0; font-size: 34px; }
+.reveal .parceiro-nome p { margin: 4px 0 0; font-size: var(--escala-complementar); }
+
+.parceiro-pessoas { margin: 0; }
+.reveal .parceiro-pessoas dt {
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  color: var(--seg-destaque);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.reveal .parceiro-pessoas dd { margin: 2px 0 12px; font-size: 17px; line-height: 1.4; }
+
+.reveal .parceiro-desafio h4 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+.reveal .parceiro-desafio p { margin: 0 0 16px; font-size: 17px; line-height: 1.45; }
+
+/* ---------- Escopo do MVP ---------- */
+.reveal .escopo-tabela { font-size: 16px; }
+.escopo-listas { margin-top: 18px; }
+.reveal .escopo-listas h4 { margin: 0 0 6px; font-size: 20px; }
+.reveal .escopo-listas ul { margin: 0; padding-left: 20px; }
+.reveal .escopo-listas li { font-size: 16px; line-height: 1.4; }
 
 /* ---------- Tabelas e destaques ---------- */
 .reveal .data-table.tabela-projecao td,
@@ -168,3 +197,76 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
    administrativos (inicio, kickoff, fim). */
 .reveal .calendario td { padding-top: 7px; padding-bottom: 7px; }
 .reveal .calendario tr.marco-review td { font-weight: 700; }
+
+/* ---------- Linha do tempo das sprints ----------
+   Sprints em colunas e dimensoes em linhas: todas as sprints compartilham
+   as mesmas dimensoes, entao tabela, nao cartoes. Cabecalho alterna roxo e
+   verde, os dois blocos de peso do segmento Graduacao (p.68). */
+.timeline-tabela {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px 0;
+  table-layout: fixed;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.timeline-tabela th[scope="row"] {
+  width: 150px;
+  text-align: left;
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  color: var(--seg-primaria);
+  padding: 8px 6px 8px 0;
+  vertical-align: top;
+}
+
+.timeline-tabela td {
+  padding: 8px 10px;
+  vertical-align: top;
+  background: var(--seg-superficie);
+  border-bottom: 2px solid var(--seg-base);
+}
+
+.timeline-tabela .sprint-cab {
+  padding: 10px;
+  text-align: left;
+  font-size: 18px;
+  border-radius: 8px 8px 0 0;
+}
+
+.timeline-tabela .sprint-cab.s1,
+.timeline-tabela .sprint-cab.s3,
+.timeline-tabela .sprint-cab.s5 {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+}
+
+.timeline-tabela .sprint-cab.s2,
+.timeline-tabela .sprint-cab.s4 {
+  background: var(--seg-secundaria);
+  color: var(--seg-texto);
+}
+
+.timeline-tabela .periodo {
+  display: block;
+  font-size: var(--escala-complementar);
+  font-weight: 400;
+}
+
+.timeline-tabela tr.artefato td { font-weight: 700; }
+.timeline-tabela tr.review td { font-weight: 700; }
+.timeline-tabela td.tem-feriado {
+  border-left: 3px solid var(--seg-destaque);
+  font-weight: 700;
+}
+
+/* ---------- Combinados ---------- */
+.reveal .combinados td.peso { width: 48px; color: var(--seg-destaque); }
+.reveal .combinados td { vertical-align: top; }
+
+/* Titulo quebra linha antes de chegar a marca. A marca comeca em x=1156
+   (1280 - 28 de resguardo - 96 de largura) e o titulo em x=56: 1060px deixa
+   40px de folga. Sem isso, os titulos em frances e portugues, mais longos,
+   passavam por baixo do logo (TITULO NO LOGO no check_slides.py). */
+.slide-title-area h2 { max-width: 1060px; }

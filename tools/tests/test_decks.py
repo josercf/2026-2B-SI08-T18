@@ -167,3 +167,32 @@ def test_layout_cabe_em_1280x720_em_cada_idioma(lang):
         cwd=RAIZ, capture_output=True, text=True, timeout=180,
     )
     assert r.returncode == 0, r.stdout[-2000:]
+
+
+# ---------------------------------------------------------------- conteudo
+import datetime  # noqa: E402
+import re  # noqa: E402
+
+DIAS_EN = {"Mon": 0, "Tue": 1, "Wed": 2, "Thu": 3, "Fri": 4}
+
+
+@pytest.mark.parametrize("deck", DECKS, ids=os.path.basename)
+def test_rodape_numerado_pela_posicao_do_slide(deck):
+    texto = open(deck, encoding="utf-8").read()
+    secoes = re.findall(r"<section.*?</section>", texto, flags=re.S)
+    for i, sec in enumerate(secoes, start=1):
+        m = re.search(r'<p class="footer-page">(\d+)</p>', sec)
+        if m:
+            assert int(m.group(1)) == i, "slide %d com rodape %s" % (i, m.group(1))
+
+
+@pytest.mark.parametrize("deck", DECKS, ids=os.path.basename)
+def test_dia_da_semana_bate_com_a_data(deck):
+    """Todo "Wed 21/10" em ingles precisa cair mesmo naquele dia em 2026.
+    PT e FR sao traducao do mesmo par, entao conferir o EN cobre os tres."""
+    texto = open(deck, encoding="utf-8").read()
+    pares = re.findall(r'data-l="en">(Mon|Tue|Wed|Thu|Fri) (\d{2})/(\d{2})', texto)
+    assert pares, "nenhuma data com dia da semana encontrada"
+    for dia, d, m in pares:
+        data = datetime.date(2026, int(m), int(d))
+        assert data.weekday() == DIAS_EN[dia], "%s %s/%s cai em outro dia" % (dia, d, m)
