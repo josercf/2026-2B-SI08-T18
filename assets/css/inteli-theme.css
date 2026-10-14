@@ -1,0 +1,525 @@
+/* Tema Reveal.js do segmento Graduacao.
+   Nenhuma cor literal e nenhum font-family aqui: tudo vem de inteli-brand.css.
+   Verificado por tools/check_brand.py. */
+
+.reveal .slides section {
+  /* Altura fixa: conteudo que nao cabe NAO rola, quebra o slide.
+     E por isso que scrollHeight nao detecta estouro e o check_slides.py
+     precisa medir o retangulo de cada descendente. */
+  width: 1280px;
+  height: 720px;
+  padding: 44px 56px 72px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: var(--seg-base);
+  color: var(--seg-texto);
+}
+
+/* O proprio Reveal.js, via JS, escreve style="display: block" no slide
+   ativo (config "display", default "block", trocado para "present" via
+   classList.add ao mesmo tempo). Estilo inline vence qualquer regra de
+   folha de estilo por especificidade, entao o "display: flex" da regra
+   acima nunca pega no slide visivel, silenciosamente, sem erro no
+   console: confirmado olhando o slide de capa renderizado, onde o
+   grafismo caia abaixo do titulo em vez de ao lado dele. So um
+   "!important" vence estilo inline sem "!important". Restrito a
+   ".present" para nao acender os slides escondidos, que o Reveal marca
+   com style="display: none" e cuja ocultacao nao pode ser desfeita. */
+.reveal .slides section.present {
+  display: flex !important;
+}
+
+.reveal p,
+.reveal li {
+  /* Piso de legibilidade para projecao. Nao reduzir para caber mais texto:
+     se nao cabe, o slide tem conteudo demais. */
+  font-size: var(--escala-texto);
+  line-height: 1.5;
+}
+
+.reveal h2 { font-size: var(--escala-titulo); }
+.reveal h3 { font-size: var(--escala-subtitulo); }
+
+.accent-bar {
+  width: 64px;
+  height: 6px;
+  background: var(--seg-secundaria);
+  margin-bottom: 16px;
+}
+
+/* Layout de exportacao do Reveal ("?print-pdf").
+
+   Ao entrar nesse modo o Reveal escreve "reveal-print print-pdf" no elemento
+   html e zera o padding de ".reveal .slides section", NA TELA. Sem o padding
+   do tema, o titulo ganha os 112px de largura util que o tema reservava,
+   deixa de quebrar onde quebrava e passa por baixo da marca, que fica fixa em
+   "right: 28px".
+
+   Esta regra mora aqui, e nao em inteli-print.css, por um motivo que custou
+   caro para descobrir: inteli-print.css e carregado com media="print" nos
+   decks, entao o arquivo inteiro fica inerte na tela, e "?print-pdf" monta o
+   layout na tela. Uma correcao escrita la nunca entra em acao, mesmo com
+   "!important" e mesmo aparecendo no CSSOM.
+
+   Especificidade alta de proposito: o CSS de impressao do Reveal e injetado
+   depois do nosso, entao empate de especificidade perde por ordem.
+
+   Medido em 04/09/2026 no PDF real: oito slides da Aula 07, dois da Aula 04 e
+   um da Aula 05 com o titulo sobre a marca, de 21px a 124px. Nenhum dos tres
+   validadores pega isso: check_slides.py mede o deck em tela sem
+   "?print-pdf". */
+html.print-pdf.reveal-print .reveal .slides section[class] {
+  padding: 44px 56px 72px !important;
+}
+
+/* A capa sangra o grafismo ate a borda e mantem o padding zero do tema. */
+html.print-pdf.reveal-print .reveal .slides section.cover-slide[class] {
+  padding: 0 !important;
+}
+
+/* "code" dentro de titulo tem de herdar o tamanho do titulo. A regra base de
+   "code" em inteli-brand.css declara font-size no proprio elemento, entao ela
+   vence o tamanho que o h2 passaria por heranca: um trecho de codigo no meio
+   de um titulo de 44px sai a 14px e parece legenda solta, nao parte da frase.
+   Medido em 04/09/2026 nos slides 10 e 19 da Aula 07. */
+.reveal h2 code,
+.reveal h3 code,
+.slide-title-area h2 code {
+  font-size: inherit;
+}
+
+.inteli-logo-header {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 96px;
+  /* Resguardo da marca, p.51: a distancia minima e a largura entre o "i" e o
+     "n". Para 96px de marca, 28px cobre com folga. Reduzir isso faz o titulo
+     longo encostar no logo, defeito que o check_slides.py acusa como
+     TITULO NO LOGO. */
+}
+
+.concept-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.concept-card {
+  background: var(--seg-superficie);
+  border-top: 4px solid var(--seg-secundaria);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.side-by-side { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.code-compact {
+  /* Existe para o caso "bloco de codigo em slide que ja tem concept-cards".
+     Sem isso o slide estoura os 720px. Manter o trecho em ate 18 linhas. */
+  font-size: var(--escala-complementar);
+  line-height: 1.35;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.slide-footer {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--escala-complementar);
+  /* var(--seg-texto-suave) (#b2b6bf) sobre fundo branco da 2,03:1 de
+     contraste, ilegivel do fundo da sala projetada. A paleta oficial nao
+     tem um cinza intermediario que passe nisso, entao o rodape usa o
+     mesmo texto escuro do corpo do slide; o peso visual menor vem do
+     tamanho da fonte (--escala-complementar), nao de opacidade, que
+     derrubaria o contraste de novo. */
+  color: var(--seg-texto);
+}
+
+.slide-footer p {
+  /* Zera a margem padrao de paragrafo: aqui e uma linha unica de rodape,
+     nao corpo de texto. */
+  margin: 0;
+  font-size: var(--escala-complementar);
+}
+
+/* Faixa decorativa no topo dos slides "de trabalho" (conteudo, quiz,
+   exercicio). E decoracao de borda, igual ao slide-footer, por isso o
+   check_slides.py exclui .top-bar da checagem de sobreposicao junto com
+   .slide-footer e os elementos de logo-header. NAO usar position: absolute
+   em nenhum outro bloco alem destes tres. */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--seg-secundaria);
+}
+
+/* Area de titulo dos slides de trabalho: titulo + accent-bar, sempre no
+   topo do bloco de conteudo (que comeca depois do padding-top de 44px,
+   longe da faixa de 6px do top-bar e do logo, que termina em 28px + ~57px
+   de altura). */
+.slide-title-area { margin-bottom: 24px; }
+.slide-title-area h2 { margin: 0; }
+
+/* Slide de abertura (capa): o grafismo NAO e um elemento ao lado de um
+   fundo, ele E o fundo. A p.77 do brandbook mostra o painel das tres faces
+   sangrando a peca inteira, sem moldura; nenhum tom solido da paleta da
+   contraste as tres faces ao mesmo tempo (correcao registrada no plano),
+   entao a solucao certa nunca foi "cor de fundo + grafismo por cima": e
+   ladrilhar a capa inteira com as tres faces e escrever o titulo sobre
+   UMA delas so, nunca sobre as tres (p.82).
+
+   Selector composto (".reveal .slides section.cover-slide" em vez de so
+   ".cover-slide"): a regra base ".reveal .slides section" tem duas classes
+   mais um elemento e vence ".cover-slide" sozinho no empate de
+   especificidade, deixando o alinhamento sempre no padrao. Mesmo raciocinio
+   para .section-slide e .end-slide logo abaixo. */
+.reveal .slides section.cover-slide {
+  /* Sem "background": quem preenche o slide e o .cover-panel abaixo, nao
+     uma cor solida atras dele. */
+  padding: 0;
+}
+
+/* Unico filho do slide, ocupa a secao inteira (1280x720, sem o padding
+   que as outras classes de slide tem, porque aqui nao ha moldura) e
+   empilha o ladrilho de tres faces com o bloco de texto na mesma celula
+   de grid, sem "position: absolute" (a segunda armadilha do repositorio):
+   grid com uma linha e uma coluna colocando os filhos na mesma celula faz
+   o mesmo papel de uma pilha posicionada, sem tocar em "position".
+
+   As tres faces, redesenhadas a partir dos mesmos 120 graus do grafismo
+   pequeno (assets/img/inteli-grafismo-graduacao.svg), so que recalculadas
+   para o retangulo de 1280x720 em vez do viewBox quadrado do icone: um
+   hexagono do mesmo tamanho do icone, so ampliado, deixaria sobrar margem
+   transparente nas laterais (o viewBox do icone tem respiro em volta do
+   hexagono) e o vertice de cima ficaria fora da tela de qualquer jeito.
+   Em vez de recortar o SVG pequeno, um "conic-gradient" particiona os
+   1280x720 em tres fatias de exatos 120 graus a partir de um unico centro
+   (640px 570px, mesmo ponto de encontro das tres faces do icone pequeno,
+   so que a distancia dos vertices opostos do hexagono e tao grande, para
+   cobrir a largura toda, que eles ficam fora da tela de qualquer forma:
+   o efeito visto por perto de um centro assim e indistinguivel de tres
+   losangos genuinos). A primeira tentativa desenhava as tres faces como
+   "clip-path" em divs separadas, mas isso disparou um bug de pintura no
+   Chrome headless (os divs recortados sempre ficavam por cima do texto,
+   nunca por baixo, mesmo vindo antes dele no DOM); um unico
+   "conic-gradient" tem a mesma particao angular sem esse problema. */
+.cover-panel {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background: conic-gradient(
+    from 0deg at 640px 570px,
+    var(--seg-primaria) 0deg 120deg,
+    var(--seg-borda) 120deg 240deg,
+    var(--seg-secundaria) 240deg 360deg
+  );
+}
+
+.cover-panel > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Texto sobre a face roxa (unica face sob o bloco de titulo, nunca as
+   tres): metade direita da capa, onde o conic-gradient acima (0-120 graus
+   a partir do centro) cobre 100% da largura visivel naquela faixa
+   vertical. Texto claro, porque e a face que comporta texto claro (a
+   verde e a cinza-media comportam var(--seg-texto), sem uso nesta capa
+   mas documentado para quem for reaproveitar o padrao noutro slide). */
+.cover-content {
+  align-self: center;
+  justify-self: end;
+  max-width: 42%;
+  padding: 0 64px 0 0;
+  color: var(--inteli-branco);
+}
+
+.cover-eyebrow {
+  font-size: var(--escala-complementar);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--seg-secundaria);
+  margin: 0 0 12px;
+}
+
+.cover-content h1 { color: var(--inteli-branco); margin: 0 0 16px; }
+.cover-content h3 { color: var(--inteli-branco); font-weight: 400; margin: 0; }
+
+.reveal .slides section.section-slide {
+  background: var(--seg-secundaria);
+  color: var(--seg-texto);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.section-slide .accent-bar {
+  /* Sobre fundo verde o accent-bar padrao (tambem verde) some: troca para
+     roxo, unica excecao de cor por contraste, ainda assim um token. */
+  background: var(--seg-primaria);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-slide h2 { margin: 0 0 8px; }
+.section-slide h3 { font-weight: 400; margin: 0; }
+
+.reveal .slides section.end-slide {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.end-slide h1,
+.end-slide h3 { color: var(--inteli-branco); margin: 0 0 12px; }
+.end-slide h3 { font-weight: 400; margin: 0; }
+
+/* Quiz: apenas o markup e o visual estatico aqui. Os estados de acerto e
+   erro (que leem data-correct, data-correct-msg, data-incorrect-msg) chegam
+   com o JS da proxima tarefa. */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.quiz-question { margin: 0; }
+
+.quiz-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz-options li {
+  background: var(--seg-superficie);
+  border: 1px solid var(--seg-borda);
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+
+.exercise-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding-left: 28px;
+}
+
+/* Modificador opt-in para lista que passa de dez itens, medido no slide de
+   referencias da Aula 09. A lista de referencias cresce a cada aula do acervo
+   (5, 7, 9 e 11 itens da Aula 01 a 09), e a altura dela e dada pela contagem
+   de itens, nao por quebra de linha: com 11 itens de uma linha cada, nenhum
+   passando de 75% da largura da caixa, o bloco chega a 444px e deixa 70px de
+   folga vertical, abaixo do piso de ~80px que o CI Ubuntu exige (ver CLAUDE.md).
+   Encurtar o texto de cada item nao devolve nada, porque nenhum item quebra
+   linha. Reduzir o gap devolve 6px por item. Manter o font-size intocado: o
+   piso de legibilidade de 18px vale aqui como em qualquer slide. */
+.exercise-steps.lista-longa {
+  gap: 6px;
+}
+
+/* Estados do quiz, escritos pelo inteli-quiz.js via classList.add: o JS so
+   troca classe, nunca escreve cor, entao esses estados moram aqui, so
+   tokens. .certa e .errada marcam a opcao clicada; .revelada marca a opcao
+   certa quando a pessoa erra; .quiz-feedback e o paragrafo com a mensagem
+   que o JS injeta apos a resposta.
+
+   Seletor composto (".quiz-options li.certa" em vez de so ".certa"), mesmo
+   raciocinio do ".quiz-container .quiz-feedback" logo abaixo: especificidade
+   (0,1,1) da regra ".quiz-options li" (linha ~267) vence um seletor de
+   classe sozinho (0,0,1) e a borda/fundo default nunca aparecia. Corrigido
+   na rodada de revisao 1 depois de o revisor medir com getComputedStyle e
+   achar borderLeftColor identico entre opcao certa, errada e intocada. */
+.quiz-options li.certa {
+  border-left: 4px solid var(--seg-secundaria);
+}
+
+.quiz-options li.errada {
+  border-left: 4px solid var(--seg-destaque);
+}
+
+/* var(--seg-superficie), o valor pedido originalmente para .revelada, e o
+   MESMO valor que ".quiz-options li" acima ja usa como fundo de repouso de
+   toda opcao: virou um no-op medido pelo revisor (backgroundColor identico
+   entre a opcao revelada e uma opcao intocada, mesmo com o seletor
+   composto corrigido). Trocado para var(--seg-secundaria), o mesmo verde
+   que ".certa" usa na borda (par roxo-sobre-verde ja usado sem problema de
+   contraste em ".section-slide"), para a opcao correta realmente se
+   destacar quando revelada sem ter sido clicada. */
+.quiz-options li.revelada {
+  background: var(--seg-secundaria);
+}
+
+/* Especificidade maior que ".reveal p" (0,1,1) de proposito: precisa ganhar
+   dessa regra geral para poder reduzir o corpo do feedback e caber no
+   slide depois que o paragrafo e injetado no DOM (ver check_slides.py). */
+.quiz-container .quiz-feedback {
+  margin: 0;
+  font-size: var(--escala-complementar);
+}
+
+/* Botao flutuante que o inteli-print.js injeta. Escondido no proprio modo
+   de impressao por inteli-print.css (".print-button { display: none }"),
+   entao so aparece na tela normal do deck. */
+.print-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  padding: 10px 18px;
+  border: 1px solid var(--seg-borda);
+  border-radius: 8px;
+  background: var(--seg-base);
+  color: var(--seg-texto);
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------ */
+/* Diagramas isometricos de traco linear (Aula 02 em diante).
+   Estilo derivado do brandbook p.86-87 ("Ilustracao"): traco continuo,
+   angulacao geometrica, paineis planos com leve profundidade (uma aresta
+   de topo e uma de lado, deslocadas alguns pixels), sem preenchimento
+   solido nas tres faces ao mesmo tempo (isso e regra do GRAFISMO, p.82,
+   nao da ilustracao, mas o espirito de "nunca as tres faces cheias" e
+   preservado aqui tambem). Nenhuma cor literal: todo fill/stroke destes
+   SVGs inline usa var(--inteli-*) ou var(--seg-*), resolvidos pela cascata
+   normal do CSS porque o SVG e inline no mesmo documento. Nenhum
+   font-family e declarado em lugar nenhum: o texto do SVG herda a fonte
+   do body (Manrope), que e a unica forma permitida pelo check_brand.py. */
+.diagram-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.diagram-frame svg {
+  width: 100%;
+  height: auto;
+}
+
+.diagram-caption {
+  font-size: var(--escala-complementar);
+  color: var(--seg-texto);
+  text-align: center;
+  max-width: 980px;
+  margin: 0;
+}
+
+/* Tres diagramas pequenos lado a lado, cada um com sua propria legenda:
+   usado para comparar leituras divergentes de uma mesma taxonomia. */
+.trio-diagrams {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.trio-diagrams figure {
+  margin: 0;
+  background: var(--seg-superficie);
+  border-radius: 10px;
+  padding: 10px 12px 12px;
+  text-align: center;
+}
+
+.trio-diagrams svg {
+  width: 100%;
+  height: auto;
+}
+
+.trio-diagrams figcaption {
+  font-size: var(--escala-complementar);
+  color: var(--seg-texto);
+  margin-top: 6px;
+  line-height: 1.3;
+}
+
+/* Tabela de dados dentro do deck (nao confundir com a tabela do material de
+   apoio, que mora em inteli-material.css): compacta o bastante para caber
+   ao lado de outros blocos num slide de 720px de altura. */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--escala-complementar);
+}
+
+.data-table th,
+.data-table td {
+  border-bottom: 1px solid var(--seg-borda);
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table th {
+  color: var(--seg-primaria);
+  font-weight: 700;
+}
+
+/* Modificador opt-in: tabela lida de longe na projecao (revisao com numeros
+   que a turma precisa ler do fundo da sala). Sobe do corpo complementar para o
+   piso de texto; so usar onde o slide tem folga vertical para isso. */
+.data-table.tabela-projecao {
+  font-size: var(--escala-texto);
+}
+
+/* Citacao central, grande, para uma unica afirmacao de peso (ex.: um
+   achado de pesquisa citavel). Nao e o mesmo bloco que concept-cards nem
+   side-by-side: e uma unica frase, centralizada, sem grade. */
+.pull-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex: 1;
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.pull-quote-text {
+  font-size: 30px;
+  line-height: 1.35;
+  color: var(--seg-primaria);
+  margin: 0;
+}
+
+.pull-quote-source {
+  font-size: var(--escala-complementar);
+  color: var(--seg-texto);
+  margin: 0;
+}
+
+/* Lista de referencias em duas colunas, para caber mais itens sem estourar
+   os 720px quando a lista cresce (Aula 02 em diante passou de 6 para
+   14+ fontes citadas). */
+.ref-columns {
+  columns: 2;
+  column-gap: 32px;
+  font-size: var(--escala-complementar);
+  line-height: 1.45;
+}
+
+.ref-columns li {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  font-size: var(--escala-complementar);
+}

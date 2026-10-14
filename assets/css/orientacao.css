@@ -1,0 +1,164 @@
+/* Blocos especificos dos decks de orientacao do SI08 T18.
+   Mesma regra do tema: nenhuma cor literal e nenhum font-family aqui, tudo
+   vem de inteli-brand.css. Verificado por tools/check_brand.py. */
+
+/* ---------- Idiomas (ADR-001) ----------
+   Todo texto visivel existe nas tres linguas, marcado com data-l="en|pt|fr".
+   O idioma ativo fica em html[data-lang]; os outros dois somem com
+   display: none, o que tambem os tira da medicao do check_slides.py. */
+html[data-lang="en"] [data-l]:not([data-l="en"]),
+html[data-lang="pt"] [data-l]:not([data-l="pt"]),
+html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
+  display: none !important;
+}
+
+.lang-switch {
+  position: fixed;
+  /* Canto superior esquerdo: embaixo ele cobria o rodape e o numero do
+     slide. O titulo comeca em 44px, entao a faixa de 8px a 36px fica livre. */
+  left: 12px;
+  top: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 4px;
+}
+
+.lang-switch button {
+  border: 1px solid var(--seg-borda);
+  border-radius: 6px;
+  background: var(--seg-base);
+  color: var(--seg-texto);
+  padding: 4px 10px;
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-switch button[aria-pressed="true"] {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  border-color: var(--seg-primaria);
+}
+
+@media print {
+  .lang-switch { display: none !important; }
+}
+
+
+/* ---------- Agenda ---------- */
+.agenda-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: item;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.agenda-list li {
+  counter-increment: item;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--seg-borda);
+  font-size: 22px;
+}
+
+.agenda-list li::before {
+  content: counter(item, decimal-leading-zero);
+  color: var(--seg-destaque);
+  font-weight: 700;
+  font-size: var(--escala-subtitulo);
+  min-width: 40px;
+}
+
+/* ---------- Docentes ---------- */
+.docentes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px 20px;
+}
+
+.docente-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  background: var(--seg-superficie);
+  border-top: 4px solid var(--seg-secundaria);
+  border-radius: 10px;
+  padding: 14px 12px;
+}
+
+.docente-card.coordenacao { border-top-color: var(--seg-primaria); }
+.docente-card.orientacao { border-top-color: var(--seg-destaque); }
+
+.docente-card img {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.reveal .docente-card p { margin: 0; line-height: 1.3; }
+.reveal .docente-card .docente-nome { font-weight: 700; }
+.reveal .docente-card .docente-eixo { font-size: var(--escala-complementar); }
+
+/* ---------- Parceiro ---------- */
+.parceiro-nome {
+  border-left: 6px solid var(--seg-secundaria);
+  padding: 8px 0 8px 24px;
+  margin-bottom: 28px;
+}
+
+.reveal .parceiro-nome h3 { margin: 0; font-size: 40px; }
+.reveal .parceiro-nome p { margin: 4px 0 0; }
+
+/* ---------- Tabelas e destaques ---------- */
+.reveal .data-table.tabela-projecao td,
+.reveal .data-table.tabela-projecao th { padding: 10px 12px; }
+
+.reveal .data-table td.peso {
+  font-size: var(--escala-subtitulo);
+  font-weight: 700;
+  color: var(--seg-primaria);
+  white-space: nowrap;
+}
+
+.reveal .data-table td.prazo { font-weight: 700; white-space: nowrap; }
+
+.aviso {
+  margin-top: 20px;
+  border-left: 4px solid var(--seg-destaque);
+  background: var(--seg-superficie);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 18px;
+}
+
+.reveal .aviso p { margin: 0; }
+
+/* ---------- Drive ---------- */
+.drive-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: center;
+}
+
+.drive-grid img.qr {
+  width: 280px;
+  height: 280px;
+  border: 1px solid var(--seg-borda);
+  border-radius: 10px;
+}
+
+.reveal .drive-link {
+  font-size: var(--escala-complementar);
+  word-break: break-all;
+}
+
+.reveal .drive-link a { color: var(--seg-texto); }

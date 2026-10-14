@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 08 Onboarding &middot; SI08 T18</title>
+
+  <!-- Orientacao SI08 T18, 2026-2B. Deck trilingue (EN, PT, FR), ver
+       docs/adrs/ADR-001-deck-trilingue-com-seletor.md. Todo texto visivel
+       existe nas tres linguas com data-l="en|pt|fr". Conteudo definido pelo
+       orientador em 14/10/2026; nada aqui vem de fora dessa definicao. -->
+
+  <script src="../assets/js/idioma.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="../assets/css/inteli-brand.css">
+  <link rel="stylesheet" href="../assets/css/inteli-theme.css">
+  <link rel="stylesheet" href="../assets/css/orientacao.css">
+  <link rel="stylesheet" href="../assets/css/inteli-print.css" media="print">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 - Capa -->
+      <section class="cover-slide">
+        <div class="cover-panel">
+          <div class="cover-content">
+            <p class="cover-eyebrow">
+              <span data-l="en">Information Systems &middot; Module 08 &middot; Class T18 &middot; 2026-2B</span>
+              <span data-l="pt">Sistemas de Informação &middot; Módulo 08 &middot; Turma T18 &middot; 2026-2B</span>
+              <span data-l="fr">Systèmes d'information &middot; Module 08 &middot; Classe T18 &middot; 2026-2B</span>
+            </p>
+            <h1>Integration, management, and analysis of big data</h1>
+            <h3>
+              <span data-l="en">Module onboarding</span>
+              <span data-l="pt">Abertura do módulo</span>
+              <span data-l="fr">Ouverture du module</span>
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 - Agenda -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Agenda</span>
+            <span data-l="pt">Agenda</span>
+            <span data-l="fr">Ordre du jour</span>
+          </h2>
+        </div>
+        <ol class="agenda-list">
+          <li>
+            <span data-l="en">Teaching team and coordination</span>
+            <span data-l="pt">Equipe docente e coordenação</span>
+            <span data-l="fr">Équipe pédagogique et coordination</span>
+          </li>
+          <li>
+            <span data-l="en">Project partner</span>
+            <span data-l="pt">Parceiro do projeto</span>
+            <span data-l="fr">Partenaire du projet</span>
+          </li>
+          <li>
+            <span data-l="en">Individual grade composition</span>
+            <span data-l="pt">Composição da nota individual</span>
+            <span data-l="fr">Composition de la note individuelle</span>
+          </li>
+          <li>
+            <span data-l="en">Activities, deadlines, and delivery rules</span>
+            <span data-l="pt">Atividades, prazos e regras de entrega</span>
+            <span data-l="fr">Activités, échéances et règles de remise</span>
+          </li>
+          <li>
+            <span data-l="en">Class Drive and partner materials</span>
+            <span data-l="pt">Drive da turma e material do parceiro</span>
+            <span data-l="fr">Drive de la classe et documents du partenaire</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Onboarding</p>
+          <p class="footer-page">2</p>
+        </div>
+      </section>
+
+      <!-- 3 - Docentes -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Teaching team</span>
+            <span data-l="pt">Equipe docente</span>
+            <span data-l="fr">Équipe pédagogique</span>
+          </h2>
+        </div>
+        <div class="docentes-grid">
+          <div class="docente-card">
+            <img src="../assets/img/docentes/afonso-brandao.png" alt="Afonso Brandão">
+            <div>
+              <p class="docente-nome">Afonso Brandão</p>
+              <p class="docente-eixo">
+                <span data-l="en">Computing</span>
+                <span data-l="pt">Computação</span>
+                <span data-l="fr">Informatique</span>
+              </p>
+            </div>
+          </div>
+          <div class="docente-card">
+            <img src="../assets/img/docentes/henrique-paiva.png" alt="Henrique Paiva">
+            <div>
+              <p class="docente-nome">Henrique Paiva</p>
+              <p class="docente-eixo">
+                <span data-l="en">Mathematics</span>
+                <span data-l="pt">Matemática</span>
+                <span data-l="fr">Mathématiques</span>
+              </p>
+            </div>
+          </div>
+          <div class="docente-card orientacao">
+            <img src="../assets/img/docentes/jose-romualdo.png" alt="José Romualdo">
+            <div>
+              <p class="docente-nome">José Romualdo</p>
+              <p class="docente-eixo">
+                <span data-l="en">Project advisor</span>
+                <span data-l="pt">Orientação</span>
+                <span data-l="fr">Orientation du projet</span>
+              </p>
+            </div>
+          </div>
+          <div class="docente-card">
+            <img src="../assets/img/docentes/julia-stateri.png" alt="Julia Stateri">
+            <div>
+              <p class="docente-nome">Julia Stateri</p>
+              <p class="docente-eixo">
+                <span data-l="en">User experience (UX)</span>
+                <span data-l="pt">Experiência do usuário (UX)</span>
+                <span data-l="fr">Expérience utilisateur (UX)</span>
+              </p>
+            </div>
+          </div>
+          <div class="docente-card">
+            <img src="../assets/img/docentes/lisane-valdo.png" alt="Lisane Valdo">
+            <div>
+              <p class="docente-nome">Lisane Valdo</p>
+              <p class="docente-eixo">
+                <span data-l="en">Business</span>
+                <span data-l="pt">Negócios</span>
+                <span data-l="fr">Business</span>
+              </p>
+            </div>
+          </div>
+          <div class="docente-card">
+            <img src="../assets/img/docentes/vanessa-nunes.png" alt="Vanessa Nunes">
+            <div>
+              <p class="docente-nome">Vanessa Nunes</p>
+              <p class="docente-eixo">
+                <span data-l="en">Leadership</span>
+                <span data-l="pt">Liderança</span>
+                <span data-l="fr">Leadership</span>
+              </p>
+            </div>
+          </div>
+          <div class="docente-card coordenacao">
+            <img src="../assets/img/docentes/renato-penha.png" alt="Renato Penha">
+            <div>
+              <p class="docente-nome">Renato Penha</p>
+              <p class="docente-eixo">
+                <span data-l="en">Program coordinator</span>
+                <span data-l="pt">Coordenação do curso</span>
+                <span data-l="fr">Coordination du cursus</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Onboarding</p>
+          <p class="footer-page">3</p>
+        </div>
+      </section>
+
+      <!-- 4 - Parceiro -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Project partner</span>
+            <span data-l="pt">Parceiro do projeto</span>
+            <span data-l="fr">Partenaire du projet</span>
+          </h2>
+        </div>
+        <div class="parceiro-nome">
+          <h3>Exército Brasileiro</h3>
+          <p>
+            <span data-l="en">Brazilian Army</span>
+            <span data-l="pt">Força terrestre das Forças Armadas do Brasil</span>
+            <span data-l="fr">Armée de terre brésilienne</span>
+          </p>
+        </div>
+        <p>
+          <span data-l="en">The partner's problem statement and supporting materials are in the class Drive (slide 7). Read them before the first Sprint Planning.</span>
+          <span data-l="pt">O problema proposto pelo parceiro e os materiais de apoio estão no Drive da turma (slide 7). Leia antes da primeira Sprint Planning.</span>
+          <span data-l="fr">La problématique du partenaire et les documents d'appui se trouvent dans le Drive de la classe (diapositive 7). Lisez-les avant le premier Sprint Planning.</span>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Onboarding</p>
+          <p class="footer-page">4</p>
+        </div>
+      </section>
+
+      <!-- 5 - Composicao de nota -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Grade: 40% Kanban and GitLab, 60% oral defense</span>
+            <span data-l="pt">Nota: 40% Kanban e GitLab, 60% arguição</span>
+            <span data-l="fr">Note : 40 % Kanban et GitLab, 60 % soutenance</span>
+          </h2>
+        </div>
+        <table class="data-table tabela-projecao">
+          <thead>
+            <tr>
+              <th>
+                <span data-l="en">Weight</span>
+                <span data-l="pt">Peso</span>
+                <span data-l="fr">Poids</span>
+              </th>
+              <th>
+                <span data-l="en">Component</span>
+                <span data-l="pt">Componente</span>
+                <span data-l="fr">Composante</span>
+              </th>
+              <th>
+                <span data-l="en">How it is assessed</span>
+                <span data-l="pt">Como é avaliado</span>
+                <span data-l="fr">Mode d'évaluation</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="peso">40%</td>
+              <td>
+                <span data-l="en">Correct use of the Kanban board and the GitLab repository</span>
+                <span data-l="pt">Uso correto do Kanban e do repositório GitLab</span>
+                <span data-l="fr">Utilisation correcte du tableau Kanban et du dépôt GitLab</span>
+              </td>
+              <td>
+                <span data-l="en">Daily record on the board and in the repository throughout the sprint</span>
+                <span data-l="pt">Registro diário no quadro e no repositório ao longo da sprint</span>
+                <span data-l="fr">Suivi quotidien sur le tableau et dans le dépôt pendant tout le sprint</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="peso">60%</td>
+              <td>
+                <span data-l="en">Individual oral defense</span>
+                <span data-l="pt">Arguição individual</span>
+                <span data-l="fr">Soutenance orale individuelle</span>
+              </td>
+              <td>
+                <span data-l="en">Scheduled by the advisor with each student in the week after the Sprint Review</span>
+                <span data-l="pt">Agendada pelo orientador com cada aluno na semana seguinte à Sprint Review</span>
+                <span data-l="fr">Planifiée par l'encadrant avec chaque étudiant la semaine suivant la Sprint Review</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="aviso">
+          <p>
+            <strong>
+              <span data-l="en">Mandatory every day:</span>
+              <span data-l="pt">Obrigatório todos os dias:</span>
+              <span data-l="fr">Obligatoire chaque jour :</span>
+            </strong>
+            <span data-l="en">at least 1 commit and at least 1 active task on the board.</span>
+            <span data-l="pt">no mínimo 1 commit e no mínimo 1 tarefa ativa no quadro.</span>
+            <span data-l="fr">au moins 1 commit et au moins 1 tâche active sur le tableau.</span>
+          </p>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Onboarding</p>
+          <p class="footer-page">5</p>
+        </div>
+      </section>
+
+      <!-- 6 - Atividades e prazos -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Deadlines and delivery rules</span>
+            <span data-l="pt">Prazos e regras de entrega</span>
+            <span data-l="fr">Échéances et règles de remise</span>
+          </h2>
+        </div>
+        <table class="data-table tabela-projecao">
+          <thead>
+            <tr>
+              <th>
+                <span data-l="en">Item</span>
+                <span data-l="pt">Item</span>
+                <span data-l="fr">Élément</span>
+              </th>
+              <th>
+                <span data-l="en">Deadline</span>
+                <span data-l="pt">Prazo</span>
+                <span data-l="fr">Échéance</span>
+              </th>
+              <th>
+                <span data-l="en">Rule</span>
+                <span data-l="pt">Regra</span>
+                <span data-l="fr">Règle</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span data-l="en">Activities marked "In class"</span>
+                <span data-l="pt">Atividades marcadas "Em sala"</span>
+                <span data-l="fr">Activités marquées « En classe »</span>
+              </td>
+              <td class="prazo">
+                <span data-l="en">During class</span>
+                <span data-l="pt">Durante a aula</span>
+                <span data-l="fr">Pendant le cours</span>
+              </td>
+              <td>
+                <span data-l="en">Not accepted from students who are absent</span>
+                <span data-l="pt">Não há entrega para quem não estiver presente</span>
+                <span data-l="fr">Aucune remise possible pour les étudiants absents</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span data-l="en">Weekly deliveries</span>
+                <span data-l="pt">Entregas da semana</span>
+                <span data-l="fr">Remises de la semaine</span>
+              </td>
+              <td class="prazo">
+                <span data-l="en">Friday, 11:59 pm</span>
+                <span data-l="pt">Sexta-feira, 23h59</span>
+                <span data-l="fr">Vendredi, 23 h 59</span>
+              </td>
+              <td>
+                <span data-l="en">Friday of the same week</span>
+                <span data-l="pt">Sexta-feira da própria semana</span>
+                <span data-l="fr">Vendredi de la même semaine</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span data-l="en">Sprint artifacts</span>
+                <span data-l="pt">Artefatos da sprint</span>
+                <span data-l="fr">Livrables du sprint</span>
+              </td>
+              <td class="prazo">
+                <span data-l="en">Friday, 11:59 pm</span>
+                <span data-l="pt">Sexta-feira, 23h59</span>
+                <span data-l="fr">Vendredi, 23 h 59</span>
+              </td>
+              <td>
+                <span data-l="en">Only what is on the <code>main</code> branch counts</span>
+                <span data-l="pt">Vale apenas o que estiver na branch <code>main</code></span>
+                <span data-l="fr">Seul ce qui est sur la branche <code>main</code> est pris en compte</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span data-l="en">Sprint Review presentation</span>
+                <span data-l="pt">Apresentação da Sprint Review</span>
+                <span data-l="fr">Présentation de la Sprint Review</span>
+              </td>
+              <td class="prazo">
+                <span data-l="en">Wednesday, 6:00 pm</span>
+                <span data-l="pt">Quarta-feira, 18h</span>
+                <span data-l="fr">Mercredi, 18 h</span>
+              </td>
+              <td>
+                <span data-l="en">Sent for review in the week of the presentation</span>
+                <span data-l="pt">Enviada para conferência na semana da apresentação</span>
+                <span data-l="fr">Envoyée pour vérification la semaine de la présentation</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="aviso">
+          <p>
+            <span data-l="en">If the Sprint Review presentation is not sent by Wednesday 6:00 pm, <strong>25% is deducted from the individual grade of every group member</strong>. Check the type of each activity in the module plan before the week starts.</span>
+            <span data-l="pt">Se a apresentação da Sprint Review não for enviada até quarta-feira, 18h, <strong>são descontados 25% da nota individual de todos os integrantes do grupo</strong>. Verifique o tipo de cada atividade no plano do módulo antes de a semana começar.</span>
+            <span data-l="fr">Si la présentation de la Sprint Review n'est pas envoyée avant mercredi 18 h, <strong>25 % sont retirés de la note individuelle de chaque membre du groupe</strong>. Vérifiez le type de chaque activité dans le plan du module avant le début de la semaine.</span>
+          </p>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Onboarding</p>
+          <p class="footer-page">6</p>
+        </div>
+      </section>
+
+      <!-- 7 - Drive da turma -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Class Drive and partner materials</span>
+            <span data-l="pt">Drive da turma e material do parceiro</span>
+            <span data-l="fr">Drive de la classe et documents du partenaire</span>
+          </h2>
+        </div>
+        <div class="drive-grid">
+          <div>
+            <p>
+              <span data-l="en">One shared folder holds the class files and the materials provided by the Brazilian Army.</span>
+              <span data-l="pt">Uma pasta compartilhada reúne os arquivos da turma e os materiais fornecidos pelo Exército Brasileiro.</span>
+              <span data-l="fr">Un dossier partagé regroupe les fichiers de la classe et les documents fournis par l'Armée brésilienne.</span>
+            </p>
+            <p class="drive-link">
+              <a href="https://drive.google.com/drive/folders/1OXLzMqSUUbv08GYSl7mc4imtuCU219Xd" target="_blank" rel="noopener">https://drive.google.com/drive/folders/1OXLzMqSUUbv08GYSl7mc4imtuCU219Xd</a>
+            </p>
+          </div>
+          <img class="qr" src="../assets/img/qr-drive-turma.svg" alt="QR code: class Drive">
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Onboarding</p>
+          <p class="footer-page">7</p>
+        </div>
+      </section>
+
+      <!-- 8 - Encerramento -->
+      <section class="end-slide">
+        <h1>
+          <span data-l="en">Questions</span>
+          <span data-l="pt">Dúvidas</span>
+          <span data-l="fr">Questions</span>
+        </h1>
+        <h3>Integration, management, and analysis of big data</h3>
+        <p>
+          <span data-l="en">Prof. José Romualdo &middot; Project advisor &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="pt">Prof. José Romualdo &middot; Orientação &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="fr">Prof. José Romualdo &middot; Orientation du projet &middot; SI08 T18 &middot; 2026-2B</span>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280, height: 720, center: false, margin: 0,
+      hash: true, slideNumber: false, transition: 'fade'
+    });
+  </script>
+</body>
+</html>
