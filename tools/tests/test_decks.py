@@ -241,9 +241,20 @@ def test_slide_de_entregas_bate_com_o_csv():
     assert sum(float(a["peso"]) for a in ativ) == 100
     html_deck = open(DECK_ONB, encoding="utf-8").read()
     for a in ativ:
-        trecho = '<span class="item-nome">%s</span> <span class="item-meta">%.0f%% &middot; %s</span>' % (
-            a["nome"], float(a["peso"]), a["data"][:5])
-        assert trecho in html_deck, a["nome"]
+        assert '<span class="item-nome"><span data-l="en">%s</span>' % a["nome"] in html_deck, a["nome"]
+        meta = '<span class="item-meta">%.0f%% &middot; %s</span>' % (float(a["peso"]), a["data"][:5])
+        assert meta in html_deck, a["nome"]
+
+
+def test_toda_atividade_ponderada_tem_traducao():
+    nomes = {a["nome"] for a in csv.DictReader(open(os.path.join(RAIZ, "dados", "atividades_ponderadas.csv"), encoding="utf-8"))}
+    tr = list(csv.DictReader(open(os.path.join(RAIZ, "dados", "traducoes_atividades.csv"), encoding="utf-8")))
+    assert {t["nome"] for t in tr} == nomes
+    html_deck = open(DECK_ONB, encoding="utf-8").read()
+    for t in tr:
+        assert t["pt"] and t["fr"]
+        assert '<span data-l="pt">%s</span>' % t["pt"] in html_deck, t["nome"]
+        assert '<span data-l="fr">%s</span>' % t["fr"] in html_deck, t["nome"]
 
 
 def test_parceiro_se_chama_brazilian_army():
