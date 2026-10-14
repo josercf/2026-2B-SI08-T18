@@ -196,3 +196,79 @@ def test_dia_da_semana_bate_com_a_data(deck):
     for dia, d, m in pares:
         data = datetime.date(2026, int(m), int(d))
         assert data.weekday() == DIAS_EN[dia], "%s %s/%s cai em outro dia" % (dia, d, m)
+
+
+# ---------------------------------------------------------------- LBL e grupos
+import csv  # noqa: E402
+
+import extrair_lbl  # noqa: E402
+
+DECK_ONB = os.path.join(RAIZ, "aulas", "onboarding.html")
+
+
+def _linha(semana, nome, peso, tipo="Autoestudo", aluno="A", grupo="G01", ativo="Sim", data=""):
+    return {"Atividade_Semana": semana, "Atividade_Nome": nome, "Atividade_Peso": peso,
+            "Atividade_Tipo": tipo, "Atividade_Professor_Nome": "", "Atividade_Data_Inicio": data,
+            "Aluno_Nome": aluno, "Grupo_Nome": grupo, "Aluno_Ativo_Na_Turma": ativo}
+
+
+def test_sexta_e_sprint_da_semana():
+    assert extrair_lbl.sexta_da_semana("Semana 01") == datetime.date(2026, 10, 16)
+    assert extrair_lbl.sexta_da_semana("Semana 06") == datetime.date(2026, 11, 20)
+    assert [extrair_lbl.sprint_da_semana("Semana %02d" % n) for n in range(1, 11)] == \
+        [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+
+
+def test_ponderadas_ignora_peso_zero_e_deduplica_por_aluno():
+    linhas = [_linha("Semana 02", "X", "4", aluno="A"), _linha("Semana 02", "X", "4", aluno="B"),
+              _linha("Semana 02", "Leitura", "0"), _linha("Semana 02", "Vazia", "")]
+    out = extrair_lbl.ponderadas(linhas)
+    assert [a["nome"] for a in out] == ["X"]
+    assert out[0]["data"] == "23/10/2026" and out[0]["sprint"] == 1
+
+
+def test_grupos_so_alunos_ativos_em_ordem():
+    linhas = [_linha("Semana 01", "a", "0", aluno="Zoe", grupo="G02"),
+              _linha("Semana 01", "a", "0", aluno="Ana", grupo="G02"),
+              _linha("Semana 01", "b", "0", aluno="Ana", grupo="G02"),
+              _linha("Semana 01", "a", "0", aluno="Saiu", grupo="G01", ativo="Não")]
+    assert extrair_lbl.grupos(linhas) == {"G02": ["Ana", "Zoe"]}
+
+
+def test_slide_de_entregas_bate_com_o_csv():
+    ativ = list(csv.DictReader(open(os.path.join(RAIZ, "dados", "atividades_ponderadas.csv"),
+                                    encoding="utf-8")))
+    assert sum(float(a["peso"]) for a in ativ) == 100
+    html_deck = open(DECK_ONB, encoding="utf-8").read()
+    for a in ativ:
+        trecho = '<span class="item-nome">%s</span> <span class="item-meta">%.0f%% &middot; %s</span>' % (
+            a["nome"], float(a["peso"]), a["data"][:5])
+        assert trecho in html_deck, a["nome"]
+
+
+def test_parceiro_se_chama_brazilian_army():
+    html_deck = open(DECK_ONB, encoding="utf-8").read()
+    assert "<h3>Brazilian Army</h3>" in html_deck
+    assert not re.search(r"Arm[ée]e|Exército Brasileiro", html_deck)
+
+
+def test_slide_de_grupos_lista_todos_os_alunos(servidor, pagina):
+    pagina.goto(servidor + "/aulas/onboarding.html?lang=en", wait_until="networkidle")
+    nomes = pagina.evaluate(
+        "[...document.querySelectorAll('section[data-local=grupos] .grupo-col li')].map(e => e.textContent)")
+    esperado = pagina.evaluate("Object.values(window.SI08_GRUPOS).flat()")
+    assert nomes and sorted(nomes) == sorted(esperado)
+    assert pagina.evaluate("Reveal.getTotalSlides()") == 14
+
+
+def test_sem_dados_de_grupo_o_slide_some_sem_mexer_na_numeracao(servidor, pagina):
+    pagina.route("**/dados/grupos.js", lambda rota: rota.abort())
+    try:
+        pagina.goto(servidor + "/aulas/onboarding.html?lang=en", wait_until="networkidle")
+        assert pagina.evaluate("document.querySelectorAll('[data-local=grupos]').length") == 0
+        assert pagina.evaluate("Reveal.getTotalSlides()") == 13
+        rodapes = pagina.evaluate(
+            "[...document.querySelectorAll('.footer-page')].map(e => +e.textContent)")
+        assert rodapes == list(range(2, 2 + len(rodapes)))
+    finally:
+        pagina.unroute("**/dados/grupos.js")
