@@ -162,3 +162,9 @@ html[data-lang="fr"] [data-l]:not([data-l="fr"]) {
 }
 
 .reveal .drive-link a { color: var(--seg-texto); }
+
+/* ---------- Calendario ----------
+   As quatro Sprint Reviews ganham peso de fonte para se separar dos marcos
+   administrativos (inicio, kickoff, fim). */
+.reveal .calendario td { padding-top: 7px; padding-bottom: 7px; }
+.reveal .calendario tr.marco-review td { font-weight: 700; }
