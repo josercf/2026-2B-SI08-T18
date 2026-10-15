@@ -1,15 +1,223 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
-  <title>SI08 T18 &middot; Orientation</title>
-  <script>
-    // Preserva ?lang= ao redirecionar para o deck
-    window.location.replace("aulas/onboarding.html" + window.location.search);
-  </script>
-  <meta http-equiv="refresh" content="0; url=aulas/onboarding.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SI08 T18 &middot; Module 08</title>
+
+  <!-- Portal do modulo: centraliza os decks e os links da turma. Trilingue
+       como os decks (ADR-001). Datas copiadas do slide de calendario do
+       onboarding; tools/tests/test_index.py confere que batem. -->
+
+  <script src="assets/js/idioma.js"></script>
+  <link rel="stylesheet" href="assets/css/inteli-brand.css">
+  <link rel="stylesheet" href="assets/css/orientacao.css">
+  <link rel="stylesheet" href="assets/css/portal.css">
 </head>
-<body>
-  <p><a href="aulas/onboarding.html">Module 08 onboarding</a></p>
+<body class="portal">
+  <header class="portal-topo">
+    <div class="portal-largura">
+      <img class="portal-logo" src="assets/img/inteli-logo-negativa.svg" alt="Inteli">
+      <p class="portal-eyebrow">
+        <span data-l="en">Information Systems &middot; Module 08 &middot; Class T18 &middot; 2026-2B</span>
+        <span data-l="pt">Sistemas de Informação &middot; Módulo 08 &middot; Turma T18 &middot; 2026-2B</span>
+        <span data-l="fr">Systèmes d'information &middot; Module 08 &middot; Classe T18 &middot; 2026-2B</span>
+      </p>
+      <h1>Integration, management, and analysis of big data</h1>
+      <p class="portal-sub">
+        <span data-l="en">Project partner: Brazilian Army, Southeastern Military Command (CMSE)</span>
+        <span data-l="pt">Parceiro do projeto: Brazilian Army, Comando Militar do Sudeste (CMSE)</span>
+        <span data-l="fr">Partenaire du projet : Brazilian Army, Commandement militaire du Sud-Est (CMSE)</span>
+      </p>
+    </div>
+  </header>
+
+  <main class="portal-largura">
+    <section class="portal-secao">
+      <h2>
+        <span data-l="en">Module materials</span>
+        <span data-l="pt">Materiais do módulo</span>
+        <span data-l="fr">Supports du module</span>
+      </h2>
+      <div class="deck-lista">
+        <article class="deck-cartao" data-deck="aulas/onboarding.html">
+          <div class="deck-icone"><span class="material-symbols-outlined" aria-hidden="true">flag</span></div>
+          <div class="deck-corpo">
+            <h3>
+              <span data-l="en">Module onboarding</span>
+              <span data-l="pt">Abertura do módulo</span>
+              <span data-l="fr">Ouverture du module</span>
+            </h3>
+            <p>
+              <span data-l="en">Teaching team, partner and MVP scope, calendar, deliverables and weights, individual assessment, agreements, and project groups.</span>
+              <span data-l="pt">Equipe docente, parceiro e escopo do MVP, calendário, entregas e pesos, avaliação individual, combinados e grupos do projeto.</span>
+              <span data-l="fr">Équipe pédagogique, partenaire et périmètre du MVP, calendrier, livrables et poids, évaluation individuelle, règles et groupes du projet.</span>
+            </p>
+            <p class="deck-links">
+              <a class="botao" href="aulas/onboarding.html?lang=en">EN</a>
+              <a class="botao" href="aulas/onboarding.html?lang=pt">PT</a>
+              <a class="botao" href="aulas/onboarding.html?lang=fr">FR</a>
+            </p>
+          </div>
+        </article>
+        <article class="deck-cartao" data-deck="aulas/planning-gitlab.html">
+          <div class="deck-icone"><span class="material-symbols-outlined" aria-hidden="true">view_kanban</span></div>
+          <div class="deck-corpo">
+            <h3>
+              <span data-l="en">Planning and project management in GitLab</span>
+              <span data-l="pt">Planning e gestão de projeto no GitLab</span>
+              <span data-l="fr">Planning et gestion de projet dans GitLab</span>
+            </h3>
+            <p>
+              <span data-l="en">Kickoff and planning, T-shirt estimation, task breakdown by value, DoR and DoD, daily and Scrum Master, WIP, throughput, code review pyramid, semantic commits, and merge requests.</span>
+              <span data-l="pt">Kickoff e planning, estimativa T-shirt, corte de tarefas por valor, DoR e DoD, daily e scrum master, WIP, throughput, pirâmide de code review, commits semânticos e merge requests.</span>
+              <span data-l="fr">Kickoff et planning, estimation T-shirt, découpage par valeur, DoR et DoD, daily et Scrum Master, WIP, throughput, pyramide de revue de code, commits sémantiques et merge requests.</span>
+            </p>
+            <p class="deck-links">
+              <a class="botao" href="aulas/planning-gitlab.html?lang=en">EN</a>
+              <a class="botao" href="aulas/planning-gitlab.html?lang=pt">PT</a>
+              <a class="botao" href="aulas/planning-gitlab.html?lang=fr">FR</a>
+            </p>
+          </div>
+        </article>
+      </div>
+      <p class="portal-nota">
+        <span data-l="en">In the presentation, press <kbd>L</kbd> to switch language. To save a PDF, add <code>&amp;print-pdf</code> to the address and print with zero margins and background graphics on.</span>
+        <span data-l="pt">Na apresentação, a tecla <kbd>L</kbd> troca o idioma. Para salvar em PDF, acrescente <code>&amp;print-pdf</code> ao endereço e imprima com margem zero e gráficos de fundo ligados.</span>
+        <span data-l="fr">Pendant la présentation, la touche <kbd>L</kbd> change la langue. Pour enregistrer en PDF, ajoutez <code>&amp;print-pdf</code> à l'adresse et imprimez sans marges, graphiques d'arrière-plan activés.</span>
+      </p>
+    </section>
+
+    <section class="portal-secao">
+      <h2>
+        <span data-l="en">Sprint calendar</span>
+        <span data-l="pt">Calendário das sprints</span>
+        <span data-l="fr">Calendrier des sprints</span>
+      </h2>
+      <table class="portal-tabela">
+        <thead>
+          <tr>
+            <th>Sprint</th>
+            <th>
+              <span data-l="en">Period</span>
+              <span data-l="pt">Período</span>
+              <span data-l="fr">Période</span>
+            </th>
+            <th>
+              <span data-l="en">Artifact</span>
+              <span data-l="pt">Artefato</span>
+              <span data-l="fr">Livrable</span>
+            </th>
+            <th>
+              <span data-l="en">Presentation due, 6 pm</span>
+              <span data-l="pt">Envio da apresentação, 18h</span>
+              <span data-l="fr">Envoi de la présentation, 18 h</span>
+            </th>
+            <th>Sprint Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="sprint-num">1</span></td>
+            <td class="periodo">14/10 &ndash; 23/10</td>
+            <td>
+              <span data-l="en">User and business understanding</span>
+              <span data-l="pt">Entendimento do usuário e do negócio</span>
+              <span data-l="fr">Compréhension de l'utilisateur et du métier</span>
+            </td>
+            <td class="envio">21/10</td>
+            <td class="review">23/10</td>
+          </tr>
+          <tr>
+            <td><span class="sprint-num">2</span></td>
+            <td class="periodo">26/10 &ndash; 06/11</td>
+            <td>
+              <span data-l="en">Data ingestion system</span>
+              <span data-l="pt">Sistema de ingestão de dados</span>
+              <span data-l="fr">Système d'ingestion des données</span>
+            </td>
+            <td class="envio">04/11</td>
+            <td class="review">06/11</td>
+          </tr>
+          <tr>
+            <td><span class="sprint-num">3</span></td>
+            <td class="periodo">09/11 &ndash; 19/11</td>
+            <td>
+              <span data-l="en">Data lake or data warehouse</span>
+              <span data-l="pt">Data lake ou data warehouse</span>
+              <span data-l="fr">Data lake ou data warehouse</span>
+            </td>
+            <td class="envio">18/11</td>
+            <td class="review">19/11</td>
+          </tr>
+          <tr>
+            <td><span class="sprint-num">4</span></td>
+            <td class="periodo">23/11 &ndash; 04/12</td>
+            <td>
+              <span data-l="en">Statistical analysis without refinement</span>
+              <span data-l="pt">Análise estatística sem refinamento</span>
+              <span data-l="fr">Analyse statistique sans raffinement</span>
+            </td>
+            <td class="envio">02/12</td>
+            <td class="review">04/12</td>
+          </tr>
+          <tr>
+            <td><span class="sprint-num">5</span></td>
+            <td class="periodo">07/12 &ndash; 18/12</td>
+            <td>
+              <span data-l="en">Infographic based on statistical analysis</span>
+              <span data-l="pt">Infográfico baseado na análise estatística</span>
+              <span data-l="fr">Infographie fondée sur l'analyse statistique</span>
+            </td>
+            <td class="envio">16/12</td>
+            <td class="review">18/12</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="portal-nota">
+        <span data-l="en">Module exam: 11/12. Artifacts count only when on the <code>main</code> branch by 11:59 pm on the review date.</span>
+        <span data-l="pt">Prova do módulo: 11/12. Artefatos valem apenas na branch <code>main</code> até 23h59 da data da review.</span>
+        <span data-l="fr">Examen du module : 11/12. Les livrables ne comptent que sur la branche <code>main</code> avant 23 h 59 le jour de la review.</span>
+      </p>
+    </section>
+
+    <section class="portal-secao">
+      <h2>
+        <span data-l="en">Class links</span>
+        <span data-l="pt">Links da turma</span>
+        <span data-l="fr">Liens de la classe</span>
+      </h2>
+      <ul class="portal-links">
+        <li>
+          <span class="material-symbols-outlined" aria-hidden="true">folder_shared</span>
+          <a href="https://drive.google.com/drive/folders/1OXLzMqSUUbv08GYSl7mc4imtuCU219Xd" target="_blank" rel="noopener">
+            <span data-l="en">Class Drive and partner materials</span>
+            <span data-l="pt">Drive da turma e material do parceiro</span>
+            <span data-l="fr">Drive de la classe et documents du partenaire</span>
+          </a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+          <a href="https://www.morling.dev/blog/the-code-review-pyramid/" target="_blank" rel="noopener">The Code Review Pyramid (Gunnar Morling)</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+          <a href="https://about.gitlab.com/pt-br/topics/version-control/what-is-code-review/" target="_blank" rel="noopener">GitLab: what is code review?</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+          <a href="https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/" target="_blank" rel="noopener">Swarmia: a complete guide to code reviews</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="portal-rodape">
+    <div class="portal-largura">
+      <span data-l="en">Prof. José Romualdo &middot; Project advisor &middot; SI08 T18 &middot; 2026-2B</span>
+      <span data-l="pt">Prof. José Romualdo &middot; Orientação &middot; SI08 T18 &middot; 2026-2B</span>
+      <span data-l="fr">Prof. José Romualdo &middot; Orientation du projet &middot; SI08 T18 &middot; 2026-2B</span>
+    </div>
+  </footer>
 </body>
 </html>

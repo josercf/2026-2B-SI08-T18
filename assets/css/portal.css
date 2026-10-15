@@ -1,0 +1,176 @@
+/* Portal do modulo (index.html): pagina comum, fora do Reveal.js.
+   Mesma regra do tema: nenhuma cor literal e nenhum font-family aqui.
+   Verificado por tools/check_brand.py. */
+
+body.portal {
+  margin: 0;
+  background: var(--seg-base);
+  color: var(--seg-texto);
+  line-height: 1.5;
+}
+
+.portal-largura {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Topo ---------- */
+.portal-topo {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  padding: 72px 0 44px;
+  border-bottom: 6px solid var(--seg-secundaria);
+}
+.portal-logo { width: 96px; display: block; margin-bottom: 28px; }
+.portal-eyebrow {
+  margin: 0;
+  font-size: var(--escala-complementar);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--seg-secundaria);
+}
+.portal-topo h1 {
+  margin: 10px 0 8px;
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--inteli-branco);
+}
+.portal-sub { margin: 0; font-size: 17px; }
+
+/* ---------- Secoes ---------- */
+.portal-secao { padding: 40px 0 8px; }
+.portal-secao h2 {
+  margin: 0 0 18px;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.portal-secao h2::before {
+  content: "";
+  width: 40px;
+  height: 4px;
+  background: var(--seg-destaque);
+  display: inline-block;
+}
+
+/* ---------- Decks ---------- */
+.deck-lista { display: grid; gap: 16px; }
+.deck-cartao {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  align-items: start;
+  border: 1px solid var(--seg-borda);
+  border-left: 5px solid var(--seg-secundaria);
+  border-radius: 14px;
+  padding: 20px 24px;
+  background: var(--seg-base);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.deck-cartao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--seg-primaria) 14%, transparent);
+}
+.deck-icone {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--seg-primaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deck-icone .material-symbols-outlined { font-size: 32px; color: var(--seg-secundaria); }
+.deck-corpo h3 { margin: 0 0 6px; font-size: 22px; }
+.deck-corpo p { margin: 0 0 12px; font-size: 16px; }
+.deck-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.botao {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--seg-primaria);
+  color: var(--seg-primaria);
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.botao:hover,
+.botao:focus-visible { background: var(--seg-primaria); color: var(--inteli-branco); }
+
+.portal-nota { font-size: 15px; margin: 14px 0 0; }
+.portal-nota kbd,
+.portal-nota code {
+  background: var(--seg-superficie);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+/* ---------- Calendario ---------- */
+.portal-tabela {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--seg-borda);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 15px;
+}
+.portal-tabela th {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  text-align: left;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+.portal-tabela td {
+  padding: 10px 14px;
+  border-top: 1px solid var(--seg-borda);
+  vertical-align: top;
+}
+.portal-tabela tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--seg-superficie) 55%, var(--inteli-branco));
+}
+.portal-tabela .review { font-weight: 800; }
+.sprint-num {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
+  font-weight: 800;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Links ---------- */
+.portal-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.portal-links li { display: flex; align-items: center; gap: 10px; font-size: 16px; }
+.portal-links .material-symbols-outlined { color: var(--seg-destaque); font-size: 22px; }
+.portal-links a { color: var(--seg-primaria); font-weight: 600; }
+
+.portal-rodape {
+  margin-top: 48px;
+  padding: 20px 0;
+  border-top: 1px solid var(--seg-borda);
+  font-size: var(--escala-complementar);
+}
+
+/* ---------- Telas estreitas ---------- */
+@media (max-width: 720px) {
+  .portal-topo { padding-top: 64px; }
+  .portal-topo h1 { font-size: 30px; }
+  .deck-cartao { grid-template-columns: 1fr; }
+  .portal-tabela { display: block; overflow-x: auto; }
+}
+
+/* O botao de idioma ativo do idioma.js e roxo, e sumiria sobre o topo roxo. */
+.portal .lang-switch button[aria-pressed="true"] {
+  background: var(--seg-secundaria);
+  color: var(--seg-primaria);
+  border-color: var(--seg-secundaria);
+}

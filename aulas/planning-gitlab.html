@@ -1,0 +1,2627 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning and GitLab &middot; SI08 T18</title>
+
+  <!-- Orientacao SI08 T18, 2026-2B. Regras de kickoff, planning, daily e code
+       review definidas pelo orientador em 15/10/2026. Deck trilingue (ADR-001)
+       com ilustracoes SVG animadas so com CSS (ADR-004): autoplay quando o
+       slide entra e passos controlados pelos fragments da legenda. Com
+       movimento reduzido ou no PDF, cada ilustracao mostra o estado final. -->
+
+  <script src="../assets/js/idioma.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="../assets/css/inteli-brand.css">
+  <link rel="stylesheet" href="../assets/css/inteli-theme.css">
+  <link rel="stylesheet" href="../assets/css/orientacao.css">
+  <link rel="stylesheet" href="../assets/css/planning-anim.css">
+  <link rel="stylesheet" href="../assets/css/inteli-print.css" media="print">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 - Capa -->
+      <section class="cover-slide">
+        <div class="cover-panel">
+          <div class="cover-content">
+            <div class="cover-brand-mark">
+              <img src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+            </div>
+            <p class="cover-eyebrow">
+              <span data-l="en">Information Systems &middot; Module 08 &middot; Class T18 &middot; 2026-2B</span>
+              <span data-l="pt">Sistemas de Informação &middot; Módulo 08 &middot; Turma T18 &middot; 2026-2B</span>
+              <span data-l="fr">Systèmes d'information &middot; Module 08 &middot; Classe T18 &middot; 2026-2B</span>
+            </p>
+            <div class="cover-accent"></div>
+            <h1>
+              <span data-l="en">Planning and project management in GitLab</span>
+              <span data-l="pt">Planning e gestão de projeto no GitLab</span>
+              <span data-l="fr">Planning et gestion de projet dans GitLab</span>
+            </h1>
+            <h3>
+              <span data-l="en">Kickoff, estimation, daily, and code review</span>
+              <span data-l="pt">Kickoff, estimativa, daily e code review</span>
+              <span data-l="fr">Kickoff, estimation, daily et revue de code</span>
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 - Agenda -->
+      <section class="content-slide agenda-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Agenda</span>
+            <span data-l="pt">Agenda</span>
+            <span data-l="fr">Ordre du jour</span>
+          </h2>
+        </div>
+        <ol class="agenda-list">
+          <li>
+            <span data-l="en">The cycle of a task in GitLab</span>
+            <span data-l="pt">O ciclo de uma tarefa no GitLab</span>
+            <span data-l="fr">Le cycle d'une tâche dans GitLab</span>
+          </li>
+          <li>
+            <span data-l="en">Kickoff and sprint planning</span>
+            <span data-l="pt">Kickoff e planning da sprint</span>
+            <span data-l="fr">Kickoff et planning du sprint</span>
+          </li>
+          <li>
+            <span data-l="en">T-shirt estimation and task breakdown by value</span>
+            <span data-l="pt">Estimativa T-shirt e corte de tarefas por valor</span>
+            <span data-l="fr">Estimation T-shirt et découpage des tâches par valeur</span>
+          </li>
+          <li>
+            <span data-l="en">Minimum board, DoR, and DoD</span>
+            <span data-l="pt">Quadro mínimo, DoR e DoD</span>
+            <span data-l="fr">Tableau minimum, DoR et DoD</span>
+          </li>
+          <li>
+            <span data-l="en">Daily, Scrum Master, WIP, and throughput</span>
+            <span data-l="pt">Daily, scrum master, WIP e throughput</span>
+            <span data-l="fr">Daily, Scrum Master, WIP et throughput</span>
+          </li>
+          <li>
+            <span data-l="en">Flow rule: close reviews before pulling</span>
+            <span data-l="pt">Regra de fluxo: fechar revisões antes de puxar</span>
+            <span data-l="fr">Règle de flux : clôturer les revues avant de tirer</span>
+          </li>
+          <li>
+            <span data-l="en">Code review and the review pyramid</span>
+            <span data-l="pt">Code review e a pirâmide de revisão</span>
+            <span data-l="fr">Revue de code et pyramide de revue</span>
+          </li>
+          <li>
+            <span data-l="en">Semantic commits and merge requests</span>
+            <span data-l="pt">Commits semânticos e merge requests</span>
+            <span data-l="fr">Commits sémantiques et merge requests</span>
+          </li>
+          <li>
+            <span data-l="en">Sprint planning checklist</span>
+            <span data-l="pt">Checklist da planning da sprint</span>
+            <span data-l="fr">Checklist du planning du sprint</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">2</p>
+        </div>
+      </section>
+
+      <!-- 3 - Ciclo da tarefa no GitLab (7 passos) -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">A task crosses the board and the repository in seven steps</span>
+            <span data-l="pt">Uma tarefa atravessa o quadro e o repositório em sete passos</span>
+            <span data-l="fr">Une tâche traverse le tableau et le dépôt en sept étapes</span>
+          </h2>
+        </div>
+        <svg class="ilus ciclo" viewBox="0 0 1168 366" role="img" aria-label="GitLab task cycle">
+          <g class="col-0">
+            <rect class="coluna-fundo f-sup-claro s-borda" x="0" y="0" width="224" height="160" rx="12" stroke-width="2"/>
+            <text class="t-bold" x="16" y="28">Backlog</text>
+          </g>
+          <g class="col-1">
+            <rect class="coluna-fundo f-sup-claro s-borda" x="236" y="0" width="224" height="160" rx="12" stroke-width="2"/>
+            <text class="t-bold" x="252" y="28">Doing</text>
+          </g>
+          <g class="col-2">
+            <rect class="coluna-fundo f-sup-claro s-borda" x="472" y="0" width="224" height="160" rx="12" stroke-width="2"/>
+            <text class="t-bold" x="488" y="28">Waiting review</text>
+          </g>
+          <g class="col-3">
+            <rect class="coluna-fundo f-sup-claro s-borda" x="708" y="0" width="224" height="160" rx="12" stroke-width="2"/>
+            <text class="t-bold" x="724" y="28">Review</text>
+          </g>
+          <g class="col-4">
+            <rect class="coluna-fundo f-sup-claro s-borda" x="944" y="0" width="224" height="160" rx="12" stroke-width="2"/>
+            <text class="t-bold" x="960" y="28">Done</text>
+          </g>
+
+          <g class="card-tarefa move">
+            <rect class="card-fundo f-branco s-roxo" x="0" y="0" width="200" height="94" rx="10" stroke-width="1.5"/>
+            <text class="mono t-bold" x="14" y="26">#12</text>
+            <g>
+              <text data-l="en" class="t-sm" x="14" y="50">Load the Jan 2014 batch</text>
+              <text data-l="pt" class="t-sm" x="14" y="50">Carregar o lote de jan/2014</text>
+              <text data-l="fr" class="t-sm" x="14" y="50">Charger le lot de janv. 2014</text>
+            </g>
+            <rect class="f-verde-claro" x="14" y="62" width="104" height="22" rx="11"/>
+            <text class="mono t-sm" x="25" y="78">M &middot; 30 min</text>
+            <g class="autor move">
+              <circle class="f-roxo" cx="176" cy="72" r="14"/>
+              <text class="t-sm t-bold t-branco t-meio" x="176" y="77">A</text>
+            </g>
+            <g class="fechada move">
+              <circle class="f-verde" cx="178" cy="22" r="13"/>
+              <path class="s-roxo sem-fill" d="M171 22 l5 5 l9 -10" stroke-width="2.5"/>
+            </g>
+          </g>
+
+          <g transform="translate(0 -14)">
+          <line class="s-roxo" x1="60" y1="340" x2="1160" y2="340" stroke-width="4"/>
+          <text class="mono t-bold" x="0" y="345">main</text>
+          <circle class="f-roxo" cx="120" cy="340" r="8"/>
+          <path class="ramo desenha s-verde sem-fill" pathLength="1" d="M120 340 C 180 340 180 250 240 250 L 690 250" stroke-width="4"/>
+          <text class="ramo-rotulo mono t-sm" x="250" y="236">12-load-jan-2014</text>
+          <g class="commits">
+            <g class="commit move">
+              <circle class="f-branco s-verde" cx="380" cy="250" r="9" stroke-width="4"/>
+              <text class="mono t-sm t-meio" x="380" y="282">feat #12</text>
+            </g>
+            <g class="commit move">
+              <circle class="f-branco s-verde" cx="480" cy="250" r="9" stroke-width="4"/>
+              <text class="mono t-sm t-meio" x="480" y="282">test #12</text>
+            </g>
+            <g class="commit move">
+              <circle class="f-branco s-verde" cx="580" cy="250" r="9" stroke-width="4"/>
+              <text class="mono t-sm t-meio" x="580" y="282">docs #12</text>
+            </g>
+          </g>
+          <g class="mr move">
+            <rect class="f-roxo" x="690" y="226" width="120" height="48" rx="24"/>
+            <text class="t-bold t-branco t-meio" x="750" y="256">MR !7</text>
+          </g>
+          </g>
+          <g class="revisor move">
+                        <circle class="f-verde" cx="750" cy="190" r="20"/>
+            <text class="t-bold t-meio" x="750" y="196">R</text>
+            <g>
+              <text data-l="en" class="t-sm" x="778" y="196">reviewer &ne; author</text>
+              <text data-l="pt" class="t-sm" x="778" y="196">revisor &ne; autor</text>
+              <text data-l="fr" class="t-sm" x="778" y="196">relecteur &ne; auteur</text>
+            </g>
+          </g>
+          <g transform="translate(0 -14)">
+          <g class="aprovado move">
+            <circle class="f-verde s-roxo" cx="812" cy="228" r="13" stroke-width="2"/>
+            <path class="s-roxo sem-fill" d="M805 228 l5 5 l9 -10" stroke-width="2.5"/>
+          </g>
+          <path class="merge desenha s-roxo sem-fill" pathLength="1" d="M810 250 C 870 250 870 340 930 340" stroke-width="4"/>
+          <g class="merge-ponto move">
+            <circle class="f-verde s-roxo" cx="930" cy="340" r="10" stroke-width="3"/>
+            <text class="mono t-sm" x="946" y="326">merge</text>
+          </g>
+          </g>
+        </svg>
+        <ol class="passos-legenda" style="--n-passos: 7">
+          <li class="fragment">
+            <span class="passo-num">01</span>
+            <span data-l="en">Issue #12 moves to Doing</span>
+            <span data-l="pt">A issue #12 vai para Doing</span>
+            <span data-l="fr">L'issue #12 passe en Doing</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">02</span>
+            <span data-l="en">A branch is created from main</span>
+            <span data-l="pt">Nasce uma branch a partir da main</span>
+            <span data-l="fr">Une branche part de main</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">03</span>
+            <span data-l="en">Semantic commits cite #12</span>
+            <span data-l="pt">Commits semânticos citam #12</span>
+            <span data-l="fr">Des commits sémantiques citent #12</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">04</span>
+            <span data-l="en">MR opened, card in Waiting review</span>
+            <span data-l="pt">MR aberto, card em Waiting review</span>
+            <span data-l="fr">MR ouverte, carte en Waiting review</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">05</span>
+            <span data-l="en">Another member reviews the MR</span>
+            <span data-l="pt">Outro integrante revisa o MR</span>
+            <span data-l="fr">Un autre membre relit la MR</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">06</span>
+            <span data-l="en">Approved, the MR is merged into main</span>
+            <span data-l="pt">Aprovado, o MR entra na main</span>
+            <span data-l="fr">Approuvée, la MR est fusionnée dans main</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">07</span>
+            <span data-l="en">Issue #12 closed, card in Done</span>
+            <span data-l="pt">Issue #12 fechada, card em Done</span>
+            <span data-l="fr">Issue #12 fermée, carte en Done</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">3</p>
+        </div>
+      </section>
+
+      <!-- 4 - Kickoff e planning -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Kickoff and sprint planning</span>
+            <span data-l="pt">Kickoff e planning da sprint</span>
+            <span data-l="fr">Kickoff et planning du sprint</span>
+          </h2>
+        </div>
+        <svg class="ilus linha-sprints" viewBox="0 0 1168 176" role="img" aria-label="Five sprints with macro blocks">
+          <g>
+            <text class="t-bold" x="12" y="16">Sprint 1</text>
+            <g>
+              <text data-l="en" class="t-sm" x="12" y="36">User and business</text>
+              <text data-l="pt" class="t-sm" x="12" y="36">Usuário e negócio</text>
+              <text data-l="fr" class="t-sm" x="12" y="36">Utilisateur et métier</text>
+            </g>
+            <text class="rotulo-planning t-sm t-bold t-fim" x="212" y="16" style="fill: var(--seg-destaque)">Planning</text>
+            <rect class="raia-1 f-sup-claro s-borda" x="0" y="46" width="224" height="126" rx="12" stroke-width="2" style="transition: stroke 0.3s ease"/>
+            <rect class="bloco-macro macro-s1 f-roxo" x="14" y="60" width="196" height="26" rx="6" style="--i: 0; transition: opacity 0.4s ease"/>
+            <rect class="bloco-macro macro-s1 f-verde" x="14" y="96" width="196" height="26" rx="6" style="--i: 1; transition: opacity 0.4s ease"/>
+            <rect class="bloco-macro macro-s1 f-borda" x="14" y="132" width="196" height="26" rx="6" style="--i: 2; transition: opacity 0.4s ease"/>
+            <rect class="chip f-roxo move" x="14" y="58" width="44" height="26" rx="5" style="--i: 0"/>
+            <rect class="chip f-verde move" x="64" y="58" width="44" height="26" rx="5" style="--i: 1"/>
+            <rect class="chip f-verde move" x="114" y="58" width="44" height="26" rx="5" style="--i: 2"/>
+            <rect class="chip f-borda move" x="164" y="58" width="44" height="26" rx="5" style="--i: 3"/>
+            <rect class="chip f-verde move" x="14" y="96" width="44" height="26" rx="5" style="--i: 4"/>
+            <rect class="chip f-borda move" x="64" y="96" width="44" height="26" rx="5" style="--i: 5"/>
+            <rect class="chip f-roxo move" x="114" y="96" width="44" height="26" rx="5" style="--i: 6"/>
+            <rect class="chip f-verde move" x="164" y="96" width="44" height="26" rx="5" style="--i: 7"/>
+            <rect class="chip f-borda move" x="14" y="134" width="44" height="26" rx="5" style="--i: 8"/>
+            <rect class="chip f-verde move" x="64" y="134" width="44" height="26" rx="5" style="--i: 9"/>
+            <rect class="chip f-roxo move" x="114" y="134" width="44" height="26" rx="5" style="--i: 10"/>
+            <rect class="chip f-verde move" x="164" y="134" width="44" height="26" rx="5" style="--i: 11"/>
+          </g>
+          <g>
+            <text class="t-bold" x="248" y="16">Sprint 2</text>
+            <g>
+              <text data-l="en" class="t-sm" x="248" y="36">Data ingestion</text>
+              <text data-l="pt" class="t-sm" x="248" y="36">Ingestão de dados</text>
+              <text data-l="fr" class="t-sm" x="248" y="36">Ingestion des données</text>
+            </g>
+            <rect class="f-sup-claro s-borda" x="236" y="46" width="224" height="126" rx="12" stroke-width="2"/>
+            <rect class="bloco-macro f-roxo" x="250" y="60" width="196" height="26" rx="6" style="--i: 3"/>
+            <rect class="bloco-macro f-verde" x="250" y="96" width="196" height="26" rx="6" style="--i: 4"/>
+            <rect class="bloco-macro f-borda" x="250" y="132" width="196" height="26" rx="6" style="--i: 5"/>
+          </g>
+          <g>
+            <text class="t-bold" x="484" y="16">Sprint 3</text>
+            <g>
+              <text data-l="en" class="t-sm" x="484" y="36">Data lake or warehouse</text>
+              <text data-l="pt" class="t-sm" x="484" y="36">Data lake ou warehouse</text>
+              <text data-l="fr" class="t-sm" x="484" y="36">Data lake ou warehouse</text>
+            </g>
+            <rect class="f-sup-claro s-borda" x="472" y="46" width="224" height="126" rx="12" stroke-width="2"/>
+            <rect class="bloco-macro f-roxo" x="486" y="60" width="196" height="26" rx="6" style="--i: 6"/>
+            <rect class="bloco-macro f-verde" x="486" y="96" width="196" height="26" rx="6" style="--i: 7"/>
+            <rect class="bloco-macro f-borda" x="486" y="132" width="196" height="26" rx="6" style="--i: 8"/>
+          </g>
+          <g>
+            <text class="t-bold" x="720" y="16">Sprint 4</text>
+            <g>
+              <text data-l="en" class="t-sm" x="720" y="36">Statistical analysis</text>
+              <text data-l="pt" class="t-sm" x="720" y="36">Análise estatística</text>
+              <text data-l="fr" class="t-sm" x="720" y="36">Analyse statistique</text>
+            </g>
+            <rect class="f-sup-claro s-borda" x="708" y="46" width="224" height="126" rx="12" stroke-width="2"/>
+            <rect class="bloco-macro f-roxo" x="722" y="60" width="196" height="26" rx="6" style="--i: 9"/>
+            <rect class="bloco-macro f-verde" x="722" y="96" width="196" height="26" rx="6" style="--i: 10"/>
+            <rect class="bloco-macro f-borda" x="722" y="132" width="196" height="26" rx="6" style="--i: 11"/>
+          </g>
+          <g>
+            <text class="t-bold" x="956" y="16">Sprint 5</text>
+            <g>
+              <text data-l="en" class="t-sm" x="956" y="36">Infographic</text>
+              <text data-l="pt" class="t-sm" x="956" y="36">Infográfico</text>
+              <text data-l="fr" class="t-sm" x="956" y="36">Infographie</text>
+            </g>
+            <rect class="f-sup-claro s-borda" x="944" y="46" width="224" height="126" rx="12" stroke-width="2"/>
+            <rect class="bloco-macro f-roxo" x="958" y="60" width="196" height="26" rx="6" style="--i: 12"/>
+            <rect class="bloco-macro f-verde" x="958" y="96" width="196" height="26" rx="6" style="--i: 13"/>
+            <rect class="bloco-macro f-borda" x="958" y="132" width="196" height="26" rx="6" style="--i: 14"/>
+          </g>
+        </svg>
+        <table class="data-table planning-tabela">
+          <thead>
+            <tr>
+              <th></th>
+              <th>
+                Kickoff
+                <span class="th-data">
+                  <span data-l="en">Fri 16/10, all 5 sprints</span>
+                  <span data-l="pt">Sex 16/10, as 5 sprints</span>
+                  <span data-l="fr">Ven. 16/10, les 5 sprints</span>
+                </span>
+              </th>
+              <th class="fragment" data-fragment-index="1">
+                Planning
+                <span class="th-data">
+                  <span data-l="en">Start of each sprint</span>
+                  <span data-l="pt">Início de cada sprint</span>
+                  <span data-l="fr">Début de chaque sprint</span>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <span data-l="en">Horizon</span>
+                <span data-l="pt">Horizonte</span>
+                <span data-l="fr">Horizon</span>
+              </th>
+              <td>
+                <span data-l="en">The 9 weeks of the module</span>
+                <span data-l="pt">As 9 semanas do módulo</span>
+                <span data-l="fr">Les 9 semaines du module</span>
+              </td>
+              <td class="col-planning fragment" data-fragment-index="1">
+                <span data-l="en">The sprint that is starting</span>
+                <span data-l="pt">A sprint que está começando</span>
+                <span data-l="fr">Le sprint qui commence</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span data-l="en">Level of detail</span>
+                <span data-l="pt">Granularidade</span>
+                <span data-l="fr">Niveau de détail</span>
+              </th>
+              <td>
+                <span data-l="en">Macro tasks per sprint; details can come later</span>
+                <span data-l="pt">Tarefas macro por sprint; os detalhes podem vir depois</span>
+                <span data-l="fr">Tâches macro par sprint ; les détails viendront plus tard</span>
+              </td>
+              <td class="col-planning fragment" data-fragment-index="1">
+                <span data-l="en">Tasks of up to 120 minutes each</span>
+                <span data-l="pt">Tarefas de até 120 minutos cada</span>
+                <span data-l="fr">Tâches de 120 minutes maximum</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span data-l="en">Estimate</span>
+                <span data-l="pt">Estimativa</span>
+                <span data-l="fr">Estimation</span>
+              </th>
+              <td>
+                <span data-l="en">Not required</span>
+                <span data-l="pt">Não exigida</span>
+                <span data-l="fr">Non exigée</span>
+              </td>
+              <td class="col-planning fragment" data-fragment-index="1">
+                <span data-l="en">T-shirt size on every task, review included</span>
+                <span data-l="pt">Tamanho T-shirt em toda tarefa, com a revisão</span>
+                <span data-l="fr">Taille T-shirt sur chaque tâche, revue comprise</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span data-l="en">Board at the end</span>
+                <span data-l="pt">Quadro ao final</span>
+                <span data-l="fr">Tableau à la fin</span>
+              </th>
+              <td>
+                <span data-l="en">Macro backlog of what will be built</span>
+                <span data-l="pt">Backlog macro do que será construído</span>
+                <span data-l="fr">Backlog macro de ce qui sera construit</span>
+              </td>
+              <td class="col-planning fragment" data-fragment-index="1">
+                <span data-l="en">At least 1 task per student per development day</span>
+                <span data-l="pt">No mínimo 1 tarefa por aluno por dia de desenvolvimento</span>
+                <span data-l="fr">Au moins 1 tâche par étudiant et par jour de développement</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">4</p>
+        </div>
+      </section>
+
+      <!-- 5 - Estimativa T-shirt -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Every task fits in 120 minutes and plans its own review</span>
+            <span data-l="pt">Toda tarefa cabe em 120 minutos e prevê a própria revisão</span>
+            <span data-l="fr">Chaque tâche tient en 120 minutes et prévoit sa revue</span>
+          </h2>
+        </div>
+        <div class="tshirt-grid">
+          <svg class="ilus barras" viewBox="0 0 760 340" role="img" aria-label="T-shirt sizes with review time">
+            <rect class="f-roxo" x="0" y="4" width="16" height="16" rx="3"/>
+            <g>
+              <text data-l="en" x="24" y="18">Task</text>
+              <text data-l="pt" x="24" y="18">Tarefa</text>
+              <text data-l="fr" x="24" y="18">Tâche</text>
+            </g>
+            <rect class="f-verde" x="110" y="4" width="16" height="16" rx="3"/>
+            <g>
+              <text data-l="en" x="134" y="18">Review</text>
+              <text data-l="pt" x="134" y="18">Revisão</text>
+              <text data-l="fr" x="134" y="18">Revue</text>
+            </g>
+            <line class="s-coral" x1="388" y1="40" x2="388" y2="336" stroke-width="2" stroke-dasharray="6 5"/>
+            <g>
+              <text data-l="en" class="t-sm t-bold" x="394" y="36" style="fill: var(--seg-destaque)">120 min ceiling</text>
+              <text data-l="pt" class="t-sm t-bold" x="394" y="36" style="fill: var(--seg-destaque)">teto de 120 min</text>
+              <text data-l="fr" class="t-sm t-bold" x="394" y="36" style="fill: var(--seg-destaque)">plafond de 120 min</text>
+            </g>
+
+            <g class="barra" data-tarefa="15" data-revisao="15" style="--i: 0">
+              <rect class="f-roxo" x="0" y="52" width="60" height="40" rx="20"/>
+              <g>
+                <text data-l="en" class="t-lg t-branco t-meio" x="30" y="79">S</text>
+                <text data-l="pt" class="t-lg t-branco t-meio" x="30" y="79">P</text>
+                <text data-l="fr" class="t-lg t-branco t-meio" x="30" y="79">S</text>
+              </g>
+              <rect class="barra-tarefa f-roxo" x="76" y="59" width="39" height="26" rx="4"/>
+              <rect class="barra-revisao f-verde" x="119" y="59" width="39" height="26" rx="4"/>
+              <text class="barra-total mono" x="170" y="78">15 + 15 = 30 min</text>
+            </g>
+            <g class="barra" data-tarefa="30" data-revisao="15" style="--i: 1">
+              <rect class="f-roxo" x="0" y="126" width="60" height="40" rx="20"/>
+              <text class="t-lg t-branco t-meio" x="30" y="153">M</text>
+              <rect class="barra-tarefa f-roxo" x="76" y="133" width="78" height="26" rx="4"/>
+              <rect class="barra-revisao f-verde" x="158" y="133" width="39" height="26" rx="4"/>
+              <text class="barra-total mono" x="209" y="152">30 + 15 = 45 min</text>
+            </g>
+            <g class="barra" data-tarefa="60" data-revisao="30" style="--i: 2">
+              <rect class="f-roxo" x="0" y="200" width="60" height="40" rx="20"/>
+              <g>
+                <text data-l="en" class="t-lg t-branco t-meio" x="30" y="227">L</text>
+                <text data-l="pt" class="t-lg t-branco t-meio" x="30" y="227">G</text>
+                <text data-l="fr" class="t-lg t-branco t-meio" x="30" y="227">L</text>
+              </g>
+              <rect class="barra-tarefa f-roxo" x="76" y="207" width="156" height="26" rx="4"/>
+              <rect class="barra-revisao f-verde" x="236" y="207" width="78" height="26" rx="4"/>
+              <text class="barra-total mono" x="326" y="226">60 + 30 = 90 min</text>
+            </g>
+            <g class="barra" data-tarefa="120" data-revisao="60" style="--i: 3">
+              <rect class="f-roxo" x="0" y="274" width="60" height="40" rx="20"/>
+              <g>
+                <text data-l="en" class="t-lg t-branco t-meio" x="30" y="301">XL</text>
+                <text data-l="pt" class="t-lg t-branco t-meio" x="30" y="301">GG</text>
+                <text data-l="fr" class="t-lg t-branco t-meio" x="30" y="301">XL</text>
+              </g>
+              <rect class="barra-tarefa f-roxo" x="76" y="281" width="312" height="26" rx="4"/>
+              <rect class="barra-revisao f-verde" x="392" y="281" width="156" height="26" rx="4"/>
+              <text class="barra-total mono" x="560" y="300">120 + 60 = 180 min</text>
+            </g>
+          </svg>
+          <div>
+            <div class="regra-cartao">
+              <h4>
+                <span class="material-symbols-outlined" aria-hidden="true">rate_review</span>
+                <span data-l="en">Review time</span>
+                <span data-l="pt">Tempo de revisão</span>
+                <span data-l="fr">Temps de revue</span>
+              </h4>
+              <p>
+                <span data-l="en">An S task gets an S review. From M upward, the review takes at least half of the task estimate.</span>
+                <span data-l="pt">Tarefa P tem revisão P. De M para cima, a revisão leva pelo menos metade da estimativa da tarefa.</span>
+                <span data-l="fr">Une tâche S a une revue S. À partir de M, la revue prend au moins la moitié de l'estimation.</span>
+              </p>
+            </div>
+            <div class="regra-cartao alerta">
+              <h4>
+                <span class="material-symbols-outlined" aria-hidden="true">timer</span>
+                <span data-l="en">120-minute ceiling</span>
+                <span data-l="pt">Teto de 120 minutos</span>
+                <span data-l="fr">Plafond de 120 minutes</span>
+              </h4>
+              <p>
+                <span data-l="en">No task goes beyond XL. A longer task is not refined enough yet.</span>
+                <span data-l="pt">Nenhuma tarefa passa de GG. Tarefa mais longa ainda não está refinada.</span>
+                <span data-l="fr">Aucune tâche ne dépasse XL. Une tâche plus longue n'est pas encore assez affinée.</span>
+              </p>
+            </div>
+            <div class="regra-cartao">
+              <h4>
+                <span class="material-symbols-outlined" aria-hidden="true">add_task</span>
+                <span data-l="en">Planned total</span>
+                <span data-l="pt">Total planejado</span>
+                <span data-l="fr">Total planifié</span>
+              </h4>
+              <p>
+                <span data-l="en">Each task enters the planning with its own time plus its review time.</span>
+                <span data-l="pt">Cada tarefa entra na planning com o próprio tempo somado ao da revisão.</span>
+                <span data-l="fr">Chaque tâche entre dans le planning avec son temps et celui de sa revue.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">5</p>
+        </div>
+      </section>
+
+      <!-- 6 - Dividir a tarefa acima de 120 min -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">A task above 120 minutes is split into 60-minute tasks</span>
+            <span data-l="pt">Tarefa acima de 120 minutos se divide em tarefas de 60</span>
+            <span data-l="fr">Une tâche de plus de 120 minutes se divise en tâches de 60</span>
+          </h2>
+        </div>
+        <svg class="ilus divide" viewBox="0 0 1168 250" role="img" aria-label="Splitting a task above 120 minutes">
+          <g>
+            <text data-l="en" class="t-bold" x="0" y="68">Estimated</text>
+            <text data-l="pt" class="t-bold" x="0" y="68">Estimada</text>
+            <text data-l="fr" class="t-bold" x="0" y="68">Estimée</text>
+          </g>
+          <g>
+            <text data-l="en" class="t-bold" x="0" y="168">Refined</text>
+            <text data-l="pt" class="t-bold" x="0" y="168">Refinada</text>
+            <text data-l="fr" class="t-bold" x="0" y="168">Affinée</text>
+          </g>
+          <g class="inteira">
+            <rect class="f-roxo" x="170" y="40" width="312" height="44" rx="8"/>
+            <text class="t-bold t-branco" x="188" y="68">&gt; 120 min</text>
+            <rect class="incerto f-coral-claro s-coral" x="486" y="40" width="110" height="44" rx="8" stroke-width="2" stroke-dasharray="6 4"/>
+            <text class="t-xl t-meio" x="541" y="72" style="fill: var(--seg-destaque)">?</text>
+          </g>
+          <g class="metade metade-a move">
+            <rect class="f-roxo" x="170" y="110" width="156" height="44" rx="8"/>
+            <g>
+              <text data-l="en" class="t-bold t-branco" x="186" y="138">L &middot; 60 min</text>
+              <text data-l="pt" class="t-bold t-branco" x="186" y="138">G &middot; 60 min</text>
+              <text data-l="fr" class="t-bold t-branco" x="186" y="138">L &middot; 60 min</text>
+            </g>
+            <rect class="revisao-nova f-verde" x="330" y="110" width="78" height="44" rx="8"/>
+            <text class="mono" x="420" y="138">+ 30 min</text>
+          </g>
+          <g class="metade metade-b move">
+            <rect class="f-roxo" x="170" y="180" width="156" height="44" rx="8"/>
+            <g>
+              <text data-l="en" class="t-bold t-branco" x="186" y="208">L &middot; 60 min</text>
+              <text data-l="pt" class="t-bold t-branco" x="186" y="208">G &middot; 60 min</text>
+              <text data-l="fr" class="t-bold t-branco" x="186" y="208">L &middot; 60 min</text>
+            </g>
+            <rect class="revisao-nova f-verde" x="330" y="180" width="78" height="44" rx="8"/>
+            <text class="mono" x="420" y="208">+ 30 min</text>
+          </g>
+          <g class="metade move">
+            <path class="s-borda sem-fill" d="M640 132 h120" stroke-width="2"/>
+            <g>
+              <text data-l="en" x="780" y="128">2 cards on the board,</text>
+              <text data-l="pt" x="780" y="128">2 cards no quadro,</text>
+              <text data-l="fr" x="780" y="128">2 cartes sur le tableau,</text>
+            </g>
+            <g>
+              <text data-l="en" x="780" y="152">each with its own review</text>
+              <text data-l="pt" x="780" y="152">cada um com a sua revisão</text>
+              <text data-l="fr" x="780" y="152">chacune avec sa revue</text>
+            </g>
+          </g>
+        </svg>
+        <ol class="passos-legenda" style="--n-passos: 2">
+          <li>
+            <span class="passo-num">01</span>
+            <span data-l="en">An estimate above 120 minutes means the task is not refined enough</span>
+            <span data-l="pt">Estimativa acima de 120 minutos indica tarefa que não está refinada o suficiente</span>
+            <span data-l="fr">Une estimation au-delà de 120 minutes indique une tâche pas assez affinée</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">02</span>
+            <span data-l="en">Split it into L tasks of 60 minutes, each with its own review</span>
+            <span data-l="pt">Divida em tarefas G de 60 minutos, cada uma com a sua revisão</span>
+            <span data-l="fr">Découpez-la en tâches L de 60 minutes, chacune avec sa revue</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">6</p>
+        </div>
+      </section>
+
+      <!-- 7 - Fatia vertical (2 passos) -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">A task delivers a usable slice of the product</span>
+            <span data-l="pt">Cada tarefa entrega uma fatia utilizável do produto</span>
+            <span data-l="fr">Chaque tâche livre une tranche utilisable du produit</span>
+          </h2>
+        </div>
+        <svg class="ilus fatias" viewBox="0 0 1168 300" role="img" aria-label="Horizontal and vertical slicing">
+          <g>
+            <text data-l="en" class="t-sm t-bold" x="200" y="16">Data, one month per column</text>
+            <text data-l="pt" class="t-sm t-bold" x="200" y="16">Dado, um mês por coluna</text>
+            <text data-l="fr" class="t-sm t-bold" x="200" y="16">Données, un mois par colonne</text>
+          </g>
+          <text class="mono t-sm t-meio" x="275" y="34">2014-01</text>
+          <text class="mono t-sm t-meio" x="435" y="34">2014-02</text>
+          <text class="mono t-sm t-meio" x="595" y="34">2014-03</text>
+          <text class="mono t-sm t-meio" x="755" y="34">2014-04</text>
+          <text class="mono t-sm t-meio" x="915" y="34">2014-05</text>
+          <text class="mono t-sm t-meio" x="1075" y="34">2014-06</text>
+          <g>
+            <text data-l="en" class="t-bold" x="0" y="74">Ingestion</text>
+            <text data-l="pt" class="t-bold" x="0" y="74">Ingestão</text>
+            <text data-l="fr" class="t-bold" x="0" y="74">Ingestion</text>
+          </g>
+          <rect class="celula-fatia f-sup s-borda na-camada na-fatia" x="200" y="44" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 0"/>
+          <rect class="celula-fatia f-sup s-borda na-camada" x="360" y="44" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 0"/>
+          <rect class="celula-fatia f-sup s-borda na-camada" x="520" y="44" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 0"/>
+          <rect class="celula-fatia f-sup s-borda na-camada" x="680" y="44" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 0"/>
+          <rect class="celula-fatia f-sup s-borda na-camada" x="840" y="44" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 0"/>
+          <rect class="celula-fatia f-sup s-borda na-camada" x="1000" y="44" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 0"/>
+          <g>
+            <text data-l="en" class="t-bold" x="0" y="132">Data lake / DW</text>
+            <text data-l="pt" class="t-bold" x="0" y="132">Data lake / DW</text>
+            <text data-l="fr" class="t-bold" x="0" y="132">Data lake / DW</text>
+          </g>
+          <rect class="celula-fatia f-sup s-borda na-fatia" x="200" y="102" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 1"/>
+          <rect class="celula-fatia f-sup s-borda" x="360" y="102" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 1"/>
+          <rect class="celula-fatia f-sup s-borda" x="520" y="102" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 1"/>
+          <rect class="celula-fatia f-sup s-borda" x="680" y="102" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 1"/>
+          <rect class="celula-fatia f-sup s-borda" x="840" y="102" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 1"/>
+          <rect class="celula-fatia f-sup s-borda" x="1000" y="102" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 1"/>
+          <g>
+            <text data-l="en" class="t-bold" x="0" y="190">Statistics</text>
+            <text data-l="pt" class="t-bold" x="0" y="190">Estatística</text>
+            <text data-l="fr" class="t-bold" x="0" y="190">Statistiques</text>
+          </g>
+          <rect class="celula-fatia f-sup s-borda na-fatia" x="200" y="160" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 2"/>
+          <rect class="celula-fatia f-sup s-borda" x="360" y="160" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 2"/>
+          <rect class="celula-fatia f-sup s-borda" x="520" y="160" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 2"/>
+          <rect class="celula-fatia f-sup s-borda" x="680" y="160" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 2"/>
+          <rect class="celula-fatia f-sup s-borda" x="840" y="160" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 2"/>
+          <rect class="celula-fatia f-sup s-borda" x="1000" y="160" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 2"/>
+          <g>
+            <text data-l="en" class="t-bold" x="0" y="248">Infographic</text>
+            <text data-l="pt" class="t-bold" x="0" y="248">Infográfico</text>
+            <text data-l="fr" class="t-bold" x="0" y="248">Infographie</text>
+          </g>
+          <rect class="celula-fatia f-sup s-borda na-fatia" x="200" y="218" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 3"/>
+          <rect class="celula-fatia f-sup s-borda" x="360" y="218" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 3"/>
+          <rect class="celula-fatia f-sup s-borda" x="520" y="218" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 3"/>
+          <rect class="celula-fatia f-sup s-borda" x="680" y="218" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 3"/>
+          <rect class="celula-fatia f-sup s-borda" x="840" y="218" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 3"/>
+          <rect class="celula-fatia f-sup s-borda" x="1000" y="218" width="150" height="48" rx="8" stroke-width="1.5" style="--k: 3"/>
+          <rect class="contorno-camada s-coral sem-fill" x="194" y="38" width="962" height="60" rx="12" stroke-width="4"/>
+          <rect class="contorno-fatia s-roxo sem-fill" x="194" y="38" width="162" height="234" rx="12" stroke-width="4"/>
+          <g class="rotulo-camada-g">
+            <rect class="f-branco s-coral" x="424" y="56" width="340" height="28" rx="14" stroke-width="1.5"/>
+            <text data-l="en" class="rotulo-camada t-sm t-bold" x="440" y="75">partner can't use it yet</text>
+            <text data-l="pt" class="rotulo-camada t-sm t-bold" x="440" y="75">o parceiro ainda não usa</text>
+            <text data-l="fr" class="rotulo-camada t-sm t-bold" x="440" y="75">le partenaire ne peut pas encore l'utiliser</text>
+          </g>
+          <g class="rotulo-fatia">
+            <text data-l="en" class="t-sm t-bold" x="194" y="294">1 card = 1 slice the partner can see</text>
+            <text data-l="pt" class="t-sm t-bold" x="194" y="294">1 card = 1 fatia que o parceiro vê</text>
+            <text data-l="fr" class="t-sm t-bold" x="194" y="294">1 carte = 1 tranche visible par le partenaire</text>
+          </g>
+        </svg>
+        <ol class="passos-legenda" style="--n-passos: 2">
+          <li class="fragment">
+            <span class="passo-num">01</span>
+            <span data-l="en">Cut by artifact item: the ingestion layer becomes one block, and the partner only sees a result when every layer is done</span>
+            <span data-l="pt">Corte por item do artefato: a camada de ingestão inteira vira um bloco, e o parceiro só vê resultado quando todas as camadas terminam</span>
+            <span data-l="fr">Découpage par élément du livrable : toute la couche d'ingestion devient un bloc, et le partenaire ne voit un résultat qu'à la fin de toutes les couches</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">02</span>
+            <span data-l="en">Vertical slice: January 2014 goes from ingestion to the infographic, and the partner already sees a validated statistic</span>
+            <span data-l="pt">Fatia vertical: janeiro de 2014 vai da ingestão ao infográfico, e o parceiro já vê uma estatística validada</span>
+            <span data-l="fr">Tranche verticale : janvier 2014 va de l'ingestion à l'infographie, et le partenaire voit déjà une statistique validée</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">7</p>
+        </div>
+      </section>
+
+      <!-- 8 - Dicas para desmembrar tarefas -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">How to break down tasks</span>
+            <span data-l="pt">Como desmembrar tarefas</span>
+            <span data-l="fr">Comment découper les tâches</span>
+          </h2>
+        </div>
+        <table class="data-table corte-tabela">
+          <thead>
+            <tr>
+              <th>
+                <span data-l="en">Card cut by artifact item</span>
+                <span data-l="pt">Card cortado por item do artefato</span>
+                <span data-l="fr">Carte découpée par élément du livrable</span>
+              </th>
+              <th>
+                <span data-l="en">Card cut by delivered value</span>
+                <span data-l="pt">Card cortado por entrega de valor</span>
+                <span data-l="fr">Carte découpée par valeur livrée</span>
+              </th>
+              <th>
+                <span data-l="en">Verifiable result of the value card</span>
+                <span data-l="pt">Resultado verificável do card de valor</span>
+                <span data-l="fr">Résultat vérifiable de la carte de valeur</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="corte-artefato">
+                <span data-l="en">Write the architecture section</span>
+                <span data-l="pt">Escrever a seção de arquitetura</span>
+                <span data-l="fr">Rédiger la section architecture</span>
+              </td>
+              <td class="corte-valor">
+                <span data-l="en">Ingest the Jan 2014 batch and record the load log</span>
+                <span data-l="pt">Ingerir o lote de jan/2014 e registrar o log de carga</span>
+                <span data-l="fr">Ingérer le lot de janv. 2014 et enregistrer le journal de chargement</span>
+              </td>
+              <td>
+                <span data-l="en">Log shows rows read and rejected</span>
+                <span data-l="pt">Log mostra linhas lidas e rejeitadas</span>
+                <span data-l="fr">Le journal montre les lignes lues et rejetées</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="corte-artefato">
+                <span data-l="en">Create the data warehouse tables</span>
+                <span data-l="pt">Criar as tabelas do data warehouse</span>
+                <span data-l="fr">Créer les tables du data warehouse</span>
+              </td>
+              <td class="corte-valor">
+                <span data-l="en">Model the execution fact with the UGE dimension of the 2nd Military Region</span>
+                <span data-l="pt">Modelar o fato de execução com a dimensão UGE da 2ª Região Militar</span>
+                <span data-l="fr">Modéliser le fait d'exécution avec la dimension UGE de la 2e Région militaire</span>
+              </td>
+              <td>
+                <span data-l="en">A query returns monthly execution per UGE</span>
+                <span data-l="pt">Uma consulta devolve a execução mensal por UGE</span>
+                <span data-l="fr">Une requête renvoie l'exécution mensuelle par UGE</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="corte-artefato">
+                <span data-l="en">Do the statistics notebook</span>
+                <span data-l="pt">Fazer o notebook de estatística</span>
+                <span data-l="fr">Faire le notebook de statistiques</span>
+              </td>
+              <td class="corte-valor">
+                <span data-l="en">Compute monthly execution of the 2nd Military Region and check it against the control totals</span>
+                <span data-l="pt">Calcular a execução mensal da 2ª Região Militar e conferir com os totais de controle</span>
+                <span data-l="fr">Calculer l'exécution mensuelle de la 2e Région militaire et la comparer aux totaux de contrôle</span>
+              </td>
+              <td>
+                <span data-l="en">Total matches the control total</span>
+                <span data-l="pt">Total confere com o total de controle</span>
+                <span data-l="fr">Le total correspond au total de contrôle</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ol class="regras-num dicas-corte">
+          <li>
+            <span data-l="en">Ask what the partner can see or use when the card closes.</span>
+            <span data-l="pt">Pergunte o que o parceiro consegue ver ou usar quando o card fechar.</span>
+            <span data-l="fr">Demandez ce que le partenaire peut voir ou utiliser quand la carte se ferme.</span>
+          </li>
+          <li>
+            <span data-l="en">Cut the data before cutting the work: one month, one Military Region, one management unit.</span>
+            <span data-l="pt">Corte o dado antes de cortar o trabalho: um mês, uma Região Militar, uma unidade gestora.</span>
+            <span data-l="fr">Découpez la donnée avant le travail : un mois, une Région militaire, une unité de gestion.</span>
+          </li>
+          <li>
+            <span data-l="en">Name the card with a verb and a verifiable result, which becomes its acceptance criterion.</span>
+            <span data-l="pt">Escreva o card com verbo e resultado verificável, que vira o critério de aceite.</span>
+            <span data-l="fr">Nommez la carte avec un verbe et un résultat vérifiable, qui devient son critère d'acceptation.</span>
+          </li>
+          <li>
+            <span data-l="en">The artifact section is updated inside the card that produced the result, as part of the DoD.</span>
+            <span data-l="pt">A seção do artefato é atualizada dentro do card que gerou o resultado, como parte da DoD.</span>
+            <span data-l="fr">La section du livrable est mise à jour dans la carte qui a produit le résultat, au titre de la DoD.</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">8</p>
+        </div>
+      </section>
+
+      <!-- 9 - Minimo de tarefas no quadro -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">A group of 8 ends the planning with at least 64 tasks</span>
+            <span data-l="pt">Um grupo de 8 alunos sai da planning com no mínimo 64 tarefas</span>
+            <span data-l="fr">Un groupe de 8 termine le planning avec au moins 64 tâches</span>
+          </h2>
+        </div>
+        <div class="minimo-grid">
+          <svg class="ilus grade-tarefas" viewBox="0 0 600 334" role="img" aria-label="8 students by 8 development days">
+            <g>
+              <text data-l="en" class="t-sm t-bold" x="60" y="12">Development day</text>
+              <text data-l="pt" class="t-sm t-bold" x="60" y="12">Dia de desenvolvimento</text>
+              <text data-l="fr" class="t-sm t-bold" x="60" y="12">Jour de développement</text>
+            </g>
+            <text class="t-sm t-meio" x="89" y="32">1</text>
+            <text class="t-sm t-meio" x="155" y="32">2</text>
+            <text class="t-sm t-meio" x="221" y="32">3</text>
+            <text class="t-sm t-meio" x="287" y="32">4</text>
+            <text class="t-sm t-meio" x="353" y="32">5</text>
+            <text class="t-sm t-meio" x="419" y="32">6</text>
+            <text class="t-sm t-meio" x="485" y="32">7</text>
+            <text class="t-sm t-meio" x="551" y="32">8</text>
+            <circle class="f-roxo" cx="22" cy="54" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="59">A</text>
+            <rect class="celula f-verde-claro s-verde" x="60" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 0"/>
+            <rect class="celula f-verde-claro s-verde" x="126" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 0"/>
+            <rect class="celula f-sup s-borda" x="192" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 0"/>
+            <rect class="celula f-verde-claro s-verde" x="258" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 0"/>
+            <rect class="celula f-verde-claro s-verde" x="324" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 0"/>
+            <rect class="celula f-verde-claro s-verde" x="390" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 0"/>
+            <rect class="celula f-sup s-borda" x="456" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 0"/>
+            <rect class="celula f-verde-claro s-verde" x="522" y="40" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 0"/>
+            <circle class="f-roxo" cx="22" cy="90" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="95">B</text>
+            <rect class="celula f-verde-claro s-verde" x="60" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 1"/>
+            <rect class="celula f-sup s-borda" x="126" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 1"/>
+            <rect class="celula f-verde-claro s-verde" x="192" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 1"/>
+            <rect class="celula f-verde-claro s-verde" x="258" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 1"/>
+            <rect class="celula f-verde-claro s-verde" x="324" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 1"/>
+            <rect class="celula f-sup s-borda" x="390" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 1"/>
+            <rect class="celula f-verde-claro s-verde" x="456" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 1"/>
+            <rect class="celula f-verde-claro s-verde" x="522" y="76" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 1"/>
+            <circle class="f-roxo" cx="22" cy="126" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="131">C</text>
+            <rect class="celula f-sup s-borda" x="60" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 2"/>
+            <rect class="celula f-verde-claro s-verde" x="126" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 2"/>
+            <rect class="celula f-verde-claro s-verde" x="192" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 2"/>
+            <rect class="celula f-verde-claro s-verde" x="258" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 2"/>
+            <rect class="celula f-sup s-borda" x="324" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 2"/>
+            <rect class="celula f-verde-claro s-verde" x="390" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 2"/>
+            <rect class="celula f-verde-claro s-verde" x="456" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 2"/>
+            <rect class="celula f-verde-claro s-verde" x="522" y="112" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 2"/>
+            <circle class="f-roxo" cx="22" cy="162" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="167">D</text>
+            <rect class="celula f-verde-claro s-verde" x="60" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 3"/>
+            <rect class="celula f-verde-claro s-verde" x="126" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 3"/>
+            <rect class="celula f-verde-claro s-verde" x="192" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 3"/>
+            <rect class="celula f-sup s-borda" x="258" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 3"/>
+            <rect class="celula f-verde-claro s-verde" x="324" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 3"/>
+            <rect class="celula f-verde-claro s-verde" x="390" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 3"/>
+            <rect class="celula f-verde-claro s-verde" x="456" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 3"/>
+            <rect class="celula f-sup s-borda" x="522" y="148" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 3"/>
+            <circle class="f-roxo" cx="22" cy="198" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="203">E</text>
+            <rect class="celula f-verde-claro s-verde" x="60" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 4"/>
+            <rect class="celula f-verde-claro s-verde" x="126" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 4"/>
+            <rect class="celula f-sup s-borda" x="192" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 4"/>
+            <rect class="celula f-verde-claro s-verde" x="258" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 4"/>
+            <rect class="celula f-verde-claro s-verde" x="324" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 4"/>
+            <rect class="celula f-verde-claro s-verde" x="390" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 4"/>
+            <rect class="celula f-sup s-borda" x="456" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 4"/>
+            <rect class="celula f-verde-claro s-verde" x="522" y="184" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 4"/>
+            <circle class="f-roxo" cx="22" cy="234" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="239">F</text>
+            <rect class="celula f-verde-claro s-verde" x="60" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 5"/>
+            <rect class="celula f-sup s-borda" x="126" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 5"/>
+            <rect class="celula f-verde-claro s-verde" x="192" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 5"/>
+            <rect class="celula f-verde-claro s-verde" x="258" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 5"/>
+            <rect class="celula f-verde-claro s-verde" x="324" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 5"/>
+            <rect class="celula f-sup s-borda" x="390" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 5"/>
+            <rect class="celula f-verde-claro s-verde" x="456" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 5"/>
+            <rect class="celula f-verde-claro s-verde" x="522" y="220" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 5"/>
+            <circle class="f-roxo" cx="22" cy="270" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="275">G</text>
+            <rect class="celula f-sup s-borda" x="60" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 6"/>
+            <rect class="celula f-verde-claro s-verde" x="126" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 6"/>
+            <rect class="celula f-verde-claro s-verde" x="192" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 6"/>
+            <rect class="celula f-verde-claro s-verde" x="258" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 6"/>
+            <rect class="celula f-sup s-borda" x="324" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 6"/>
+            <rect class="celula f-verde-claro s-verde" x="390" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 6"/>
+            <rect class="celula f-verde-claro s-verde" x="456" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 6"/>
+            <rect class="celula f-verde-claro s-verde" x="522" y="256" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 6"/>
+            <circle class="f-roxo" cx="22" cy="306" r="13"/>
+            <text class="t-sm t-bold t-branco t-meio" x="22" y="311">H</text>
+            <rect class="celula f-verde-claro s-verde" x="60" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 0; --a: 7"/>
+            <rect class="celula f-verde-claro s-verde" x="126" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 1; --a: 7"/>
+            <rect class="celula f-verde-claro s-verde" x="192" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 2; --a: 7"/>
+            <rect class="celula f-sup s-borda" x="258" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 3; --a: 7"/>
+            <rect class="celula f-verde-claro s-verde" x="324" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 4; --a: 7"/>
+            <rect class="celula f-verde-claro s-verde" x="390" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 5; --a: 7"/>
+            <rect class="celula f-verde-claro s-verde" x="456" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 6; --a: 7"/>
+            <rect class="celula f-sup s-borda" x="522" y="292" width="58" height="28" rx="6" stroke-width="1.5" style="--d: 7; --a: 7"/>
+          </svg>
+          <div>
+            <div class="cartao-total" data-dias="8" data-alunos="8" data-tarefas="64">
+              <span class="contador" aria-label="64"></span>
+              <p>
+                <span data-l="en">tasks on the board, minimum</span>
+                <span data-l="pt">tarefas no quadro, no mínimo</span>
+                <span data-l="fr">tâches sur le tableau, au minimum</span>
+              </p>
+            </div>
+            <p class="conta-linha">
+              (<b>10</b> <span class="op">&minus;</span> <b>1</b> <span class="op">&minus;</span> <b>1</b>)
+              <span class="op">&times;</span> <b>8</b> <span class="op">=</span> <b>64</b>
+            </p>
+            <p class="grupo-g03" data-alunos="7" data-tarefas="56">
+              <span data-l="en">10 working days, minus the planning (first Monday) and the review (last Friday), times 8 students. G03 has 7 students: 7 &times; 8 = 56.</span>
+              <span data-l="pt">10 dias úteis, menos a planning (primeira segunda) e a review (última sexta), vezes 8 alunos. O G03 tem 7 alunos: 7 &times; 8 = 56.</span>
+              <span data-l="fr">10 jours ouvrés, moins le planning (premier lundi) et la review (dernier vendredi), fois 8 étudiants. Le G03 a 7 étudiants : 7 &times; 8 = 56.</span>
+            </p>
+          </div>
+        </div>
+        <div class="aviso">
+          <span class="material-symbols-outlined aviso-icone" aria-hidden="true">assignment_late</span>
+          <p>
+            <span data-l="en"><strong>Every activity carried out must exist on the board.</strong> Work without a card was not planned, and that harms the project. Sprints with a holiday: redo the count with the real development days.</span>
+            <span data-l="pt"><strong>Toda atividade realizada precisa existir no quadro.</strong> Atividade sem card não foi planejada, e isso prejudica o projeto. Sprint com feriado: refaça a conta com os dias de desenvolvimento reais.</span>
+            <span data-l="fr"><strong>Toute activité réalisée doit exister sur le tableau.</strong> Une activité sans carte n'a pas été planifiée, ce qui nuit au projet. Sprint avec jour férié : refaites le calcul avec les jours réels.</span>
+          </p>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">9</p>
+        </div>
+      </section>
+
+      <!-- 10 - DoR e DoD (4 passos) -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">DoR and DoD are the checklists a card meets to enter Doing and Done</span>
+            <span data-l="pt">DoR e DoD são os checklists que o card cumpre para entrar em Doing e em Done</span>
+            <span data-l="fr">DoR et DoD sont les checklists qu'une carte remplit pour entrer en Doing et en Done</span>
+          </h2>
+        </div>
+        <svg class="ilus portoes" viewBox="0 0 1168 170" role="img" aria-label="DoR and DoD gates on the board">
+          <rect class="f-sup-claro s-borda" x="0" y="20" width="300" height="146" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="16" y="46">Backlog</text>
+          <rect class="f-sup-claro s-borda" x="370" y="20" width="430" height="146" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="386" y="46">Doing &middot; Waiting review &middot; Review</text>
+          <rect class="zona-done f-sup-claro s-borda" x="870" y="20" width="298" height="146" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="886" y="46">Done</text>
+          <g class="portao portao-dor">
+            <text class="t-lg t-meio" x="335" y="16">DoR</text>
+            <rect class="f-roxo" x="319" y="26" width="32" height="8" rx="4"/>
+            <rect class="cancela f-borda" x="330" y="34" width="10" height="132" rx="4"/>
+          </g>
+          <g class="portao portao-dod">
+            <text class="t-lg t-meio" x="835" y="16">DoD</text>
+            <rect class="f-roxo" x="819" y="26" width="32" height="8" rx="4"/>
+            <rect class="cancela f-borda" x="830" y="34" width="10" height="132" rx="4"/>
+          </g>
+          <g class="card-portao move">
+            <rect class="card-fundo f-branco s-roxo" x="0" y="0" width="190" height="72" rx="10" stroke-width="1.5"/>
+            <text class="mono t-bold" x="14" y="26">#12</text>
+            <g>
+              <text data-l="en" class="t-sm" x="14" y="52">Load the Jan 2014 batch</text>
+              <text data-l="pt" class="t-sm" x="14" y="52">Carregar o lote de jan/2014</text>
+              <text data-l="fr" class="t-sm" x="14" y="52">Charger le lot de janv. 2014</text>
+            </g>
+          </g>
+          <g class="bloqueio move"><circle class="f-coral" cx="335" cy="100" r="18"/><path class="s-branco" d="M325 100 h20" stroke-width="4"/></g>
+          <g class="festa move"><path class="s-verde" d="M1137 94 l22 0" stroke-width="3"/><path class="s-verde" d="M945 94 l-22 0" stroke-width="3"/><path class="s-verde" d="M1113 48 l17 -14" stroke-width="3"/><path class="s-verde" d="M969 48 l-17 -14" stroke-width="3"/><path class="s-verde" d="M1113 140 l17 14" stroke-width="3"/><path class="s-verde" d="M969 140 l-17 14" stroke-width="3"/></g>
+        </svg>
+        <div class="dod-grid">
+          <div class="dod-painel painel-dor">
+            <h4><span class="sigla">DoR</span> Definition of Ready</h4>
+            <p class="dod-quando">
+              <span data-l="en">Suggested criteria for a card to enter Doing</span>
+              <span data-l="pt">Critérios sugeridos para o card entrar em Doing</span>
+              <span data-l="fr">Critères suggérés pour qu'une carte entre en Doing</span>
+            </p>
+            <ul class="dod-lista">
+              <li style="--i: 0">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Value for the partner described</span>
+                  <span data-l="pt">Valor para o parceiro descrito</span>
+                  <span data-l="fr">Valeur pour le partenaire décrite</span>
+                </span>
+              </li>
+              <li style="--i: 1">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Verifiable acceptance criterion</span>
+                  <span data-l="pt">Critério de aceite verificável</span>
+                  <span data-l="fr">Critère d'acceptation vérifiable</span>
+                </span>
+              </li>
+              <li class="falta" style="--i: 2">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">T-shirt estimate up to 120 min, review included</span>
+                  <span data-l="pt">Estimativa T-shirt de até 120 min, com a revisão</span>
+                  <span data-l="fr">Estimation T-shirt de 120 min max, revue comprise</span>
+                </span>
+              </li>
+              <li style="--i: 3">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Data and access available</span>
+                  <span data-l="pt">Dados e acessos disponíveis</span>
+                  <span data-l="fr">Données et accès disponibles</span>
+                </span>
+              </li>
+              <li style="--i: 4">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Owner assigned</span>
+                  <span data-l="pt">Responsável definido</span>
+                  <span data-l="fr">Responsable désigné</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="dod-painel painel-dod">
+            <h4><span class="sigla">DoD</span> Definition of Done</h4>
+            <p class="dod-quando">
+              <span data-l="en">Suggested criteria for a card to enter Done</span>
+              <span data-l="pt">Critérios sugeridos para o card entrar em Done</span>
+              <span data-l="fr">Critères suggérés pour qu'une carte entre en Done</span>
+            </p>
+            <ul class="dod-lista">
+              <li style="--i: 0">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Acceptance criterion met</span>
+                  <span data-l="pt">Critério de aceite atendido</span>
+                  <span data-l="fr">Critère d'acceptation rempli</span>
+                </span>
+              </li>
+              <li style="--i: 1">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">MR approved by someone other than the author</span>
+                  <span data-l="pt">MR aprovado por quem não é o autor</span>
+                  <span data-l="fr">MR approuvée par quelqu'un d'autre que l'auteur</span>
+                </span>
+              </li>
+              <li style="--i: 2">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Tests or validation passing</span>
+                  <span data-l="pt">Testes ou validação passando</span>
+                  <span data-l="fr">Tests ou validation réussis</span>
+                </span>
+              </li>
+              <li style="--i: 3">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Merged into main</span>
+                  <span data-l="pt">Merge feito na main</span>
+                  <span data-l="fr">Fusionnée dans main</span>
+                </span>
+              </li>
+              <li style="--i: 4">
+                <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                <span>
+                  <span data-l="en">Artifact section and docs updated</span>
+                  <span data-l="pt">Seção do artefato e documentação atualizadas</span>
+                  <span data-l="fr">Section du livrable et documentation à jour</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <ol class="passos-legenda" style="--n-passos: 4">
+          <li class="fragment">
+            <span class="passo-num">01</span>
+            <span data-l="en">The card reaches the DoR without an estimate: blocked</span>
+            <span data-l="pt">O card chega à DoR sem estimativa: bloqueado</span>
+            <span data-l="fr">La carte arrive à la DoR sans estimation : bloquée</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">02</span>
+            <span data-l="en">Estimated, it meets the DoR and enters Doing</span>
+            <span data-l="pt">Estimado, ele cumpre a DoR e entra em Doing</span>
+            <span data-l="fr">Estimée, elle remplit la DoR et entre en Doing</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">03</span>
+            <span data-l="en">After the review, the DoD is checked item by item</span>
+            <span data-l="pt">Depois da revisão, a DoD é conferida item a item</span>
+            <span data-l="fr">Après la revue, la DoD est vérifiée point par point</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">04</span>
+            <span data-l="en">DoD met: the card enters Done</span>
+            <span data-l="pt">DoD cumprida: o card entra em Done</span>
+            <span data-l="fr">DoD remplie : la carte entre en Done</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">10</p>
+        </div>
+      </section>
+
+      <!-- 11 - Daily no quadro -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">The daily aligns the group in front of the open board</span>
+            <span data-l="pt">A daily alinha o grupo diante do quadro aberto</span>
+            <span data-l="fr">La daily aligne le groupe devant le tableau ouvert</span>
+          </h2>
+        </div>
+        <svg class="ilus varredura" viewBox="0 0 1168 236" role="img" aria-label="Board read from right to left">
+          <rect class="f-sup-claro s-borda" x="0" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="16" y="28">Backlog</text>
+          <g class="ordem" style="--i: 3"><circle class="f-roxo" cx="200" cy="22" r="14"/><text class="t-sm t-bold t-branco t-meio" x="200" y="27">4</text></g>
+          <rect class="f-branco s-borda" x="12" y="48" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="26" y="75">#1</text>
+          <circle class="f-roxo" cx="190" cy="70" r="11"/>
+          <rect class="f-branco s-borda" x="12" y="102" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="26" y="129">#2</text>
+          <circle class="f-roxo" cx="190" cy="124" r="11"/>
+          <rect class="f-branco s-borda" x="12" y="156" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="26" y="183">#3</text>
+          <circle class="f-roxo" cx="190" cy="178" r="11"/>
+          <rect class="f-sup-claro s-borda" x="236" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="252" y="28">Doing</text>
+          <g class="ordem" style="--i: 2"><circle class="f-roxo" cx="436" cy="22" r="14"/><text class="t-sm t-bold t-branco t-meio" x="436" y="27">3</text></g>
+          <rect class="f-branco s-borda" x="248" y="48" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="262" y="75">#4</text>
+          <circle class="f-roxo" cx="426" cy="70" r="11"/>
+          <rect class="f-branco s-borda" x="248" y="102" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="262" y="129">#5</text>
+          <circle class="f-roxo" cx="426" cy="124" r="11"/>
+          <rect class="f-sup-claro s-borda" x="472" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="488" y="28">Waiting review</text>
+          <g class="ordem" style="--i: 1"><circle class="f-roxo" cx="672" cy="22" r="14"/><text class="t-sm t-bold t-branco t-meio" x="672" y="27">2</text></g>
+          <rect class="f-branco s-borda" x="484" y="48" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="498" y="75">#6</text>
+          <circle class="f-roxo" cx="662" cy="70" r="11"/>
+          <rect class="f-sup-claro s-borda" x="708" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="724" y="28">Review</text>
+          <g class="ordem" style="--i: 0"><circle class="f-roxo" cx="908" cy="22" r="14"/><text class="t-sm t-bold t-branco t-meio" x="908" y="27">1</text></g>
+          <rect class="f-branco s-borda" x="720" y="48" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="734" y="75">#7</text>
+          <circle class="f-roxo" cx="898" cy="70" r="11"/>
+          <rect class="f-branco s-borda" x="720" y="102" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="734" y="129">#8</text>
+          <circle class="f-roxo" cx="898" cy="124" r="11"/>
+          <rect class="f-sup-claro s-borda" x="944" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="960" y="28">Done</text>
+          <g class="ordem" style="--i: 4"><circle class="f-verde" cx="1144" cy="22" r="14"/><path class="s-roxo sem-fill" d="M1137 22 l5 5 l9 -10" stroke-width="2.5"/></g>
+          <rect class="f-verde-claro s-verde" x="956" y="48" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="970" y="75">#9</text>
+          <circle class="f-roxo" cx="1134" cy="70" r="11"/>
+          <rect class="f-verde-claro s-verde" x="956" y="102" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="970" y="129">#10</text>
+          <circle class="f-roxo" cx="1134" cy="124" r="11"/>
+          <rect class="f-verde-claro s-verde" x="956" y="156" width="200" height="44" rx="8" stroke-width="1.5"/>
+          <text class="mono t-sm t-bold" x="970" y="183">#11</text>
+          <circle class="f-roxo" cx="1134" cy="178" r="11"/>
+          <rect class="foco s-coral sem-fill" x="2" y="2" width="220" height="212" rx="12" stroke-width="4"/>
+        </svg>
+        <p class="kanban-seta">
+          <span class="material-symbols-outlined" aria-hidden="true">west</span>
+          <span data-l="en">Reading order in the daily: from Review back to Backlog</span>
+          <span data-l="pt">Ordem de leitura na daily: de Review até Backlog</span>
+          <span data-l="fr">Ordre de lecture pendant la daily : de Review jusqu'à Backlog</span>
+        </p>
+        <ol class="regras-num">
+          <li>
+            <span data-l="en">Every daily is held with the Kanban board open, <strong>without exception</strong>.</span>
+            <span data-l="pt">Toda daily acontece com o quadro Kanban aberto, <strong>obrigatoriamente</strong>.</span>
+            <span data-l="fr">Chaque daily se tient avec le tableau Kanban ouvert, <strong>obligatoirement</strong>.</span>
+          </li>
+          <li>
+            <span data-l="en">Read the board <strong>from right to left</strong>: cards further right are closer to being finished and to delivering value.</span>
+            <span data-l="pt">Leia o quadro <strong>da direita para a esquerda</strong>: os cards mais à direita estão mais perto de terminar e de entregar valor.</span>
+            <span data-l="fr">Lisez le tableau <strong>de droite à gauche</strong> : les cartes les plus à droite sont les plus proches d'être terminées et de livrer de la valeur.</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">11</p>
+        </div>
+      </section>
+
+      <!-- 12 - Scrum master: papel -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Each group elects a Scrum Master, the guardian of the rituals</span>
+            <span data-l="pt">Cada grupo elege um scrum master, guardião dos ritos</span>
+            <span data-l="fr">Chaque groupe élit un Scrum Master, gardien des rituels</span>
+          </h2>
+        </div>
+        <div class="sm-grid">
+          <div>
+            <span class="rotulo-exemplo">
+              <span data-l="en">Suggestion</span>
+              <span data-l="pt">Sugestão</span>
+              <span data-l="fr">Suggestion</span>
+            </span>
+            <p class="sm-eleicao">
+              <span data-l="en">Each group elects one person to take the <strong>Scrum Master</strong> role.</span>
+              <span data-l="pt">Cada grupo elege uma pessoa para o papel de <strong>scrum master</strong>.</span>
+              <span data-l="fr">Chaque groupe élit une personne pour le rôle de <strong>Scrum Master</strong>.</span>
+            </p>
+            <div class="sm-papel">
+              <span class="material-symbols-outlined" aria-hidden="true">diversity_3</span>
+              <p>
+                <strong>
+                  <span data-l="en">Facilitates</span>
+                  <span data-l="pt">Facilita</span>
+                  <span data-l="fr">Facilite</span>
+                </strong>
+                <span data-l="en">the rituals: planning, daily, and review.</span>
+                <span data-l="pt">os ritos: planning, daily e review.</span>
+                <span data-l="fr">les rituels : planning, daily et review.</span>
+              </p>
+            </div>
+            <div class="sm-papel">
+              <span class="material-symbols-outlined" aria-hidden="true">construction</span>
+              <p>
+                <strong>
+                  <span data-l="en">Removes impediments</span>
+                  <span data-l="pt">Remove impedimentos</span>
+                  <span data-l="fr">Lève les obstacles</span>
+                </strong>
+                <span data-l="en">finds what blocks the team and who can unblock it.</span>
+                <span data-l="pt">identifica o que trava o time e quem pode destravar.</span>
+                <span data-l="fr">repère ce qui bloque l'équipe et qui peut le débloquer.</span>
+              </p>
+            </div>
+            <div class="sm-guardiao">
+              <span class="material-symbols-outlined" aria-hidden="true">shield_person</span>
+              <div>
+                <p class="sm-guardiao-titulo">
+                  <span data-l="en">Guardian of the ritual</span>
+                  <span data-l="pt">Guardião do rito</span>
+                  <span data-l="fr">Gardien du rituel</span>
+                </p>
+                <p>
+                  <span data-l="en">The daily starts on time, with the board open, and ends with every impediment recorded.</span>
+                  <span data-l="pt">A daily começa no horário, com o quadro aberto, e termina com os impedimentos registrados.</span>
+                  <span data-l="fr">La daily commence à l'heure, tableau ouvert, et se termine avec chaque obstacle noté.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="rotulo-exemplo">
+              <span data-l="en">How the Scrum Master runs the daily</span>
+              <span data-l="pt">Como o scrum master conduz a daily</span>
+              <span data-l="fr">Comment le Scrum Master anime la daily</span>
+            </span>
+            <ol class="regras-num sm-exemplos">
+              <li>
+                <span data-l="en">Opens the Kanban board and shares the screen before the daily starts.</span>
+                <span data-l="pt">Abre o quadro Kanban e compartilha a tela antes de a daily começar.</span>
+                <span data-l="fr">Ouvre le tableau Kanban et partage l'écran avant le début de la daily.</span>
+              </li>
+              <li>
+                <span data-l="en">Leads the reading from right to left, card by card.</span>
+                <span data-l="pt">Conduz a leitura da direita para a esquerda, card a card.</span>
+                <span data-l="fr">Mène la lecture de droite à gauche, carte par carte.</span>
+              </li>
+              <li>
+                <span data-l="en">Keeps the daily within 15 minutes and moves long discussions to after it.</span>
+                <span data-l="pt">Mantém a daily em até 15 minutos e leva discussões longas para depois.</span>
+                <span data-l="fr">Tient la daily en 15 minutes et reporte les longues discussions à après.</span>
+              </li>
+              <li>
+                <span data-l="en">Records each impediment with who will remove it and by when.</span>
+                <span data-l="pt">Registra cada impedimento com quem vai resolvê-lo e até quando.</span>
+                <span data-l="fr">Note chaque obstacle avec qui le lèvera et pour quand.</span>
+              </li>
+              <li>
+                <span data-l="en">Reminds the rule: close Review and Waiting review before pulling a new card.</span>
+                <span data-l="pt">Lembra a regra: fechar Review e Waiting review antes de puxar card novo.</span>
+                <span data-l="fr">Rappelle la règle : clôturer Review et Waiting review avant de tirer une carte.</span>
+              </li>
+              <li>
+                <span data-l="en">Checks that every activity mentioned has a card on the board.</span>
+                <span data-l="pt">Confere se toda atividade citada tem card no quadro.</span>
+                <span data-l="fr">Vérifie que chaque activité citée a une carte sur le tableau.</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">12</p>
+        </div>
+      </section>
+
+      <!-- 13 - Scrum master: desvios da daily (3 cenas) -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">The Scrum Master corrects three common daily deviations</span>
+            <span data-l="pt">O scrum master corrige três desvios comuns da daily</span>
+            <span data-l="fr">Le Scrum Master corrige trois écarts fréquents de la daily</span>
+          </h2>
+        </div>
+        <div class="cenas">
+          <div class="cena fragment">
+            <p class="cena-num">01</p>
+            <svg class="ilus cena-ilus" viewBox="0 0 360 192" aria-hidden="true">
+              <rect class="borda-vira f-sup-claro s-verde" x="60" y="8" width="240" height="122" rx="8" stroke-width="3"/>
+              <g class="depois-entra">
+                <rect class="f-branco s-borda" x="72" y="22" width="38" height="96" rx="5" stroke-width="1.5"/>
+                <rect class="f-roxo" x="78" y="34" width="26" height="14" rx="3"/>
+                <rect class="f-roxo" x="78" y="56" width="26" height="14" rx="3"/>
+                <rect class="f-roxo" x="78" y="78" width="26" height="14" rx="3"/>
+                <rect class="f-branco s-borda" x="116" y="22" width="38" height="96" rx="5" stroke-width="1.5"/>
+                <rect class="f-roxo" x="122" y="34" width="26" height="14" rx="3"/>
+                <rect class="f-roxo" x="122" y="56" width="26" height="14" rx="3"/>
+                <rect class="f-branco s-borda" x="160" y="22" width="38" height="96" rx="5" stroke-width="1.5"/>
+                <rect class="f-roxo" x="166" y="34" width="26" height="14" rx="3"/>
+                <rect class="f-roxo" x="166" y="56" width="26" height="14" rx="3"/>
+                <rect class="f-roxo" x="166" y="78" width="26" height="14" rx="3"/>
+                <rect class="f-branco s-borda" x="204" y="22" width="38" height="96" rx="5" stroke-width="1.5"/>
+                <rect class="f-roxo" x="210" y="34" width="26" height="14" rx="3"/>
+                <rect class="f-roxo" x="210" y="56" width="26" height="14" rx="3"/>
+                <rect class="f-branco s-borda" x="248" y="22" width="38" height="96" rx="5" stroke-width="1.5"/>
+                <rect class="f-verde" x="254" y="34" width="26" height="14" rx="3"/>
+                <rect class="f-verde" x="254" y="56" width="26" height="14" rx="3"/>
+                <rect class="f-verde" x="254" y="78" width="26" height="14" rx="3"/>
+              </g>
+              <text class="antes-some t-xl t-meio" x="180" y="80" style="fill: var(--seg-destaque)">?</text>
+              <rect class="f-borda" x="172" y="130" width="16" height="14"/>
+              <rect class="f-borda" x="140" y="144" width="80" height="6" rx="3"/>
+              <circle class="f-roxo" cx="60" cy="172" r="13"/>
+              <circle class="f-roxo" cx="110" cy="172" r="13"/>
+              <circle class="f-roxo" cx="250" cy="172" r="13"/>
+              <circle class="f-roxo" cx="300" cy="172" r="13"/>
+              <g class="sm-entra"><circle class="f-verde s-roxo" cx="180" cy="172" r="17" stroke-width="2"/><text class="t-sm t-bold t-meio" x="180" y="177">SM</text></g>
+            </svg>
+            <p class="cena-desvio">
+              <span data-l="en">The daily starts without the board open</span>
+              <span data-l="pt">A daily começa sem o quadro aberto</span>
+              <span data-l="fr">La daily commence sans le tableau ouvert</span>
+            </p>
+            <p class="cena-sm">
+              <span data-l="en">The SM opens and shares the board before anyone speaks</span>
+              <span data-l="pt">O SM abre e compartilha o quadro antes de alguém falar</span>
+              <span data-l="fr">Le SM ouvre et partage le tableau avant que quelqu'un parle</span>
+            </p>
+          </div>
+          <div class="cena fragment">
+            <p class="cena-num">02</p>
+            <svg class="ilus cena-ilus" viewBox="0 0 360 192" aria-hidden="true">
+              <rect class="f-sup-claro s-borda" x="8" y="22" width="104" height="128" rx="8" stroke-width="2"/>
+              <text class="t-sm t-bold" x="18" y="16">Doing</text>
+              <rect class="f-sup-claro s-borda" x="128" y="22" width="104" height="128" rx="8" stroke-width="2"/>
+              <text class="t-sm t-bold" x="138" y="16">Review</text>
+              <rect class="f-sup-claro s-borda" x="248" y="22" width="104" height="128" rx="8" stroke-width="2"/>
+              <text class="t-sm t-bold" x="258" y="16">Done</text>
+              <g class="card-rev cena-move" style="--x: 258px; --y: 40px"><rect class="f-branco s-roxo" x="0" y="0" width="84" height="34" rx="7" stroke-width="2"/><text class="mono t-sm t-bold" x="12" y="22">#14</text></g>
+              <g class="card-novo cena-move" style="--x: 18px; --y: 40px"><rect class="borda-vira f-branco s-verde" x="0" y="0" width="84" height="34" rx="7" stroke-width="2"/><text class="mono t-sm t-bold" x="12" y="22">#21</text></g>
+              <g class="antes-some"><circle class="f-coral" cx="104" cy="44" r="11"/><text class="t-sm t-bold t-branco t-meio" x="104" y="49">!</text></g>
+              <circle class="f-roxo" cx="60" cy="172" r="13"/>
+              <circle class="f-roxo" cx="110" cy="172" r="13"/>
+              <circle class="f-roxo" cx="250" cy="172" r="13"/>
+              <circle class="f-roxo" cx="300" cy="172" r="13"/>
+              <g class="sm-entra"><circle class="f-verde s-roxo" cx="180" cy="172" r="17" stroke-width="2"/><text class="t-sm t-bold t-meio" x="180" y="177">SM</text></g>
+            </svg>
+            <p class="cena-desvio">
+              <span data-l="en">A new card enters Doing while #14 waits for review</span>
+              <span data-l="pt">Um card novo entra em Doing com o #14 esperando revisão</span>
+              <span data-l="fr">Une nouvelle carte entre en Doing pendant que #14 attend sa revue</span>
+            </p>
+            <p class="cena-sm">
+              <span data-l="en">The SM asks for #14 to be reviewed first; then #21 enters</span>
+              <span data-l="pt">O SM pede a revisão do #14 primeiro; depois o #21 entra</span>
+              <span data-l="fr">Le SM fait relire #14 d'abord ; ensuite #21 entre</span>
+            </p>
+          </div>
+          <div class="cena fragment">
+            <p class="cena-num">03</p>
+            <svg class="ilus cena-ilus" viewBox="0 0 360 192" aria-hidden="true">
+              <circle class="f-roxo" cx="70" cy="62" r="22"/>
+              <text class="t-bold t-branco t-meio" x="70" y="68">A</text>
+              <rect class="f-borda" x="36" y="92" width="68" height="40" rx="4"/>
+              <rect class="f-roxo" x="28" y="132" width="84" height="6" rx="3"/>
+              <rect class="borda-vira f-sup-claro s-verde" x="200" y="22" width="148" height="128" rx="8" stroke-width="2"/>
+              <text class="t-sm t-bold" x="210" y="16">Doing</text>
+              <g style="fill: var(--seg-destaque)">
+                <text data-l="en" class="antes-some t-bold t-meio" x="274" y="92">no card</text>
+                <text data-l="pt" class="antes-some t-bold t-meio" x="274" y="92">sem card</text>
+                <text data-l="fr" class="antes-some t-bold t-meio" x="274" y="92">sans carte</text>
+              </g>
+              <g class="depois-entra cena-fixo" style="--x: 232px; --y: 66px"><rect class="f-branco s-roxo" x="0" y="0" width="84" height="34" rx="7" stroke-width="2"/><text class="mono t-sm t-bold" x="12" y="22">#30</text></g>
+              <path class="depois-entra s-verde sem-fill" d="M112 70 C 150 70 170 84 226 84" stroke-width="3" stroke-dasharray="6 5"/>
+              <g class="sm-entra"><circle class="f-verde s-roxo" cx="150" cy="172" r="17" stroke-width="2"/><text class="t-sm t-bold t-meio" x="150" y="177">SM</text></g>
+            </svg>
+            <p class="cena-desvio">
+              <span data-l="en">Someone works on an activity with no card</span>
+              <span data-l="pt">Alguém trabalha numa atividade sem card</span>
+              <span data-l="fr">Quelqu'un travaille sur une activité sans carte</span>
+            </p>
+            <p class="cena-sm">
+              <span data-l="en">The SM asks for the card before the work goes on</span>
+              <span data-l="pt">O SM pede o card antes de o trabalho seguir</span>
+              <span data-l="fr">Le SM demande la carte avant que le travail continue</span>
+            </p>
+          </div>
+        </div>
+        <div class="aviso">
+          <span class="material-symbols-outlined aviso-icone" aria-hidden="true">shield_person</span>
+          <p>
+            <span data-l="en"><strong>The Scrum Master is the guardian of the ritual.</strong> Correcting the deviation on the spot is part of the role, in every daily.</span>
+            <span data-l="pt"><strong>O scrum master é o guardião do rito.</strong> Corrigir o desvio na hora faz parte do papel, em toda daily.</span>
+            <span data-l="fr"><strong>Le Scrum Master est le gardien du rituel.</strong> Corriger l'écart sur le moment fait partie du rôle, à chaque daily.</span>
+          </p>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">13</p>
+        </div>
+      </section>
+
+      <!-- 14 - WIP: linha do tempo com 5 tarefas -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Limiting WIP moves the first delivery from day 5 to day 1</span>
+            <span data-l="pt">Limitar o WIP antecipa a primeira entrega do dia 5 para o dia 1</span>
+            <span data-l="fr">Limiter le WIP avance la première livraison du jour 5 au jour 1</span>
+          </h2>
+        </div>
+        <p class="definicao">
+            <span data-l="en"><strong>WIP (work in progress)</strong>: number of cards started and not yet finished, in Doing, Waiting review, and Review.</span>
+            <span data-l="pt"><strong>WIP (work in progress)</strong>: quantidade de cards começados e ainda não terminados, em Doing, Waiting review e Review.</span>
+            <span data-l="fr"><strong>WIP (work in progress)</strong> : nombre de cartes commencées et pas encore terminées, en Doing, Waiting review et Review.</span>
+        </p>
+        <svg class="ilus wip" viewBox="0 0 1168 250" role="img" aria-label="Five tasks with WIP 5 and with WIP 1">
+          <text class="t-lg" x="0" y="52">WIP 5</text>
+          <g>
+            <text data-l="en" class="t-sm" x="0" y="74">all 5 at once</text>
+            <text data-l="pt" class="t-sm" x="0" y="74">as 5 ao mesmo tempo</text>
+            <text data-l="fr" class="t-sm" x="0" y="74">les 5 en même temps</text>
+          </g>
+          <text class="t-lg" x="0" y="160">WIP 1</text>
+          <g>
+            <text data-l="en" class="t-sm" x="0" y="182">one at a time</text>
+            <text data-l="pt" class="t-sm" x="0" y="182">uma por vez</text>
+            <text data-l="fr" class="t-sm" x="0" y="182">une à la fois</text>
+          </g>
+          <rect class="f-sup" x="230" y="14" width="880" height="14" rx="4"/>
+          <rect class="wip-par f-roxo" x="230" y="14" width="880" height="14" rx="4"/>
+          <g class="wip-ok wip-ok-par"><circle class="f-verde" cx="1124" cy="21" r="8"/></g>
+          <rect class="f-sup" x="230" y="34" width="880" height="14" rx="4"/>
+          <rect class="wip-par f-roxo" x="230" y="34" width="880" height="14" rx="4"/>
+          <g class="wip-ok wip-ok-par"><circle class="f-verde" cx="1124" cy="41" r="8"/></g>
+          <rect class="f-sup" x="230" y="54" width="880" height="14" rx="4"/>
+          <rect class="wip-par f-roxo" x="230" y="54" width="880" height="14" rx="4"/>
+          <g class="wip-ok wip-ok-par"><circle class="f-verde" cx="1124" cy="61" r="8"/></g>
+          <rect class="f-sup" x="230" y="74" width="880" height="14" rx="4"/>
+          <rect class="wip-par f-roxo" x="230" y="74" width="880" height="14" rx="4"/>
+          <g class="wip-ok wip-ok-par"><circle class="f-verde" cx="1124" cy="81" r="8"/></g>
+          <rect class="f-sup" x="230" y="94" width="880" height="14" rx="4"/>
+          <rect class="wip-par f-roxo" x="230" y="94" width="880" height="14" rx="4"/>
+          <g class="wip-ok wip-ok-par"><circle class="f-verde" cx="1124" cy="101" r="8"/></g>
+          <rect class="f-sup" x="230" y="124" width="176" height="14" rx="4"/>
+          <rect class="wip-seq f-roxo" x="230" y="124" width="176" height="14" rx="4" style="--k: 0"/>
+          <g class="wip-ok wip-ok-seq" style="--k: 0"><circle class="f-verde" cx="420" cy="131" r="8"/></g>
+          <rect class="f-sup" x="406" y="144" width="176" height="14" rx="4"/>
+          <rect class="wip-seq f-roxo" x="406" y="144" width="176" height="14" rx="4" style="--k: 1"/>
+          <g class="wip-ok wip-ok-seq" style="--k: 1"><circle class="f-verde" cx="596" cy="151" r="8"/></g>
+          <rect class="f-sup" x="582" y="164" width="176" height="14" rx="4"/>
+          <rect class="wip-seq f-roxo" x="582" y="164" width="176" height="14" rx="4" style="--k: 2"/>
+          <g class="wip-ok wip-ok-seq" style="--k: 2"><circle class="f-verde" cx="772" cy="171" r="8"/></g>
+          <rect class="f-sup" x="758" y="184" width="176" height="14" rx="4"/>
+          <rect class="wip-seq f-roxo" x="758" y="184" width="176" height="14" rx="4" style="--k: 3"/>
+          <g class="wip-ok wip-ok-seq" style="--k: 3"><circle class="f-verde" cx="948" cy="191" r="8"/></g>
+          <rect class="f-sup" x="934" y="204" width="176" height="14" rx="4"/>
+          <rect class="wip-seq f-roxo" x="934" y="204" width="176" height="14" rx="4" style="--k: 4"/>
+          <g class="wip-ok wip-ok-seq" style="--k: 4"><circle class="f-verde" cx="1124" cy="211" r="8"/></g>
+          <line class="s-borda" x1="230" y1="226" x2="230" y2="232" stroke-width="2"/>
+          <text class="mono t-sm t-meio" x="230" y="248">0</text>
+          <line class="s-borda" x1="406" y1="226" x2="406" y2="232" stroke-width="2"/>
+          <text class="mono t-sm t-meio" x="406" y="248">1</text>
+          <line class="s-borda" x1="582" y1="226" x2="582" y2="232" stroke-width="2"/>
+          <text class="mono t-sm t-meio" x="582" y="248">2</text>
+          <line class="s-borda" x1="758" y1="226" x2="758" y2="232" stroke-width="2"/>
+          <text class="mono t-sm t-meio" x="758" y="248">3</text>
+          <line class="s-borda" x1="934" y1="226" x2="934" y2="232" stroke-width="2"/>
+          <text class="mono t-sm t-meio" x="934" y="248">4</text>
+          <line class="s-borda" x1="1110" y1="226" x2="1110" y2="232" stroke-width="2"/>
+          <text class="mono t-sm t-meio" x="1110" y="248">5</text>
+          <g>
+            <text data-l="en" class="t-sm t-bold" x="150" y="248">day</text>
+            <text data-l="pt" class="t-sm t-bold" x="150" y="248">dia</text>
+            <text data-l="fr" class="t-sm t-bold" x="150" y="248">jour</text>
+          </g>
+          <line class="cursor-tempo s-coral" x1="230" y1="6" x2="230" y2="226" stroke-width="3"/>
+        </svg>
+        <div class="wip-grid">
+          <table class="data-table wip-tabela">
+            <thead>
+              <tr>
+                <th>
+                  <span data-l="en">Scenario</span>
+                  <span data-l="pt">Cenário</span>
+                  <span data-l="fr">Scénario</span>
+                </th>
+                <th>
+                  <span data-l="en">First delivery</span>
+                  <span data-l="pt">Primeira entrega</span>
+                  <span data-l="fr">Première livraison</span>
+                </th>
+                <th>
+                  <span data-l="en">Average lead time</span>
+                  <span data-l="pt">Lead time médio</span>
+                  <span data-l="fr">Lead time moyen</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-wip="5" data-primeira="5" data-lead-medio="5">
+                <td><strong>WIP 5</strong></td>
+                <td>
+                  <span data-l="en">day 5</span>
+                  <span data-l="pt">dia 5</span>
+                  <span data-l="fr">jour 5</span>
+                </td>
+                <td>
+                  <span data-l="en">5 days</span>
+                  <span data-l="pt">5 dias</span>
+                  <span data-l="fr">5 jours</span>
+                </td>
+              </tr>
+              <tr data-wip="1" data-primeira="1" data-lead-medio="3">
+                <td><strong>WIP 1</strong></td>
+                <td>
+                  <span data-l="en">day 1</span>
+                  <span data-l="pt">dia 1</span>
+                  <span data-l="fr">jour 1</span>
+                </td>
+                <td>
+                  <span data-l="en">3 days</span>
+                  <span data-l="pt">3 dias</span>
+                  <span data-l="fr">3 jours</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="aviso">
+            <span class="material-symbols-outlined aviso-icone" aria-hidden="true">swap_horiz</span>
+            <p>
+              <span data-l="en">Five 1-day tasks, same total effort. The count ignores the cost of switching between tasks, which makes WIP 5 even slower. <strong>Suggested limit: 1 card in Doing per student.</strong></span>
+              <span data-l="pt">Cinco tarefas de 1 dia, mesmo esforço total. A conta ignora o custo de alternar entre tarefas, que deixa o WIP 5 ainda mais lento. <strong>Limite sugerido: 1 card em Doing por aluno.</strong></span>
+              <span data-l="fr">Cinq tâches d'un jour, même effort total. Le calcul ignore le coût du passage d'une tâche à l'autre, qui ralentit encore le WIP 5. <strong>Limite suggérée : 1 carte en Doing par étudiant.</strong></span>
+            </p>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">14</p>
+        </div>
+      </section>
+
+      <!-- 15 - Throughput e Lei de Little (1 passo) -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Closing 64 tasks in 8 days takes a throughput of 8 cards a day</span>
+            <span data-l="pt">Fechar 64 tarefas em 8 dias exige throughput de 8 cards por dia</span>
+            <span data-l="fr">Fermer 64 tâches en 8 jours exige un throughput de 8 cartes par jour</span>
+          </h2>
+        </div>
+        <p class="definicao">
+            <span data-l="en"><strong>Throughput</strong>: number of cards that reach Done per unit of time. In GitLab, count the issues closed per day.</span>
+            <span data-l="pt"><strong>Throughput</strong>: quantidade de cards que chegam a Done por unidade de tempo. No GitLab, conte as issues fechadas por dia.</span>
+            <span data-l="fr"><strong>Throughput</strong> : nombre de cartes qui arrivent en Done par unité de temps. Dans GitLab, comptez les issues fermées par jour.</span>
+        </p>
+        <svg class="ilus vazao" viewBox="0 0 1168 150" role="img" aria-label="Cards flowing through the board">
+          <rect class="f-sup-claro s-borda" x="0" y="30" width="150" height="90" rx="12" stroke-width="2"/>
+          <text class="t-bold t-meio" x="75" y="80">Backlog</text>
+          <rect class="f-sup-claro s-borda" x="170" y="30" width="790" height="90" rx="45" stroke-width="2"/>
+          <g>
+            <text data-l="en" class="t-sm t-bold" x="200" y="22">In progress (WIP)</text>
+            <text data-l="pt" class="t-sm t-bold" x="200" y="22">Em andamento (WIP)</text>
+            <text data-l="fr" class="t-sm t-bold" x="200" y="22">En cours (WIP)</text>
+          </g>
+          <rect class="f-verde-claro s-verde" x="980" y="30" width="188" height="90" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="996" y="62">Done</text>
+          <g>
+            <text data-l="en" class="t-lg" x="996" y="98">8 cards / day</text>
+            <text data-l="pt" class="t-lg" x="996" y="98">8 cards / dia</text>
+            <text data-l="fr" class="t-lg" x="996" y="98">8 cartes / jour</text>
+          </g>
+          <g class="fluxo-a" data-wip="8">
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 0.0px; --dur: 8s; --atraso: 0.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 90.0px; --dur: 8s; --atraso: -1.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 180.0px; --dur: 8s; --atraso: -2.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 270.0px; --dur: 8s; --atraso: -3.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 360.0px; --dur: 8s; --atraso: -4.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 450.0px; --dur: 8s; --atraso: -5.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 540.0px; --dur: 8s; --atraso: -6.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 630.0px; --dur: 8s; --atraso: -7.00s"/>
+          </g>
+          <g class="fluxo-b" data-wip="24">
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 0.0px; --dur: 24s; --atraso: 0.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 30.0px; --dur: 24s; --atraso: -1.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 60.0px; --dur: 24s; --atraso: -2.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 90.0px; --dur: 24s; --atraso: -3.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 120.0px; --dur: 24s; --atraso: -4.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 150.0px; --dur: 24s; --atraso: -5.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 180.0px; --dur: 24s; --atraso: -6.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 210.0px; --dur: 24s; --atraso: -7.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 240.0px; --dur: 24s; --atraso: -8.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 270.0px; --dur: 24s; --atraso: -9.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 300.0px; --dur: 24s; --atraso: -10.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 330.0px; --dur: 24s; --atraso: -11.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 360.0px; --dur: 24s; --atraso: -12.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 390.0px; --dur: 24s; --atraso: -13.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 420.0px; --dur: 24s; --atraso: -14.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 450.0px; --dur: 24s; --atraso: -15.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 480.0px; --dur: 24s; --atraso: -16.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 510.0px; --dur: 24s; --atraso: -17.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 540.0px; --dur: 24s; --atraso: -18.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 570.0px; --dur: 24s; --atraso: -19.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 600.0px; --dur: 24s; --atraso: -20.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 630.0px; --dur: 24s; --atraso: -21.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 660.0px; --dur: 24s; --atraso: -22.00s"/>
+            <rect class="ficha f-roxo" x="190" y="61" width="26" height="28" rx="5" style="--pos: 690.0px; --dur: 24s; --atraso: -23.00s"/>
+          </g>
+        </svg>
+        <ol class="passos-legenda" style="--n-passos: 2">
+          <li>
+            <span class="passo-num">01</span>
+            <span data-l="en">WIP 8 at 8 cards a day: each card stays 1 day in progress</span>
+            <span data-l="pt">WIP 8 com 8 cards por dia: cada card fica 1 dia em andamento</span>
+            <span data-l="fr">WIP 8 à 8 cartes par jour : chaque carte reste 1 jour en cours</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">02</span>
+            <span data-l="en">WIP 24 at the same throughput: each card now waits 3 days</span>
+            <span data-l="pt">WIP 24 com o mesmo throughput: cada card passa a esperar 3 dias</span>
+            <span data-l="fr">WIP 24 au même throughput : chaque carte attend désormais 3 jours</span>
+          </li>
+        </ol>
+        <div class="little-grid">
+          <div class="little-formula">
+            <p class="little-nome">
+              <span data-l="en">Little's Law</span>
+              <span data-l="pt">Lei de Little</span>
+              <span data-l="fr">Loi de Little</span>
+            </p>
+            <p class="little-eq">
+              <span data-l="en">average lead time = WIP &divide; throughput</span>
+              <span data-l="pt">lead time médio = WIP &divide; throughput</span>
+              <span data-l="fr">lead time moyen = WIP &divide; throughput</span>
+            </p>
+            <p class="little-conta" data-wip="8" data-throughput="8" data-lead="1">
+              <span data-l="en">8 &divide; 8 = <strong>1 day</strong></span>
+              <span data-l="pt">8 &divide; 8 = <strong>1 dia</strong></span>
+              <span data-l="fr">8 &divide; 8 = <strong>1 jour</strong></span>
+            </p>
+            <p class="little-conta fragment" data-fragment-index="0" data-wip="24" data-throughput="8" data-lead="3">
+              <span data-l="en">24 &divide; 8 = <strong>3 days</strong></span>
+              <span data-l="pt">24 &divide; 8 = <strong>3 dias</strong></span>
+              <span data-l="fr">24 &divide; 8 = <strong>3 jours</strong></span>
+            </p>
+          </div>
+          <div class="cartao-meta" data-tarefas="64" data-dias="8" data-throughput="8">
+            <p>
+              <span data-l="en">64 tasks &divide; 8 development days</span>
+              <span data-l="pt">64 tarefas &divide; 8 dias de desenvolvimento</span>
+              <span data-l="fr">64 tâches &divide; 8 jours de développement</span>
+            </p>
+            <p class="meta-num">
+              <span data-l="en">8 cards a day in Done</span>
+              <span data-l="pt">8 cards por dia em Done</span>
+              <span data-l="fr">8 cartes par jour en Done</span>
+            </p>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">15</p>
+        </div>
+      </section>
+
+      <!-- 16 - Fechar revisoes antes de puxar tarefa nova (3 passos) -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">A new task enters Doing only after the reviews are closed</span>
+            <span data-l="pt">Tarefa nova só entra em Doing depois de fechadas as revisões</span>
+            <span data-l="fr">Une tâche n'entre en Doing qu'après la clôture des revues</span>
+          </h2>
+        </div>
+        <svg class="ilus fluxo" viewBox="0 0 1168 220" role="img" aria-label="Closing reviews before pulling a new task">
+          <rect class="f-sup-claro s-borda" x="0" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="16" y="28">Backlog</text>
+          <rect class="alvo-doing f-sup-claro s-borda" x="236" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="252" y="28">Doing</text>
+          <rect class="f-sup-claro s-borda" x="472" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="488" y="28">Waiting review</text>
+          <rect class="f-sup-claro s-borda" x="708" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="724" y="28">Review</text>
+          <rect class="f-sup-claro s-borda" x="944" y="0" width="224" height="216" rx="12" stroke-width="2"/>
+          <text class="t-bold" x="960" y="28">Done</text>
+
+          <g transform="translate(248 52)">
+            <rect class="f-branco s-borda" x="0" y="0" width="200" height="64" rx="10" stroke-width="1.5"/>
+            <text class="mono t-bold" x="14" y="26">#18</text>
+            <text class="mono t-sm" x="14" y="50">L &middot; 60 min</text>
+            <circle class="f-roxo" cx="176" cy="32" r="14"/>
+            <text class="t-sm t-bold t-branco t-meio" x="176" y="37">C</text>
+          </g>
+          <g class="rev-a move">
+            <rect class="f-branco s-roxo" x="0" y="0" width="200" height="64" rx="10" stroke-width="1.5"/>
+            <text class="mono t-bold" x="14" y="26">#14</text>
+            <text class="mono t-sm" x="14" y="50">M &middot; 30 min</text>
+            <circle class="f-verde" cx="176" cy="32" r="14"/>
+            <text class="t-sm t-bold t-meio" x="176" y="37">R</text>
+          </g>
+          <g class="rev-b move">
+            <rect class="f-branco s-roxo" x="0" y="0" width="200" height="64" rx="10" stroke-width="1.5"/>
+            <text class="mono t-bold" x="14" y="26">#15</text>
+            <text class="mono t-sm" x="14" y="50">M &middot; 30 min</text>
+            <circle class="f-verde" cx="176" cy="32" r="14"/>
+            <text class="t-sm t-bold t-meio" x="176" y="37">B</text>
+          </g>
+          <g class="novo move">
+            <rect class="f-branco s-coral" x="0" y="0" width="200" height="64" rx="10" stroke-width="2"/>
+            <text class="mono t-bold" x="14" y="26">#21</text>
+            <g>
+              <text data-l="en" class="t-sm" x="14" y="50">New task</text>
+              <text data-l="pt" class="t-sm" x="14" y="50">Tarefa nova</text>
+              <text data-l="fr" class="t-sm" x="14" y="50">Nouvelle tâche</text>
+            </g>
+            <circle class="f-roxo" cx="176" cy="32" r="14"/>
+            <text class="t-sm t-bold t-branco t-meio" x="176" y="37">A</text>
+          </g>
+          <g class="novo-recusa move">
+            <circle class="f-coral" cx="230" cy="84" r="18"/>
+            <path class="s-branco" d="M218 84 h24" stroke-width="4"/>
+          </g>
+          <g class="liberado move">
+            <circle class="f-verde s-roxo" cx="444" cy="138" r="13" stroke-width="2"/>
+            <path class="s-roxo sem-fill" d="M437 138 l5 5 l9 -10" stroke-width="2.5"/>
+          </g>
+        </svg>
+        <ol class="passos-legenda" style="--n-passos: 3">
+          <li class="fragment">
+            <span class="passo-num">01</span>
+            <span data-l="en">A new card tries to enter Doing while reviews are open: blocked</span>
+            <span data-l="pt">Um card novo tenta entrar em Doing com revisões abertas: bloqueado</span>
+            <span data-l="fr">Une nouvelle carte tente d'entrer en Doing avec des revues ouvertes : bloquée</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">02</span>
+            <span data-l="en">The group closes the cards in Review and Waiting review</span>
+            <span data-l="pt">O grupo fecha os cards em Review e Waiting review</span>
+            <span data-l="fr">Le groupe clôture les cartes en Review et Waiting review</span>
+          </li>
+          <li class="fragment">
+            <span class="passo-num">03</span>
+            <span data-l="en">With the reviews closed, the new card enters Doing</span>
+            <span data-l="pt">Com as revisões fechadas, o card novo entra em Doing</span>
+            <span data-l="fr">Revues clôturées, la nouvelle carte entre en Doing</span>
+          </li>
+        </ol>
+        <div class="aviso">
+          <span class="material-symbols-outlined aviso-icone" aria-hidden="true">event_repeat</span>
+          <p>
+            <span data-l="en">Spread reviews across the sprint, <strong>without leaving them for the last days</strong>.</span>
+            <span data-l="pt">Distribua as revisões ao longo da sprint, <strong>sem deixá-las para os últimos dias</strong>.</span>
+            <span data-l="fr">Répartissez les revues sur tout le sprint, <strong>sans les laisser pour les derniers jours</strong>.</span>
+          </p>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">16</p>
+        </div>
+      </section>
+
+      <!-- 17 - Quem revisa quem -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Every student reviews code written by someone else</span>
+            <span data-l="pt">Todo aluno revisa código escrito por outra pessoa</span>
+            <span data-l="fr">Chaque étudiant relit du code écrit par quelqu'un d'autre</span>
+          </h2>
+        </div>
+        <div class="revisao-grid">
+          <div>
+            <div class="cartao-regra">
+              <svg class="ilus autor-proibido" viewBox="0 0 120 64" aria-hidden="true">
+                <circle class="f-roxo" cx="20" cy="32" r="16"/>
+                <text class="t-bold t-branco t-meio" x="20" y="38">A</text>
+                <rect class="f-sup s-borda" x="44" y="16" width="32" height="32" rx="5" stroke-width="1.5"/>
+                <text class="mono t-sm t-meio" x="60" y="37">MR</text>
+                <circle class="f-roxo" cx="100" cy="32" r="16"/>
+                <text class="t-bold t-branco t-meio" x="100" y="38">A</text>
+                <path class="risco s-coral sem-fill" pathLength="1" d="M84 12 L116 52 M116 12 L84 52" stroke-width="4"/>
+              </svg>
+              <p>
+                <span data-l="en"><strong>Whoever develops a task does not review it.</strong> The reviewer is always another member of the group.</span>
+                <span data-l="pt"><strong>Quem desenvolve a tarefa não faz a revisão dela.</strong> O revisor é sempre outro integrante do grupo.</span>
+                <span data-l="fr"><strong>Qui développe une tâche n'en fait pas la revue.</strong> Le relecteur est toujours un autre membre du groupe.</span>
+              </p>
+            </div>
+            <div class="cartao-regra">
+              <svg class="ilus" viewBox="0 0 120 64" aria-hidden="true">
+                <circle class="f-roxo" cx="20" cy="32" r="16"/>
+                <text class="t-bold t-branco t-meio" x="20" y="38">A</text>
+                <rect class="f-sup s-borda" x="44" y="16" width="32" height="32" rx="5" stroke-width="1.5"/>
+                <text class="mono t-sm t-meio" x="60" y="37">MR</text>
+                <circle class="f-verde" cx="100" cy="32" r="16"/>
+                <text class="t-bold t-meio" x="100" y="38">R</text>
+              </svg>
+              <p>
+                <span data-l="en">Every student commits and takes part in <strong>at least one code review</strong> per sprint.</span>
+                <span data-l="pt">Todo aluno tem commit e participa de <strong>pelo menos uma revisão de código</strong> por sprint.</span>
+                <span data-l="fr">Chaque étudiant a des commits et participe à <strong>au moins une revue de code</strong> par sprint.</span>
+              </p>
+            </div>
+            <div class="cartao-regra">
+              <svg class="ilus" viewBox="0 0 120 64" aria-hidden="true">
+                <path class="s-verde sem-fill" d="M30 14 H90 M98 22 V42 M90 50 H30 M22 42 V22" stroke-width="3"/>
+                <path class="s-borda sem-fill" d="M30 20 L90 44 M90 20 L30 44" stroke-width="2"/>
+                <circle class="f-roxo" cx="22" cy="14" r="10"/>
+                <circle class="f-roxo" cx="98" cy="14" r="10"/>
+                <circle class="f-roxo" cx="98" cy="50" r="10"/>
+                <circle class="f-roxo" cx="22" cy="50" r="10"/>
+              </svg>
+              <p>
+                <span data-l="en">Ideally, <strong>everyone reviews everyone</strong> during the sprint.</span>
+                <span data-l="pt">O ideal é que <strong>todos revisem todos</strong> durante a sprint.</span>
+                <span data-l="fr">Idéalement, <strong>tout le monde relit tout le monde</strong> pendant le sprint.</span>
+              </p>
+            </div>
+          </div>
+          <div>
+            <svg class="ilus anel" viewBox="0 0 450 430" role="img" aria-label="Review rotation among 8 students">
+              <defs>
+                <marker id="ponta-anel" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path class="f-verde" d="M0 0 L10 5 L0 10 z"/>
+                </marker>
+              </defs>
+              <path class="corda s-borda sem-fill" pathLength="1" d="M238.0 81.4 L327.1 296.6" stroke-width="2" style="--i: 0"/>
+              <path class="corda s-borda sem-fill" pathLength="1" d="M358.6 228.0 L143.4 317.1" stroke-width="2" style="--i: 1"/>
+              <path class="corda s-borda sem-fill" pathLength="1" d="M212.0 348.6 L122.9 133.4" stroke-width="2" style="--i: 2"/>
+              <path class="corda s-borda sem-fill" pathLength="1" d="M91.4 202.0 L306.6 112.9" stroke-width="2" style="--i: 3"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M256.4 63.0 L306.6 83.8" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 0"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M354.7 129.7 L375.5 179.9" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 1"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M377.0 246.4 L356.2 296.6" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 2"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M310.3 344.7 L260.1 365.5" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 3"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M193.6 367.0 L143.4 346.2" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 4"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M95.3 300.3 L74.5 250.1" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 5"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M73.0 183.6 L93.8 133.4" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 6"/>
+              <path class="seta s-verde sem-fill" pathLength="1" d="M139.7 85.3 L189.9 64.5" stroke-width="3" marker-end="url(#ponta-anel)" style="--i: 7"/>
+              <g class="no" style="--i: 0"><circle class="f-roxo" cx="225.0" cy="50.0" r="26"/><text class="t-lg t-branco t-meio" x="225.0" y="57.0">A</text></g>
+              <g class="no" style="--i: 1"><circle class="f-roxo" cx="341.7" cy="98.3" r="26"/><text class="t-lg t-branco t-meio" x="341.7" y="105.3">B</text></g>
+              <g class="no" style="--i: 2"><circle class="f-roxo" cx="390.0" cy="215.0" r="26"/><text class="t-lg t-branco t-meio" x="390.0" y="222.0">C</text></g>
+              <g class="no" style="--i: 3"><circle class="f-roxo" cx="341.7" cy="331.7" r="26"/><text class="t-lg t-branco t-meio" x="341.7" y="338.7">D</text></g>
+              <g class="no" style="--i: 4"><circle class="f-roxo" cx="225.0" cy="380.0" r="26"/><text class="t-lg t-branco t-meio" x="225.0" y="387.0">E</text></g>
+              <g class="no" style="--i: 5"><circle class="f-roxo" cx="108.3" cy="331.7" r="26"/><text class="t-lg t-branco t-meio" x="108.3" y="338.7">F</text></g>
+              <g class="no" style="--i: 6"><circle class="f-roxo" cx="60.0" cy="215.0" r="26"/><text class="t-lg t-branco t-meio" x="60.0" y="222.0">G</text></g>
+              <g class="no" style="--i: 7"><circle class="f-roxo" cx="108.3" cy="98.3" r="26"/><text class="t-lg t-branco t-meio" x="108.3" y="105.3">H</text></g>
+            </svg>
+            <p class="nota-fonte">
+              <span data-l="en">Green arrows: a rotation in which nobody reviews their own work. Gray lines: extra pairs, so everyone reviews everyone.</span>
+              <span data-l="pt">Setas verdes: um rodízio em que ninguém revisa o próprio trabalho. Linhas cinza: pares extras, para todos revisarem todos.</span>
+              <span data-l="fr">Flèches vertes : une rotation où personne ne relit son propre travail. Lignes grises : paires en plus, pour que tout le monde relise tout le monde.</span>
+            </p>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">17</p>
+        </div>
+      </section>
+
+      <!-- 18 - Piramide de code review (Morling, CC BY-SA 4.0) -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Human review concentrates on the three base layers of the pyramid</span>
+            <span data-l="pt">A revisão humana se concentra nas três camadas da base da pirâmide</span>
+            <span data-l="fr">La revue humaine se concentre sur les trois couches de la base de la pyramide</span>
+          </h2>
+        </div>
+        <svg class="ilus piramide" viewBox="0 0 1168 426" role="img" aria-label="Code review pyramid">
+          <g class="camada camada-estilo" style="--o: 4">
+            <polygon class="f-sup s-borda" points="470,6 522.8,110 417.2,110" stroke-width="2"/>
+            <g>
+              <text data-l="en" class="t-bold t-meio" x="470" y="60.0">Code</text>
+              <text data-l="pt" class="t-bold t-meio" x="470" y="60.0">Estilo de</text>
+              <text data-l="fr" class="t-bold t-meio" x="470" y="60.0">Style de</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-bold t-meio" x="470" y="78.0">style</text>
+              <text data-l="pt" class="t-bold t-meio" x="470" y="78.0">código</text>
+              <text data-l="fr" class="t-bold t-meio" x="470" y="78.0">code</text>
+            </g>
+          </g>
+          <g class="perguntas" data-camada="estilo" style="--o: 4">
+            <path class="s-borda sem-fill" d="M506 54 H690" stroke-width="1.5"/>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="44">Is the project's formatting style applied?</text>
+              <text data-l="pt" class="t-sm" x="700" y="44">O estilo de formatação do projeto foi aplicado?</text>
+              <text data-l="fr" class="t-sm" x="700" y="44">Le style de formatage du projet est-il appliqué ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="62">Does it follow the agreed naming conventions?</text>
+              <text data-l="pt" class="t-sm" x="700" y="62">Segue as convenções de nomes combinadas?</text>
+              <text data-l="fr" class="t-sm" x="700" y="62">Respecte-t-il les conventions de nommage ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="80">Is the code readable (method length, etc.)?</text>
+              <text data-l="pt" class="t-sm" x="700" y="80">O código é legível (tamanho dos métodos etc.)?</text>
+              <text data-l="fr" class="t-sm" x="700" y="80">Le code est-il lisible (longueur des méthodes) ?</text>
+            </g>
+          </g>
+          <g class="camada camada-testes" style="--o: 3">
+            <polygon class="f-sup s-borda" points="417.2,110 522.8,110 561.3,186 378.7,186" stroke-width="2"/>
+            <g>
+              <text data-l="en" class="t-bold t-meio" x="470" y="154.0">Tests</text>
+              <text data-l="pt" class="t-bold t-meio" x="470" y="154.0">Testes</text>
+              <text data-l="fr" class="t-bold t-meio" x="470" y="154.0">Tests</text>
+            </g>
+          </g>
+          <g class="perguntas" data-camada="testes" style="--o: 3">
+            <path class="s-borda sem-fill" d="M552 144 H690" stroke-width="1.5"/>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="134">Are all tests passing?</text>
+              <text data-l="pt" class="t-sm" x="700" y="134">Todos os testes passam?</text>
+              <text data-l="fr" class="t-sm" x="700" y="134">Tous les tests passent-ils ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="152">Are new features reasonably tested?</text>
+              <text data-l="pt" class="t-sm" x="700" y="152">As funcionalidades novas têm testes adequados?</text>
+              <text data-l="fr" class="t-sm" x="700" y="152">Les nouvelles fonctionnalités sont-elles testées ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="170">Are corner cases tested?</text>
+              <text data-l="pt" class="t-sm" x="700" y="170">Os casos de borda estão testados?</text>
+              <text data-l="fr" class="t-sm" x="700" y="170">Les cas limites sont-ils testés ?</text>
+            </g>
+          </g>
+          <g class="camada camada-docs" style="--o: 2">
+            <polygon class="f-verde-claro s-verde" points="378.7,186 561.3,186 599.9,262 340.1,262" stroke-width="2"/>
+            <g>
+              <text data-l="en" class="t-bold t-meio" x="470" y="230.0">Documentation</text>
+              <text data-l="pt" class="t-bold t-meio" x="470" y="230.0">Documentação</text>
+              <text data-l="fr" class="t-bold t-meio" x="470" y="230.0">Documentation</text>
+            </g>
+          </g>
+          <g class="perguntas" data-camada="docs" style="--o: 2">
+            <path class="s-borda sem-fill" d="M591 220 H690" stroke-width="1.5"/>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="210">Are new features reasonably documented?</text>
+              <text data-l="pt" class="t-sm" x="700" y="210">As funcionalidades novas estão documentadas?</text>
+              <text data-l="fr" class="t-sm" x="700" y="210">Les nouvelles fonctionnalités sont-elles documentées ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="228">Are README, API docs, and user guide covered?</text>
+              <text data-l="pt" class="t-sm" x="700" y="228">README, docs de API e guia de uso estão cobertos?</text>
+              <text data-l="fr" class="t-sm" x="700" y="228">README, docs d'API et guide sont-ils couverts ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="246">Are the docs understandable, without major typos?</text>
+              <text data-l="pt" class="t-sm" x="700" y="246">A documentação é compreensível e sem erros graves?</text>
+              <text data-l="fr" class="t-sm" x="700" y="246">La doc est-elle claire, sans fautes graves ?</text>
+            </g>
+          </g>
+          <g class="camada camada-implementacao" style="--o: 1">
+            <polygon class="f-verde s-verde" points="340.1,262 599.9,262 638.4,338 301.6,338" stroke-width="2"/>
+            <g>
+              <text data-l="en" class="t-bold t-meio" x="470" y="306.0">Implementation semantics</text>
+              <text data-l="pt" class="t-bold t-meio" x="470" y="306.0">Semântica da implementação</text>
+              <text data-l="fr" class="t-bold t-meio" x="470" y="306.0">Sémantique de l'implémentation</text>
+            </g>
+          </g>
+          <g class="perguntas" data-camada="implementacao" style="--o: 1">
+            <path class="s-borda sem-fill" d="M629 296 H690" stroke-width="1.5"/>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="286">Does it satisfy the original requirements?</text>
+              <text data-l="pt" class="t-sm" x="700" y="286">Atende aos requisitos originais?</text>
+              <text data-l="fr" class="t-sm" x="700" y="286">Répond-il aux exigences initiales ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="304">Is it logically correct, without needless complexity?</text>
+              <text data-l="pt" class="t-sm" x="700" y="304">Está logicamente correto, sem complexidade desnecessária?</text>
+              <text data-l="fr" class="t-sm" x="700" y="304">Est-il logiquement correct, sans complexité inutile ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="322">Is it robust, secure, performant, and observable?</text>
+              <text data-l="pt" class="t-sm" x="700" y="322">É robusto, seguro, performático e observável?</text>
+              <text data-l="fr" class="t-sm" x="700" y="322">Est-il robuste, sûr, performant et observable ?</text>
+            </g>
+          </g>
+          <g class="camada camada-api" style="--o: 0">
+            <polygon class="f-roxo s-roxo" points="301.6,338 638.4,338 680.0,420 260.0,420" stroke-width="2"/>
+            <g>
+              <text data-l="en" class="t-bold t-meio t-branco" x="470" y="385.0">API semantics</text>
+              <text data-l="pt" class="t-bold t-meio t-branco" x="470" y="385.0">Semântica da API</text>
+              <text data-l="fr" class="t-bold t-meio t-branco" x="470" y="385.0">Sémantique de l'API</text>
+            </g>
+          </g>
+          <g class="perguntas" data-camada="api" style="--o: 0">
+            <path class="s-borda sem-fill" d="M669 375 H690" stroke-width="1.5"/>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="365">Is the API as small as possible, as large as needed?</text>
+              <text data-l="pt" class="t-sm" x="700" y="365">A API é mínima e ainda cobre o necessário?</text>
+              <text data-l="fr" class="t-sm" x="700" y="365">L'API est-elle minimale tout en couvrant le besoin ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="383">Is there one way of doing one thing?</text>
+              <text data-l="pt" class="t-sm" x="700" y="383">Existe um único jeito de fazer cada coisa?</text>
+              <text data-l="fr" class="t-sm" x="700" y="383">Existe-t-il une seule façon de faire chaque chose ?</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="700" y="401">Nothing breaks for current users (config, schemas, logs)?</text>
+              <text data-l="pt" class="t-sm" x="700" y="401">Nada quebra para quem já usa (configuração, esquemas, logs)?</text>
+              <text data-l="fr" class="t-sm" x="700" y="401">Rien ne casse pour les utilisateurs (config, schémas, logs) ?</text>
+            </g>
+          </g>
+          <g class="lado lado-auto">
+            <path class="s-coral sem-fill" d="M262 12 q-14 0 -14 14 v56 q0 14 -14 14 q14 0 14 14 v56 q0 14 14 14" stroke-width="2.5"/>
+            <rect class="f-coral-claro s-coral" x="0" y="62" width="222" height="70" rx="10" stroke-width="2"/>
+            <g>
+              <text data-l="en" class="t-bold" x="14" y="90">Automate here</text>
+              <text data-l="pt" class="t-bold" x="14" y="90">Automatize aqui</text>
+              <text data-l="fr" class="t-bold" x="14" y="90">Automatisez ici</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="14" y="114">formatter, linter, tests in CI</text>
+              <text data-l="pt" class="t-sm" x="14" y="114">formatador, linter, testes na CI</text>
+              <text data-l="fr" class="t-sm" x="14" y="114">formateur, linter, tests en CI</text>
+            </g>
+          </g>
+          <g class="lado lado-foco">
+            <path class="s-verde sem-fill" d="M262 192 q-14 0 -14 14 v86 q0 14 -14 14 q14 0 14 14 v86 q0 14 14 14" stroke-width="2.5"/>
+            <rect class="f-verde-claro s-verde" x="0" y="270" width="222" height="70" rx="10" stroke-width="2"/>
+            <g>
+              <text data-l="en" class="t-bold" x="14" y="298">Focus the review here</text>
+              <text data-l="pt" class="t-bold" x="14" y="298">Concentre a revisão aqui</text>
+              <text data-l="fr" class="t-bold" x="14" y="298">Concentrez la revue ici</text>
+            </g>
+            <g>
+              <text data-l="en" class="t-sm" x="14" y="322">costlier to change later</text>
+              <text data-l="pt" class="t-sm" x="14" y="322">mais caro de mudar depois</text>
+              <text data-l="fr" class="t-sm" x="14" y="322">plus coûteux à changer ensuite</text>
+            </g>
+          </g>
+        </svg>
+        <p class="nota-fonte">
+            <span data-l="en">Adapted from Gunnar Morling, <a href="https://www.morling.dev/blog/the-code-review-pyramid/" target="_blank" rel="noopener">The Code Review Pyramid</a> (2022), CC BY-SA 4.0. In a data pipeline, the API includes table schemas, parameters, and output formats.</span>
+            <span data-l="pt">Adaptado de Gunnar Morling, <a href="https://www.morling.dev/blog/the-code-review-pyramid/" target="_blank" rel="noopener">The Code Review Pyramid</a> (2022), CC BY-SA 4.0. Num pipeline de dados, a API inclui esquemas de tabela, parâmetros e formatos de saída.</span>
+            <span data-l="fr">Adapté de Gunnar Morling, <a href="https://www.morling.dev/blog/the-code-review-pyramid/" target="_blank" rel="noopener">The Code Review Pyramid</a> (2022), CC BY-SA 4.0. Dans un pipeline de données, l'API comprend les schémas de tables, les paramètres et les formats de sortie.</span>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">18</p>
+        </div>
+      </section>
+
+      <!-- 19 - Commits semanticos ligados a issue -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Each commit states the change type and cites its issue</span>
+            <span data-l="pt">Cada commit declara o tipo de mudança e cita a issue</span>
+            <span data-l="fr">Chaque commit indique le type de changement et cite son issue</span>
+          </h2>
+        </div>
+        <div class="terminal">
+          <span class="bolinhas"><i></i><i></i><i></i></span>
+          <span class="mono prompt">$</span>
+          <code>git commit -m "feat(ingestion): load the Jan 2014 batch #12"</code>
+          <span class="cursor"></span>
+        </div>
+        <div class="anatomia">
+          <span class="mono parte tipo">feat</span>
+          <span class="mono parte escopo">(ingestion)</span>
+          <span class="mono parte descricao">: load the Jan 2014 batch</span>
+          <span class="mono parte issue">#12</span>
+          <p class="rotulo" style="--i: 0">
+            <span data-l="en">type of change</span>
+            <span data-l="pt">tipo de mudança</span>
+            <span data-l="fr">type de changement</span>
+          </p>
+          <p class="rotulo" style="--i: 1">
+            <span data-l="en">scope: part of the project</span>
+            <span data-l="pt">escopo: parte do projeto</span>
+            <span data-l="fr">portée : partie du projet</span>
+          </p>
+          <p class="rotulo" style="--i: 2">
+            <span data-l="en">short description, imperative</span>
+            <span data-l="pt">descrição curta, no imperativo</span>
+            <span data-l="fr">description courte, à l'impératif</span>
+          </p>
+          <p class="rotulo" style="--i: 3">
+            <span data-l="en">issue card on the board</span>
+            <span data-l="pt">card da issue no quadro</span>
+            <span data-l="fr">carte de l'issue</span>
+          </p>
+        </div>
+        <div class="commit-grid">
+          <table class="data-table tipos-tabela">
+            <thead>
+              <tr>
+                <th>
+                  <span data-l="en">Type</span>
+                  <span data-l="pt">Tipo</span>
+                  <span data-l="fr">Type</span>
+                </th>
+                <th>
+                  <span data-l="en">When to use it</span>
+                  <span data-l="pt">Quando usar</span>
+                  <span data-l="fr">Quand l'utiliser</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>feat</code></td>
+                <td>
+                  <span data-l="en">New feature</span>
+                  <span data-l="pt">Funcionalidade nova</span>
+                  <span data-l="fr">Nouvelle fonctionnalité</span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>fix</code></td>
+                <td>
+                  <span data-l="en">Bug fix</span>
+                  <span data-l="pt">Correção de erro</span>
+                  <span data-l="fr">Correction de bug</span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>docs</code></td>
+                <td>
+                  <span data-l="en">Documentation only</span>
+                  <span data-l="pt">Só documentação</span>
+                  <span data-l="fr">Documentation uniquement</span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>test</code></td>
+                <td>
+                  <span data-l="en">Adds or fixes tests</span>
+                  <span data-l="pt">Adiciona ou corrige testes</span>
+                  <span data-l="fr">Ajoute ou corrige des tests</span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>refactor</code></td>
+                <td>
+                  <span data-l="en">Changes code without changing behavior</span>
+                  <span data-l="pt">Muda o código sem mudar o comportamento</span>
+                  <span data-l="fr">Modifie le code sans changer le comportement</span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>chore</code></td>
+                <td>
+                  <span data-l="en">Maintenance: build, configuration, dependencies</span>
+                  <span data-l="pt">Manutenção: build, configuração, dependências</span>
+                  <span data-l="fr">Maintenance : build, configuration, dépendances</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <svg class="ilus liga" viewBox="0 0 540 150" role="img" aria-label="Commit linked to issue 12">
+              <rect class="f-roxo" x="0" y="50" width="76" height="40" rx="20"/>
+              <text class="mono t-bold t-branco t-meio" x="38" y="76">#12</text>
+              <path class="elo s-verde sem-fill" pathLength="1" d="M80 70 C 160 70 180 70 270 70" stroke-width="4" stroke-dasharray="1"/>
+              <g class="card-issue">
+                <rect class="card-fundo f-verde-claro s-roxo" x="280" y="14" width="250" height="112" rx="12" stroke-width="1.5"/>
+                <text class="mono t-bold" x="296" y="42">#12</text>
+                <g>
+                  <text data-l="en" class="t-sm" x="296" y="66">Load the Jan 2014 batch</text>
+                  <text data-l="pt" class="t-sm" x="296" y="66">Carregar o lote de jan/2014</text>
+                  <text data-l="fr" class="t-sm" x="296" y="66">Charger le lot de janv. 2014</text>
+                </g>
+                <g>
+                  <text data-l="en" class="t-sm" x="296" y="98">mentioned in commit feat(ingestion)</text>
+                  <text data-l="pt" class="t-sm" x="296" y="98">citada no commit feat(ingestion)</text>
+                  <text data-l="fr" class="t-sm" x="296" y="98">citée dans le commit feat(ingestion)</text>
+                </g>
+              </g>
+            </svg>
+            <p class="nota-fonte">
+              <span data-l="en">GitLab links the commit to issue #12, and the card shows the code behind it.</span>
+              <span data-l="pt">O GitLab liga o commit à issue #12, e o card mostra o código por trás dele.</span>
+              <span data-l="fr">GitLab relie le commit à l'issue #12, et la carte montre le code qui s'y rattache.</span>
+            </p>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">19</p>
+        </div>
+      </section>
+
+      <!-- 20 - Template de merge request -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">A merge request template standardizes the review</span>
+            <span data-l="pt">Um template de merge request padroniza a revisão</span>
+            <span data-l="fr">Un modèle de merge request standardise la revue</span>
+          </h2>
+        </div>
+        <div class="mr-grid">
+          <div class="mr-mock">
+            <div class="mr-topo">
+              <span class="material-symbols-outlined" aria-hidden="true">merge</span>
+              <p><span class="mr-id">!7</span> feat(ingestion): load the Jan 2014 batch</p>
+            </div>
+            <div class="mr-corpo">
+              <h5>
+                <span data-l="en">Linked issue</span>
+                <span data-l="pt">Issue vinculada</span>
+                <span data-l="fr">Issue liée</span>
+              </h5>
+              <p class="mr-closes"><code>Closes #12</code></p>
+              <h5>Checklist</h5>
+              <ul class="mr-checklist">
+                <li style="--i: 0">
+                  <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                  <span>
+                    <span data-l="en">Semantic commits that cite #12</span>
+                    <span data-l="pt">Commits semânticos que citam #12</span>
+                    <span data-l="fr">Commits sémantiques qui citent #12</span>
+                  </span>
+                </li>
+                <li style="--i: 1">
+                  <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                  <span>
+                    <span data-l="en">What changed and how to test it are described</span>
+                    <span data-l="pt">O que mudou e como testar estão descritos</span>
+                    <span data-l="fr">Ce qui a changé et comment le tester sont décrits</span>
+                  </span>
+                </li>
+                <li style="--i: 2">
+                  <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                  <span>
+                    <span data-l="en">Tests or validation pass</span>
+                    <span data-l="pt">Testes ou validação passando</span>
+                    <span data-l="fr">Tests ou validation réussis</span>
+                  </span>
+                </li>
+                <li style="--i: 3">
+                  <svg viewBox="0 0 22 22" aria-hidden="true"><rect class="f-branco s-roxo" x="1" y="1" width="20" height="20" rx="4" stroke-width="2"/><path class="marca s-verde sem-fill" pathLength="1" d="M5 11 l4 4 l8 -9" stroke-width="3"/></svg>
+                  <span>
+                    <span data-l="en">Reviewer is not the author</span>
+                    <span data-l="pt">O revisor não é o autor</span>
+                    <span data-l="fr">Le relecteur n'est pas l'auteur</span>
+                  </span>
+                </li>
+              </ul>
+              <span class="mr-aprovado">
+                <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+                <span data-l="en">Approved by the reviewer</span>
+                <span data-l="pt">Aprovado pelo revisor</span>
+                <span data-l="fr">Approuvée par le relecteur</span>
+              </span>
+            </div>
+          </div>
+          <div>
+            <span class="rotulo-exemplo">
+              <span data-l="en">Suggested process</span>
+              <span data-l="pt">Processo sugerido</span>
+              <span data-l="fr">Processus suggéré</span>
+            </span>
+            <ol class="regras-num">
+              <li>
+                <span data-l="en">The author opens the MR with the group's template and links the issue.</span>
+                <span data-l="pt">O autor abre o MR com o template do grupo e vincula a issue.</span>
+                <span data-l="fr">L'auteur ouvre la MR avec le modèle du groupe et lie l'issue.</span>
+              </li>
+              <li>
+                <span data-l="en">The card goes to Waiting review, with a reviewer who is not the author.</span>
+                <span data-l="pt">O card vai para Waiting review, com um revisor que não é o autor.</span>
+                <span data-l="fr">La carte passe en Waiting review, avec un relecteur qui n'est pas l'auteur.</span>
+              </li>
+              <li>
+                <span data-l="en">The reviewer comments; the author answers with new commits.</span>
+                <span data-l="pt">O revisor comenta, e o autor responde com novos commits.</span>
+                <span data-l="fr">Le relecteur commente, et l'auteur répond par de nouveaux commits.</span>
+              </li>
+              <li>
+                <span data-l="en">Once approved, the MR is merged into main and the card goes to Done.</span>
+                <span data-l="pt">Aprovado, o MR entra na main e o card vai para Done.</span>
+                <span data-l="fr">Une fois approuvée, la MR est fusionnée dans main et la carte passe en Done.</span>
+              </li>
+            </ol>
+            <p class="mr-caminho">
+              <span data-l="en">Templates in GitLab: <code>.gitlab/merge_request_templates/</code></span>
+              <span data-l="pt">Templates no GitLab: <code>.gitlab/merge_request_templates/</code></span>
+              <span data-l="fr">Modèles dans GitLab : <code>.gitlab/merge_request_templates/</code></span>
+            </p>
+            <ul class="mr-refs">
+              <li>
+                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                <a href="https://about.gitlab.com/pt-br/topics/version-control/what-is-code-review/" target="_blank" rel="noopener">GitLab: what is code review?</a>
+              </li>
+              <li>
+                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                <a href="https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/" target="_blank" rel="noopener">Swarmia: a complete guide to code reviews</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">20</p>
+        </div>
+      </section>
+
+      <!-- 21 - Checklist -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Sprint planning checklist</span>
+            <span data-l="pt">Checklist da planning da sprint</span>
+            <span data-l="fr">Checklist du planning du sprint</span>
+          </h2>
+        </div>
+        <table class="data-table checklist-tabela">
+          <tbody>
+            <tr>
+              <th scope="row">Kickoff</th>
+              <td>
+                <ul>
+                  <li>
+                    <span data-l="en">Module tasks mapped at a macro level across the 5 sprints</span>
+                    <span data-l="pt">Tarefas do módulo mapeadas de forma macro nas 5 sprints</span>
+                    <span data-l="fr">Tâches du module cartographiées au niveau macro sur les 5 sprints</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Planning</th>
+              <td>
+                <ul>
+                  <li>
+                    <span data-l="en">Every task detailed and estimated: S, M, L, XL = 15, 30, 60, 120 min</span>
+                    <span data-l="pt">Toda tarefa detalhada e estimada: P, M, G, GG = 15, 30, 60, 120 min</span>
+                    <span data-l="fr">Chaque tâche détaillée et estimée : S, M, L, XL = 15, 30, 60, 120 min</span>
+                  </li>
+                  <li>
+                    <span data-l="en">No task above 120 min; longer ones split into L tasks of 60 min</span>
+                    <span data-l="pt">Nenhuma tarefa acima de 120 min; as maiores divididas em tarefas G de 60 min</span>
+                    <span data-l="fr">Aucune tâche au-delà de 120 min ; les plus longues découpées en tâches L de 60 min</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Tasks cut by delivered value, in vertical slices of data</span>
+                    <span data-l="pt">Tarefas cortadas por entrega de valor, em fatias verticais do dado</span>
+                    <span data-l="fr">Tâches découpées par valeur livrée, en tranches verticales de données</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Review time planned: S review for S tasks, at least half the estimate for the others</span>
+                    <span data-l="pt">Tempo de revisão planejado: revisão P para tarefa P, pelo menos metade da estimativa nas demais</span>
+                    <span data-l="fr">Temps de revue planifié : revue S pour les tâches S, au moins la moitié de l'estimation pour les autres</span>
+                  </li>
+                  <li>
+                    <span data-l="en">At least 1 task per student per development day (8 &times; 8 = 64)</span>
+                    <span data-l="pt">No mínimo 1 tarefa por aluno por dia de desenvolvimento (8 &times; 8 = 64)</span>
+                    <span data-l="fr">Au moins 1 tâche par étudiant et par jour de développement (8 &times; 8 = 64)</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Every activity carried out has a card on the board</span>
+                    <span data-l="pt">Toda atividade realizada tem card no quadro</span>
+                    <span data-l="fr">Chaque activité réalisée a une carte sur le tableau</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Every card in Doing met the DoR; every card in Done met the DoD</span>
+                    <span data-l="pt">Todo card em Doing cumpriu a DoR; todo card em Done cumpriu a DoD</span>
+                    <span data-l="fr">Chaque carte en Doing a rempli la DoR ; chaque carte en Done a rempli la DoD</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Daily</th>
+              <td>
+                <ul>
+                  <li>
+                    <span data-l="en">Board open in every daily, read from right to left</span>
+                    <span data-l="pt">Quadro aberto em toda daily, lido da direita para a esquerda</span>
+                    <span data-l="fr">Tableau ouvert à chaque daily, lu de droite à gauche</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Scrum Master elected and running every daily</span>
+                    <span data-l="pt">Scrum master eleito e conduzindo toda daily</span>
+                    <span data-l="fr">Scrum Master élu et animant chaque daily</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Review and Waiting review closed before a new card enters Doing</span>
+                    <span data-l="pt">Review e Waiting review fechados antes de um card novo entrar em Doing</span>
+                    <span data-l="fr">Review et Waiting review clôturées avant qu'une nouvelle carte entre en Doing</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Reviews spread across the sprint, none piled up for the end</span>
+                    <span data-l="pt">Revisões distribuídas na sprint, nenhuma acumulada para o final</span>
+                    <span data-l="fr">Revues réparties sur le sprint, aucune accumulée pour la fin</span>
+                  </li>
+                  <li>
+                    <span data-l="en">WIP limited to 1 card in Doing per student</span>
+                    <span data-l="pt">WIP limitado a 1 card em Doing por aluno</span>
+                    <span data-l="fr">WIP limité à 1 carte en Doing par étudiant</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Throughput followed: cards reaching Done per day</span>
+                    <span data-l="pt">Throughput acompanhado: cards em Done por dia</span>
+                    <span data-l="fr">Throughput suivi : cartes arrivées en Done par jour</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span data-l="en">Code</span>
+                <span data-l="pt">Código</span>
+                <span data-l="fr">Code</span>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span data-l="en">Author never reviews their own task</span>
+                    <span data-l="pt">O autor nunca revisa a própria tarefa</span>
+                    <span data-l="fr">L'auteur ne relit jamais sa propre tâche</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Every student commits and reviews code in the sprint</span>
+                    <span data-l="pt">Todo aluno faz commit e revisa código na sprint</span>
+                    <span data-l="fr">Chaque étudiant fait des commits et relit du code dans le sprint</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Review focused on the pyramid base: API, implementation, documentation</span>
+                    <span data-l="pt">Revisão focada na base da pirâmide: API, implementação, documentação</span>
+                    <span data-l="fr">Revue centrée sur la base de la pyramide : API, implémentation, documentation</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Semantic commits with clear messages, linked to the issue (#number)</span>
+                    <span data-l="pt">Commits semânticos com mensagens claras, vinculados à issue (#número)</span>
+                    <span data-l="fr">Commits sémantiques aux messages clairs, liés à l'issue (#numéro)</span>
+                  </li>
+                  <li>
+                    <span data-l="en">Merge request template and code review process agreed by the group</span>
+                    <span data-l="pt">Template de merge request e processo de code review combinados pelo grupo</span>
+                    <span data-l="fr">Modèle de merge request et processus de revue de code convenus par le groupe</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Planning</p>
+          <p class="footer-page">21</p>
+        </div>
+      </section>
+
+      <!-- 22 - Encerramento -->
+      <section class="end-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+        <div class="end-accent"></div>
+        <h1>
+          <span data-l="en">Questions</span>
+          <span data-l="pt">Dúvidas</span>
+          <span data-l="fr">Questions</span>
+        </h1>
+        <h3>
+          <span data-l="en">Planning and project management in GitLab</span>
+          <span data-l="pt">Planning e gestão de projeto no GitLab</span>
+          <span data-l="fr">Planning et gestion de projet dans GitLab</span>
+        </h3>
+        <p class="end-assinatura">
+          <span data-l="en">Prof. José Romualdo &middot; Project advisor &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="pt">Prof. José Romualdo &middot; Orientação &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="fr">Prof. José Romualdo &middot; Orientation du projet &middot; SI08 T18 &middot; 2026-2B</span>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="../assets/js/passos.js"></script>
+  <script>
+    window.SI08Passos.iniciar(Reveal);
+    Reveal.initialize({
+      width: 1280, height: 720, center: false, margin: 0,
+      hash: true, slideNumber: false, transition: 'fade',
+      pdfSeparateFragments: false
+    });
+  </script>
+</body>
+</html>

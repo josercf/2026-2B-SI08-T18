@@ -10,7 +10,12 @@ Parceiro: Brazilian Army (Exército Brasileiro). Decks em Reveal.js, trilíngues
 python3 -m http.server 8000      # a partir desta pasta
 ```
 
+- `http://localhost:8000/`: portal do módulo, com os decks nos três idiomas, o calendário
+  das sprints e os links da turma (`index.html`, estilos em `assets/css/portal.css`)
 - `http://localhost:8000/aulas/onboarding.html` (inglês, padrão)
+- `http://localhost:8000/aulas/planning-gitlab.html`: kickoff, planning, corte por valor, DoR e DoD,
+  daily e scrum master, WIP, throughput, pirâmide de code review e merge requests no GitLab, com ilustrações animadas (ver ADR-004). Na projeção, a seta avança os passos de
+  cada animação; com `?print-pdf` ou movimento reduzido, cada slide mostra o estado final
 - `?lang=pt` ou `?lang=fr` abre em português ou francês
 - Na projeção: botões EN/PT/FR no canto superior esquerdo, ou tecla `L`
 - PDF: `?lang=fr&print-pdf`, imprimir com margem zero e gráficos de fundo ligados
@@ -32,6 +37,7 @@ acusa qualquer divergência.
 ```bash
 python3 tools/check_brand.py
 python3 tools/check_slides.py "aulas/onboarding.html?lang=fr"
+python3 tools/check_slides.py "aulas/planning-gitlab.html?lang=fr"
 python3 -m pytest tools/tests/ -v
 ```
 
@@ -39,7 +45,8 @@ python3 -m pytest tools/tests/ -v
 
 - `aulas/`: decks
 - `assets/css/`: `inteli-brand.css` (tokens), `inteli-theme.css`, `inteli-print.css` (copiados do
-  `2026-2A-M03`) e `orientacao.css` (blocos e seletor de idioma deste projeto)
-- `assets/js/idioma.js`: seletor de idioma
+  `2026-2A-M03`), `orientacao.css` (blocos e seletor de idioma deste projeto) e
+  `planning-anim.css` (ilustrações animadas do deck de planning)
+- `assets/js/idioma.js`: seletor de idioma; `assets/js/passos.js`: passos das animações
 - `assets/img/docentes/`: fotos da equipe docente
 - `tools/`: validadores (`check_brand.py`, `check_slides.py`) e testes
