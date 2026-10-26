@@ -1,0 +1,376 @@
+/* Blocos do deck de Sprint Planning 2: numeros grandes, graficos de barras,
+   calendario por semana e listas numeradas. Mesma regra do tema: nenhuma cor
+   literal e nenhum font-family aqui, tudo vem de inteli-brand.css
+   (verificado por tools/check_brand.py). Nada usa position: absolute. */
+
+/* ---------- Numeros grandes ---------- */
+.numeros-grandes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px 40px;
+  margin-top: 8px;
+}
+
+.numero {
+  border-top: 4px solid var(--seg-primaria);
+  padding-top: 10px;
+}
+
+.numero.destaque { border-top-color: var(--seg-destaque); }
+.numero.verde { border-top-color: var(--seg-secundaria); }
+
+.reveal .numero .valor {
+  margin: 0;
+  font-size: 76px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.reveal .numero .rotulo {
+  margin: 6px 0 0;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+/* ---------- Tabela por grupo ---------- */
+.reveal .grupos-tabela {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--seg-borda);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 19px;
+}
+
+.reveal .grupos-tabela th,
+.reveal .grupos-tabela td {
+  padding: 10px 12px;
+  text-align: right;
+  line-height: 1.25;
+}
+
+.reveal .grupos-tabela thead th {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  font-size: 16px;
+  font-weight: 700;
+  vertical-align: bottom;
+}
+
+.reveal .grupos-tabela th:first-child,
+.reveal .grupos-tabela td:first-child {
+  text-align: left;
+  font-weight: 800;
+}
+
+.reveal .grupos-tabela tbody tr:nth-child(even) td,
+.reveal .grupos-tabela tbody tr:nth-child(even) th {
+  background: color-mix(in srgb, var(--seg-superficie) 55%, var(--inteli-branco));
+}
+
+.reveal .grupos-tabela tr.total td,
+.reveal .grupos-tabela tr.total th {
+  background: color-mix(in srgb, var(--seg-secundaria) 22%, var(--inteli-branco));
+  font-weight: 800;
+}
+
+.reveal .grupos-tabela a {
+  color: var(--seg-primaria);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--seg-destaque);
+  text-underline-offset: 4px;
+}
+
+/* ---------- Atalhos entre slides ---------- */
+.atalhos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.reveal .atalhos a {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 999px;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  text-decoration: none;
+}
+
+/* ---------- Slide de grupo: grafico e indicadores ---------- */
+.grupo-corpo {
+  display: grid;
+  grid-template-columns: 640px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.reveal .grafico-titulo {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.barras {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 330px;
+  border-bottom: 3px solid var(--seg-primaria);
+  padding-top: 8px;
+}
+
+.barra {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
+}
+
+.barra .col {
+  width: 100%;
+  background: var(--seg-primaria);
+  border-radius: 6px 6px 0 0;
+  min-height: 3px;
+}
+
+.barra.zero .col { background: var(--seg-destaque); }
+
+.reveal .barra .num {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.reveal .grafico-legenda {
+  margin: 8px 0 0;
+  font-size: 16px;
+}
+
+.indicadores {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.indicador {
+  border-left: 5px solid var(--seg-secundaria);
+  padding-left: 16px;
+}
+
+.indicador.destaque { border-left-color: var(--seg-destaque); }
+
+.reveal .indicador .valor {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.reveal .indicador .rotulo {
+  margin: 2px 0 0;
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+/* ---------- Listas numeradas com o numero em destaque ---------- */
+.reveal ol.passos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: passo;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reveal ol.passos li {
+  counter-increment: passo;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 16px;
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.reveal ol.passos li::before {
+  content: counter(passo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.reveal ol.passos.compacta li { font-size: 22px; }
+
+/* ---------- Calendario por semana ---------- */
+.semana {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.dia {
+  border: 1px solid var(--seg-borda);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+}
+
+.reveal .dia-cab {
+  margin: 0;
+  padding: 8px 12px;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.dia.hoje .dia-cab { background: var(--seg-destaque); }
+.dia.feriado .dia-cab { background: var(--seg-borda); color: var(--seg-texto); }
+.dia.feriado { background: var(--seg-superficie); }
+
+.dia-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.reveal .ev {
+  margin: 0;
+  padding: 6px 8px;
+  border-left: 5px solid var(--seg-secundaria);
+  background: color-mix(in srgb, var(--seg-secundaria) 16%, var(--inteli-branco));
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.reveal .ev.entrega {
+  border-left-color: var(--seg-destaque);
+  background: color-mix(in srgb, var(--seg-destaque) 10%, var(--inteli-branco));
+}
+
+.reveal .ev.marco {
+  border-left-color: var(--seg-primaria);
+  background: var(--seg-superficie);
+}
+
+.legenda {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.legenda > span::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: -2px;
+  border-radius: 3px;
+  background: var(--seg-secundaria);
+}
+
+.legenda > .l-entrega::before { background: var(--seg-destaque); }
+.legenda > .l-marco::before { background: var(--seg-primaria); }
+
+/* ---------- Tabelas de referencia ---------- */
+.reveal .ref-tabela {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--seg-borda);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 19px;
+}
+
+.reveal .ref-tabela th,
+.reveal .ref-tabela td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.28;
+}
+
+.reveal .ref-tabela thead th {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.reveal .ref-tabela th[scope="row"] { font-weight: 800; width: 28%; }
+
+.reveal .ref-tabela tbody tr:nth-child(even) td,
+.reveal .ref-tabela tbody tr:nth-child(even) th {
+  background: color-mix(in srgb, var(--seg-superficie) 55%, var(--inteli-branco));
+}
+
+.reveal .ref-tabela tr.marco td,
+.reveal .ref-tabela tr.marco th {
+  background: color-mix(in srgb, var(--seg-secundaria) 22%, var(--inteli-branco));
+}
+
+.reveal .ref-tabela .apoio {
+  display: block;
+  margin-top: 3px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.reveal .ref-tabela td.peso,
+.reveal .ref-tabela td.data {
+  white-space: nowrap;
+  font-weight: 800;
+}
+
+.reveal .ref-tabela.densa { font-size: 18px; }
+.reveal .ref-tabela.densa th,
+.reveal .ref-tabela.densa td { padding: 7px 12px; }
+.reveal .ref-tabela.densa .apoio { font-size: 15px; margin-top: 1px; }
+.reveal .ref-tabela.densa th[scope="row"] { width: 52%; }
+
+.reveal .content-slide .nota-fonte { margin-top: 18px; font-size: 16px; }
+.reveal .nota-fonte a {
+  color: var(--seg-primaria);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--seg-destaque);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.reveal .ref-tabela.grande { font-size: 22px; }
+.reveal .ref-tabela.grande th,
+.reveal .ref-tabela.grande td { padding: 13px 16px; }
+.reveal .ref-tabela.grande th[scope="row"] { width: 30%; }
+
+.reveal .ref-tabela.enorme { font-size: 28px; }
+.reveal .ref-tabela.enorme th,
+.reveal .ref-tabela.enorme td { padding: 22px 20px; }

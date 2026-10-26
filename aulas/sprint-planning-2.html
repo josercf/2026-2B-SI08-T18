@@ -1,0 +1,1340 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Planning 2 &middot; SI08 T18</title>
+
+  <!-- Gerado por tools/gerar_sprint_planning.py (nao editar a mao). Retrospectiva
+       da Sprint 1 a partir de dados/metricas_sprint1.json (tools/coletar_gitlab.py)
+       e plano da Sprint 2. Deck trilingue (ADR-001); metricas por grupo, sem
+       nomes de alunos (ADR-005). -->
+
+  <script src="../assets/js/idioma.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="../assets/css/inteli-brand.css">
+  <link rel="stylesheet" href="../assets/css/inteli-theme.css">
+  <link rel="stylesheet" href="../assets/css/orientacao.css">
+  <link rel="stylesheet" href="../assets/css/retrospectiva.css">
+  <link rel="stylesheet" href="../assets/css/inteli-print.css" media="print">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 - Capa -->
+      <section class="cover-slide">
+        <div class="cover-panel">
+          <div class="cover-content">
+            <div class="cover-brand-mark">
+              <img src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+            </div>
+            <p class="cover-eyebrow">
+              <span data-l="en">Information Systems &middot; Module 08 &middot; Class T18 &middot; 2026-2B</span>
+              <span data-l="pt">Sistemas de Informação &middot; Módulo 08 &middot; Turma T18 &middot; 2026-2B</span>
+              <span data-l="fr">Systèmes d'information &middot; Module 08 &middot; Classe T18 &middot; 2026-2B</span>
+            </p>
+            <div class="cover-accent"></div>
+            <h1>
+              <span data-l="en">Sprint Planning 2</span>
+              <span data-l="pt">Sprint Planning 2</span>
+              <span data-l="fr">Sprint Planning 2</span>
+            </h1>
+            <h3>
+              <span data-l="en">Sprint 1 retrospective and Sprint 2 plan</span>
+              <span data-l="pt">Retrospectiva da Sprint 1 e plano da Sprint 2</span>
+              <span data-l="fr">Rétrospective du sprint 1 et plan du sprint 2</span>
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 - Agenda -->
+      <section class="content-slide agenda-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Agenda</span>
+            <span data-l="pt">Agenda</span>
+            <span data-l="fr">Ordre du jour</span>
+          </h2>
+        </div>
+        <ol class="agenda-list">
+          <li>
+            <span data-l="en">Sprint 1 retrospective in numbers</span>
+            <span data-l="pt">Retrospectiva da Sprint 1 em números</span>
+            <span data-l="fr">Rétrospective du sprint 1 en chiffres</span>
+          </li>
+          <li>
+            <span data-l="en">Each group in detail</span>
+            <span data-l="pt">Cada grupo em detalhe</span>
+            <span data-l="fr">Chaque groupe en détail</span>
+          </li>
+          <li>
+            <span data-l="en">Work process document</span>
+            <span data-l="pt">Documento do processo de trabalho</span>
+            <span data-l="fr">Document du processus de travail</span>
+          </li>
+          <li>
+            <span data-l="en">Sprint 2 artifacts and calendar</span>
+            <span data-l="pt">Artefatos e calendário da Sprint 2</span>
+            <span data-l="fr">Livrables et calendrier du sprint 2</span>
+          </li>
+          <li>
+            <span data-l="en">Suggested topics for the planning</span>
+            <span data-l="pt">Tópicos sugeridos para o planejamento</span>
+            <span data-l="fr">Sujets suggérés pour la planification</span>
+          </li>
+          <li>
+            <span data-l="en">Planning closed today</span>
+            <span data-l="pt">Planejamento fechado hoje</span>
+            <span data-l="fr">Planification clôturée aujourd'hui</span>
+          </li>
+          <li>
+            <span data-l="en">Individual oral defenses</span>
+            <span data-l="pt">Arguições individuais</span>
+            <span data-l="fr">Soutenances individuelles</span>
+          </li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">2</p>
+        </div>
+      </section>
+
+      <!-- 3 - Separador -->
+      <section class="section-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <p class="section-eyebrow">
+          <span data-l="en">Part A</span>
+            <span data-l="pt">Parte A</span>
+            <span data-l="fr">Partie A</span>
+        </p>
+        <div class="accent-bar"></div>
+        <h2>
+          <span data-l="en">Sprint 1 in numbers</span>
+            <span data-l="pt">Sprint 1 em números</span>
+            <span data-l="fr">Le sprint 1 en chiffres</span>
+        </h2>
+        <h3>
+          <span data-l="en">GitLab data from 14/10 to 23/10</span>
+            <span data-l="pt">Dados do GitLab de 14/10 a 23/10</span>
+            <span data-l="fr">Données GitLab du 14/10 au 23/10</span>
+        </h3>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Sprint 1: 786 commits, 319 issues opened and 278 closed</span>
+            <span data-l="pt">Sprint 1: 786 commits, 319 issues abertas e 278 fechadas</span>
+            <span data-l="fr">Sprint 1 : 786 commits, 319 issues ouvertes et 278 fermées</span>
+          </h2>
+        </div>
+        <div class="numeros-grandes">
+          <div class="numero "><p class="valor">786</p><p class="rotulo"><span data-l="en">commits across the five groups</span>
+            <span data-l="pt">commits nos cinco grupos</span>
+            <span data-l="fr">commits dans les cinq groupes</span></p></div>
+          <div class="numero verde"><p class="valor">319</p><p class="rotulo"><span data-l="en">issues opened during the sprint</span>
+            <span data-l="pt">issues abertas durante a sprint</span>
+            <span data-l="fr">issues ouvertes pendant le sprint</span></p></div>
+          <div class="numero verde"><p class="valor">278</p><p class="rotulo"><span data-l="en">issues closed during the sprint</span>
+            <span data-l="pt">issues fechadas durante a sprint</span>
+            <span data-l="fr">issues fermées pendant le sprint</span></p></div>
+          <div class="numero destaque"><p class="valor">186</p><p class="rotulo"><span data-l="en">merge requests merged, out of 212 created</span>
+            <span data-l="pt">merge requests integrados, de 212 criados</span>
+            <span data-l="fr">merge requests intégrés, sur 212 créés</span></p></div>
+          <div class="numero destaque"><p class="valor">136</p><p class="rotulo"><span data-l="en">merge requests with a comment from another member</span>
+            <span data-l="pt">merge requests com comentário de outro integrante</span>
+            <span data-l="fr">merge requests avec un commentaire d'un autre membre</span></p></div>
+          <div class="numero "><p class="valor"><span data-l="en">3.3 to 7.2</span><span data-l="pt">3,3 a 7,2</span><span data-l="fr">3,3 à 7,2</span></p><p class="rotulo"><span data-l="en">days of median issue lead time, by group</span>
+            <span data-l="pt">dias de lead time mediano de issue, por grupo</span>
+            <span data-l="fr">jours de lead time médian des issues, par groupe</span></p></div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Source: GitLab (git.inteli.edu.br), 14/10 to 23/10, collected on 26/10. Commits exclude merge commits. Lead time runs from creation to closing.</span>
+            <span data-l="pt">Fonte: GitLab (git.inteli.edu.br), de 14/10 a 23/10, coletado em 26/10. Commits sem commits de merge. Lead time vai da criação ao fechamento.</span>
+            <span data-l="fr">Source : GitLab (git.inteli.edu.br), du 14/10 au 23/10, collecté le 26/10. Commits hors commits de merge. Le lead time va de la création à la fermeture.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">4</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="tabela">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Issue lead time ranges from 3.3 to 7.2 days across groups</span>
+            <span data-l="pt">O lead time de issue varia de 3,3 a 7,2 dias entre os grupos</span>
+            <span data-l="fr">Le lead time des issues varie de 3,3 à 7,2 jours selon les groupes</span>
+          </h2>
+        </div>
+        <table class="grupos-tabela">
+          <thead>
+            <tr>
+              <th><span data-l="en">Group</span>
+            <span data-l="pt">Grupo</span>
+            <span data-l="fr">Groupe</span></th>
+              <th><span data-l="en">Members</span>
+            <span data-l="pt">Integrantes</span>
+            <span data-l="fr">Membres</span></th>
+              <th>Commits</th>
+              <th><span data-l="en">Issues opened</span>
+            <span data-l="pt">Issues abertas</span>
+            <span data-l="fr">Issues ouvertes</span></th>
+              <th><span data-l="en">Issues closed</span>
+            <span data-l="pt">Issues fechadas</span>
+            <span data-l="fr">Issues fermées</span></th>
+              <th><span data-l="en">MRs reviewed / created</span>
+            <span data-l="pt">MRs revisados / criados</span>
+            <span data-l="fr">MR relus / créés</span></th>
+              <th><span data-l="en">Issue lead time (days)</span>
+            <span data-l="pt">Lead time de issue (dias)</span>
+            <span data-l="fr">Lead time issue (jours)</span></th>
+              <th><span data-l="en">MR lead time (days)</span>
+            <span data-l="pt">Lead time de MR (dias)</span>
+            <span data-l="fr">Lead time MR (jours)</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="#/g01">G01</a></th>
+              <td>8</td>
+              <td>107</td>
+              <td>64</td>
+              <td>52</td>
+              <td>18/33</td>
+              <td><span data-l="en">5.9</span><span data-l="pt">5,9</span><span data-l="fr">5,9</span></td>
+              <td><span data-l="en">0.2</span><span data-l="pt">0,2</span><span data-l="fr">0,2</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#/g02">G02</a></th>
+              <td>8</td>
+              <td>151</td>
+              <td>54</td>
+              <td>54</td>
+              <td>39/49</td>
+              <td><span data-l="en">3.3</span><span data-l="pt">3,3</span><span data-l="fr">3,3</span></td>
+              <td><span data-l="en">0.6</span><span data-l="pt">0,6</span><span data-l="fr">0,6</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#/g03">G03</a></th>
+              <td>7</td>
+              <td>181</td>
+              <td>39</td>
+              <td>33</td>
+              <td>12/39</td>
+              <td><span data-l="en">7.2</span><span data-l="pt">7,2</span><span data-l="fr">7,2</span></td>
+              <td><span data-l="en">0.1</span><span data-l="pt">0,1</span><span data-l="fr">0,1</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#/g04">G04</a></th>
+              <td>8</td>
+              <td>146</td>
+              <td>67</td>
+              <td>67</td>
+              <td>44/55</td>
+              <td><span data-l="en">5.4</span><span data-l="pt">5,4</span><span data-l="fr">5,4</span></td>
+              <td><span data-l="en">0.2</span><span data-l="pt">0,2</span><span data-l="fr">0,2</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#/g05">G05</a></th>
+              <td>8</td>
+              <td>201</td>
+              <td>95</td>
+              <td>72</td>
+              <td>23/36</td>
+              <td><span data-l="en">6.1</span><span data-l="pt">6,1</span><span data-l="fr">6,1</span></td>
+              <td><span data-l="en">1.1</span><span data-l="pt">1,1</span><span data-l="fr">1,1</span></td>
+            </tr>
+            <tr class="total">
+              <th scope="row"><span data-l="en">Class</span>
+            <span data-l="pt">Turma</span>
+            <span data-l="fr">Classe</span></th>
+              <td>39</td>
+              <td>786</td>
+              <td>319</td>
+              <td>278</td>
+              <td>136/212</td>
+              <td>&ndash;</td>
+              <td>&ndash;</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">Median lead time. MR reviewed: has a comment from a member other than the author. Click a group to open its slides.</span>
+            <span data-l="pt">Lead time mediano. MR revisado: tem comentário de integrante diferente do autor. Clicar no grupo abre os slides dele.</span>
+            <span data-l="fr">Lead time médian. MR relu : comporte un commentaire d'un membre autre que l'auteur. Cliquer sur un groupe ouvre ses slides.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">5</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g01">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G01: 4 of 8 members make 65% of the commits</span>
+            <span data-l="pt">G01: 4 de 8 integrantes fazem 65% dos commits</span>
+            <span data-l="fr">G01 : 4 membres sur 8 font 65&nbsp;% des commits</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Commits per member</span>
+            <span data-l="pt">Commits por integrante</span>
+            <span data-l="fr">Commits par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">22</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">20</p><div class="col" style="height:75%"></div></div><div class="barra"><p class="num">16</p><div class="col" style="height:60%"></div></div><div class="barra"><p class="num">12</p><div class="col" style="height:45%"></div></div><div class="barra"><p class="num">11</p><div class="col" style="height:41%"></div></div><div class="barra"><p class="num">9</p><div class="col" style="height:34%"></div></div><div class="barra"><p class="num">9</p><div class="col" style="height:34%"></div></div><div class="barra"><p class="num">7</p><div class="col" style="height:26%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Members ordered from most to fewest commits, without names.</span>
+            <span data-l="pt">Integrantes ordenados do maior para o menor número de commits, sem nomes.</span>
+            <span data-l="fr">Membres classés du plus au moins de commits, sans noms.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">107</p><p class="rotulo"><span data-l="en">commits in the sprint</span>
+            <span data-l="pt">commits na sprint</span>
+            <span data-l="fr">commits dans le sprint</span></p></div>
+            <div class="indicador"><p class="valor">64</p><p class="rotulo"><span data-l="en">issues opened</span>
+            <span data-l="pt">issues abertas na sprint</span>
+            <span data-l="fr">issues ouvertes</span></p></div>
+            <div class="indicador"><p class="valor">52</p><p class="rotulo"><span data-l="en">issues closed</span>
+            <span data-l="pt">issues fechadas na sprint</span>
+            <span data-l="fr">issues fermées</span></p></div>
+            <div class="indicador"><p class="valor">0</p><p class="rotulo"><span data-l="en">issues still open on 26/10</span>
+            <span data-l="pt">issues ainda abertas em 26/10</span>
+            <span data-l="fr">issues encore ouvertes le 26/10</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Commits exclude merge commits.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Commits sem commits de merge.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Commits hors commits de merge.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">6</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g01-fluxo">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G01: 18 of 33 MRs were reviewed by teammates</span>
+            <span data-l="pt">G01: 18 de 33 MRs foram revisados por colegas</span>
+            <span data-l="fr">G01 : 18 MR sur 33 relus par des collègues</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Review comments per member</span>
+            <span data-l="pt">Comentários de revisão por integrante</span>
+            <span data-l="fr">Commentaires de revue par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">11</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">7</p><div class="col" style="height:52%"></div></div><div class="barra"><p class="num">3</p><div class="col" style="height:22%"></div></div><div class="barra"><p class="num">3</p><div class="col" style="height:22%"></div></div><div class="barra"><p class="num">3</p><div class="col" style="height:22%"></div></div><div class="barra"><p class="num">3</p><div class="col" style="height:22%"></div></div><div class="barra"><p class="num">2</p><div class="col" style="height:15%"></div></div><div class="barra"><p class="num">1</p><div class="col" style="height:7%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Comments on other members' MRs, without names. A red bar is a member with none.</span>
+            <span data-l="pt">Comentários em MRs de outros integrantes, sem nomes. Barra vermelha é integrante sem nenhum.</span>
+            <span data-l="fr">Commentaires sur les MR des autres membres, sans noms. Une barre rouge est un membre sans aucun.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">33</p><p class="rotulo"><span data-l="en">merge requests created</span>
+            <span data-l="pt">merge requests criados</span>
+            <span data-l="fr">merge requests créés</span></p></div>
+            <div class="indicador"><p class="valor">26</p><p class="rotulo"><span data-l="en">merge requests merged</span>
+            <span data-l="pt">merge requests integrados</span>
+            <span data-l="fr">merge requests intégrés</span></p></div>
+            <div class="indicador destaque"><p class="valor"><span data-l="en">5.9</span><span data-l="pt">5,9</span><span data-l="fr">5,9</span></p><p class="rotulo"><span data-l="en">days of median issue lead time</span>
+            <span data-l="pt">dias de lead time mediano de issue</span>
+            <span data-l="fr">jours de lead time médian des issues</span></p></div>
+            <div class="indicador"><p class="valor"><span data-l="en">0.2</span><span data-l="pt">0,2</span><span data-l="fr">0,2</span></p><p class="rotulo"><span data-l="en">days of median MR lead time</span>
+            <span data-l="pt">dias de lead time mediano de MR</span>
+            <span data-l="fr">jours de lead time médian des MR</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Lead time: issue from creation to closing, MR from creation to merge.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Lead time: da criação ao fechamento na issue, da criação ao merge no MR.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Lead time : de la création à la fermeture pour l'issue, de la création au merge pour le MR.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">7</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g02">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G02: 4 of 8 members make 70% of the commits</span>
+            <span data-l="pt">G02: 4 de 8 integrantes fazem 70% dos commits</span>
+            <span data-l="fr">G02 : 4 membres sur 8 font 70&nbsp;% des commits</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Commits per member</span>
+            <span data-l="pt">Commits por integrante</span>
+            <span data-l="fr">Commits par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">37</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">26</p><div class="col" style="height:58%"></div></div><div class="barra"><p class="num">24</p><div class="col" style="height:53%"></div></div><div class="barra"><p class="num">19</p><div class="col" style="height:42%"></div></div><div class="barra"><p class="num">16</p><div class="col" style="height:35%"></div></div><div class="barra"><p class="num">15</p><div class="col" style="height:33%"></div></div><div class="barra"><p class="num">8</p><div class="col" style="height:18%"></div></div><div class="barra"><p class="num">5</p><div class="col" style="height:11%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Members ordered from most to fewest commits, without names.</span>
+            <span data-l="pt">Integrantes ordenados do maior para o menor número de commits, sem nomes.</span>
+            <span data-l="fr">Membres classés du plus au moins de commits, sans noms.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">151</p><p class="rotulo"><span data-l="en">commits in the sprint</span>
+            <span data-l="pt">commits na sprint</span>
+            <span data-l="fr">commits dans le sprint</span></p></div>
+            <div class="indicador"><p class="valor">54</p><p class="rotulo"><span data-l="en">issues opened</span>
+            <span data-l="pt">issues abertas na sprint</span>
+            <span data-l="fr">issues ouvertes</span></p></div>
+            <div class="indicador"><p class="valor">54</p><p class="rotulo"><span data-l="en">issues closed</span>
+            <span data-l="pt">issues fechadas na sprint</span>
+            <span data-l="fr">issues fermées</span></p></div>
+            <div class="indicador"><p class="valor">0</p><p class="rotulo"><span data-l="en">issues still open on 26/10</span>
+            <span data-l="pt">issues ainda abertas em 26/10</span>
+            <span data-l="fr">issues encore ouvertes le 26/10</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Commits exclude merge commits.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Commits sem commits de merge.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Commits hors commits de merge.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">8</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g02-fluxo">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G02: 39 of 49 MRs were reviewed by teammates</span>
+            <span data-l="pt">G02: 39 de 49 MRs foram revisados por colegas</span>
+            <span data-l="fr">G02 : 39 MR sur 49 relus par des collègues</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Review comments per member</span>
+            <span data-l="pt">Comentários de revisão por integrante</span>
+            <span data-l="fr">Commentaires de revue par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">64</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">31</p><div class="col" style="height:40%"></div></div><div class="barra"><p class="num">24</p><div class="col" style="height:31%"></div></div><div class="barra"><p class="num">14</p><div class="col" style="height:18%"></div></div><div class="barra"><p class="num">10</p><div class="col" style="height:13%"></div></div><div class="barra"><p class="num">10</p><div class="col" style="height:13%"></div></div><div class="barra"><p class="num">9</p><div class="col" style="height:12%"></div></div><div class="barra zero"><p class="num">0</p><div class="col" style="height:0%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Comments on other members' MRs, without names. A red bar is a member with none.</span>
+            <span data-l="pt">Comentários em MRs de outros integrantes, sem nomes. Barra vermelha é integrante sem nenhum.</span>
+            <span data-l="fr">Commentaires sur les MR des autres membres, sans noms. Une barre rouge est un membre sans aucun.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">49</p><p class="rotulo"><span data-l="en">merge requests created</span>
+            <span data-l="pt">merge requests criados</span>
+            <span data-l="fr">merge requests créés</span></p></div>
+            <div class="indicador"><p class="valor">45</p><p class="rotulo"><span data-l="en">merge requests merged</span>
+            <span data-l="pt">merge requests integrados</span>
+            <span data-l="fr">merge requests intégrés</span></p></div>
+            <div class="indicador destaque"><p class="valor"><span data-l="en">3.3</span><span data-l="pt">3,3</span><span data-l="fr">3,3</span></p><p class="rotulo"><span data-l="en">days of median issue lead time</span>
+            <span data-l="pt">dias de lead time mediano de issue</span>
+            <span data-l="fr">jours de lead time médian des issues</span></p></div>
+            <div class="indicador"><p class="valor"><span data-l="en">0.6</span><span data-l="pt">0,6</span><span data-l="fr">0,6</span></p><p class="rotulo"><span data-l="en">days of median MR lead time</span>
+            <span data-l="pt">dias de lead time mediano de MR</span>
+            <span data-l="fr">jours de lead time médian des MR</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Lead time: issue from creation to closing, MR from creation to merge.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Lead time: da criação ao fechamento na issue, da criação ao merge no MR.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Lead time : de la création à la fermeture pour l'issue, de la création au merge pour le MR.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">9</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g03">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G03: 4 of 7 members make 88% of the commits</span>
+            <span data-l="pt">G03: 4 de 7 integrantes fazem 88% dos commits</span>
+            <span data-l="fr">G03 : 4 membres sur 7 font 88&nbsp;% des commits</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Commits per member</span>
+            <span data-l="pt">Commits por integrante</span>
+            <span data-l="fr">Commits par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">45</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">40</p><div class="col" style="height:73%"></div></div><div class="barra"><p class="num">38</p><div class="col" style="height:69%"></div></div><div class="barra"><p class="num">37</p><div class="col" style="height:67%"></div></div><div class="barra"><p class="num">7</p><div class="col" style="height:13%"></div></div><div class="barra"><p class="num">7</p><div class="col" style="height:13%"></div></div><div class="barra"><p class="num">6</p><div class="col" style="height:11%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Members ordered from most to fewest commits, without names.</span>
+            <span data-l="pt">Integrantes ordenados do maior para o menor número de commits, sem nomes.</span>
+            <span data-l="fr">Membres classés du plus au moins de commits, sans noms.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">181</p><p class="rotulo"><span data-l="en">commits in the sprint</span>
+            <span data-l="pt">commits na sprint</span>
+            <span data-l="fr">commits dans le sprint</span></p></div>
+            <div class="indicador"><p class="valor">39</p><p class="rotulo"><span data-l="en">issues opened</span>
+            <span data-l="pt">issues abertas na sprint</span>
+            <span data-l="fr">issues ouvertes</span></p></div>
+            <div class="indicador"><p class="valor">33</p><p class="rotulo"><span data-l="en">issues closed</span>
+            <span data-l="pt">issues fechadas na sprint</span>
+            <span data-l="fr">issues fermées</span></p></div>
+            <div class="indicador destaque"><p class="valor">6</p><p class="rotulo"><span data-l="en">issues still open on 26/10</span>
+            <span data-l="pt">issues ainda abertas em 26/10</span>
+            <span data-l="fr">issues encore ouvertes le 26/10</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Commits exclude merge commits.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Commits sem commits de merge.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Commits hors commits de merge.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">10</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g03-fluxo">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G03: 12 of 39 MRs were reviewed by teammates</span>
+            <span data-l="pt">G03: 12 de 39 MRs foram revisados por colegas</span>
+            <span data-l="fr">G03 : 12 MR sur 39 relus par des collègues</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Review comments per member</span>
+            <span data-l="pt">Comentários de revisão por integrante</span>
+            <span data-l="fr">Commentaires de revue par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">10</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">2</p><div class="col" style="height:16%"></div></div><div class="barra"><p class="num">2</p><div class="col" style="height:16%"></div></div><div class="barra"><p class="num">2</p><div class="col" style="height:16%"></div></div><div class="barra"><p class="num">1</p><div class="col" style="height:8%"></div></div><div class="barra"><p class="num">1</p><div class="col" style="height:8%"></div></div><div class="barra zero"><p class="num">0</p><div class="col" style="height:0%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Comments on other members' MRs, without names. A red bar is a member with none.</span>
+            <span data-l="pt">Comentários em MRs de outros integrantes, sem nomes. Barra vermelha é integrante sem nenhum.</span>
+            <span data-l="fr">Commentaires sur les MR des autres membres, sans noms. Une barre rouge est un membre sans aucun.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">39</p><p class="rotulo"><span data-l="en">merge requests created</span>
+            <span data-l="pt">merge requests criados</span>
+            <span data-l="fr">merge requests créés</span></p></div>
+            <div class="indicador"><p class="valor">35</p><p class="rotulo"><span data-l="en">merge requests merged</span>
+            <span data-l="pt">merge requests integrados</span>
+            <span data-l="fr">merge requests intégrés</span></p></div>
+            <div class="indicador destaque"><p class="valor"><span data-l="en">7.2</span><span data-l="pt">7,2</span><span data-l="fr">7,2</span></p><p class="rotulo"><span data-l="en">days of median issue lead time</span>
+            <span data-l="pt">dias de lead time mediano de issue</span>
+            <span data-l="fr">jours de lead time médian des issues</span></p></div>
+            <div class="indicador"><p class="valor"><span data-l="en">0.1</span><span data-l="pt">0,1</span><span data-l="fr">0,1</span></p><p class="rotulo"><span data-l="en">days of median MR lead time</span>
+            <span data-l="pt">dias de lead time mediano de MR</span>
+            <span data-l="fr">jours de lead time médian des MR</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Lead time: issue from creation to closing, MR from creation to merge.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Lead time: da criação ao fechamento na issue, da criação ao merge no MR.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Lead time : de la création à la fermeture pour l'issue, de la création au merge pour le MR.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">11</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g04">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G04: 4 of 8 members make 69% of the commits</span>
+            <span data-l="pt">G04: 4 de 8 integrantes fazem 69% dos commits</span>
+            <span data-l="fr">G04 : 4 membres sur 8 font 69&nbsp;% des commits</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Commits per member</span>
+            <span data-l="pt">Commits por integrante</span>
+            <span data-l="fr">Commits par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">42</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">23</p><div class="col" style="height:45%"></div></div><div class="barra"><p class="num">19</p><div class="col" style="height:37%"></div></div><div class="barra"><p class="num">17</p><div class="col" style="height:33%"></div></div><div class="barra"><p class="num">14</p><div class="col" style="height:27%"></div></div><div class="barra"><p class="num">13</p><div class="col" style="height:25%"></div></div><div class="barra"><p class="num">10</p><div class="col" style="height:20%"></div></div><div class="barra"><p class="num">8</p><div class="col" style="height:16%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Members ordered from most to fewest commits, without names.</span>
+            <span data-l="pt">Integrantes ordenados do maior para o menor número de commits, sem nomes.</span>
+            <span data-l="fr">Membres classés du plus au moins de commits, sans noms.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">146</p><p class="rotulo"><span data-l="en">commits in the sprint</span>
+            <span data-l="pt">commits na sprint</span>
+            <span data-l="fr">commits dans le sprint</span></p></div>
+            <div class="indicador"><p class="valor">67</p><p class="rotulo"><span data-l="en">issues opened</span>
+            <span data-l="pt">issues abertas na sprint</span>
+            <span data-l="fr">issues ouvertes</span></p></div>
+            <div class="indicador"><p class="valor">67</p><p class="rotulo"><span data-l="en">issues closed</span>
+            <span data-l="pt">issues fechadas na sprint</span>
+            <span data-l="fr">issues fermées</span></p></div>
+            <div class="indicador"><p class="valor">0</p><p class="rotulo"><span data-l="en">issues still open on 26/10</span>
+            <span data-l="pt">issues ainda abertas em 26/10</span>
+            <span data-l="fr">issues encore ouvertes le 26/10</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Commits exclude merge commits.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Commits sem commits de merge.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Commits hors commits de merge.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">12</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g04-fluxo">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G04: 44 of 55 MRs were reviewed by teammates</span>
+            <span data-l="pt">G04: 44 de 55 MRs foram revisados por colegas</span>
+            <span data-l="fr">G04 : 44 MR sur 55 relus par des collègues</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Review comments per member</span>
+            <span data-l="pt">Comentários de revisão por integrante</span>
+            <span data-l="fr">Commentaires de revue par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">32</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">16</p><div class="col" style="height:41%"></div></div><div class="barra"><p class="num">12</p><div class="col" style="height:31%"></div></div><div class="barra"><p class="num">6</p><div class="col" style="height:15%"></div></div><div class="barra"><p class="num">5</p><div class="col" style="height:13%"></div></div><div class="barra"><p class="num">5</p><div class="col" style="height:13%"></div></div><div class="barra"><p class="num">3</p><div class="col" style="height:8%"></div></div><div class="barra"><p class="num">1</p><div class="col" style="height:3%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Comments on other members' MRs, without names. A red bar is a member with none.</span>
+            <span data-l="pt">Comentários em MRs de outros integrantes, sem nomes. Barra vermelha é integrante sem nenhum.</span>
+            <span data-l="fr">Commentaires sur les MR des autres membres, sans noms. Une barre rouge est un membre sans aucun.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">55</p><p class="rotulo"><span data-l="en">merge requests created</span>
+            <span data-l="pt">merge requests criados</span>
+            <span data-l="fr">merge requests créés</span></p></div>
+            <div class="indicador"><p class="valor">51</p><p class="rotulo"><span data-l="en">merge requests merged</span>
+            <span data-l="pt">merge requests integrados</span>
+            <span data-l="fr">merge requests intégrés</span></p></div>
+            <div class="indicador destaque"><p class="valor"><span data-l="en">5.4</span><span data-l="pt">5,4</span><span data-l="fr">5,4</span></p><p class="rotulo"><span data-l="en">days of median issue lead time</span>
+            <span data-l="pt">dias de lead time mediano de issue</span>
+            <span data-l="fr">jours de lead time médian des issues</span></p></div>
+            <div class="indicador"><p class="valor"><span data-l="en">0.2</span><span data-l="pt">0,2</span><span data-l="fr">0,2</span></p><p class="rotulo"><span data-l="en">days of median MR lead time</span>
+            <span data-l="pt">dias de lead time mediano de MR</span>
+            <span data-l="fr">jours de lead time médian des MR</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Lead time: issue from creation to closing, MR from creation to merge.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Lead time: da criação ao fechamento na issue, da criação ao merge no MR.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Lead time : de la création à la fermeture pour l'issue, de la création au merge pour le MR.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">13</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g05">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G05: 4 of 8 members make 66% of the commits</span>
+            <span data-l="pt">G05: 4 de 8 integrantes fazem 66% dos commits</span>
+            <span data-l="fr">G05 : 4 membres sur 8 font 66&nbsp;% des commits</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Commits per member</span>
+            <span data-l="pt">Commits por integrante</span>
+            <span data-l="fr">Commits par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">44</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">31</p><div class="col" style="height:58%"></div></div><div class="barra"><p class="num">30</p><div class="col" style="height:56%"></div></div><div class="barra"><p class="num">27</p><div class="col" style="height:50%"></div></div><div class="barra"><p class="num">20</p><div class="col" style="height:37%"></div></div><div class="barra"><p class="num">18</p><div class="col" style="height:34%"></div></div><div class="barra"><p class="num">17</p><div class="col" style="height:32%"></div></div><div class="barra"><p class="num">13</p><div class="col" style="height:24%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Members ordered from most to fewest commits, without names.</span>
+            <span data-l="pt">Integrantes ordenados do maior para o menor número de commits, sem nomes.</span>
+            <span data-l="fr">Membres classés du plus au moins de commits, sans noms.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">201</p><p class="rotulo"><span data-l="en">commits in the sprint</span>
+            <span data-l="pt">commits na sprint</span>
+            <span data-l="fr">commits dans le sprint</span></p></div>
+            <div class="indicador"><p class="valor">95</p><p class="rotulo"><span data-l="en">issues opened</span>
+            <span data-l="pt">issues abertas na sprint</span>
+            <span data-l="fr">issues ouvertes</span></p></div>
+            <div class="indicador"><p class="valor">72</p><p class="rotulo"><span data-l="en">issues closed</span>
+            <span data-l="pt">issues fechadas na sprint</span>
+            <span data-l="fr">issues fermées</span></p></div>
+            <div class="indicador destaque"><p class="valor">42</p><p class="rotulo"><span data-l="en">issues still open on 26/10</span>
+            <span data-l="pt">issues ainda abertas em 26/10</span>
+            <span data-l="fr">issues encore ouvertes le 26/10</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Commits exclude merge commits.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Commits sem commits de merge.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Commits hors commits de merge.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">14</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="g05-fluxo">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">G05: 23 of 36 MRs were reviewed by teammates</span>
+            <span data-l="pt">G05: 23 de 36 MRs foram revisados por colegas</span>
+            <span data-l="fr">G05 : 23 MR sur 36 relus par des collègues</span>
+          </h2>
+        </div>
+        <div class="grupo-corpo">
+          <div>
+            <p class="grafico-titulo"><span data-l="en">Review comments per member</span>
+            <span data-l="pt">Comentários de revisão por integrante</span>
+            <span data-l="fr">Commentaires de revue par membre</span></p>
+            <div class="barras"><div class="barra"><p class="num">9</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">9</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">9</p><div class="col" style="height:82%"></div></div><div class="barra"><p class="num">5</p><div class="col" style="height:46%"></div></div><div class="barra"><p class="num">2</p><div class="col" style="height:18%"></div></div><div class="barra"><p class="num">2</p><div class="col" style="height:18%"></div></div><div class="barra"><p class="num">2</p><div class="col" style="height:18%"></div></div><div class="barra"><p class="num">1</p><div class="col" style="height:9%"></div></div></div>
+            <p class="grafico-legenda"><span data-l="en">Comments on other members' MRs, without names. A red bar is a member with none.</span>
+            <span data-l="pt">Comentários em MRs de outros integrantes, sem nomes. Barra vermelha é integrante sem nenhum.</span>
+            <span data-l="fr">Commentaires sur les MR des autres membres, sans noms. Une barre rouge est un membre sans aucun.</span></p>
+          </div>
+          <div class="indicadores">
+            <div class="indicador"><p class="valor">36</p><p class="rotulo"><span data-l="en">merge requests created</span>
+            <span data-l="pt">merge requests criados</span>
+            <span data-l="fr">merge requests créés</span></p></div>
+            <div class="indicador"><p class="valor">29</p><p class="rotulo"><span data-l="en">merge requests merged</span>
+            <span data-l="pt">merge requests integrados</span>
+            <span data-l="fr">merge requests intégrés</span></p></div>
+            <div class="indicador destaque"><p class="valor"><span data-l="en">6.1</span><span data-l="pt">6,1</span><span data-l="fr">6,1</span></p><p class="rotulo"><span data-l="en">days of median issue lead time</span>
+            <span data-l="pt">dias de lead time mediano de issue</span>
+            <span data-l="fr">jours de lead time médian des issues</span></p></div>
+            <div class="indicador"><p class="valor"><span data-l="en">1.1</span><span data-l="pt">1,1</span><span data-l="fr">1,1</span></p><p class="rotulo"><span data-l="en">days of median MR lead time</span>
+            <span data-l="pt">dias de lead time mediano de MR</span>
+            <span data-l="fr">jours de lead time médian des MR</span></p></div>
+          </div>
+        </div>
+        <p class="nota-fonte">
+          <span data-l="en">Sprint 1, 14/10 to 23/10. Lead time: issue from creation to closing, MR from creation to merge.</span>
+            <span data-l="pt">Sprint 1, de 14/10 a 23/10. Lead time: da criação ao fechamento na issue, da criação ao merge no MR.</span>
+            <span data-l="fr">Sprint 1, du 14/10 au 23/10. Lead time : de la création à la fermeture pour l'issue, de la création au merge pour le MR.</span>
+          <a href="#/tabela"><span data-l="en">Back to the table</span>
+            <span data-l="pt">Voltar à tabela</span>
+            <span data-l="fr">Retour au tableau</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">15</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Activity: the group's work process document</span>
+            <span data-l="pt">Atividade: documento do processo de trabalho do grupo</span>
+            <span data-l="fr">Activité : document du processus de travail du groupe</span>
+          </h2>
+        </div>
+        <ol class="passos">
+          <li><span><span data-l="en">Describe how Sprint 1 worked in practice: board, daily, MR reviews, and commits.</span>
+            <span data-l="pt">Descrever como a Sprint 1 funcionou na prática: quadro, daily, revisão de MRs e commits.</span>
+            <span data-l="fr">Décrire le fonctionnement réel du sprint 1 : tableau, daily, revue des MR et commits.</span></span></li>
+          <li><span><span data-l="en">Compare the description with the planning rules: checklist, DoR, DoD, and WIP.</span>
+            <span data-l="pt">Comparar a descrição com as regras da planning: checklist, DoR, DoD e WIP.</span>
+            <span data-l="fr">Comparer la description avec les règles du planning : checklist, DoR, DoD et WIP.</span></span></li>
+          <li><span><span data-l="en">Write the Sprint 2 process in <code>docs/processo.md</code> in the group repository.</span>
+            <span data-l="pt">Escrever o processo da Sprint 2 em <code>docs/processo.md</code> no repositório do grupo.</span>
+            <span data-l="fr">Rédiger le processus du sprint 2 dans <code>docs/processo.md</code> du dépôt du groupe.</span></span></li>
+          <li><span><span data-l="en">Open a merge request with the document and have another member review it.</span>
+            <span data-l="pt">Abrir um merge request com o documento e pedir a revisão de outro integrante.</span>
+            <span data-l="fr">Ouvrir une merge request avec le document et demander la relecture d'un autre membre.</span></span></li>
+        </ol>
+        <p class="nota-fonte">
+          <span data-l="en">The document is done today, together with the planning, and versioned on the group's main branch.</span>
+            <span data-l="pt">O documento é feito hoje, junto com a planning, e versionado na main do grupo.</span>
+            <span data-l="fr">Le document est rédigé aujourd'hui, avec le planning, et versionné sur la main du groupe.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">16</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Minimum content of the process document</span>
+            <span data-l="pt">Conteúdo mínimo do documento de processo</span>
+            <span data-l="fr">Contenu minimal du document de processus</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <thead>
+            <tr>
+              <th><span data-l="en">Section</span>
+            <span data-l="pt">Seção</span>
+            <span data-l="fr">Section</span></th>
+              <th><span data-l="en">What the group describes</span>
+            <span data-l="pt">O que o grupo descreve</span>
+            <span data-l="fr">Ce que le groupe décrit</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Board and columns</span>
+            <span data-l="pt">Quadro e colunas</span>
+            <span data-l="fr">Tableau et colonnes</span></th>
+              <td><span data-l="en">Board columns, DoR to enter Doing, DoD to enter Done, WIP of 1 card per student.</span>
+            <span data-l="pt">Colunas do quadro, DoR para entrar em Doing, DoD para entrar em Done, WIP de 1 card por aluno.</span>
+            <span data-l="fr">Colonnes du tableau, DoR pour entrer en Doing, DoD pour entrer en Done, WIP de 1 carte par étudiant.</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Estimation and breakdown</span>
+            <span data-l="pt">Estimativa e corte</span>
+            <span data-l="fr">Estimation et découpage</span></th>
+              <td><span data-l="en">Sizes S, M, L, and XL (15, 30, 60, and 120 min), breakdown by value, and review time.</span>
+            <span data-l="pt">Tamanhos P, M, G e GG (15, 30, 60 e 120 min), corte por valor e tempo de revisão.</span>
+            <span data-l="fr">Tailles S, M, L et XL (15, 30, 60 et 120 min), découpage par valeur et temps de revue.</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Daily</span>
+            <span data-l="pt">Daily</span>
+            <span data-l="fr">Daily</span></th>
+              <td><span data-l="en">Time, Scrum Master, and reading the board from right to left.</span>
+            <span data-l="pt">Horário, scrum master e leitura do quadro da direita para a esquerda.</span>
+            <span data-l="fr">Horaire, Scrum Master et lecture du tableau de droite à gauche.</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Code review</span>
+            <span data-l="pt">Revisão de código</span>
+            <span data-l="fr">Revue de code</span></th>
+              <td><span data-l="en">Who reviews, review pyramid, merge request template, and review deadline.</span>
+            <span data-l="pt">Quem revisa, pirâmide de revisão, template de merge request e prazo para revisar.</span>
+            <span data-l="fr">Qui relit, pyramide de revue, modèle de merge request et délai de relecture.</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Commits and branches</span>
+            <span data-l="pt">Commits e branches</span>
+            <span data-l="fr">Commits et branches</span></th>
+              <td><span data-l="en">Semantic messages linked to the issue (#number) and the branch naming convention.</span>
+            <span data-l="pt">Mensagens semânticas ligadas à issue (#número) e convenção de nome de branch.</span>
+            <span data-l="fr">Messages sémantiques liés à l'issue (#numéro) et convention de nommage des branches.</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">17</p>
+        </div>
+      </section>
+
+      <!-- 18 - Separador -->
+      <section class="section-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <p class="section-eyebrow">
+          <span data-l="en">Part B</span>
+            <span data-l="pt">Parte B</span>
+            <span data-l="fr">Partie B</span>
+        </p>
+        <div class="accent-bar"></div>
+        <h2>
+          <span data-l="en">Sprint 2</span>
+            <span data-l="pt">Sprint 2</span>
+            <span data-l="fr">Sprint 2</span>
+        </h2>
+        <h3>
+          <span data-l="en">Artifacts, calendar, and planning</span>
+            <span data-l="pt">Artefatos, calendário e planejamento</span>
+            <span data-l="fr">Livrables, calendrier et planification</span>
+        </h3>
+      </section>
+
+      <section class="content-slide" id="semana3">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Calendar of week 3, 26/10 to 30/10</span>
+            <span data-l="pt">Calendário da semana 3, 26/10 a 30/10</span>
+            <span data-l="fr">Calendrier de la semaine 3, du 26/10 au 30/10</span>
+          </h2>
+        </div>
+        <div class="semana">
+          <div class="dia hoje">
+            <p class="dia-cab"><span data-l="en">Mon 26/10</span><span data-l="pt">Seg 26/10</span><span data-l="fr">Lun. 26/10</span></p>
+            <div class="dia-corpo">
+              <p class="ev marco"><span data-l="en">Sprint 2 planning, today</span>
+            <span data-l="pt">Planning da Sprint 2, hoje</span>
+            <span data-l="fr">Planning du sprint 2, aujourd'hui</span></p>
+              <p class="ev marco"><span data-l="en">Scheduling of the oral defenses</span>
+            <span data-l="pt">Agendamento das arguições</span>
+            <span data-l="fr">Planification des soutenances</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Tue 27/10</span><span data-l="pt">Ter 27/10</span><span data-l="fr">Mar. 27/10</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">PCA</p>
+              <p class="ev marco"><span data-l="en">Scheduling of the oral defenses</span>
+            <span data-l="pt">Agendamento das arguições</span>
+            <span data-l="fr">Planification des soutenances</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Wed 28/10</span><span data-l="pt">Qua 28/10</span><span data-l="fr">Mer. 28/10</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Relationships</p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Thu 29/10</span><span data-l="pt">Qui 29/10</span><span data-l="fr">Jeu. 29/10</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">ETL</p>
+              <p class="ev marco"><span data-l="en">Last day of the oral defenses</span>
+            <span data-l="pt">Último dia das arguições</span>
+            <span data-l="fr">Dernier jour des soutenances</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Fri 30/10</span><span data-l="pt">Sex 30/10</span><span data-l="fr">Ven. 30/10</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Market intelligence</p>
+              <p class="ev entrega">Graded Assignment: Hierarchical Classification &middot; 3%</p>
+            </div>
+          </div>
+        </div>
+        <div class="legenda">
+          <span class="l-aula"><span data-l="en">Instruction</span>
+            <span data-l="pt">Instrução</span>
+            <span data-l="fr">Cours</span></span>
+          <span class="l-entrega"><span data-l="en">Weighted delivery</span>
+            <span data-l="pt">Entrega ponderada</span>
+            <span data-l="fr">Livrable noté</span></span>
+          <span class="l-marco"><span data-l="en">Milestone</span>
+            <span data-l="pt">Marco</span>
+            <span data-l="fr">Jalon</span></span>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">19</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="semana4">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Calendar of week 4, 02/11 to 06/11</span>
+            <span data-l="pt">Calendário da semana 4, 02/11 a 06/11</span>
+            <span data-l="fr">Calendrier de la semaine 4, du 02/11 au 06/11</span>
+          </h2>
+        </div>
+        <div class="semana">
+          <div class="dia feriado">
+            <p class="dia-cab"><span data-l="en">Mon 02/11</span><span data-l="pt">Seg 02/11</span><span data-l="fr">Lun. 02/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev marco"><span data-l="en">Holiday: All Souls' Day</span>
+            <span data-l="pt">Feriado: Finados</span>
+            <span data-l="fr">Jour férié : Jour des défunts</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Tue 03/11</span><span data-l="pt">Ter 03/11</span><span data-l="fr">Mar. 03/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Centroids</p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Wed 04/11</span><span data-l="pt">Qua 04/11</span><span data-l="fr">Mer. 04/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Competitive Analysis</p>
+              <p class="ev marco"><span data-l="en">Presentation due, 6 pm</span>
+            <span data-l="pt">Envio da apresentação, 18h</span>
+            <span data-l="fr">Envoi de la présentation, 18 h</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Thu 05/11</span><span data-l="pt">Qui 05/11</span><span data-l="fr">Jeu. 05/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Data Warehouses</p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Fri 06/11</span><span data-l="pt">Sex 06/11</span><span data-l="fr">Ven. 06/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev marco"><span data-l="en">Sprint Review</span>
+            <span data-l="pt">Sprint Review</span>
+            <span data-l="fr">Sprint Review</span></p>
+              <p class="ev entrega">Data Ingestion Structure &middot; 6%</p>
+              <p class="ev entrega">MAI-MD &middot; 4%</p>
+              <p class="ev entrega">Math Challenge 1 &middot; 4%</p>
+              <p class="ev entrega">Business Question 1 &middot; 3%</p>
+              <p class="ev marco"><span data-l="en">Artifact on main, 11:59 pm</span>
+            <span data-l="pt">Artefato na main, 23h59</span>
+            <span data-l="fr">Livrable sur main, 23 h 59</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="legenda">
+          <span class="l-aula"><span data-l="en">Instruction</span>
+            <span data-l="pt">Instrução</span>
+            <span data-l="fr">Cours</span></span>
+          <span class="l-entrega"><span data-l="en">Weighted delivery</span>
+            <span data-l="pt">Entrega ponderada</span>
+            <span data-l="fr">Livrable noté</span></span>
+          <span class="l-marco"><span data-l="en">Milestone</span>
+            <span data-l="pt">Marco</span>
+            <span data-l="fr">Jalon</span></span>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">20</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Sprint 2 holds 20% of the module weight in 5 deliveries</span>
+            <span data-l="pt">A Sprint 2 reúne 20% do peso do módulo em 5 entregas</span>
+            <span data-l="fr">Le sprint 2 réunit 20 % du poids du module en 5 livrables</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <thead>
+            <tr>
+              <th><span data-l="en">Date</span>
+            <span data-l="pt">Data</span>
+            <span data-l="fr">Date</span></th>
+              <th><span data-l="en">Delivery</span>
+            <span data-l="pt">Entrega</span>
+            <span data-l="fr">Livrable</span></th>
+              <th><span data-l="en">Weight</span>
+            <span data-l="pt">Peso</span>
+            <span data-l="fr">Poids</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="marco">
+              <td class="data">06/11</td>
+              <td><span data-l="en">Sprint artifact: Data ingestion system, on main by 11:59 pm</span>
+            <span data-l="pt">Artefato da sprint: Data ingestion system, na main até 23h59</span>
+            <span data-l="fr">Livrable du sprint : Data ingestion system, sur main avant 23 h 59</span></td>
+              <td class="peso">&ndash;</td>
+            </tr>
+            <tr>
+              <td class="data">30/10</td>
+              <td><span data-l="en">Graded Assignment: Hierarchical Classification and Outcomes Matrix</span><span data-l="pt">Atividade ponderada: classificação hierárquica e matriz de resultados</span><span data-l="fr">Devoir noté : classification hiérarchique et matrice des résultats</span></td>
+              <td class="peso">3%</td>
+            </tr>
+            <tr>
+              <td class="data">06/11</td>
+              <td><span data-l="en">Business Question 1</span><span data-l="pt">Questão de negócio 1</span><span data-l="fr">Question métier 1</span></td>
+              <td class="peso">3%</td>
+            </tr>
+            <tr>
+              <td class="data">06/11</td>
+              <td><span data-l="en">Data Ingestion Structure</span><span data-l="pt">Estrutura de ingestão de dados</span><span data-l="fr">Structure d'ingestion des données</span></td>
+              <td class="peso">6%</td>
+            </tr>
+            <tr>
+              <td class="data">06/11</td>
+              <td><span data-l="en">Information Architecture Specification and Decision Matrix (MAI-MD)</span><span data-l="pt">Especificação da arquitetura da informação e matriz de decisão (MAI-MD)</span><span data-l="fr">Spécification de l'architecture de l'information et matrice de décision (MAI-MD)</span></td>
+              <td class="peso">4%</td>
+            </tr>
+            <tr>
+              <td class="data">06/11</td>
+              <td><span data-l="en">Math Challenge 1</span><span data-l="pt">Desafio de matemática 1</span><span data-l="fr">Défi de mathématiques 1</span></td>
+              <td class="peso">4%</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">Weights from the module plan (Adalove export of 14/10). The sprint artifact has no separate weight.</span>
+            <span data-l="pt">Pesos do plano do módulo (export da Adalove de 14/10). O artefato da sprint não tem peso separado.</span>
+            <span data-l="fr">Poids du plan du module (export Adalove du 14/10). Le livrable du sprint n'a pas de poids distinct.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">21</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Suggested topics for planning Sprint 2</span>
+            <span data-l="pt">Tópicos sugeridos para planejar a Sprint 2</span>
+            <span data-l="fr">Sujets suggérés pour planifier le sprint 2</span>
+          </h2>
+        </div>
+        <table class="ref-tabela densa">
+          <thead>
+            <tr>
+              <th><span data-l="en">Topic</span>
+            <span data-l="pt">Tópico</span>
+            <span data-l="fr">Sujet</span></th>
+              <th><span data-l="en">Delivery it supports</span>
+            <span data-l="pt">Entrega que sustenta</span>
+            <span data-l="fr">Livrable qu'il soutient</span></th>
+              <th><span data-l="en">Date</span>
+            <span data-l="pt">Data</span>
+            <span data-l="fr">Date</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Data ingestion: sources, structure, and pipeline</span>
+            <span data-l="pt">Ingestão de dados: fontes, estrutura e pipeline</span>
+            <span data-l="fr">Ingestion des données : sources, structure et pipeline</span><span class="apoio"><span data-l="en">Support: ETL (29/10), Data Warehouses (05/11)</span>
+            <span data-l="pt">Apoio: ETL (29/10), Data Warehouses (05/11)</span>
+            <span data-l="fr">Appui : ETL (29/10), Data Warehouses (05/11)</span></span></th>
+              <td>Data Ingestion Structure &middot; 6%</td>
+              <td class="data">06/11</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Information architecture and decision matrix</span>
+            <span data-l="pt">Arquitetura da informação e matriz de decisão</span>
+            <span data-l="fr">Architecture de l'information et matrice de décision</span></th>
+              <td>MAI-MD &middot; 4%</td>
+              <td class="data">06/11</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Business and market questions</span>
+            <span data-l="pt">Perguntas de negócio e de mercado</span>
+            <span data-l="fr">Questions métier et marché</span><span class="apoio"><span data-l="en">Support: Market intelligence (30/10), Competitive Analysis (04/11)</span>
+            <span data-l="pt">Apoio: Market intelligence (30/10), Competitive Analysis (04/11)</span>
+            <span data-l="fr">Appui : Market intelligence (30/10), Competitive Analysis (04/11)</span></span></th>
+              <td>Business Question 1 &middot; 3%</td>
+              <td class="data">06/11</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Mathematics: PCA, centroids, and relationships</span>
+            <span data-l="pt">Matemática: PCA, centroides e relações</span>
+            <span data-l="fr">Mathématiques : ACP, centroïdes et relations</span><span class="apoio"><span data-l="en">Support: PCA (27/10), Relationships (28/10), Centroids (03/11)</span>
+            <span data-l="pt">Apoio: PCA (27/10), Relationships (28/10), Centroids (03/11)</span>
+            <span data-l="fr">Appui : PCA (27/10), Relationships (28/10), Centroids (03/11)</span></span></th>
+              <td>Math Challenge 1 &middot; 4%</td>
+              <td class="data">06/11</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Hierarchical classification and outcomes matrix</span>
+            <span data-l="pt">Classificação hierárquica e matriz de resultados</span>
+            <span data-l="fr">Classification hiérarchique et matrice des résultats</span></th>
+              <td>Graded Assignment &middot; 3%</td>
+              <td class="data">30/10</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Work process and quality of delivery</span>
+            <span data-l="pt">Processo de trabalho e qualidade da entrega</span>
+            <span data-l="fr">Processus de travail et qualité de la livraison</span></th>
+              <td>Kanban + GitLab</td>
+              <td class="data"><span data-l="en">Every day</span>
+            <span data-l="pt">Todo dia</span>
+            <span data-l="fr">Chaque jour</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">Suggestion. Each group adjusts the topics, breaks them into tasks of 15 to 120 min, and records them in GitLab.</span>
+            <span data-l="pt">Sugestão. Cada grupo ajusta os tópicos, divide em tarefas de 15 a 120 min e registra no GitLab.</span>
+            <span data-l="fr">Suggestion. Chaque groupe ajuste les sujets, les découpe en tâches de 15 à 120 min et les enregistre dans GitLab.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">22</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Sprint 2 has 7 working days, and the planning closes today</span>
+            <span data-l="pt">A Sprint 2 tem 7 dias úteis, e o planejamento fecha hoje</span>
+            <span data-l="fr">Le sprint 2 compte 7 jours ouvrés, la planification se clôt aujourd'hui</span>
+          </h2>
+        </div>
+        <ol class="passos compacta">
+          <li><span><span data-l="en">Every sprint task is a card in GitLab, estimated as S, M, L, or XL (15 to 120 min).</span>
+            <span data-l="pt">Toda tarefa da sprint é um card no GitLab, estimada em P, M, G ou GG (15 a 120 min).</span>
+            <span data-l="fr">Chaque tâche du sprint est une carte dans GitLab, estimée en S, M, L ou XL (15 à 120 min).</span></span></li>
+          <li><span><span data-l="en">At least 7 tasks per student, one per working day (49 to 56 per group).</span>
+            <span data-l="pt">No mínimo 7 tarefas por aluno, uma por dia útil (49 a 56 por grupo).</span>
+            <span data-l="fr">Au moins 7 tâches par étudiant, une par jour ouvré (49 à 56 par groupe).</span></span></li>
+          <li><span><span data-l="en">Review time planned in each task, with a reviewer other than the author.</span>
+            <span data-l="pt">Tempo de revisão planejado em cada tarefa, com revisor diferente do autor.</span>
+            <span data-l="fr">Temps de revue planifié dans chaque tâche, avec un relecteur autre que l'auteur.</span></span></li>
+          <li><span><span data-l="en">Scrum Master elected and WIP of 1 card in Doing per student.</span>
+            <span data-l="pt">Scrum master eleito e WIP de 1 card em Doing por aluno.</span>
+            <span data-l="fr">Scrum Master élu et WIP de 1 carte en Doing par étudiant.</span></span></li>
+          <li><span><span data-l="en">Process document open as a merge request in the group repository.</span>
+            <span data-l="pt">Documento de processo aberto como merge request no repositório do grupo.</span>
+            <span data-l="fr">Document de processus ouvert en merge request dans le dépôt du groupe.</span></span></li>
+        </ol>
+        <p class="nota-fonte">
+          <span data-l="en">7 working days: 9 from 26/10 to 06/11 (02/11 is a holiday), minus the planning day and the review day.</span>
+            <span data-l="pt">7 dias úteis: 9 de 26/10 a 06/11 (02/11 é feriado), menos o dia da planning e o da review.</span>
+            <span data-l="fr">7 jours ouvrés : 9 du 26/10 au 06/11 (le 02/11 est férié), moins le jour du planning et celui de la review.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">23</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Individual oral defenses of Sprint 1</span>
+            <span data-l="pt">Arguições individuais da Sprint 1</span>
+            <span data-l="fr">Soutenances individuelles du sprint 1</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande enorme">
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Scheduling</span>
+            <span data-l="pt">Agendamento</span>
+            <span data-l="fr">Planification</span></th>
+              <td><span data-l="en">By the advisor, between today (26/10) and tomorrow (27/10)</span>
+            <span data-l="pt">Pelo orientador, entre hoje (26/10) e amanhã (27/10)</span>
+            <span data-l="fr">Par l'encadrant, entre aujourd'hui (26/10) et demain (27/10)</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Deadline</span>
+            <span data-l="pt">Prazo final</span>
+            <span data-l="fr">Date limite</span></th>
+              <td><span data-l="en">All defenses finished by Thursday, 29/10</span>
+            <span data-l="pt">Todas as arguições concluídas até quinta-feira, 29/10</span>
+            <span data-l="fr">Toutes les soutenances terminées d'ici jeudi 29/10</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Weight</span>
+            <span data-l="pt">Peso</span>
+            <span data-l="fr">Poids</span></th>
+              <td><span data-l="en">60% of the individual assessment; the other 40% is the use of Kanban and GitLab</span>
+            <span data-l="pt">60% da avaliação individual; os outros 40% são o uso do Kanban e do GitLab</span>
+            <span data-l="fr">60 % de l'évaluation individuelle ; les 40 % restants portent sur l'usage de Kanban et GitLab</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 2</p>
+          <p class="footer-page">24</p>
+        </div>
+      </section>
+
+      <!-- Encerramento -->
+      <section class="end-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+        <div class="end-accent"></div>
+        <h1>
+          <span data-l="en">Questions</span>
+            <span data-l="pt">Dúvidas</span>
+            <span data-l="fr">Questions</span>
+        </h1>
+        <h3>
+          <span data-l="en">Sprint Planning 2</span>
+            <span data-l="pt">Sprint Planning 2</span>
+            <span data-l="fr">Sprint Planning 2</span>
+        </h3>
+        <p class="end-assinatura">
+          <span data-l="en">Prof. José Romualdo &middot; Project advisor &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="pt">Prof. José Romualdo &middot; Orientação &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="fr">Prof. José Romualdo &middot; Orientation du projet &middot; SI08 T18 &middot; 2026-2B</span>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280, height: 720, center: false, margin: 0,
+      hash: true, slideNumber: false, transition: 'fade'
+    });
+  </script>
+</body>
+</html>
