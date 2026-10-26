@@ -374,3 +374,9 @@
 .reveal .ref-tabela.enorme { font-size: 28px; }
 .reveal .ref-tabela.enorme th,
 .reveal .ref-tabela.enorme td { padding: 22px 20px; }
+
+.reveal .aviso.dica { margin-top: 20px; }
+.reveal .aviso.dica p { font-size: 21px; line-height: 1.35; }
+.aviso.dica .material-symbols-outlined { font-size: 34px; }
+.reveal ol.passos.compacta { gap: 9px; }
+.reveal .aviso.dica { margin-top: 12px; }

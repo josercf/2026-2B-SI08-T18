@@ -613,7 +613,16 @@ def planning_hoje(n, grupos):
         </ol>
 {nota(f"{DIAS_DE_EXECUCAO} working days: 9 from 26/10 to 06/11 (02/11 is a holiday), minus the planning day and the review day.",
       f"{DIAS_DE_EXECUCAO} dias úteis: 9 de 26/10 a 06/11 (02/11 é feriado), menos o dia da planning e o da review.",
-      f"{DIAS_DE_EXECUCAO} jours ouvrés : 9 du 26/10 au 06/11 (le 02/11 est férié), moins le jour du planning et celui de la review.")}"""
+      f"{DIAS_DE_EXECUCAO} jours ouvrés : 9 du 26/10 au 06/11 (le 02/11 est férié), moins le jour du planning et celui de la review.")}
+        <div class="aviso dica">
+          <span class="material-symbols-outlined aviso-icone" aria-hidden="true">cake</span>
+          <p>
+            <strong>{L("Tip:", "Dica:", "Astuce :")}</strong>
+            {L("Wednesday, 04/11, is the advisor's birthday. The presentation is due at 6 pm, and sending it early makes the celebration lighter.",
+               "quarta-feira, 04/11, é aniversário do orientador. O envio da apresentação vence às 18h, e entregar cedo deixa a comemoração mais leve.",
+               "le mercredi 04/11, c'est l'anniversaire de l'encadrant. La présentation est à rendre à 18 h, et l'envoyer tôt allège la fête.")}
+          </p>
+        </div>"""
     return slide_conteudo(n, titulo, corpo)
 
 
