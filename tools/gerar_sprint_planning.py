@@ -488,7 +488,8 @@ def semana4(n):
         dia(cab("Tue", "Ter", "Mar.", "03/11"), [evento_nome("aula", "Centroids")]),
         dia(cab("Wed", "Qua", "Mer.", "04/11"), [
             evento_nome("aula", "Competitive Analysis"),
-            evento("marco", "Presentation due, 6 pm", "Envio da apresentação, 18h", "Envoi de la présentation, 18 h")]),
+            evento("marco", "Presentation due, 6 pm", "Envio da apresentação, 18h", "Envoi de la présentation, 18 h"),
+            evento("marco", "Advisor's birthday (cake welcome)", "Aniversário do orientador (bolo é bem-vindo)", "Anniversaire de l'encadrant (gâteau bienvenu)")]),
         dia(cab("Thu", "Qui", "Jeu.", "05/11"), [evento_nome("aula", "Data Warehouses")]),
         dia(cab("Fri", "Sex", "Ven.", "06/11"), [
             evento("marco", "Sprint Review", "Sprint Review", "Sprint Review"),
