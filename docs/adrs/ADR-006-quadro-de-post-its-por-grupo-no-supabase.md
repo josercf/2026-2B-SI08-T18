@@ -36,8 +36,9 @@ do projeto Supabase `m08-quiz`, o mesmo do quiz e da ADR online do 2026-2B-M08, 
   orientador acompanha a participação por integrante no painel, e a discussão em sala é presencial.
 - **Banco fora do ar em sala.** O modo `&demo=1` roda em memória; o plano B é o mesmo quadro em
   papel, com as perguntas do slide 6.
-- **Fotos dos alunos.** O Slack não expõe a foto pelo MCP. O quadro mostra iniciais e aceita uma
-  `foto_url` por integrante no banco, fora do git, para não publicar foto de aluno no Pages.
+- **Fotos dos alunos.** O banco guarda em `foto_url` o endereço da foto de perfil no CDN do Slack
+  (192 px), e só o quadro do próprio grupo ou o painel a recebem. Nenhuma foto entra no git nem
+  no Pages. Sem foto, ou com o endereço quebrado, o bloco mostra as iniciais.
 - **Token exposto no projetor.** Os links vão para o canal de cada grupo no Slack, não para a tela.
 
 ## Consequências
