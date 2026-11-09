@@ -271,7 +271,7 @@ def academica_executiva(n):
     trs = "\n".join(
         f'            <tr>\n              <th scope="row">{L(*a)}</th>\n              <td>{L(*b)}</td>\n              <td>{L(*c)}</td>\n            </tr>'
         for a, b, c in linhas)
-    corpo = f"""        <table class="ref-tabela grande">
+    corpo = f"""        <table class="ref-tabela">
           <thead>
             <tr>
               <th>{L("Criterion", "Critério", "Critère")}</th>
@@ -283,9 +283,9 @@ def academica_executiva(n):
 {trs}
           </tbody>
         </table>
-{nota("A Sprint Review is an executive presentation: the partner decides what to accept and what changes in the next sprint.",
-      "A Sprint Review é uma apresentação executiva: o parceiro decide o que aceita e o que muda na próxima sprint.",
-      "La Sprint Review est une présentation exécutive : le partenaire décide ce qu'il accepte et ce qui change au sprint suivant.")}"""
+{nota("The Sprint Review is an executive presentation: the partner decides what to accept.",
+      "A Sprint Review é uma apresentação executiva: o parceiro decide o que aceita.",
+      "La Sprint Review est une présentation exécutive : le partenaire décide ce qu'il accepte.")}"""
     return slide_conteudo(n, titulo, corpo)
 
 
@@ -376,44 +376,97 @@ def atividade_reconstrucao(n):
     return slide_conteudo(n, titulo, corpo)
 
 
+def _t(x, y, en, pt, fr, cls="", extra=""):
+    """Texto do SVG nas tres linguas, agrupado para o seletor de idioma (ADR-001)."""
+    c = f' class="{cls}"' if cls else ""
+    return (f'<g{c}><text x="{x}" y="{y}"{extra} data-l="en">{en}</text>'
+            f'<text x="{x}" y="{y}"{extra} data-l="pt">{pt}</text>'
+            f'<text x="{x}" y="{y}"{extra} data-l="fr">{fr}</text></g>')
+
+
+def figura_hersey_blanchard():
+    """Modelo de Hersey e Blanchard redesenhado a partir da figura do artigo de Bassani (2021)."""
+    # Area do grafico: x de 70 a 530, y de 20 a 330; meio em (300, 175).
+    quad = [
+        (185, 70, "E3", ("Participating", "Compartilhar", "Participer"),
+         ("High relationship,", "Relacionamento alto,", "Relation forte,"), ("low task", "tarefa baixa", "tâche faible")),
+        (415, 70, "E2", ("Selling", "Persuadir", "Persuader"),
+         ("High task,", "Tarefa alta,", "Tâche forte,"), ("high relationship", "relacionamento alto", "relation forte")),
+        (185, 225, "E4", ("Delegating", "Delegar", "Déléguer"),
+         ("Low relationship,", "Relacionamento baixo,", "Relation faible,"), ("low task", "tarefa baixa", "tâche faible")),
+        (415, 225, "E1", ("Telling", "Determinar", "Diriger"),
+         ("High task,", "Tarefa alta,", "Tâche forte,"), ("low relationship", "relacionamento baixo", "relation faible")),
+    ]
+    partes = []
+    for cx, y, cod, nome, d1, d2 in quad:
+        partes.append(f'<text x="{cx}" y="{y + 34}" class="lid-cod">{cod}</text>')
+        partes.append(_t(cx, y + 62, *nome, cls="lid-nome"))
+        partes.append(_t(cx, y + 86, *d1, cls="lid-desc"))
+        partes.append(_t(cx, y + 104, *d2, cls="lid-desc"))
+    regua = [(127, "M4"), (242, "M3"), (357, "M2"), (472, "M1")]
+    for x, m in regua:
+        partes.append(f'<rect x="{x - 57}" y="380" width="115" height="34" class="lid-celula"/>')
+        partes.append(f'<text x="{x}" y="403" class="lid-m">{m}</text>')
+    return f"""<svg class="lid-figura" viewBox="0 0 560 470" role="img" aria-label="Hersey and Blanchard situational leadership model">
+            <rect x="70" y="20" width="230" height="155" class="lid-q"/>
+            <rect x="300" y="20" width="230" height="155" class="lid-q"/>
+            <rect x="70" y="175" width="230" height="155" class="lid-q"/>
+            <rect x="300" y="175" width="230" height="155" class="lid-q"/>
+            <path d="M78,322 C150,318 190,60 300,40 C410,60 450,318 522,322" class="lid-curva"/>
+            <line x1="70" y1="330" x2="70" y2="14" class="lid-eixo"/>
+            <line x1="70" y1="330" x2="538" y2="330" class="lid-eixo"/>
+            {"".join(partes)}
+            {_t(28, 175, "Relationship behavior", "Comportamento de relacionamento", "Comportement relationnel", cls="lid-eixo-rot", extra=' transform="rotate(-90 28 175)"')}
+            {_t(56, 30, "high", "alto", "fort", cls="lid-ext", extra=' transform="rotate(-90 56 30)"')}
+            {_t(56, 318, "low", "baixo", "faible", cls="lid-ext", extra=' transform="rotate(-90 56 318)"')}
+            {_t(300, 354, "Task behavior", "Comportamento de tarefa", "Comportement de tâche", cls="lid-eixo-rot")}
+            {_t(86, 354, "low", "baixo", "faible", cls="lid-ext")}
+            {_t(516, 354, "high", "alto", "fort", cls="lid-ext")}
+            {_t(127, 374, "High", "Alta", "Élevée", cls="lid-faixa")}
+            {_t(300, 374, "Moderate", "Moderada", "Modérée", cls="lid-faixa")}
+            {_t(472, 374, "Low", "Baixa", "Faible", cls="lid-faixa")}
+            {_t(300, 440, "Team maturity", "Maturidade da equipe", "Maturité de l'équipe", cls="lid-eixo-rot")}
+            {_t(70, 440, "mature", "madura", "mature", cls="lid-ext")}
+            {_t(530, 440, "immature", "imatura", "immature", cls="lid-ext")}
+          </svg>"""
+
+
 def lideranca(n):
     titulo = L("In situational leadership, the leader's style follows the team's maturity for the task",
                "Na liderança situacional, o estilo do líder acompanha a maturidade da equipe para a tarefa",
                "En leadership situationnel, le style du leader suit la maturité de l'équipe pour la tâche")
     linhas = [
-        ("M1", ("Low ability, low willingness", "Pouca capacidade, pouca disposição", "Faible capacité, faible volonté"),
-         ("Telling", "Determinar", "Diriger"),
-         ("Leader defines the task, the how, and the deadline", "Líder define a tarefa, o como e o prazo", "Le leader définit la tâche, la méthode et le délai")),
-        ("M2", ("Some ability, willing", "Alguma capacidade, com disposição", "Capacité partielle, volonté présente"),
-         ("Selling", "Persuadir", "Persuader"),
-         ("Leader defines the task and explains the decisions", "Líder define a tarefa e explica as decisões", "Le leader définit la tâche et explique les décisions")),
-        ("M3", ("Able, unsure or unwilling", "Capaz, mas insegura ou pouco disposta", "Capable, mais hésitante"),
-         ("Participating", "Compartilhar", "Participer"),
-         ("Leader and team decide together", "Líder e equipe decidem juntos", "Le leader et l'équipe décident ensemble")),
-        ("M4", ("Able and willing", "Capaz e disposta", "Capable et volontaire"),
-         ("Delegating", "Delegar", "Déléguer"),
-         ("Team decides and answers for the result", "Equipe decide e responde pelo resultado", "L'équipe décide et répond du résultat")),
+        ("M1", ("Unable and unwilling or insecure", "Sem capacidade nem disposição, ou insegura", "Incapable et peu disposée ou hésitante"),
+         "E1", ("Telling", "Determinar", "Diriger")),
+        ("M2", ("Unable, but willing or confident", "Sem capacidade, mas com disposição ou confiança", "Incapable, mais volontaire ou confiante"),
+         "E2", ("Selling", "Persuadir", "Persuader")),
+        ("M3", ("Able, but unwilling or insecure", "Com capacidade, mas sem disposição ou insegura", "Capable, mais peu disposée ou hésitante"),
+         "E3", ("Participating", "Compartilhar", "Participer")),
+        ("M4", ("Able and willing (competent, secure)", "Capaz e disposta (competente e segura)", "Capable et volontaire (compétente, sûre)"),
+         "E4", ("Delegating", "Delegar", "Déléguer")),
     ]
     trs = "\n".join(
-        f'            <tr>\n              <td class="data">{m}</td>\n              <td>{L(*c)}</td>\n'
-        f'              <th scope="row">{L(*e)}</th>\n              <td>{L(*d)}</td>\n            </tr>'
-        for m, c, e, d in linhas)
-    corpo = f"""        <table class="ref-tabela grande">
-          <thead>
-            <tr>
-              <th>{L("Maturity", "Maturidade", "Maturité")}</th>
-              <th>{L("Team", "Equipe", "Équipe")}</th>
-              <th>{L("Style", "Estilo", "Style")}</th>
-              <th>{L("Leader's behavior", "Comportamento do líder", "Comportement du leader")}</th>
-            </tr>
-          </thead>
-          <tbody>
+        f'              <tr>\n                <td class="data">{m}</td>\n                <td>{L(*c)}</td>\n'
+        f'                <th scope="row">{e} {L(*est)}</th>\n              </tr>'
+        for m, c, e, est in linhas)
+    corpo = f"""        <div class="lid-grade">
+          {figura_hersey_blanchard()}
+          <table class="ref-tabela densa">
+            <thead>
+              <tr>
+                <th>{L("Maturity", "Maturidade", "Maturité")}</th>
+                <th>{L("Team", "Equipe", "Équipe")}</th>
+                <th>{L("Style", "Estilo", "Style")}</th>
+              </tr>
+            </thead>
+            <tbody>
 {trs}
-          </tbody>
-        </table>
-{nota("Hersey and Blanchard (1986), in Bassani (2021). Maturity is the capacity to accept one's own duties and responsibilities, set goals, and carry out the tasks requested.",
-      "Hersey e Blanchard (1986), em Bassani (2021). Maturidade é a capacidade de aceitar as próprias incumbências e responsabilidades, estabelecer metas e exercer as tarefas solicitadas.",
-      "Hersey et Blanchard (1986), dans Bassani (2021). La maturité est la capacité d'accepter ses propres missions et responsabilités, de fixer des objectifs et d'exécuter les tâches demandées.")}"""
+            </tbody>
+          </table>
+        </div>
+{nota("Redrawn from Hersey and Blanchard (1986), in Bassani (2021), figures 2 and 3. Maturity is the capacity to accept one's own duties and responsibilities, set goals, and carry out the tasks requested.",
+      "Redesenhado de Hersey e Blanchard (1986), em Bassani (2021), figuras 2 e 3. Maturidade é a capacidade de aceitar as próprias incumbências e responsabilidades, estabelecer metas e exercer as tarefas solicitadas.",
+      "Redessiné d'après Hersey et Blanchard (1986), dans Bassani (2021), figures 2 et 3. La maturité est la capacité d'accepter ses propres missions et responsabilités, de fixer des objectifs et d'exécuter les tâches demandées.")}"""
     return slide_conteudo(n, titulo, corpo, id_="lideranca")
 
 
@@ -604,13 +657,13 @@ def cubo(n):
 
 
 def planning_entregue(n):
-    titulo = L("Each group receives its Sprint 3 planning ready, as a file in the repository",
-               "Cada grupo recebe a planning da Sprint 3 pronta, em arquivo no repositório",
-               "Chaque groupe reçoit son planning du sprint 3 prêt, en fichier dans le dépôt")
+    titulo = L("Each group receives its Sprint 3 planning ready, as a file published in the module portal",
+               "Cada grupo recebe a planning da Sprint 3 pronta, em arquivo publicado no portal do módulo",
+               "Chaque groupe reçoit son planning du sprint 3 prêt, en fichier publié sur le portail du module")
     passos = [
-        ("The file <code>planning-sprint3-GXX.md</code> lists the tasks, sizes, dependencies, and Definition of Done.",
-         "O arquivo <code>planning-sprint3-GXX.md</code> lista as tarefas, tamanhos, dependências e Definition of Done.",
-         "Le fichier <code>planning-sprint3-GXX.md</code> liste les tâches, tailles, dépendances et la Definition of Done."),
+        ("The file <code>planning-sprint3-GXX.md</code>, in English, starts from the group's board and repository and lists the tasks, sizes, dependencies, and Definition of Done.",
+         "O arquivo <code>planning-sprint3-GXX.md</code>, em inglês, parte do board e do repositório do grupo e lista as tarefas, tamanhos, dependências e Definition of Done.",
+         "Le fichier <code>planning-sprint3-GXX.md</code>, en anglais, part du tableau et du dépôt du groupe et liste les tâches, tailles, dépendances et la Definition of Done."),
         ("Every task gets exactly one owner today; nobody keeps more than 1 card in Doing.",
          "Toda tarefa recebe exatamente um dono hoje; ninguém fica com mais de 1 card em Doing.",
          "Chaque tâche reçoit exactement un responsable aujourd'hui ; personne n'a plus d'une carte en Doing."),
@@ -622,9 +675,13 @@ def planning_entregue(n):
          "Le tableau fait foi : une tâche hors du tableau ne compte pas comme livrée."),
     ]
     lis = "\n".join(f"          <li><span>{L(*p)}</span></li>" for p in passos)
+    base_url = "https://github.com/josercf/2026-2B-SI08-T18/blob/main/planning/sprint3/planning-sprint3-"
+    links = " &middot; ".join(f'<a href="{base_url}{g}.md" target="_blank" rel="noopener">{g}</a>'
+                              for g in ("G01", "G02", "G03", "G04", "G05"))
     corpo = f"""        <ol class="passos compacta">
 {lis}
-        </ol>"""
+        </ol>
+{nota("Planning per group:", "Planning por grupo:", "Planning par groupe :", atalhos=links)}"""
     return slide_conteudo(n, titulo, corpo, id_="planning")
 
 
@@ -694,9 +751,9 @@ def avisos(n):
 
 
 def atividade_board(n):
-    titulo = L("Activity: each group reviews its planning and creates the cards on the board, by 16:00",
-               "Atividade: cada grupo revisa a planning e cria os cards no board, até 16h",
-               "Activité : chaque groupe revoit son planning et crée les cartes dans le tableau, avant 16 h")
+    titulo = L("Activity: each group reviews its planning and creates the cards on the board, by 6 pm",
+               "Atividade: cada grupo revisa a planning e cria os cards no board, até 18h",
+               "Activité : chaque groupe revoit son planning et crée les cartes dans le tableau, avant 18 h")
     passos = [
         ("Read the group's planning file and raise doubts with the advisor in the room.",
          "Ler o arquivo de planning do grupo e tirar dúvidas com o orientador na sala.",
@@ -715,9 +772,9 @@ def atividade_board(n):
     corpo = f"""        <ol class="passos">
 {lis}
         </ol>
-{nota("Delivery: board with every planning task as a card with an owner, checked by the advisor at 16:00.",
-      "Entrega: board com todas as tarefas da planning como cards com dono, conferido pelo orientador às 16h.",
-      "Livrable : tableau avec toutes les tâches du planning en cartes avec responsable, vérifié par l'encadrant à 16 h.")}"""
+{nota("Delivery: board with every planning task as a card with an owner, checked by the advisor at 6 pm.",
+      "Entrega: board com todas as tarefas da planning como cards com dono, conferido pelo orientador às 18h.",
+      "Livrable : tableau avec toutes les tâches du planning en cartes avec responsable, vérifié par l'encadrant à 18 h.")}"""
     return slide_conteudo(n, titulo, corpo)
 
 

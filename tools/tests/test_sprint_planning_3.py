@@ -242,3 +242,29 @@ def test_toda_foto_publicada_e_jpeg_pequeno_de_um_integrante():
         with open(caminho, "rb") as fh:
             assert fh.read(3) == b"\xff\xd8\xff", f
         assert os.path.getsize(caminho) < 40_000, f
+
+
+# ------------------------------------------------------------------ plannings por grupo
+PLANNINGS = os.path.join(RAIZ, "planning", "sprint3")
+TAMANHO = {"S": 15, "M": 30, "L": 60, "XL": 120}
+INTEGRANTES = {"G01": 8, "G02": 8, "G03": 7, "G04": 8, "G05": 8}
+
+
+@pytest.mark.parametrize("grupo", sorted(INTEGRANTES))
+def test_planning_do_grupo_tem_as_sete_secoes_e_cartoes_suficientes(grupo):
+    texto = _ler(os.path.join(PLANNINGS, "planning-sprint3-%s.md" % grupo))
+    assert "—" not in texto
+    titulos = re.findall(r"^## (\d)\. ", texto, re.M)
+    assert titulos == [str(i) for i in range(1, 8)], titulos
+    ids = re.findall(r"^\| (S3-[A-Z]\d\d) \|", texto, re.M)
+    assert len(ids) == len(set(ids)), "ID repetido"
+    assert re.search(r"\| Members \| %d \|" % INTEGRANTES[grupo], texto)
+    total = re.search(r"\| \*\*Total\*\* \| \*\*(\d+)\*\* \|", texto)
+    assert total, "tabela de volume sem total"
+    assert int(total.group(1)) >= 7 * INTEGRANTES[grupo]
+
+
+def test_deck_aponta_para_as_cinco_plannings():
+    html = _ler(DECK)
+    for g in sorted(INTEGRANTES):
+        assert "planning/sprint3/planning-sprint3-%s.md" % g in html

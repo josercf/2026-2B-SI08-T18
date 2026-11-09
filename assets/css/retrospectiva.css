@@ -383,3 +383,19 @@
 
 /* Sprint Planning 3: celula que marca o desvio ou a mudanca na linha da tabela. */
 .reveal .ref-tabela td.destaque { border-left: 4px solid var(--seg-destaque); font-weight: 600; }
+
+/* Sprint Planning 3: modelo de Hersey e Blanchard redesenhado em SVG (slide de lideranca). */
+.reveal .lid-grade { display: grid; grid-template-columns: 440px 1fr; gap: 28px; align-items: start; }
+.reveal .lid-figura { width: 440px; height: 370px; overflow: visible; }
+.reveal .lid-figura text { fill: var(--seg-texto); text-anchor: middle; }
+.reveal .lid-q { fill: var(--seg-superficie); stroke: var(--seg-base); stroke-width: 3; }
+.reveal .lid-curva { fill: none; stroke: var(--seg-destaque); stroke-width: 5; stroke-linecap: round; }
+.reveal .lid-eixo { stroke: var(--seg-texto); stroke-width: 2; }
+.reveal .lid-cod { font-size: 30px; font-weight: 800; }
+.reveal .lid-nome text { font-size: 19px; font-weight: 700; }
+.reveal .lid-desc text { font-size: 14px; }
+.reveal .lid-eixo-rot text { font-size: 15px; font-weight: 700; }
+.reveal .lid-ext text { font-size: 13px; fill: var(--seg-texto-suave); }
+.reveal .lid-faixa text { font-size: 14px; font-weight: 600; }
+.reveal .lid-celula { fill: var(--seg-primaria); stroke: var(--seg-base); stroke-width: 2; }
+.reveal .lid-figura .lid-m { fill: var(--seg-base); font-size: 17px; font-weight: 700; }
