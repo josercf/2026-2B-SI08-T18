@@ -229,3 +229,16 @@ def test_seed_do_banco_tem_todo_integrante_com_o_nome_do_quadro():
     esperado = sorted((g, apelidos.get(curto(n), curto(n))) for g, ns in grupos.items() for n in ns)
     assert sorted(linhas) == esperado
     assert "var SESSAO = 'si08t18-sp3-2026-11-09'" in _ler(QUADRO_JS)
+
+
+def test_toda_foto_publicada_e_jpeg_pequeno_de_um_integrante():
+    import json
+    import unicodedata
+    pasta = os.path.join(RAIZ, "assets", "img", "alunos")
+    fotos = sorted(os.listdir(pasta))
+    assert len(fotos) == 39
+    for f in fotos:
+        caminho = os.path.join(pasta, f)
+        with open(caminho, "rb") as fh:
+            assert fh.read(3) == b"\xff\xd8\xff", f
+        assert os.path.getsize(caminho) < 40_000, f
