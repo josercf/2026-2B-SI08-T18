@@ -380,3 +380,6 @@
 .aviso.dica .material-symbols-outlined { font-size: 34px; }
 .reveal ol.passos.compacta { gap: 9px; }
 .reveal .aviso.dica { margin-top: 12px; }
+
+/* Sprint Planning 3: celula que marca o desvio ou a mudanca na linha da tabela. */
+.reveal .ref-tabela td.destaque { border-left: 4px solid var(--seg-destaque); font-weight: 600; }

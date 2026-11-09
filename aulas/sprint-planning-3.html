@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Planning 3 &middot; SI08 T18</title>
+
+  <!-- Gerado por tools/gerar_sprint_planning_3.py (nao editar a mao). Deck trilingue
+       (ADR-001); quadro de post-its em quadro/reflexao-sprint2.html (ADR-006). -->
+
+  <script src="../assets/js/idioma.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="../assets/css/inteli-brand.css">
+  <link rel="stylesheet" href="../assets/css/inteli-theme.css">
+  <link rel="stylesheet" href="../assets/css/orientacao.css">
+  <link rel="stylesheet" href="../assets/css/retrospectiva.css">
+  <link rel="stylesheet" href="../assets/css/inteli-print.css" media="print">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 - Capa -->
+      <section class="cover-slide">
+        <div class="cover-panel">
+          <div class="cover-content">
+            <div class="cover-brand-mark">
+              <img src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+            </div>
+            <p class="cover-eyebrow">
+              <span data-l="en">Information Systems &middot; Module 08 &middot; Class T18 &middot; 2026-2B</span>
+              <span data-l="pt">Sistemas de Informação &middot; Módulo 08 &middot; Turma T18 &middot; 2026-2B</span>
+              <span data-l="fr">Systèmes d'information &middot; Module 08 &middot; Classe T18 &middot; 2026-2B</span>
+            </p>
+            <div class="cover-accent"></div>
+            <h1>
+              <span data-l="en">Sprint Planning 3</span>
+            <span data-l="pt">Sprint Planning 3</span>
+            <span data-l="fr">Sprint Planning 3</span>
+            </h1>
+            <h3>
+              <span data-l="en">Sprint 2 review and Sprint 3 plan</span>
+            <span data-l="pt">Revisão da Sprint 2 e plano da Sprint 3</span>
+            <span data-l="fr">Revue du sprint 2 et plan du sprint 3</span>
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-slide" id="agenda">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Agenda for today, 14:00 to 16:00</span>
+            <span data-l="pt">Agenda de hoje, 14h às 16h</span>
+            <span data-l="fr">Ordre du jour, 14 h à 16 h</span>
+          </h2>
+        </div>
+        <table class="ref-tabela densa">
+          <thead>
+            <tr>
+              <th><span data-l="en">Time</span>
+            <span data-l="pt">Horário</span>
+            <span data-l="fr">Horaire</span></th>
+              <th><span data-l="en">Block</span>
+            <span data-l="pt">Bloco</span>
+            <span data-l="fr">Bloc</span></th>
+              <th><span data-l="en">What the student does</span>
+            <span data-l="pt">O que o aluno faz</span>
+            <span data-l="fr">Ce que fait l'étudiant</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data">14:00&ndash;14:05</td>
+              <th scope="row"><span data-l="en">Opening and agenda</span>
+            <span data-l="pt">Abertura e agenda</span>
+            <span data-l="fr">Ouverture et ordre du jour</span></th>
+              <td><span data-l="en">Listens</span>
+            <span data-l="pt">Escuta</span>
+            <span data-l="fr">Écoute</span></td>
+            </tr>
+            <tr>
+              <td class="data">14:05&ndash;14:25</td>
+              <th scope="row"><span data-l="en">A. Sprint 2 reflection board</span>
+            <span data-l="pt">A. Quadro de reflexão da Sprint 2</span>
+            <span data-l="fr">A. Tableau de réflexion du sprint 2</span></th>
+              <td><span data-l="en">Answers 5 questions in post-its, alone</span>
+            <span data-l="pt">Responde 5 perguntas em post-its, sozinho</span>
+            <span data-l="fr">Répond à 5 questions en post-it, seul</span></td>
+            </tr>
+            <tr>
+              <td class="data">14:25&ndash;14:35</td>
+              <th scope="row"><span data-l="en">Reading the board and the risk matrix</span>
+            <span data-l="pt">Leitura do quadro e matriz de risco</span>
+            <span data-l="fr">Lecture du tableau et matrice des risques</span></th>
+              <td><span data-l="en">Discusses with the class</span>
+            <span data-l="pt">Discute com a turma</span>
+            <span data-l="fr">Discute avec la classe</span></td>
+            </tr>
+            <tr>
+              <td class="data">14:35&ndash;14:45</td>
+              <th scope="row"><span data-l="en">B. Academic and executive presentations</span>
+            <span data-l="pt">B. Apresentação acadêmica e executiva</span>
+            <span data-l="fr">B. Présentation académique et exécutive</span></th>
+              <td><span data-l="en">Listens and asks</span>
+            <span data-l="pt">Escuta e pergunta</span>
+            <span data-l="fr">Écoute et pose des questions</span></td>
+            </tr>
+            <tr>
+              <td class="data">14:45&ndash;15:00</td>
+              <th scope="row"><span data-l="en">Rebuilding the Sprint 2 presentation</span>
+            <span data-l="pt">Reconstrução da apresentação da Sprint 2</span>
+            <span data-l="fr">Reconstruction de la présentation du sprint 2</span></th>
+              <td><span data-l="en">Builds slides with the whole group</span>
+            <span data-l="pt">Monta os slides com o grupo inteiro</span>
+            <span data-l="fr">Construit les slides avec tout le groupe</span></td>
+            </tr>
+            <tr>
+              <td class="data">15:00&ndash;15:25</td>
+              <th scope="row"><span data-l="en">Presentations, 5 min per group</span>
+            <span data-l="pt">Apresentações, 5 min por grupo</span>
+            <span data-l="fr">Présentations, 5 min par groupe</span></th>
+              <td><span data-l="en">2 drawn members present and demo</span>
+            <span data-l="pt">2 sorteados apresentam e demonstram</span>
+            <span data-l="fr">2 tirés au sort présentent et font la démo</span></td>
+            </tr>
+            <tr>
+              <td class="data">15:25&ndash;15:35</td>
+              <th scope="row"><span data-l="en">C. Situational leadership</span>
+            <span data-l="pt">C. Liderança situacional</span>
+            <span data-l="fr">C. Leadership situationnel</span></th>
+              <td><span data-l="en">Listens and asks</span>
+            <span data-l="pt">Escuta e pergunta</span>
+            <span data-l="fr">Écoute et pose des questions</span></td>
+            </tr>
+            <tr>
+              <td class="data">15:35&ndash;15:45</td>
+              <th scope="row"><span data-l="en">D. Sprint 3: planning, daily, and notices</span>
+            <span data-l="pt">D. Sprint 3: planning, daily e avisos</span>
+            <span data-l="fr">D. Sprint 3 : planning, daily et avis</span></th>
+              <td><span data-l="en">Reads the group's planning</span>
+            <span data-l="pt">Lê a planning do grupo</span>
+            <span data-l="fr">Lit le planning du groupe</span></td>
+            </tr>
+            <tr>
+              <td class="data">15:45&ndash;16:00</td>
+              <th scope="row"><span data-l="en">Backlog onto the board</span>
+            <span data-l="pt">Backlog no board</span>
+            <span data-l="fr">Backlog dans le tableau</span></th>
+              <td><span data-l="en">Reviews tasks and creates the cards</span>
+            <span data-l="pt">Revisa as tarefas e cria os cards</span>
+            <span data-l="fr">Revoit les tâches et crée les cartes</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">2</p>
+        </div>
+      </section>
+
+      <!-- 3 - Separador -->
+      <section class="section-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <p class="section-eyebrow">
+          <span data-l="en">Part A</span>
+            <span data-l="pt">Parte A</span>
+            <span data-l="fr">Partie A</span>
+        </p>
+        <div class="accent-bar"></div>
+        <h2>
+          <span data-l="en">Sprint 2 reflection</span>
+            <span data-l="pt">Reflexão sobre a Sprint 2</span>
+            <span data-l="fr">Réflexion sur le sprint 2</span>
+        </h2>
+        <h3>
+          <span data-l="en">Board of post-its per group and risk matrix</span>
+            <span data-l="pt">Quadro de post-its por grupo e matriz de risco</span>
+            <span data-l="fr">Tableau de post-it par groupe et matrice des risques</span>
+        </h3>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Sprint Review 2 took 1h30 in a single presentation of more than 50 slides</span>
+            <span data-l="pt">A Sprint Review 2 durou 1h30 em uma apresentação única de mais de 50 slides</span>
+            <span data-l="fr">La Sprint Review 2 a duré 1 h 30 en une présentation unique de plus de 50 slides</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <thead>
+            <tr>
+              <th><span data-l="en">Item</span>
+            <span data-l="pt">Item</span>
+            <span data-l="fr">Élément</span></th>
+              <th><span data-l="en">Agreed in Sprint Planning 2</span>
+            <span data-l="pt">Combinado na Sprint Planning 2</span>
+            <span data-l="fr">Convenu au Sprint Planning 2</span></th>
+              <th><span data-l="en">What happened</span>
+            <span data-l="pt">O que aconteceu</span>
+            <span data-l="fr">Ce qui s'est passé</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Delivery of the slides</span>
+            <span data-l="pt">Entrega dos slides</span>
+            <span data-l="fr">Envoi des slides</span></th>
+              <td><span data-l="en">Wednesday 04/11, 6 pm</span>
+            <span data-l="pt">Quarta-feira 04/11, 18h</span>
+            <span data-l="fr">Mercredi 04/11, 18 h</span></td>
+              <td class="destaque"><span data-l="en">Not delivered in advance</span>
+            <span data-l="pt">Não entregues antes</span>
+            <span data-l="fr">Pas envoyés à l'avance</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Format</span>
+            <span data-l="pt">Formato</span>
+            <span data-l="fr">Format</span></th>
+              <td><span data-l="en">One presentation per group</span>
+            <span data-l="pt">Uma apresentação por grupo</span>
+            <span data-l="fr">Une présentation par groupe</span></td>
+              <td class="destaque"><span data-l="en">One presentation for the whole class, decided by the students</span>
+            <span data-l="pt">Uma apresentação da turma inteira, decidida pelos alunos</span>
+            <span data-l="fr">Une présentation pour toute la classe, décidée par les étudiants</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Size and duration</span>
+            <span data-l="pt">Tamanho e duração</span>
+            <span data-l="fr">Taille et durée</span></th>
+              <td><span data-l="en">Short, with a demonstration</span>
+            <span data-l="pt">Curta, com demonstração</span>
+            <span data-l="fr">Courte, avec démonstration</span></td>
+              <td class="destaque"><span data-l="en">More than 50 slides and 1h30</span>
+            <span data-l="pt">Mais de 50 slides e 1h30</span>
+            <span data-l="fr">Plus de 50 slides et 1 h 30</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">Source: Sprint Planning 2 calendar and the advisor's record of Sprint Review 2 (06/11).</span>
+            <span data-l="pt">Fonte: calendário da Sprint Planning 2 e registro do orientador da Sprint Review 2 (06/11).</span>
+            <span data-l="fr">Source : calendrier du Sprint Planning 2 et notes de l'encadrant sur la Sprint Review 2 (06/11).</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">4</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="quadro">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Activity: each member answers the Sprint 2 board alone, in 20 minutes</span>
+            <span data-l="pt">Atividade: cada integrante responde sozinho o quadro da Sprint 2, em 20 minutos</span>
+            <span data-l="fr">Activité : chaque membre répond seul au tableau du sprint 2, en 20 minutes</span>
+          </h2>
+        </div>
+        <ol class="passos">
+          <li><span><span data-l="en">Open the link of your group's board, posted in the group's Slack channel.</span>
+            <span data-l="pt">Abrir o link do quadro do grupo, enviado no canal do grupo no Slack.</span>
+            <span data-l="fr">Ouvrir le lien du tableau du groupe, envoyé sur le canal Slack du groupe.</span></span></li>
+          <li><span><span data-l="en">Choose your name. Your post-its are signed and the advisor sees who wrote each one.</span>
+            <span data-l="pt">Escolher o próprio nome. Os post-its saem assinados e o orientador vê quem escreveu cada um.</span>
+            <span data-l="fr">Choisir son nom. Les post-it sont signés et l'encadrant voit qui a écrit chacun.</span></span></li>
+          <li><span><span data-l="en">Write at least one post-it for each of the 5 questions, without talking to the group.</span>
+            <span data-l="pt">Escrever pelo menos um post-it em cada uma das 5 perguntas, sem conversar com o grupo.</span>
+            <span data-l="fr">Écrire au moins un post-it pour chacune des 5 questions, sans parler au groupe.</span></span></li>
+          <li><span><span data-l="en">Read your teammates' post-its when the time is up, not before.</span>
+            <span data-l="pt">Ler os post-its dos colegas quando o tempo acabar, e não antes.</span>
+            <span data-l="fr">Lire les post-it des collègues quand le temps est écoulé, pas avant.</span></span></li>
+        </ol>
+        <p class="nota-fonte">
+          <span data-l="en">Delivery: at least 5 signed post-its per student on the group's board, by 14:25.</span>
+            <span data-l="pt">Entrega: no mínimo 5 post-its assinados por aluno no quadro do grupo, até 14h25.</span>
+            <span data-l="fr">Livrable : au moins 5 post-it signés par étudiant sur le tableau du groupe, avant 14 h 25.</span>
+          <a href="../quadro/reflexao-sprint2.html?painel=1" target="_blank" rel="noopener"><span data-l="en">Advisor's panel</span>
+            <span data-l="pt">Painel do orientador</span>
+            <span data-l="fr">Panneau de l'encadrant</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">5</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Questions on the reflection board</span>
+            <span data-l="pt">Perguntas do quadro de reflexão</span>
+            <span data-l="fr">Questions du tableau de réflexion</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <tbody>
+            <tr>
+              <td class="data">1</td>
+              <td><span data-l="en">What was the goal of Sprint 2, in one sentence? Write it without asking your teammates.</span>
+            <span data-l="pt">Qual era o objetivo da Sprint 2, em uma frase? Escreva sem consultar os colegas.</span>
+            <span data-l="fr">Quel était l’objectif du sprint 2, en une phrase ? Écrivez-le sans consulter vos collègues.</span></td>
+            </tr>
+            <tr>
+              <td class="data">2</td>
+              <td><span data-l="en">What did you personally deliver in Sprint 2? Cite the issue or merge request in GitLab.</span>
+            <span data-l="pt">O que você entregou na Sprint 2? Cite a issue ou o merge request no GitLab.</span>
+            <span data-l="fr">Qu’avez-vous livré personnellement au sprint 2 ? Citez l’issue ou la merge request dans GitLab.</span></td>
+            </tr>
+            <tr>
+              <td class="data">3</td>
+              <td><span data-l="en">Who decided to make a single presentation for Sprint Review 2, when, and were you consulted?</span>
+            <span data-l="pt">Quem decidiu fazer uma apresentação única na Sprint Review 2, quando, e você foi consultado?</span>
+            <span data-l="fr">Qui a décidé de faire une présentation unique à la Sprint Review 2, quand, et avez-vous été consulté ?</span></td>
+            </tr>
+            <tr>
+              <td class="data">4</td>
+              <td><span data-l="en">Were the risks of that decision (delay, long presentation, failed demo) in the risk matrix? What was the mitigation?</span>
+            <span data-l="pt">Os riscos dessa decisão (atraso, apresentação longa, falha na demonstração) estavam na matriz de risco? Qual era a mitigação?</span>
+            <span data-l="fr">Les risques de cette décision (retard, présentation longue, démo ratée) figuraient-ils dans la matrice des risques ? Quelle était la mitigation ?</span></td>
+            </tr>
+            <tr>
+              <td class="data">5</td>
+              <td><span data-l="en">What will you do differently in Sprint 3, starting tomorrow? Write one commitment someone can check.</span>
+            <span data-l="pt">O que você vai fazer diferente na Sprint 3, a partir de amanhã? Escreva um compromisso que alguém possa verificar.</span>
+            <span data-l="fr">Que ferez-vous différemment au sprint 3, dès demain ? Écrivez un engagement vérifiable.</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">6</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="risco">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Risk matrix applied to the single-presentation decision</span>
+            <span data-l="pt">Matriz de risco aplicada à decisão da apresentação única</span>
+            <span data-l="fr">Matrice des risques appliquée à la décision de présentation unique</span>
+          </h2>
+        </div>
+        <table class="ref-tabela densa">
+          <thead>
+            <tr>
+              <th><span data-l="en">Risk</span>
+            <span data-l="pt">Risco</span>
+            <span data-l="fr">Risque</span></th>
+              <th><span data-l="en">Mitigation that was available</span>
+            <span data-l="pt">Mitigação que estava disponível</span>
+            <span data-l="fr">Mitigation qui était disponible</span></th>
+              <th><span data-l="en">Mapped?</span>
+            <span data-l="pt">Mapeado?</span>
+            <span data-l="fr">Identifié ?</span></th>
+              <th><span data-l="en">Owner?</span>
+            <span data-l="pt">Dono?</span>
+            <span data-l="fr">Responsable ?</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Consolidating 5 groups' slides runs late</span>
+            <span data-l="pt">Consolidar os slides de 5 grupos atrasa</span>
+            <span data-l="fr">La consolidation des slides des 5 groupes prend du retard</span></th>
+              <td><span data-l="en">Internal deadline 24 h before the review, with one owner of the file</span>
+            <span data-l="pt">Prazo interno 24h antes da review, com um dono do arquivo</span>
+            <span data-l="fr">Délai interne 24 h avant la review, avec un responsable du fichier</span></td>
+              <td class="data">?</td>
+              <td class="data">?</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">The presentation exceeds the time box</span>
+            <span data-l="pt">A apresentação passa do tempo</span>
+            <span data-l="fr">La présentation dépasse le temps prévu</span></th>
+              <td><span data-l="en">Fixed time per group and a member keeping time</span>
+            <span data-l="pt">Tempo fixo por grupo e um integrante cronometrando</span>
+            <span data-l="fr">Temps fixe par groupe et un membre chronométreur</span></td>
+              <td class="data">?</td>
+              <td class="data">?</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">The live demonstration fails</span>
+            <span data-l="pt">A demonstração ao vivo falha</span>
+            <span data-l="fr">La démonstration en direct échoue</span></th>
+              <td><span data-l="en">Recorded video of the demo as plan B</span>
+            <span data-l="pt">Vídeo gravado da demonstração como plano B</span>
+            <span data-l="fr">Vidéo enregistrée de la démo comme plan B</span></td>
+              <td class="data">?</td>
+              <td class="data">?</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">A group's content depends on another group</span>
+            <span data-l="pt">O conteúdo de um grupo depende de outro grupo</span>
+            <span data-l="fr">Le contenu d'un groupe dépend d'un autre groupe</span></th>
+              <td><span data-l="en">Each group presents its own increment</span>
+            <span data-l="pt">Cada grupo apresenta o próprio incremento</span>
+            <span data-l="fr">Chaque groupe présente son propre incrément</span></td>
+              <td class="data">?</td>
+              <td class="data">?</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="aviso">
+          <span class="material-symbols-outlined aviso-icone" aria-hidden="true">forum</span>
+          <p>
+            <strong><span data-l="en">For discussion:</span>
+            <span data-l="pt">Para discussão:</span>
+            <span data-l="fr">Pour discussion :</span></strong>
+            <span data-l="en">which of these risks was in your group's matrix from Sprint 1, and who would have triggered the mitigation?</span>
+            <span data-l="pt">qual destes riscos estava na matriz do grupo desde a Sprint 1, e quem acionaria a mitigação?</span>
+            <span data-l="fr">lequel de ces risques figurait dans la matrice du groupe depuis le sprint 1, et qui aurait déclenché la mitigation ?</span>
+          </p>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">7</p>
+        </div>
+      </section>
+
+      <!-- 8 - Separador -->
+      <section class="section-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <p class="section-eyebrow">
+          <span data-l="en">Part B</span>
+            <span data-l="pt">Parte B</span>
+            <span data-l="fr">Partie B</span>
+        </p>
+        <div class="accent-bar"></div>
+        <h2>
+          <span data-l="en">Executive presentation</span>
+            <span data-l="pt">Apresentação executiva</span>
+            <span data-l="fr">Présentation exécutive</span>
+        </h2>
+        <h3>
+          <span data-l="en">Rebuilding the Sprint 2 presentation</span>
+            <span data-l="pt">Reconstrução da apresentação da Sprint 2</span>
+            <span data-l="fr">Reconstruction de la présentation du sprint 2</span>
+        </h3>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Academic and executive presentations differ in order, time, and purpose</span>
+            <span data-l="pt">Apresentação acadêmica e executiva diferem em ordem, tempo e propósito</span>
+            <span data-l="fr">Présentations académique et exécutive diffèrent par l'ordre, le temps et le but</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <thead>
+            <tr>
+              <th><span data-l="en">Criterion</span>
+            <span data-l="pt">Critério</span>
+            <span data-l="fr">Critère</span></th>
+              <th><span data-l="en">Academic</span>
+            <span data-l="pt">Acadêmica</span>
+            <span data-l="fr">Académique</span></th>
+              <th><span data-l="en">Executive</span>
+            <span data-l="pt">Executiva</span>
+            <span data-l="fr">Exécutive</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Purpose</span>
+            <span data-l="pt">Propósito</span>
+            <span data-l="fr">But</span></th>
+              <td><span data-l="en">Show method and rigor</span>
+            <span data-l="pt">Mostrar método e rigor</span>
+            <span data-l="fr">Montrer la méthode et la rigueur</span></td>
+              <td><span data-l="en">Support a decision</span>
+            <span data-l="pt">Apoiar uma decisão</span>
+            <span data-l="fr">Appuyer une décision</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Order</span>
+            <span data-l="pt">Ordem</span>
+            <span data-l="fr">Ordre</span></th>
+              <td><span data-l="en">Context, method, results, conclusion</span>
+            <span data-l="pt">Contexto, método, resultados, conclusão</span>
+            <span data-l="fr">Contexte, méthode, résultats, conclusion</span></td>
+              <td><span data-l="en">Conclusion first, then evidence</span>
+            <span data-l="pt">Conclusão primeiro, depois a evidência</span>
+            <span data-l="fr">Conclusion d'abord, puis les preuves</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Audience</span>
+            <span data-l="pt">Público</span>
+            <span data-l="fr">Public</span></th>
+              <td><span data-l="en">Examining board</span>
+            <span data-l="pt">Banca avaliadora</span>
+            <span data-l="fr">Jury</span></td>
+              <td><span data-l="en">Partner, manager, product owner</span>
+            <span data-l="pt">Parceiro, gestor, product owner</span>
+            <span data-l="fr">Partenaire, manager, product owner</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Time</span>
+            <span data-l="pt">Tempo</span>
+            <span data-l="fr">Temps</span></th>
+              <td><span data-l="en">Long, follows the content</span>
+            <span data-l="pt">Longo, acompanha o conteúdo</span>
+            <span data-l="fr">Long, suit le contenu</span></td>
+              <td><span data-l="en">Fixed and short; content fits the time</span>
+            <span data-l="pt">Fixo e curto; o conteúdo cabe no tempo</span>
+            <span data-l="fr">Fixe et court ; le contenu tient dans le temps</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Slide title</span>
+            <span data-l="pt">Título do slide</span>
+            <span data-l="fr">Titre du slide</span></th>
+              <td><span data-l="en">Topic name</span>
+            <span data-l="pt">Nome do tema</span>
+            <span data-l="fr">Nom du thème</span></td>
+              <td><span data-l="en">Sentence with the finding and the number</span>
+            <span data-l="pt">Frase com o achado e o número</span>
+            <span data-l="fr">Phrase avec le constat et le chiffre</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Success measure</span>
+            <span data-l="pt">Medida de sucesso</span>
+            <span data-l="fr">Mesure de succès</span></th>
+              <td><span data-l="en">Reproducibility</span>
+            <span data-l="pt">Reprodutibilidade</span>
+            <span data-l="fr">Reproductibilité</span></td>
+              <td><span data-l="en">A decision taken at the end</span>
+            <span data-l="pt">Uma decisão tomada no fim</span>
+            <span data-l="fr">Une décision prise à la fin</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">A Sprint Review is an executive presentation: the partner decides what to accept and what changes in the next sprint.</span>
+            <span data-l="pt">A Sprint Review é uma apresentação executiva: o parceiro decide o que aceita e o que muda na próxima sprint.</span>
+            <span data-l="fr">La Sprint Review est une présentation exécutive : le partenaire décide ce qu'il accepte et ce qui change au sprint suivant.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">9</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="estrutura">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">The executive Sprint Review fits 7 sections in 5 minutes</span>
+            <span data-l="pt">A Sprint Review executiva cabe em 7 seções e 5 minutos</span>
+            <span data-l="fr">La Sprint Review exécutive tient en 7 sections et 5 minutes</span>
+          </h2>
+        </div>
+        <table class="ref-tabela densa">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><span data-l="en">Section</span>
+            <span data-l="pt">Seção</span>
+            <span data-l="fr">Section</span></th>
+              <th><span data-l="en">Content</span>
+            <span data-l="pt">Conteúdo</span>
+            <span data-l="fr">Contenu</span></th>
+              <th><span data-l="en">Time</span>
+            <span data-l="pt">Tempo</span>
+            <span data-l="fr">Temps</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data">1</td>
+              <th scope="row"><span data-l="en">Agenda</span>
+            <span data-l="pt">Agenda</span>
+            <span data-l="fr">Ordre du jour</span></th>
+              <td><span data-l="en">Sections and time of each</span>
+            <span data-l="pt">Seções e tempo de cada uma</span>
+            <span data-l="fr">Sections et temps de chacune</span></td>
+              <td class="peso">15 s</td>
+            </tr>
+            <tr>
+              <td class="data">2</td>
+              <th scope="row"><span data-l="en">Sprint goal</span>
+            <span data-l="pt">Objetivo da sprint</span>
+            <span data-l="fr">Objectif du sprint</span></th>
+              <td><span data-l="en">Goal of the sprint that ended and of the sprint that starts, one sentence each</span>
+            <span data-l="pt">Objetivo da sprint que terminou e da que começa, uma frase cada</span>
+            <span data-l="fr">Objectif du sprint terminé et de celui qui commence, une phrase chacun</span></td>
+              <td class="peso">30 s</td>
+            </tr>
+            <tr>
+              <td class="data">3</td>
+              <th scope="row"><span data-l="en">Status report</span>
+            <span data-l="pt">Status report</span>
+            <span data-l="fr">Status report</span></th>
+              <td><span data-l="en">Planned versus delivered, per board item, with the percentage done</span>
+            <span data-l="pt">Planejado versus entregue, por item do board, com o percentual concluído</span>
+            <span data-l="fr">Prévu par rapport au livré, par élément du tableau, avec le pourcentage réalisé</span></td>
+              <td class="peso">45 s</td>
+            </tr>
+            <tr>
+              <td class="data">4</td>
+              <th scope="row"><span data-l="en">Sprint increment</span>
+            <span data-l="pt">Incremento da sprint</span>
+            <span data-l="fr">Incrément du sprint</span></th>
+              <td><span data-l="en">What was built to reach each feature, described in slides</span>
+            <span data-l="pt">O que foi feito para chegar a cada feature, descrito em slides</span>
+            <span data-l="fr">Ce qui a été fait pour atteindre chaque fonctionnalité, décrit en slides</span></td>
+              <td class="peso">60 s</td>
+            </tr>
+            <tr>
+              <td class="data">5</td>
+              <th scope="row"><span data-l="en">Demonstration</span>
+            <span data-l="pt">Demonstração</span>
+            <span data-l="fr">Démonstration</span></th>
+              <td><span data-l="en">The increment running, live; recorded video as plan B</span>
+            <span data-l="pt">O incremento rodando, ao vivo; vídeo gravado como plano B</span>
+            <span data-l="fr">L'incrément qui tourne, en direct ; vidéo enregistrée comme plan B</span></td>
+              <td class="peso">90 s</td>
+            </tr>
+            <tr>
+              <td class="data">6</td>
+              <th scope="row"><span data-l="en">Problems and risks</span>
+            <span data-l="pt">Problemas e riscos</span>
+            <span data-l="fr">Problèmes et risques</span></th>
+              <td><span data-l="en">What blocked the sprint and the risks for the next one, each with a mitigation and an owner</span>
+            <span data-l="pt">O que travou a sprint e os riscos da próxima, cada um com mitigação e dono</span>
+            <span data-l="fr">Ce qui a bloqué le sprint et les risques du suivant, chacun avec une mitigation et un responsable</span></td>
+              <td class="peso">45 s</td>
+            </tr>
+            <tr>
+              <td class="data">7</td>
+              <th scope="row"><span data-l="en">Questions</span>
+            <span data-l="pt">Perguntas</span>
+            <span data-l="fr">Questions</span></th>
+              <td><span data-l="en">Decisions the group needs from the partner</span>
+            <span data-l="pt">Decisões que o grupo precisa do parceiro</span>
+            <span data-l="fr">Décisions dont le groupe a besoin du partenaire</span></td>
+              <td class="peso">15 s</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">One section per slide, except the increment, which may take one slide per feature. Maximum of 10 slides.</span>
+            <span data-l="pt">Uma seção por slide, exceto o incremento, que pode ter um slide por feature. Máximo de 10 slides.</span>
+            <span data-l="fr">Une section par slide, sauf l'incrément, qui peut avoir un slide par fonctionnalité. Maximum 10 slides.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">10</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Activity: each group rebuilds its Sprint 2 presentation in 15 minutes</span>
+            <span data-l="pt">Atividade: cada grupo reconstrói a apresentação da Sprint 2 em 15 minutos</span>
+            <span data-l="fr">Activité : chaque groupe reconstruit sa présentation du sprint 2 en 15 minutes</span>
+          </h2>
+        </div>
+        <ol class="passos">
+          <li><span><span data-l="en">Create one slide file per group and post the link in the group's Slack channel.</span>
+            <span data-l="pt">Criar um arquivo de slides por grupo e enviar o link no canal do grupo no Slack.</span>
+            <span data-l="fr">Créer un fichier de slides par groupe et envoyer le lien sur le canal Slack du groupe.</span></span></li>
+          <li><span><span data-l="en">Follow the 7 executive sections, using only what the group delivered in Sprint 2.</span>
+            <span data-l="pt">Seguir as 7 seções executivas, só com o que o grupo entregou na Sprint 2.</span>
+            <span data-l="fr">Suivre les 7 sections exécutives, uniquement avec ce que le groupe a livré au sprint 2.</span></span></li>
+          <li><span><span data-l="en">Every member edits at least one slide; the file history shows who did it.</span>
+            <span data-l="pt">Todo integrante edita pelo menos um slide; o histórico do arquivo mostra quem fez.</span>
+            <span data-l="fr">Chaque membre modifie au moins un slide ; l'historique du fichier montre qui l'a fait.</span></span></li>
+          <li><span><span data-l="en">At 15:00 the advisor draws 2 members per group, who present for 5 minutes with a live demo.</span>
+            <span data-l="pt">Às 15h o orientador sorteia 2 integrantes por grupo, que apresentam em 5 minutos com demonstração ao vivo.</span>
+            <span data-l="fr">À 15 h l'encadrant tire au sort 2 membres par groupe, qui présentent en 5 minutes avec une démo en direct.</span></span></li>
+        </ol>
+        <p class="nota-fonte">
+          <span data-l="en">Delivery: link to the rebuilt presentation (maximum 10 slides) in the group's Slack channel, by 15:00.</span>
+            <span data-l="pt">Entrega: link da apresentação reconstruída (máximo de 10 slides) no canal do grupo no Slack, até 15h.</span>
+            <span data-l="fr">Livrable : lien de la présentation reconstruite (10 slides maximum) sur le canal Slack du groupe, avant 15 h.</span>
+          <a href="#/estrutura"><span data-l="en">See the 7 sections</span>
+            <span data-l="pt">Ver as 7 seções</span>
+            <span data-l="fr">Voir les 7 sections</span></a>
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">11</p>
+        </div>
+      </section>
+
+      <!-- 12 - Separador -->
+      <section class="section-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <p class="section-eyebrow">
+          <span data-l="en">Part C</span>
+            <span data-l="pt">Parte C</span>
+            <span data-l="fr">Partie C</span>
+        </p>
+        <div class="accent-bar"></div>
+        <h2>
+          <span data-l="en">Situational leadership</span>
+            <span data-l="pt">Liderança situacional</span>
+            <span data-l="fr">Leadership situationnel</span>
+        </h2>
+        <h3>
+          <span data-l="en">Autonomy follows maturity</span>
+            <span data-l="pt">A autonomia acompanha a maturidade</span>
+            <span data-l="fr">L'autonomie suit la maturité</span>
+        </h3>
+      </section>
+
+      <section class="content-slide" id="lideranca">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">In situational leadership, the leader's style follows the team's maturity for the task</span>
+            <span data-l="pt">Na liderança situacional, o estilo do líder acompanha a maturidade da equipe para a tarefa</span>
+            <span data-l="fr">En leadership situationnel, le style du leader suit la maturité de l'équipe pour la tâche</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <thead>
+            <tr>
+              <th><span data-l="en">Maturity</span>
+            <span data-l="pt">Maturidade</span>
+            <span data-l="fr">Maturité</span></th>
+              <th><span data-l="en">Team</span>
+            <span data-l="pt">Equipe</span>
+            <span data-l="fr">Équipe</span></th>
+              <th><span data-l="en">Style</span>
+            <span data-l="pt">Estilo</span>
+            <span data-l="fr">Style</span></th>
+              <th><span data-l="en">Leader's behavior</span>
+            <span data-l="pt">Comportamento do líder</span>
+            <span data-l="fr">Comportement du leader</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data">M1</td>
+              <td><span data-l="en">Low ability, low willingness</span>
+            <span data-l="pt">Pouca capacidade, pouca disposição</span>
+            <span data-l="fr">Faible capacité, faible volonté</span></td>
+              <th scope="row"><span data-l="en">Telling</span>
+            <span data-l="pt">Determinar</span>
+            <span data-l="fr">Diriger</span></th>
+              <td><span data-l="en">Leader defines the task, the how, and the deadline</span>
+            <span data-l="pt">Líder define a tarefa, o como e o prazo</span>
+            <span data-l="fr">Le leader définit la tâche, la méthode et le délai</span></td>
+            </tr>
+            <tr>
+              <td class="data">M2</td>
+              <td><span data-l="en">Some ability, willing</span>
+            <span data-l="pt">Alguma capacidade, com disposição</span>
+            <span data-l="fr">Capacité partielle, volonté présente</span></td>
+              <th scope="row"><span data-l="en">Selling</span>
+            <span data-l="pt">Persuadir</span>
+            <span data-l="fr">Persuader</span></th>
+              <td><span data-l="en">Leader defines the task and explains the decisions</span>
+            <span data-l="pt">Líder define a tarefa e explica as decisões</span>
+            <span data-l="fr">Le leader définit la tâche et explique les décisions</span></td>
+            </tr>
+            <tr>
+              <td class="data">M3</td>
+              <td><span data-l="en">Able, unsure or unwilling</span>
+            <span data-l="pt">Capaz, mas insegura ou pouco disposta</span>
+            <span data-l="fr">Capable, mais hésitante</span></td>
+              <th scope="row"><span data-l="en">Participating</span>
+            <span data-l="pt">Compartilhar</span>
+            <span data-l="fr">Participer</span></th>
+              <td><span data-l="en">Leader and team decide together</span>
+            <span data-l="pt">Líder e equipe decidem juntos</span>
+            <span data-l="fr">Le leader et l'équipe décident ensemble</span></td>
+            </tr>
+            <tr>
+              <td class="data">M4</td>
+              <td><span data-l="en">Able and willing</span>
+            <span data-l="pt">Capaz e disposta</span>
+            <span data-l="fr">Capable et volontaire</span></td>
+              <th scope="row"><span data-l="en">Delegating</span>
+            <span data-l="pt">Delegar</span>
+            <span data-l="fr">Déléguer</span></th>
+              <td><span data-l="en">Team decides and answers for the result</span>
+            <span data-l="pt">Equipe decide e responde pelo resultado</span>
+            <span data-l="fr">L'équipe décide et répond du résultat</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">Hersey and Blanchard (1986), in Bassani (2021). Maturity is the capacity to accept one's own duties and responsibilities, set goals, and carry out the tasks requested.</span>
+            <span data-l="pt">Hersey e Blanchard (1986), em Bassani (2021). Maturidade é a capacidade de aceitar as próprias incumbências e responsabilidades, estabelecer metas e exercer as tarefas solicitadas.</span>
+            <span data-l="fr">Hersey et Blanchard (1986), dans Bassani (2021). La maturité est la capacité d'accepter ses propres missions et responsabilités, de fixer des objectifs et d'exécuter les tâches demandées.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">13</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">From Sprint 3 on, the advisor moves from delegating to selling</span>
+            <span data-l="pt">A partir da Sprint 3, a orientação passa do estilo delegar para o persuadir</span>
+            <span data-l="fr">À partir du sprint 3, l'encadrement passe du style déléguer au style persuader</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <thead>
+            <tr>
+              <th><span data-l="en">Practice</span>
+            <span data-l="pt">Prática</span>
+            <span data-l="fr">Pratique</span></th>
+              <th><span data-l="en">Sprints 1 and 2</span>
+            <span data-l="pt">Sprints 1 e 2</span>
+            <span data-l="fr">Sprints 1 et 2</span></th>
+              <th><span data-l="en">Sprint 3</span>
+            <span data-l="pt">Sprint 3</span>
+            <span data-l="fr">Sprint 3</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Planning</span>
+            <span data-l="pt">Planning</span>
+            <span data-l="fr">Planning</span></th>
+              <td><span data-l="en">Built by each group</span>
+            <span data-l="pt">Feita por cada grupo</span>
+            <span data-l="fr">Fait par chaque groupe</span></td>
+              <td class="destaque"><span data-l="en">Delivered by the advisor, with tasks per group</span>
+            <span data-l="pt">Entregue pelo orientador, com tarefas por grupo</span>
+            <span data-l="fr">Remis par l'encadrant, avec des tâches par groupe</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Daily</span>
+            <span data-l="pt">Daily</span>
+            <span data-l="fr">Daily</span></th>
+              <td><span data-l="en">Free format</span>
+            <span data-l="pt">Formato livre</span>
+            <span data-l="fr">Format libre</span></td>
+              <td class="destaque"><span data-l="en">Recorded on Slack by the Scrum Master</span>
+            <span data-l="pt">Registrada no Slack pelo scrum master</span>
+            <span data-l="fr">Enregistrée sur Slack par le Scrum Master</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Presentation</span>
+            <span data-l="pt">Apresentação</span>
+            <span data-l="fr">Présentation</span></th>
+              <td><span data-l="en">Sent on Wednesday</span>
+            <span data-l="pt">Enviada na quarta-feira</span>
+            <span data-l="fr">Envoyée le mercredi</span></td>
+              <td class="destaque"><span data-l="en">Sent on Wednesday and validated in 30 min with the whole group</span>
+            <span data-l="pt">Enviada na quarta e validada em 30 min com o grupo inteiro</span>
+            <span data-l="fr">Envoyée le mercredi et validée en 30 min avec tout le groupe</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Presenters</span>
+            <span data-l="pt">Apresentadores</span>
+            <span data-l="fr">Présentateurs</span></th>
+              <td><span data-l="en">Chosen by the group</span>
+            <span data-l="pt">Escolhidos pelo grupo</span>
+            <span data-l="fr">Choisis par le groupe</span></td>
+              <td class="destaque"><span data-l="en">Chosen by the advisor on the morning of the review</span>
+            <span data-l="pt">Escolhidos pelo orientador na manhã da review</span>
+            <span data-l="fr">Choisis par l'encadrant le matin de la review</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">The autonomy given in Sprints 1 and 2 was not matched by the same level of commitment and responsibility. The return to delegating depends on Sprint 3 deliveries on time.</span>
+            <span data-l="pt">A autonomia dada nas Sprints 1 e 2 não teve contrapartida no mesmo nível de empenho e responsabilidade. A volta ao estilo delegar depende das entregas da Sprint 3 no prazo.</span>
+            <span data-l="fr">L'autonomie donnée aux sprints 1 et 2 n'a pas eu de contrepartie au même niveau d'engagement et de responsabilité. Le retour au style déléguer dépend des livraisons du sprint 3 dans les délais.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">14</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Reading for the week: situational leadership</span>
+            <span data-l="pt">Leitura da semana: liderança situacional</span>
+            <span data-l="fr">Lecture de la semaine : leadership situationnel</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande enorme">
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Article</span>
+            <span data-l="pt">Artigo</span>
+            <span data-l="fr">Article</span></th>
+              <td><span data-l="en">Bassani, E. V. T. Situational leadership and its impacts on organizations. REFAQI, special issue, 2021.</span>
+            <span data-l="pt">Bassani, E. V. T. Liderança situacional e seus impactos para as organizações. REFAQI, edição especial, 2021.</span>
+            <span data-l="fr">Bassani, E. V. T. Le leadership situationnel et ses impacts sur les organisations. REFAQI, numéro spécial, 2021.</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Where</span>
+            <span data-l="pt">Onde</span>
+            <span data-l="fr">Où</span></th>
+              <td><span data-l="en">PDF in the class Slack channel, #2026-2b-t18</span>
+            <span data-l="pt">PDF no canal da turma no Slack, #2026-2b-t18</span>
+            <span data-l="fr">PDF sur le canal Slack de la classe, #2026-2b-t18</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Focus</span>
+            <span data-l="pt">Foco</span>
+            <span data-l="fr">À lire</span></th>
+              <td><span data-l="en">Sections 3 and 4: the four styles and maturity</span>
+            <span data-l="pt">Seções 3 e 4: os quatro estilos e a maturidade</span>
+            <span data-l="fr">Sections 3 et 4 : les quatre styles et la maturité</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">15</p>
+        </div>
+      </section>
+
+      <!-- 16 - Separador -->
+      <section class="section-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <p class="section-eyebrow">
+          <span data-l="en">Part D</span>
+            <span data-l="pt">Parte D</span>
+            <span data-l="fr">Partie D</span>
+        </p>
+        <div class="accent-bar"></div>
+        <h2>
+          <span data-l="en">Sprint 3</span>
+            <span data-l="pt">Sprint 3</span>
+            <span data-l="fr">Sprint 3</span>
+        </h2>
+        <h3>
+          <span data-l="en">Calendar, artifacts, planning, and daily</span>
+            <span data-l="pt">Calendário, artefatos, planning e daily</span>
+            <span data-l="fr">Calendrier, livrables, planning et daily</span>
+        </h3>
+      </section>
+
+      <section class="content-slide" id="semana5">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Calendar of week 5, 09/11 to 13/11</span>
+            <span data-l="pt">Calendário da semana 5, 09/11 a 13/11</span>
+            <span data-l="fr">Calendrier de la semaine 5, du 09/11 au 13/11</span>
+          </h2>
+        </div>
+        <div class="semana">
+          <div class="dia hoje">
+            <p class="dia-cab"><span data-l="en">Mon 09/11</span><span data-l="pt">Seg 09/11</span><span data-l="fr">Lun. 09/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev marco"><span data-l="en">Sprint 3 planning, today</span>
+            <span data-l="pt">Planning da Sprint 3, hoje</span>
+            <span data-l="fr">Planning du sprint 3, aujourd'hui</span></p>
+              <p class="ev marco"><span data-l="en">Artificial assessment opens, 4 pm</span>
+            <span data-l="pt">Avaliação artificial abre, 16h</span>
+            <span data-l="fr">Évaluation artificielle ouverte, 16 h</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Tue 10/11</span><span data-l="pt">Ter 10/11</span><span data-l="fr">Mar. 10/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Data Cubes and Data Marts</p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Wed 11/11</span><span data-l="pt">Qua 11/11</span><span data-l="fr">Mer. 11/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Relationships and hierarchies</p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Thu 12/11</span><span data-l="pt">Qui 12/11</span><span data-l="fr">Jeu. 12/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Data Visualization</p>
+              <p class="ev marco"><span data-l="en">Artificial assessment closes, 11:59 pm</span>
+            <span data-l="pt">Avaliação artificial fecha, 23h59</span>
+            <span data-l="fr">Évaluation artificielle fermée, 23 h 59</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Fri 13/11</span><span data-l="pt">Sex 13/11</span><span data-l="fr">Ven. 13/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev marco"><span data-l="en">Project follow-up</span>
+            <span data-l="pt">Acompanhamento do projeto</span>
+            <span data-l="fr">Suivi du projet</span></p>
+              <p class="ev entrega">Who Decides What? &middot; 3%</p>
+            </div>
+          </div>
+        </div>
+        <div class="legenda">
+          <span class="l-aula"><span data-l="en">Instruction</span>
+            <span data-l="pt">Instrução</span>
+            <span data-l="fr">Cours</span></span>
+          <span class="l-entrega"><span data-l="en">Weighted delivery</span>
+            <span data-l="pt">Entrega ponderada</span>
+            <span data-l="fr">Livrable noté</span></span>
+          <span class="l-marco"><span data-l="en">Milestone</span>
+            <span data-l="pt">Marco</span>
+            <span data-l="fr">Jalon</span></span>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">17</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="semana6">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Calendar of week 6, 16/11 to 20/11</span>
+            <span data-l="pt">Calendário da semana 6, 16/11 a 20/11</span>
+            <span data-l="fr">Calendrier de la semaine 6, du 16/11 au 20/11</span>
+          </h2>
+        </div>
+        <div class="semana">
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Mon 16/11</span><span data-l="pt">Seg 16/11</span><span data-l="fr">Lun. 16/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Digital Transformation</p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Tue 17/11</span><span data-l="pt">Ter 17/11</span><span data-l="fr">Mar. 17/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Predictive Models</p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Wed 18/11</span><span data-l="pt">Qua 18/11</span><span data-l="fr">Mer. 18/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev aula">Phygital and Omnichannel</p>
+              <p class="ev marco"><span data-l="en">Presentation delivered</span>
+            <span data-l="pt">Apresentação entregue</span>
+            <span data-l="fr">Présentation remise</span></p>
+              <p class="ev marco"><span data-l="en">Pre-validation, 30 min per group</span>
+            <span data-l="pt">Validação prévia, 30 min por grupo</span>
+            <span data-l="fr">Prévalidation, 30 min par groupe</span></p>
+            </div>
+          </div>
+          <div class="dia">
+            <p class="dia-cab"><span data-l="en">Thu 19/11</span><span data-l="pt">Qui 19/11</span><span data-l="fr">Jeu. 19/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev marco"><span data-l="en">Sprint Review 3, morning</span>
+            <span data-l="pt">Sprint Review 3, manhã</span>
+            <span data-l="fr">Sprint Review 3, matin</span></p>
+            </div>
+          </div>
+          <div class="dia feriado">
+            <p class="dia-cab"><span data-l="en">Fri 20/11</span><span data-l="pt">Sex 20/11</span><span data-l="fr">Ven. 20/11</span></p>
+            <div class="dia-corpo">
+              <p class="ev marco"><span data-l="en">Holiday: Black Consciousness Day</span>
+            <span data-l="pt">Feriado: Consciência Negra</span>
+            <span data-l="fr">Jour férié : Conscience noire</span></p>
+              <p class="ev entrega">Automated Data Cube &middot; 7%</p>
+            </div>
+          </div>
+        </div>
+        <div class="legenda">
+          <span class="l-aula"><span data-l="en">Instruction</span>
+            <span data-l="pt">Instrução</span>
+            <span data-l="fr">Cours</span></span>
+          <span class="l-entrega"><span data-l="en">Weighted delivery</span>
+            <span data-l="pt">Entrega ponderada</span>
+            <span data-l="fr">Livrable noté</span></span>
+          <span class="l-marco"><span data-l="en">Milestone</span>
+            <span data-l="pt">Marco</span>
+            <span data-l="fr">Jalon</span></span>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">18</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Sprint 3 holds 10% of the module weight in 2 deliveries</span>
+            <span data-l="pt">A Sprint 3 reúne 10% do peso do módulo em 2 entregas</span>
+            <span data-l="fr">Le sprint 3 réunit 10 % du poids du module en 2 livrables</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <thead>
+            <tr>
+              <th><span data-l="en">Date</span>
+            <span data-l="pt">Data</span>
+            <span data-l="fr">Date</span></th>
+              <th><span data-l="en">Delivery</span>
+            <span data-l="pt">Entrega</span>
+            <span data-l="fr">Livrable</span></th>
+              <th><span data-l="en">Weight</span>
+            <span data-l="pt">Peso</span>
+            <span data-l="fr">Poids</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data">20/11</td>
+              <td><span data-l="en">Automated Data Cube</span><span data-l="pt">Cubo de dados automatizado</span><span data-l="fr">Cube de données automatisé</span>
+              <span class="apoio"><span data-l="en">Group artifact on main; demonstrated at Sprint Review 3 on 19/11</span>
+            <span data-l="pt">Artefato do grupo na main; demonstrado na Sprint Review 3 em 19/11</span>
+            <span data-l="fr">Livrable du groupe sur main ; démontré à la Sprint Review 3 le 19/11</span></span></td>
+              <td class="peso">7%</td>
+            </tr>
+            <tr>
+              <td class="data">13/11</td>
+              <td><span data-l="en">Graded Activity: Who Decides What? Group Power and Decision Mapping</span><span data-l="pt">Atividade ponderada: quem decide o quê? Mapeamento de poder e de decisão no grupo</span><span data-l="fr">Activité notée : qui décide quoi ? Cartographie du pouvoir et des décisions dans le groupe</span>
+              <span class="apoio"><span data-l="en">Graded activity done in class, individual and handwritten</span>
+            <span data-l="pt">Atividade ponderada feita em aula, individual e manuscrita</span>
+            <span data-l="fr">Activité notée réalisée en cours, individuelle et manuscrite</span></span></td>
+              <td class="peso">3%</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">Weights from the module plan in Adalove, checked on 09/11.</span>
+            <span data-l="pt">Pesos do plano do módulo na Adalove, conferidos em 09/11.</span>
+            <span data-l="fr">Poids du plan du module dans Adalove, vérifiés le 09/11.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">19</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="cubo">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Checklist of the Automated Data Cube artifact</span>
+            <span data-l="pt">Checklist do artefato Automated Data Cube</span>
+            <span data-l="fr">Checklist du livrable Automated Data Cube</span>
+          </h2>
+        </div>
+        <table class="ref-tabela densa">
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Dimensional model</span>
+            <span data-l="pt">Modelagem dimensional</span>
+            <span data-l="fr">Modélisation dimensionnelle</span></th>
+              <td><span data-l="en">Fact table (grain, metrics, keys), dimensions, star or snowflake with justification, diagram</span>
+            <span data-l="pt">Tabela fato (granularidade, métricas, chaves), dimensões, estrela ou floco de neve com justificativa, diagrama</span>
+            <span data-l="fr">Table de faits (granularité, mesures, clés), dimensions, étoile ou flocon justifié, diagramme</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">ClickHouse views</span>
+            <span data-l="pt">Views no ClickHouse</span>
+            <span data-l="fr">Vues ClickHouse</span></th>
+              <td><span data-l="en">Fact and dimension views built only from the raw JSON ingestion table, with JSON extraction and CAST; SQL in the repository</span>
+            <span data-l="pt">Views de fato e dimensão criadas só a partir da tabela bruta de ingestão em JSON, com extração JSON e CAST; SQL no repositório</span>
+            <span data-l="fr">Vues de faits et de dimensions construites uniquement à partir de la table brute JSON, avec extraction JSON et CAST ; SQL dans le dépôt</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Documentation</span>
+            <span data-l="pt">Documentação</span>
+            <span data-l="fr">Documentation</span></th>
+              <td><span data-l="en">Model rationale, parsing and CAST strategy, how views are derived, how to run and validate, limitations</span>
+            <span data-l="pt">Racional do modelo, estratégia de parsing e CAST, derivação das views, como executar e validar, limitações</span>
+            <span data-l="fr">Justification du modèle, stratégie de parsing et CAST, dérivation des vues, exécution et validation, limites</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Assessment</span>
+            <span data-l="pt">Avaliação</span>
+            <span data-l="fr">Évaluation</span></th>
+              <td><span data-l="en">Dimensions relevant to the dataApp, correct views, coherent model, clear documentation</span>
+            <span data-l="pt">Dimensões relevantes para o dataApp, views corretas, modelo coerente, documentação clara</span>
+            <span data-l="fr">Dimensions pertinentes pour la dataApp, vues correctes, modèle cohérent, documentation claire</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">
+          <span data-l="en">Source: Automated Data Cube activity in Adalove (week 6, weight 7%).</span>
+            <span data-l="pt">Fonte: atividade Automated Data Cube na Adalove (semana 6, peso 7%).</span>
+            <span data-l="fr">Source : activité Automated Data Cube dans Adalove (semaine 6, poids 7 %).</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">20</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="planning">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Each group receives its Sprint 3 planning ready, as a file in the repository</span>
+            <span data-l="pt">Cada grupo recebe a planning da Sprint 3 pronta, em arquivo no repositório</span>
+            <span data-l="fr">Chaque groupe reçoit son planning du sprint 3 prêt, en fichier dans le dépôt</span>
+          </h2>
+        </div>
+        <ol class="passos compacta">
+          <li><span><span data-l="en">The file <code>planning-sprint3-GXX.md</code> lists the tasks, sizes, dependencies, and Definition of Done.</span>
+            <span data-l="pt">O arquivo <code>planning-sprint3-GXX.md</code> lista as tarefas, tamanhos, dependências e Definition of Done.</span>
+            <span data-l="fr">Le fichier <code>planning-sprint3-GXX.md</code> liste les tâches, tailles, dépendances et la Definition of Done.</span></span></li>
+          <li><span><span data-l="en">Every task gets exactly one owner today; nobody keeps more than 1 card in Doing.</span>
+            <span data-l="pt">Toda tarefa recebe exatamente um dono hoje; ninguém fica com mais de 1 card em Doing.</span>
+            <span data-l="fr">Chaque tâche reçoit exactement un responsable aujourd'hui ; personne n'a plus d'une carte en Doing.</span></span></li>
+          <li><span><span data-l="en">Changing, splitting, or dropping a task requires the advisor's approval on Slack.</span>
+            <span data-l="pt">Trocar, dividir ou retirar uma tarefa exige aprovação do orientador no Slack.</span>
+            <span data-l="fr">Changer, découper ou retirer une tâche exige l'accord de l'encadrant sur Slack.</span></span></li>
+          <li><span><span data-l="en">The board is the source of truth: a task outside the board does not count as delivered.</span>
+            <span data-l="pt">O board é a fonte da verdade: tarefa fora do board não conta como entregue.</span>
+            <span data-l="fr">Le tableau fait foi : une tâche hors du tableau ne compte pas comme livrée.</span></span></li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">21</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="daily">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">The daily is recorded on Slack every working day, under the Scrum Master</span>
+            <span data-l="pt">A daily é registrada no Slack todo dia útil, sob responsabilidade do scrum master</span>
+            <span data-l="fr">Le daily est enregistré sur Slack chaque jour ouvré, sous la responsabilité du Scrum Master</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Where</span>
+            <span data-l="pt">Onde</span>
+            <span data-l="fr">Où</span></th>
+              <td><span data-l="en">Thread opened by the Scrum Master in the group's channel, #2026-2b-t18-grupoXX</span>
+            <span data-l="pt">Thread aberta pelo scrum master no canal do grupo, #2026-2b-t18-grupoXX</span>
+            <span data-l="fr">Fil ouvert par le Scrum Master sur le canal du groupe, #2026-2b-t18-grupoXX</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Each member</span>
+            <span data-l="pt">Cada integrante</span>
+            <span data-l="fr">Chaque membre</span></th>
+              <td><span data-l="en">Replies with: done yesterday, doing today, blocker, and the link to the card</span>
+            <span data-l="pt">Responde com: o que fez ontem, o que faz hoje, impedimento e o link do card</span>
+            <span data-l="fr">Répond avec : fait hier, fait aujourd'hui, blocage et le lien de la carte</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Scrum Master</span>
+            <span data-l="pt">Scrum master</span>
+            <span data-l="fr">Scrum Master</span></th>
+              <td><span data-l="en">Records absences, blockers, and decisions in the group's Scrum Master canvas</span>
+            <span data-l="pt">Registra ausências, impedimentos e decisões no canvas do scrum master do grupo</span>
+            <span data-l="fr">Note absences, blocages et décisions dans le canvas du Scrum Master du groupe</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Advisor</span>
+            <span data-l="pt">Orientador</span>
+            <span data-l="fr">Encadrant</span></th>
+              <td><span data-l="en">Reads the threads and the canvas; a missing reply counts as absence from the daily</span>
+            <span data-l="pt">Lê as threads e o canvas; resposta ausente conta como falta na daily</span>
+            <span data-l="fr">Lit les fils et le canvas ; une réponse manquante compte comme absence au daily</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">22</p>
+        </div>
+      </section>
+
+      <section class="content-slide" id="avisos">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Notices for Sprint 3</span>
+            <span data-l="pt">Avisos da Sprint 3</span>
+            <span data-l="fr">Avis du sprint 3</span>
+          </h2>
+        </div>
+        <table class="ref-tabela grande">
+          <tbody>
+            <tr>
+              <th scope="row"><span data-l="en">Presentation</span>
+            <span data-l="pt">Apresentação</span>
+            <span data-l="fr">Présentation</span></th>
+              <td><span data-l="en">Delivered on Wednesday, 18/11</span>
+            <span data-l="pt">Entregue na quarta-feira, 18/11</span>
+            <span data-l="fr">Remise le mercredi 18/11</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Sprint Review 3</span>
+            <span data-l="pt">Sprint Review 3</span>
+            <span data-l="fr">Sprint Review 3</span></th>
+              <td><span data-l="en">Thursday, 19/11, because of the Black Consciousness holiday on 20/11</span>
+            <span data-l="pt">Quinta-feira, 19/11, por causa do feriado da Consciência Negra em 20/11</span>
+            <span data-l="fr">Jeudi 19/11, en raison du jour férié de la Conscience noire le 20/11</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Pre-validation</span>
+            <span data-l="pt">Validação prévia</span>
+            <span data-l="fr">Prévalidation</span></th>
+              <td><span data-l="en">30 min per group on 18/11, all members present: G01 10:00, G02 10:30, G03 11:00, G04 11:30, G05 16:20. Invitations sent by e-mail</span>
+            <span data-l="pt">30 min por grupo em 18/11, com todos presentes: G01 10h, G02 10h30, G03 11h, G04 11h30, G05 16h20. Convites enviados por e-mail</span>
+            <span data-l="fr">30 min par groupe le 18/11, tous les membres présents : G01 10 h, G02 10 h 30, G03 11 h, G04 11 h 30, G05 16 h 20. Invitations envoyées par e-mail</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Presenters</span>
+            <span data-l="pt">Apresentadores</span>
+            <span data-l="fr">Présentateurs</span></th>
+              <td><span data-l="en">The advisor chooses 2 per group on the morning of 19/11; everyone must be ready to present</span>
+            <span data-l="pt">O orientador escolhe 2 por grupo na manhã de 19/11; todos devem estar preparados para apresentar</span>
+            <span data-l="fr">L'encadrant choisit 2 par groupe le matin du 19/11 ; tous doivent être prêts à présenter</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-l="en">Artificial assessment</span>
+            <span data-l="pt">Avaliação artificial</span>
+            <span data-l="fr">Évaluation artificielle</span></th>
+              <td><span data-l="en">Open from today, 4 pm, to Thursday, 12/11, 11:59 pm. Plan ahead and do not leave it to the last hour</span>
+            <span data-l="pt">Disponível de hoje, 16h, até quinta-feira, 12/11, 23h59. Organizem-se e não deixem para a última hora</span>
+            <span data-l="fr">Ouverte d'aujourd'hui, 16 h, à jeudi 12/11, 23 h 59. Organisez-vous et ne la laissez pas pour la dernière heure</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">23</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-positiva.svg" alt="Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>
+            <span data-l="en">Activity: each group reviews its planning and creates the cards on the board, by 16:00</span>
+            <span data-l="pt">Atividade: cada grupo revisa a planning e cria os cards no board, até 16h</span>
+            <span data-l="fr">Activité : chaque groupe revoit son planning et crée les cartes dans le tableau, avant 16 h</span>
+          </h2>
+        </div>
+        <ol class="passos">
+          <li><span><span data-l="en">Read the group's planning file and raise doubts with the advisor in the room.</span>
+            <span data-l="pt">Ler o arquivo de planning do grupo e tirar dúvidas com o orientador na sala.</span>
+            <span data-l="fr">Lire le fichier de planning du groupe et poser les questions à l'encadrant dans la salle.</span></span></li>
+          <li><span><span data-l="en">Elect the Sprint 3 Scrum Master and write the name in the canvas.</span>
+            <span data-l="pt">Eleger o scrum master da Sprint 3 e escrever o nome no canvas.</span>
+            <span data-l="fr">Élire le Scrum Master du sprint 3 et écrire son nom dans le canvas.</span></span></li>
+          <li><span><span data-l="en">Create one card per task in GitLab, with size, owner, and the planning ID in the title.</span>
+            <span data-l="pt">Criar um card por tarefa no GitLab, com tamanho, dono e o ID da planning no título.</span>
+            <span data-l="fr">Créer une carte par tâche dans GitLab, avec taille, responsable et l'ID du planning dans le titre.</span></span></li>
+          <li><span><span data-l="en">Move the first card of each member to Doing before leaving.</span>
+            <span data-l="pt">Mover o primeiro card de cada integrante para Doing antes de sair.</span>
+            <span data-l="fr">Passer la première carte de chaque membre en Doing avant de partir.</span></span></li>
+        </ol>
+        <p class="nota-fonte">
+          <span data-l="en">Delivery: board with every planning task as a card with an owner, checked by the advisor at 16:00.</span>
+            <span data-l="pt">Entrega: board com todas as tarefas da planning como cards com dono, conferido pelo orientador às 16h.</span>
+            <span data-l="fr">Livrable : tableau avec toutes les tâches du planning en cartes avec responsable, vérifié par l'encadrant à 16 h.</span>
+          
+        </p>
+        <div class="slide-footer">
+          <p class="footer-bar">SI08 &middot; T18 &middot; Sprint Planning 3</p>
+          <p class="footer-page">24</p>
+        </div>
+      </section>
+
+      <!-- Encerramento -->
+      <section class="end-slide">
+        <img class="inteli-logo-header" src="../assets/img/inteli-logo-negativa.svg" alt="Inteli">
+        <div class="end-accent"></div>
+        <h1>
+          <span data-l="en">Questions</span>
+            <span data-l="pt">Dúvidas</span>
+            <span data-l="fr">Questions</span>
+        </h1>
+        <h3>
+          <span data-l="en">Sprint Planning 3</span>
+            <span data-l="pt">Sprint Planning 3</span>
+            <span data-l="fr">Sprint Planning 3</span>
+        </h3>
+        <p class="end-assinatura">
+          <span data-l="en">Prof. José Romualdo &middot; Project advisor &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="pt">Prof. José Romualdo &middot; Orientação &middot; SI08 T18 &middot; 2026-2B</span>
+          <span data-l="fr">Prof. José Romualdo &middot; Orientation du projet &middot; SI08 T18 &middot; 2026-2B</span>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280, height: 720, center: false, margin: 0,
+      hash: true, slideNumber: false, transition: 'fade'
+    });
+  </script>
+</body>
+</html>

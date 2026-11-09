@@ -32,6 +32,7 @@
     for (var i = 0; i < botoes.length; i++) {
       botoes[i].setAttribute("aria-pressed", String(botoes[i].dataset.lang === lang));
     }
+    try { document.dispatchEvent(new CustomEvent("si08-idioma", { detail: lang })); } catch (e) { /* navegador antigo */ }
     if (window.Reveal && typeof window.Reveal.layout === "function") {
       try { window.Reveal.layout(); } catch (e) { /* Reveal ainda nao iniciou */ }
     }

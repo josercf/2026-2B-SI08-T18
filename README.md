@@ -49,6 +49,18 @@ contém nome nem e-mail de aluno (ADR-005). O texto do plano da Sprint 2 (calend
 arguições) está em `tools/gerar_sprint_planning.py`; recoletar as métricas e rodar o gerador de novo
 atualiza os números.
 
+## Sprint Planning 3
+
+O deck `aulas/sprint-planning-3.html` é gerado por `tools/gerar_sprint_planning_3.py` (não editar o
+HTML à mão). A Parte A usa o quadro de post-its `quadro/reflexao-sprint2.html` (ADR-006):
+
+- `quadro/reflexao-sprint2.html?painel=1`: painel do professor, com os links dos cinco grupos,
+  o prazo e a participação por integrante. Exige a chave do professor no navegador
+  (`?quiz-chave=` uma vez, salva no localStorage, a mesma do 2026-2B-M08)
+- `quadro/reflexao-sprint2.html?g=G01&t=TOKEN`: quadro do grupo; o link vai para o canal do grupo no Slack
+- `&demo=1`: ensaio sem banco, tudo em memória
+- Banco: projeto Supabase `m08-quiz`; aplicar `supabase/reflexao.sql` e depois `supabase/reflexao_seed.sql`
+
 ## Validar antes de usar em aula
 
 ```bash
@@ -56,6 +68,7 @@ python3 tools/check_brand.py
 python3 tools/check_slides.py "aulas/onboarding.html?lang=fr"
 python3 tools/check_slides.py "aulas/planning-gitlab.html?lang=fr"
 python3 tools/check_slides.py "aulas/sprint-planning-2.html?lang=fr"
+python3 tools/check_slides.py "aulas/sprint-planning-3.html?lang=fr"
 python3 -m pytest tools/tests/ -v
 ```
 
