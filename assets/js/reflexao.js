@@ -472,7 +472,14 @@
       ultimo.membros.filter(function (m) { return m.grupo === g; }).forEach(function (m) {
         var b = el('section', 'refl-bloco');
         var c = el('div', 'refl-bloco-cab');
-        var av = el('span', 'refl-avatar', iniciais(m.nome));
+        var av = el('span', 'refl-avatar', m.foto ? null : iniciais(m.nome));
+        if (m.foto) {
+          var img = el('img');
+          img.src = m.foto;
+          img.alt = '';
+          img.addEventListener('error', function () { av.textContent = iniciais(m.nome); });
+          av.appendChild(img);
+        }
         c.appendChild(av); c.appendChild(el('p', 'refl-bloco-nome', m.nome));
         b.appendChild(c);
         var pilha = el('div', 'refl-pilha');
