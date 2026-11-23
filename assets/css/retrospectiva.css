@@ -399,3 +399,12 @@
 .reveal .lid-faixa text { font-size: 14px; font-weight: 600; }
 .reveal .lid-celula { fill: var(--seg-primaria); stroke: var(--seg-base); stroke-width: 2; }
 .reveal .lid-figura .lid-m { fill: var(--seg-base); font-size: 17px; font-weight: 700; }
+
+/* Sprint Planning 4: rotulo de apoio (sprint e peso) sob o nome nas tabelas de notas */
+.reveal .grupos-tabela .apoio {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--seg-texto-suave);
+  opacity: 0.85;
+}

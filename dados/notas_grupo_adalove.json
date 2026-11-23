@@ -1,0 +1,12 @@
+{
+  "fonte": "API da Adalove, listAssessmentProjectGroupGrades (student-activities/section/activity/assessment-project/group-grades), turma 2026-2B-T18",
+  "coletado_em": "2026-11-23",
+  "observacao": "Nota do artefato de projeto por grupo, sem feedback e sem dado de aluno. Atividade sem nota publicada aparece com null.",
+  "artefatos": {
+    "Data Discovery with Data Model Canvas": {"G01": 7.3, "G02": 9.4, "G03": 9.3, "G04": 9.1, "G05": 9.2},
+    "Market and Risk Analysis Workbook": {"G01": 9.3, "G02": 9.2, "G03": 9.3, "G04": 9.2, "G05": 9.8},
+    "Data Ingestion Structure": {"G01": 8.4, "G02": 8.6, "G03": 8.4, "G04": 8.9, "G05": 8.4},
+    "Information Architecture Specification and Decision Matrix (MAI-MD)": {"G01": 8.5, "G02": 8.0, "G03": 9.8, "G04": 8.0, "G05": 9.8},
+    "Automated Data Cube": {"G01": null, "G02": null, "G03": null, "G04": null, "G05": null}
+  }
+}

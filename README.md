@@ -61,6 +61,22 @@ HTML à mão). A Parte A usa o quadro de post-its `quadro/reflexao-sprint2.html`
 - `&demo=1`: ensaio sem banco, tudo em memória
 - Banco: projeto Supabase `m08-quiz`; aplicar `supabase/reflexao.sql` e depois `supabase/reflexao_seed.sql`
 
+## Sprint Planning 4
+
+O deck `aulas/sprint-planning-4.html` é gerado por `tools/gerar_sprint_planning_4.py`. Traz os
+números da Sprint 3, as notas publicadas por grupo e sem nomes (ADR-007) e o calendário da Sprint 4:
+
+```bash
+python3 tools/extrair_notas.py "~/Downloads/Turma.xlsx" --coletado-em AAAA-MM-DD
+GITLAB_TOKEN=<token com read_api> python3 tools/coletar_gitlab.py --sprint 3 --inicio 2026-11-09 --fim 2026-11-19
+python3 tools/gerar_sprint_planning_4.py
+```
+
+A nota de grupo dos artefatos vem da API da Adalove e fica em `dados/notas_grupo_adalove.json`.
+Sem `dados/metricas_sprint3.json`, a parte do GitLab sai do deck; com `metricas_sprint2.json`, os
+números grandes mostram a comparação com a Sprint 2. O horário da apresentação da planning fica em
+`HORARIO_APRESENTACAO` no gerador.
+
 ## Validar antes de usar em aula
 
 ```bash
@@ -69,6 +85,7 @@ python3 tools/check_slides.py "aulas/onboarding.html?lang=fr"
 python3 tools/check_slides.py "aulas/planning-gitlab.html?lang=fr"
 python3 tools/check_slides.py "aulas/sprint-planning-2.html?lang=fr"
 python3 tools/check_slides.py "aulas/sprint-planning-3.html?lang=fr"
+python3 tools/check_slides.py "aulas/sprint-planning-4.html?lang=fr"
 python3 -m pytest tools/tests/ -v
 ```
 

@@ -1,0 +1,390 @@
+{
+  "export_individual_em": "2026-11-17",
+  "api_grupo_em": "2026-11-23",
+  "projeto": [
+    {
+      "nome": "Data Discovery with Data Model Canvas",
+      "sprint": 1,
+      "peso": 4.0,
+      "grupos": {
+        "G01": {
+          "nota_grupo": 7.3,
+          "media_individual": 6.3,
+          "fatores": [
+            0.95,
+            0.9,
+            0.9,
+            0.85,
+            0.85,
+            0.85,
+            0.8,
+            0.8
+          ]
+        },
+        "G02": {
+          "nota_grupo": 9.4,
+          "media_individual": 7.93,
+          "fatores": [
+            1.0,
+            0.9,
+            0.85,
+            0.85,
+            0.85,
+            0.8,
+            0.8,
+            0.7
+          ]
+        },
+        "G03": {
+          "nota_grupo": 9.3,
+          "media_individual": 8.11,
+          "fatores": [
+            1.0,
+            1.0,
+            0.9,
+            0.85,
+            0.8,
+            0.8,
+            0.75
+          ]
+        },
+        "G04": {
+          "nota_grupo": 9.1,
+          "media_individual": 8.02,
+          "fatores": [
+            0.95,
+            0.95,
+            0.9,
+            0.9,
+            0.9,
+            0.85,
+            0.85,
+            0.75
+          ]
+        },
+        "G05": {
+          "nota_grupo": 9.2,
+          "media_individual": 7.65,
+          "fatores": [
+            0.95,
+            0.95,
+            0.9,
+            0.85,
+            0.85,
+            0.8,
+            0.75,
+            0.6
+          ]
+        }
+      }
+    },
+    {
+      "nome": "Market and Risk Analysis Workbook",
+      "sprint": 1,
+      "peso": 3.0,
+      "grupos": {
+        "G01": {
+          "nota_grupo": 9.3,
+          "media_individual": 8.02,
+          "fatores": [
+            0.95,
+            0.9,
+            0.9,
+            0.85,
+            0.85,
+            0.85,
+            0.8,
+            0.8
+          ]
+        },
+        "G02": {
+          "nota_grupo": 9.2,
+          "media_individual": 7.76,
+          "fatores": [
+            1.0,
+            0.9,
+            0.85,
+            0.85,
+            0.85,
+            0.8,
+            0.8,
+            0.7
+          ]
+        },
+        "G03": {
+          "nota_grupo": 9.3,
+          "media_individual": 8.11,
+          "fatores": [
+            1.0,
+            1.0,
+            0.9,
+            0.85,
+            0.8,
+            0.8,
+            0.75
+          ]
+        },
+        "G04": {
+          "nota_grupo": 9.2,
+          "media_individual": 8.11,
+          "fatores": [
+            0.95,
+            0.95,
+            0.9,
+            0.9,
+            0.9,
+            0.85,
+            0.85,
+            0.75
+          ]
+        },
+        "G05": {
+          "nota_grupo": 9.8,
+          "media_individual": 8.15,
+          "fatores": [
+            0.95,
+            0.95,
+            0.9,
+            0.85,
+            0.85,
+            0.8,
+            0.75,
+            0.6
+          ]
+        }
+      }
+    },
+    {
+      "nome": "Data Ingestion Structure",
+      "sprint": 2,
+      "peso": 6.0,
+      "grupos": {
+        "G01": {
+          "nota_grupo": 8.4,
+          "media_individual": 6.51,
+          "fatores": [
+            0.95,
+            0.85,
+            0.85,
+            0.8,
+            0.75,
+            0.75,
+            0.7,
+            0.55
+          ]
+        },
+        "G02": {
+          "nota_grupo": 8.6,
+          "media_individual": 6.45,
+          "fatores": [
+            0.95,
+            0.85,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ]
+        },
+        "G03": {
+          "nota_grupo": 8.4,
+          "media_individual": 5.46,
+          "fatores": [
+            0.85,
+            0.8,
+            0.75,
+            0.75,
+            0.75,
+            0.65,
+            0.0
+          ]
+        },
+        "G04": {
+          "nota_grupo": 8.9,
+          "media_individual": 6.23,
+          "fatores": [
+            0.9,
+            0.85,
+            0.85,
+            0.85,
+            0.75,
+            0.7,
+            0.7,
+            0.0
+          ]
+        },
+        "G05": {
+          "nota_grupo": 8.4,
+          "media_individual": 5.62,
+          "fatores": [
+            0.95,
+            0.9,
+            0.85,
+            0.8,
+            0.75,
+            0.55,
+            0.55,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "nome": "Information Architecture Specification and Decision Matrix (MAI-MD)",
+      "sprint": 2,
+      "peso": 4.0,
+      "grupos": {
+        "G01": {
+          "nota_grupo": 8.5,
+          "media_individual": 6.59,
+          "fatores": [
+            0.95,
+            0.85,
+            0.85,
+            0.8,
+            0.75,
+            0.75,
+            0.7,
+            0.55
+          ]
+        },
+        "G02": {
+          "nota_grupo": 8.0,
+          "media_individual": 6.0,
+          "fatores": [
+            0.95,
+            0.85,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ]
+        },
+        "G03": {
+          "nota_grupo": 9.8,
+          "media_individual": 6.37,
+          "fatores": [
+            0.85,
+            0.8,
+            0.75,
+            0.75,
+            0.75,
+            0.65,
+            0.0
+          ]
+        },
+        "G04": {
+          "nota_grupo": 8.0,
+          "media_individual": 5.6,
+          "fatores": [
+            0.9,
+            0.85,
+            0.85,
+            0.85,
+            0.75,
+            0.7,
+            0.7,
+            0.0
+          ]
+        },
+        "G05": {
+          "nota_grupo": 9.8,
+          "media_individual": 6.55,
+          "fatores": [
+            0.95,
+            0.9,
+            0.85,
+            0.8,
+            0.75,
+            0.55,
+            0.55,
+            0.0
+          ]
+        }
+      }
+    }
+  ],
+  "autoestudo": [
+    {
+      "nome": "Architecture Activity",
+      "sprint": 1,
+      "peso": 4.0,
+      "media_turma": 8.08,
+      "notas": 39,
+      "zeros": 0,
+      "abaixo_de_6": 4,
+      "grupos": {
+        "G01": 7.99,
+        "G02": 7.89,
+        "G03": 8.47,
+        "G04": 8.22,
+        "G05": 7.89
+      }
+    },
+    {
+      "nome": "Graded Assignment: Hierarchical Classification and Outcomes Matrix",
+      "sprint": 2,
+      "peso": 3.0,
+      "media_turma": 8.02,
+      "notas": 39,
+      "zeros": 2,
+      "abaixo_de_6": 3,
+      "grupos": {
+        "G01": 8.89,
+        "G02": 8.14,
+        "G03": 8.9,
+        "G04": 7.78,
+        "G05": 6.49
+      }
+    },
+    {
+      "nome": "Business Question 1",
+      "sprint": 2,
+      "peso": 3.0,
+      "media_turma": 8.46,
+      "notas": 39,
+      "zeros": 1,
+      "abaixo_de_6": 1,
+      "grupos": {
+        "G01": 8.71,
+        "G02": 7.99,
+        "G03": 8.59,
+        "G04": 7.78,
+        "G05": 9.26
+      }
+    },
+    {
+      "nome": "Math Challenge 1",
+      "sprint": 2,
+      "peso": 4.0,
+      "media_turma": 6.28,
+      "notas": 39,
+      "zeros": 1,
+      "abaixo_de_6": 15,
+      "grupos": {
+        "G01": 5.62,
+        "G02": 6.19,
+        "G03": 5.86,
+        "G04": 7.56,
+        "G05": 6.12
+      }
+    }
+  ],
+  "pendentes": [
+    {
+      "nome": "Graded Activity: Who Decides What? Group Power and Decision Mapping",
+      "sprint": 3,
+      "peso": 3.0,
+      "tipo": "Autoestudo"
+    },
+    {
+      "nome": "Automated Data Cube",
+      "sprint": 3,
+      "peso": 7.0,
+      "tipo": "Desenvolvimento de Projeto"
+    }
+  ]
+}

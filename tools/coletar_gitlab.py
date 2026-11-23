@@ -9,11 +9,13 @@ não contém nome nem e-mail de aluno: a distribuição de commits e de revisõe
 sai como lista numérica ordenada, sem identificação (ver ADR-005).
 """
 import argparse
+import http.client
 import json
 import os
 import re
 import statistics
 import sys
+import time
 import unicodedata
 import urllib.error
 import urllib.parse
@@ -24,6 +26,8 @@ from pathlib import Path
 BASE = "https://git.inteli.edu.br/api/v4"
 GRUPOS = {"G01": 50209, "G02": 50214, "G03": 50216, "G04": 50218, "G05": 50220}
 FUSO = timezone(timedelta(hours=-3))
+TENTATIVAS = 5
+POR_PAGINA = 20  # paginas grandes chegam cortadas (IncompleteRead) do git.inteli.edu.br
 RAIZ = Path(__file__).resolve().parent.parent
 # Contas pessoais que não casam com o nome no GitLab: e-mail ou usuário -> nome completo do aluno.
 ALIASES = {"gui_steam@yahoo.com": "Guilherme Hassenpflug"}
@@ -33,14 +37,21 @@ def get(caminho, token, **params):
     """GET paginado: devolve a lista completa de uma coleção."""
     itens, pagina = [], 1
     while True:
-        qs = urllib.parse.urlencode({**params, "per_page": 100, "page": pagina})
+        qs = urllib.parse.urlencode({**params, "per_page": POR_PAGINA, "page": pagina})
         req = urllib.request.Request(f"{BASE}{caminho}?{qs}", headers={"PRIVATE-TOKEN": token})
-        try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                corpo = json.load(r)
-                proxima = r.headers.get("X-Next-Page")
-        except urllib.error.HTTPError as e:
-            sys.exit(f"HTTP {e.code} em {caminho}: {e.read()[:200]!r}")
+        for tentativa in range(TENTATIVAS):
+            try:
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    corpo = json.load(r)
+                    proxima = r.headers.get("X-Next-Page")
+                break
+            except urllib.error.HTTPError as e:
+                sys.exit(f"HTTP {e.code} em {caminho}: {e.read()[:200]!r}")
+            except (http.client.IncompleteRead, urllib.error.URLError, TimeoutError, ConnectionError):
+                # Resposta cortada no meio (proxy ou rede instavel): repete a mesma pagina.
+                if tentativa == TENTATIVAS - 1:
+                    raise
+                time.sleep(2 * (tentativa + 1))
         if not isinstance(corpo, list):
             return corpo
         itens += corpo
